@@ -179,6 +179,7 @@ body {
 
 .header-inner-left {
   max-width: 90%;
+  z-index: 0;
 }
 
 .header-inner-left h1 {
@@ -192,9 +193,14 @@ body {
 }
 
 .header-inner-left a {
-  display: inline-block;
+  display: block;
   background-color: #67C23A;
   color: #FFFFFF;
   padding: .9rem 1rem;
+}
+
+.header-inner-right {
+  padding-left: 3rem;
+  z-index: 1;
 }
 /*# sourceMappingURL=app.css.map */
