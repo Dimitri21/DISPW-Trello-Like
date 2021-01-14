@@ -1,9 +1,57 @@
-.my_navbar {
-     .container {
+/*NAVBAR - LEFT*/
+
+/*NAVBAR*/
+.my-navbar {
+     background-color: $primary-color-dark;
+     padding: .5rem 0;
+     max-width: 100%;
+     &-inner {
           display: flex;
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
-          border: 1px solid red;
+
+          /*NAVBAR - LOGO*/
+          &-logo {
+               /*IMAGE*/
+               img{
+                    width: 100px;
+                }
+          }
+
+          /*NAVBAR - RIGHT LIST*/
+          &-list {
+               display: flex;
+               flex-direction: row;
+               align-items: center;
+               &-item {
+                    a {
+                         display: inline-block;
+                         padding: .7rem 1rem;
+                         color: $dark-white-color;
+                         text-transform: uppercase;
+                         transition: all .3s ease-in-out;
+                    }
+                    &:last-child a{
+                         background-color: $success-color;
+                         color: $white-color;
+                         border-radius: .3rem;
+                         margin-left: .7rem;
+                         &:hover {
+                              color: $primary-color-dark;
+                              background-color: lighten($color: $success-color, $amount: .5);
+                         }
+                     }
+                     &:nth-last-child(2) a {
+                         border: 1px solid $dark-white-color;
+                         border-radius: .3rem;
+                         &:hover {
+                              color: $primary-color-dark;
+                              background-color: lighten($color: $dark-white-color, $amount: .1);
+                         }
+                     }
+               }
+          }
      }
-}
+ }
+ 
