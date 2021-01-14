@@ -1,0 +1,5 @@
+
+#File or directoties to ignore#
+/var/
+/vendor/
+
