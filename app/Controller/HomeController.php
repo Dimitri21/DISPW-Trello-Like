@@ -19,10 +19,8 @@ class  HomeController extends  AppController
 
     public function  index()
     {
-        $this->render('home.index',compact(''));
+        $this->render('home.index',compact('[]'));
         //$this->render('modules.index',compact('modules','banners','math_et_matik','tutoriels','portofolios'));
     }
 
 }
-
-?>
