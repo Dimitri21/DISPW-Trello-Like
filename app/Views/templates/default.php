@@ -74,28 +74,30 @@
         </nav>
 
         <!--HEADER-->
-        <header class="header">
-            <div class="my-container">
+        <?php if (false) : ?>
+            <header class="header">
+                <div class="my-container">
 
-                <div class="header-inner">
-                    <!--TEXTS-->
-                    <div class="header-inner-left">
-                        <h1>Collaborer activement avec vos équipes</h1>
-                        <h3>Augmentez la performance de vos équipes grâce à notre outil collaboratif de gestion
-                            de projet permettant une gestion de projet agile, avec un tableau Kanban</h3>
-                        <a href="#" class="btn">Inscrivez-vous, c'est gratuit</a>
-                    </div>
+                    <div class="header-inner">
+                        <!--TEXTS-->
+                        <div class="header-inner-left">
+                            <h1>Collaborer activement avec vos équipes</h1>
+                            <h3>Augmentez la performance de vos équipes grâce à notre outil collaboratif de gestion
+                                de projet permettant une gestion de projet agile, avec un tableau Kanban</h3>
+                            <a href="#" class="btn">Inscrivez-vous, c'est gratuit</a>
+                        </div>
 
-                    <!--ANIMATION - IMAGE-->
-                    <div class="header-inner-right">
-                        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                        <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_natclrl9.json" background="transparent" speed="1" style="width: 600px; height: 400px;" loop autoplay></lottie-player>
+                        <!--ANIMATION - IMAGE-->
+                        <div class="header-inner-right">
+                            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                            <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_natclrl9.json" background="transparent" speed="1" style="width: 600px; height: 400px;" loop autoplay></lottie-player>
+                        </div>
+
                     </div>
 
                 </div>
-
-            </div>
-        </header>
+            </header>
+        <?php endif; ?>
 
         <!--CONTENT AREA-->
         <section role="main" class="container">

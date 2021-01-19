@@ -59,6 +59,106 @@ body {
   border-radius: .3rem;
 }
 
+.card {
+  padding: 1rem;
+  background-color: #FFFFFF;
+  border-radius: 0 0 .5rem .5rem;
+  max-width: 350px;
+  margin: 0 auto;
+  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.global-form-bg {
+  background: url(../../images/page_BG.png);
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.global-form-bg .form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.global-form-bg .form-group .form-group-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: .5rem 0;
+}
+
+.global-form-bg .form-group .form-group-item label:first-child {
+  font-size: 16px;
+  color: #00c198;
+}
+
+.global-form-bg .form-group .form-group-item input {
+  margin: .3rem 0;
+  border: 1px solid #00c198;
+  padding: .8rem .5rem;
+  border-radius: .3rem;
+  outline-style: none;
+  font-size: 1rem;
+}
+
+.global-form-bg .form-group .form-group-item .form-alert {
+  color: #F56C6C;
+  font-size: 12px;
+  -webkit-text-decoration: wavy;
+          text-decoration: wavy;
+  text-align: right;
+}
+
+.global-form-bg .form-group .form-group-item .form-alert::after {
+  content: "*";
+}
+
+.global-form-bg .form-group .form-group-item:last-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.global-form-bg .form-group .form-group-item:last-child button {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: .7rem 1.8rem;
+  border-radius: .3rem;
+  background: #00c198;
+  color: #FFFFFF;
+  border: 0;
+  font-size: 1.1rem;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.global-form-bg .form-group .form-group-item:last-child button:hover {
+  background-color: rgba(0, 193, 152, 0.6);
+}
+
 /*MAIN*/
 .main {
   max-width: 100vw;
@@ -204,5 +304,177 @@ body {
 .header-inner-right {
   padding-top: 3rem;
   z-index: 1;
+}
+
+.login {
+  max-width: 100vw;
+  height: 84vh;
+  padding: 0 .5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login-inner {
+  width: 350px;
+}
+
+.login-inner-title {
+  position: relative;
+  max-width: 325px;
+  margin: 0 auto;
+  border-radius: .5rem .5rem 0 0;
+  background-color: #00c198;
+  padding: 1rem .5rem;
+}
+
+.login-inner-title div {
+  text-align: center;
+}
+
+.login-inner-title div h3 {
+  font-size: 2rem;
+  color: #F4F4F4;
+}
+
+.login-inner-body-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.login-inner-body-form.form-group .form-group-item .form-alert {
+  color: #F56C6C;
+  font-size: 12px;
+  -webkit-text-decoration: wavy;
+          text-decoration: wavy;
+  text-align: right;
+}
+
+.login-inner-body-form.form-group .form-group-item .form-alert::after {
+  content: "*";
+}
+
+.login-inner-body-form.form-group .form-remember {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 12px;
+}
+
+.login-inner-body-form.form-group .form-remember a {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  color: #303133;
+}
+
+.login-inner-body-form.form-group .form-remember a:hover {
+  text-decoration: underline;
+}
+
+.signup {
+  max-width: 100vw;
+  height: 84vh;
+  padding: 0 .5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.signup-inner {
+  width: 350px;
+}
+
+.signup-inner-title {
+  position: relative;
+  max-width: 325px;
+  margin: 0 auto;
+  border-radius: .5rem .5rem 0 0;
+  background-color: #00c198;
+  padding: 1rem .5rem;
+}
+
+.signup-inner-title div {
+  text-align: center;
+}
+
+.signup-inner-title div h3 {
+  font-size: 2rem;
+  color: #F4F4F4;
+}
+
+.signup-inner-body-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.signup-inner-body-form.form-group .form-group-item .form-alert {
+  color: #F56C6C;
+  font-size: 12px;
+  -webkit-text-decoration: wavy;
+          text-decoration: wavy;
+  text-align: right;
+}
+
+.signup-inner-body-form.form-group .form-group-item .form-alert::after {
+  content: "*";
+}
+
+.signup-inner-body-form.form-group .form-remember {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 12px;
+}
+
+.signup-inner-body-form.form-group .form-remember a {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  color: #303133;
+}
+
+.signup-inner-body-form.form-group .form-remember a:hover {
+  text-decoration: underline;
 }
 /*# sourceMappingURL=app.css.map */
