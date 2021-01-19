@@ -167,6 +167,7 @@ body {
 }
 
 .header-inner {
+  background-color: #33B5E5;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[2];
@@ -180,6 +181,7 @@ body {
 .header-inner-left {
   max-width: 90%;
   z-index: 0;
+  padding: 0 1rem;
 }
 
 .header-inner-left h1 {
@@ -193,14 +195,14 @@ body {
 }
 
 .header-inner-left a {
-  display: block;
+  display: inline-block;
   background-color: #67C23A;
   color: #FFFFFF;
   padding: .9rem 1rem;
 }
 
 .header-inner-right {
-  padding-left: 3rem;
+  padding-top: 3rem;
   z-index: 1;
 }
 /*# sourceMappingURL=app.css.map */

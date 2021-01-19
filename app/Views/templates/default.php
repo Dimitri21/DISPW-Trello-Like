@@ -54,15 +54,15 @@
                     <ul class="my-navbar-inner-list">
 
                         <li class="my-navbar-inner-list-item">
-                            <a href="#">ACCUEIL</a>
+                            <a href="?p=home.home">ACCUEIL</a>
                         </li>
 
                         <li class="my-navbar-inner-list-item">
-                            <a href="#">Connexion</a>
+                            <a href="?p=home.login">Connexion</a>
                         </li>
 
                         <li class="my-navbar-inner-list-item">
-                            <a href="#">Inscription</a>
+                            <a href="?p=home.signup">Inscription</a>
                         </li>
 
                     </ul>
@@ -88,7 +88,8 @@
 
                     <!--ANIMATION - IMAGE-->
                     <div class="header-inner-right">
-                        <lottie-player src="https://assets10.lottiefiles.com/private_files/lf30_nnctxuql.json" background="transparent" speed="1" style="width: 600px; height: 500px;" loop autoplay></lottie-player>
+                        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                        <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_natclrl9.json" background="transparent" speed="1" style="width: 600px; height: 400px;" loop autoplay></lottie-player>
                     </div>
 
                 </div>

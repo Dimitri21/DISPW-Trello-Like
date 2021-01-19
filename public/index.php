@@ -13,7 +13,7 @@ if(isset($_GET['p']))
 }else
 {
     //Home page
-    $page = "home.index";
+    $page = "home.home";
 }
 
 /**
@@ -77,6 +77,3 @@ try
     //header('Location:index.php?p=notFound');//Traitement de page NOTFOUND
     die("En contruction!!! : ".$e->getMessage());
 }
-
-
-?>
