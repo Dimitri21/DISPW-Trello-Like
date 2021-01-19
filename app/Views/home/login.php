@@ -29,7 +29,7 @@
                         <input type="checkbox" name="remember-me" id="remember-me">
                         <label for="remember-me">Restez connecté</label>
                     </div>
-                    <a href="?p=user.passwordreset">Mot de passe oublié</a>
+                    <a href="?p=home.resetpassword">Mot de passe oublié</a>
                 </div>
 
                 <div class="form-group-item">

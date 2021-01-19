@@ -394,8 +394,8 @@ body {
 
 .signup {
   max-width: 100vw;
-  height: 84vh;
-  padding: 0 .5rem;
+  min-height: 84vh;
+  padding: 2rem .5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -429,29 +429,12 @@ body {
   color: #F4F4F4;
 }
 
-.signup-inner-body-form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.signup-inner-body-form.form-group .form-group-item .form-alert {
-  color: #F56C6C;
+.signup-inner-body-form .form-group-item span {
+  margin-top: -5px;
   font-size: 12px;
-  -webkit-text-decoration: wavy;
-          text-decoration: wavy;
-  text-align: right;
 }
 
-.signup-inner-body-form.form-group .form-group-item .form-alert::after {
-  content: "*";
-}
-
-.signup-inner-body-form.form-group .form-remember {
+.signup-inner-body-form .form-group-ugc div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -459,22 +442,63 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: .5rem 0;
+}
+
+.signup-inner-body-form .form-group-ugc div label {
+  font-size: 12px;
+  padding-left: .5rem;
+}
+
+.signup-inner-body-form .form-group-ugc div span {
+  font-size: 13px;
+}
+
+.signup-inner-body-form .form-group-ugc div span a {
+  padding-left: .5rem;
+}
+
+.signup-inner-body-form .form-group-ugc div span a:hover {
+  text-decoration: underline;
+}
+
+.resetpassword {
+  max-width: 100vw;
+  height: 84vh;
+  padding: 0 .5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 12px;
 }
 
-.signup-inner-body-form.form-group .form-remember a {
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  color: #303133;
+.resetpassword-inner {
+  width: 350px;
 }
 
-.signup-inner-body-form.form-group .form-remember a:hover {
-  text-decoration: underline;
+.resetpassword-inner-title {
+  position: relative;
+  max-width: 325px;
+  margin: 0 auto;
+  border-radius: .5rem .5rem 0 0;
+  background-color: #00c198;
+  padding: 1rem .5rem;
+}
+
+.resetpassword-inner-title div {
+  text-align: center;
+}
+
+.resetpassword-inner-title div h3 {
+  font-size: 1.2rem;
+  color: #F4F4F4;
 }
 /*# sourceMappingURL=app.css.map */

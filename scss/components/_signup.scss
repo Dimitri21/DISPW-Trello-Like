@@ -1,7 +1,9 @@
+
 .signup {
+
     max-width: 100vw;
-    height: 84vh;
-    padding: 0 .5rem;
+    min-height: 84vh;
+    padding: 2rem .5rem;
     
     display: flex;
     justify-content: center;
@@ -18,9 +20,10 @@
             border-radius: .5rem .5rem 0 0;
             background-color: $third-color;
             padding: 1rem .5rem;
+
             //bottom: -10px;
             //TODO mettre conforme à la maquette
-            
+
             div {
                 text-align: center;
                 h3 {
@@ -29,46 +32,43 @@
                 }
             }
         }
-        
+       
         &-body {
-            
             &-form {
-                display: flex;
-                flex-direction: column;
-                
-                &.form-group {
-                    .form-group-item {
 
-                        .form-alert {
-                            color: $danger-color;
-                            font-size: 12px;
-                            text-decoration: wavy;
-                            text-align: right;
-                            &::after {
-                                content: "*";
-                            }
-                        }
-
-                        
+                .form-group-item {
+                    
+                    span {
+                        margin-top: -5px;
+                        font-size: 12px;
                     }
+                }
 
-                    .form-remember {
+                .form-group-ugc {
+                    div {
                         display: flex;
                         flex-direction: row;
-                        justify-content: space-between;
-                        align-items: center;
-                        font-size: 12px;
-                        a {
-                            transition: all 0.3s ease-in-out;
-                            color: $dark-color;
-                            &:hover {
-                                text-decoration: underline;
+                        align-items: flex-start;
+                        margin: .5rem 0;
+                        label {
+                           font-size: 12px;
+                           padding-left: .5rem; 
+                        }
+                        span {
+                            font-size: 13px;
+                            a {
+                                padding-left: .5rem;
+                                &:hover {
+                                    text-decoration: underline;
+                                }
                             }
                         }
                     }
                 }
+
             }
         }
+        
     }
 
 }

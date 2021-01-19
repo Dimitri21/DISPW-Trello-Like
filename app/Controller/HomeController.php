@@ -37,4 +37,11 @@ class  HomeController extends  AppController
         $this->render('home.signup', compact('variable'));
         //$this->render('modules.index',compact('modules','banners','math_et_matik','tutoriels','portofolios'));
     }
+
+    public function  resetpassword()
+    {
+        $variable = "rien du tout";
+        $this->render('home.resetpassword', compact('variable'));
+        //$this->render('modules.index',compact('modules','banners','math_et_matik','tutoriels','portofolios'));
+    }
 }
