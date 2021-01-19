@@ -76,6 +76,7 @@
         <!--HEADER-->
         <?php if (false) : ?>
             <header class="header">
+
                 <div class="my-container">
 
                     <div class="header-inner">
@@ -89,13 +90,13 @@
 
                         <!--ANIMATION - IMAGE-->
                         <div class="header-inner-right">
-                            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
                             <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_natclrl9.json" background="transparent" speed="1" style="width: 600px; height: 400px;" loop autoplay></lottie-player>
                         </div>
 
                     </div>
 
                 </div>
+
             </header>
         <?php endif; ?>
 
@@ -112,8 +113,7 @@
         <h5>COPYRIGHT 2020 </h5>
     </footer>
 
-    <!-- Bootstrap core JavaScript
-        ================================================== -->
+    <!-- Bootstrap core JavaScript -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script>
