@@ -24,8 +24,13 @@
                     <span class=""></span>
                 </div>
 
+
+                <div class="form-login">
+                    <a href="?p=home.login">Connexion</a>
+                </div>
+
                 <div class="form-group-item">
-                    <button type="submit">Connexion</button>
+                    <button type="submit">Réinitialiser</button>
                 </div>
 
             </form>
