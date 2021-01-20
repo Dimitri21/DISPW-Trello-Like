@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../../sass/app.sass",
+        "../../../sass/component/_navbar.sass"
+    ],
+    "names": [],
+    "file": "app.css"
+}
