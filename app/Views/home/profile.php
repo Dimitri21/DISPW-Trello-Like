@@ -2,8 +2,9 @@
 
     <div class="profile-inner ">
 
-        <div class="profile-inner-title">
-            <div>
+        <div class="inner-title">
+            <div class=" inner-title-circle"></div>
+            <div class="inner-title-text">
                 <h3>Profil de <?= 'John DOE' ?></h3>
             </div>
         </div>

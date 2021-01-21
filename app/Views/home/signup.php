@@ -1,9 +1,9 @@
 <div class="signup global-form-bg" id="login-index">
 
     <div class="signup-inner ">
-
-        <div class="signup-inner-title">
-            <div>
+        <div class="inner-title">
+            <div class=" inner-title-circle"></div>
+            <div class="inner-title-text">
                 <h3>Inscription</h3>
             </div>
         </div>

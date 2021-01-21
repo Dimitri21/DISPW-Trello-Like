@@ -1,9 +1,9 @@
 <div class="resetpassword global-form-bg" id="resetpassword-index">
 
     <div class="resetpassword-inner ">
-
-        <div class="resetpassword-inner-title">
-            <div>
+        <div class="inner-title">
+            <div class=" inner-title-circle"></div>
+            <div class="inner-title-text">
                 <h3>Réinitialiser votre mot de passe</h3>
             </div>
         </div>

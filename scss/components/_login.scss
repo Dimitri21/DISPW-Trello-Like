@@ -9,31 +9,13 @@
     
     &-inner {
         width: 350px;
-
-        &-title {
-            position: relative;
-            max-width: 325px;
-            margin: 0 auto;
-            border-radius: .5rem .5rem 0 0;
-            background-color: $third-color;
-            padding: 1rem .5rem;
-            //bottom: -10px;
-            //TODO mettre conforme à la maquette
-            div {
-                text-align: center;
-                h3 {
-                    font-size: 2rem;
-                    color: $dark-white-color;
-                }
-            }
-        }
         
         &-body {
             
             &-form {
                 display: flex;
                 flex-direction: column;
-                
+                padding-top: 2rem;
                 &.form-group {
                     .form-group-item {
 

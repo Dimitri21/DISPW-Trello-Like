@@ -2,8 +2,9 @@
 
     <div class="login-inner ">
 
-        <div class="login-inner-title">
-            <div>
+        <div class="inner-title">
+            <div class=" inner-title-circle"></div>
+            <div class="inner-title-text">
                 <h3>Connexion</h3>
             </div>
         </div>
