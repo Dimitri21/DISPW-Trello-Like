@@ -13,7 +13,6 @@ class Controller
         extract($variables);
         $view = $this->viewPath.str_replace('.','/',$view).'.php';
 
-
         require $view;
         $content = ob_get_clean();
         require($this->viewPath.'templates/'.$this->template.'.php');

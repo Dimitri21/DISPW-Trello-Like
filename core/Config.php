@@ -6,6 +6,10 @@ class Config
     private $settings = [];
     private static $_instance;
 
+    public function __construct($file)
+    {
+        $this->settings = require($file);
+    }
 
     public static function getInstance($file)
     {
@@ -17,11 +21,6 @@ class Config
         return self::$_instance;
     }
 
-    public function __construct($file)
-    {
-        $this->settings = require($file);
-    }
-
     public function get($key)
     {
         if(!isset($this->settings[$key]))
@@ -31,6 +30,7 @@ class Config
 
         return $this->settings[$key];
     }
+
     public function getSetting()
     {
         return $this->settings;
