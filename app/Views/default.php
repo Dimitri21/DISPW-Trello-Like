@@ -1,5 +1,4 @@
 <?php 
-$title = "Home page";
 $metadescription = "Home page";
 $user = (object) ["name" =>"DOE","lastname"=>"John", "avatar"=>"https://lien_de_photos"];
 $content = "page à afficher";
@@ -24,7 +23,7 @@ $content = "page à afficher";
             </div>
             <div class="header-nav-list">
                 <ul>
-                    <li><a>Accueil</a></li>
+                    <li><a href="?p=home/home">Accueil</a></li>
                     <!--USER CONNECTED-->
                     <?php if (isset($user)): ?>
                         <li>
@@ -36,17 +35,17 @@ $content = "page à afficher";
 
                             <div class="dropdown">
                                 <ul>
-                                    <li><a href="?">Mes tableaux</a></li>
-                                    <li><a href="?">Mon profil</a></li>
-                                    <li><a href="?">Se déconnecter</a></li>
+                                    <li><a href="?p=dashboard/dashboard">Mes tableaux</a></li>
+                                    <li><a href="?p=profile/profile">Mon profil</a></li>
+                                    <li><a href="?p=logout">Se déconnecter</a></li>
                                 </ul>
                             </div>
 
                         </li>
                     <?php else : ?>
                     <!--USER DISCONNECTED-->
-                        <li><a>Connexion</a></li>
-                        <li class="btn btn-CTA"><a>Inscription</a></li>
+                        <li><a href="?p=login">Connexion</a></li>
+                        <li href="?p=signup"ass="btn btnCTA"><a>Inscription</a></li>
                     <?php endif; ?>
                 </ul>
             </div>
@@ -65,11 +64,7 @@ $content = "page à afficher";
         <nav class="footer-nav">
             <ul>
                 <li><a href="">Politique de confidentialité</a></li>
-                <li><a href="">Mentions légales</a></li>
-                <li><a href="">Conditions générales d'utilisation</a></li>
+                <li><a href="?p=mentionslegales">Mentions légales</a></li>
             </ul>
         </nav>
-    </footer>
-
-</body>
-</html>
+    </footer> 
