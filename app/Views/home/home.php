@@ -2,7 +2,7 @@
     <div class="hero-container">
         <div class="hero-left">
             <h1>Collaborer activement avec vos équipes</h1>
-            <h2>Augmentez la performance de vos équipes grâce à notre outil collaboratif de gestion de projet permettant une gestion de projet agile, avec un tableau Kanban.</h2>
+            <h3>Augmentez la performance de vos équipes grâce à notre outil collaboratif de gestion de projet permettant une gestion de projet agile, avec un tableau Kanban.</h3>
             <button class="hero-button">Inscrivez-vous c'est gratuit</button>
         </div>
         <div class="hero-right">
