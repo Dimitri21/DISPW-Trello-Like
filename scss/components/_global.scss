@@ -74,13 +74,13 @@ body{
             label {
                 &:first-child {
                     font-size: 16px;
-                    color: $third-color;
+                    color: $first-color;
                 }
             }
     
             input {
                 margin: .3rem 0;
-                border: 1px solid $third-color;
+                border: 1px solid $first-color;
                 padding: .8rem .5rem;
                 border-radius: .3rem;
                 outline-style: none;
@@ -106,9 +106,9 @@ body{
                 button {
                     margin-top: 1rem;
                     display: inline-block;
-                    padding: .7rem 1.8rem;
+                    padding: .8rem 1.8rem;
                     border-radius: .3rem;
-                    background: $third-color;
+                    background: $first-color;
                     color: $white-color;
                     border: 0;
                     font-size: 1.1rem;
@@ -116,7 +116,7 @@ body{
                     box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: .2);
                     cursor: pointer;
                     &:hover{
-                        background-color: rgba($color: $third-color, $alpha: .6);
+                        background-color: rgba($color: $first-color, $alpha: .6);
                     }
                 }
             }
@@ -134,11 +134,11 @@ body{
 .inner-title {
     position: relative;
     max-width: 325px;
+    height: 100px;
     margin: 0 auto;
     border-radius: .5rem .5rem 0 0;
-    padding: 3.2rem .5rem;
     overflow: hidden;
-    bottom: -37px;
+    bottom: -34px;
     //TODO mettre conforme à la maquette
     div {
         text-align: center;
@@ -148,11 +148,13 @@ body{
         }
     }
     &-text {
-        max-width: 325px;
+        width: 325px;
+        height: inherit;
         position: absolute;
-        top: 20%;
-        left: 50%;
-        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: .3rem;
         h3 {
             text-align: center;
         }
@@ -166,8 +168,35 @@ body{
         transform: translateX(-50%);
         border-radius: 100%;
         //clip-path: circle(50%);
-        background-color: $third-color;
+        background-color: $first-color;
         box-shadow: 0 2px 2px rgba($color: #000000, $alpha: .3);
     }
 }
 
+//TODO to delete 
+#home-index {
+    h2 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    padding:1rem;
+    .uri-working {
+        display:flex;
+        flex-direction:column;
+    }
+
+    ul {
+        padding: 2rem 0;
+        li {
+            
+            a {
+                display: block;
+                padding:.5rem;
+                border:1px solid $default-color;
+                border-radius: .2rem;
+                margin: .2rem 0;
+                color: $first-color;
+            }
+        }
+    }
+}

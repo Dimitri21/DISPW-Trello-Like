@@ -17,8 +17,8 @@
     <meta name="description" content="trello like">
     <meta name="author" content="">
 
-    <!--ANIMATION FOR PICTURE ON HEADER-->
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <!--FONT AWESOME PRO -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
 </head>
 
@@ -67,7 +67,7 @@
         <!--CONTENT AREA-->
         <section role="main" class="container">
             <!-- L'ensemble de contenu envoyé par le serveur PHP -->
-            <?= $content?? '' ?>
+            <?= $content ?? '' ?>
         </section>
 
     </main>
