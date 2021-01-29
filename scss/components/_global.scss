@@ -1,0 +1,173 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+img {
+    display: block;
+}
+
+.my-container {
+    max-width: 1100px;
+    margin: 0 auto!important;
+    display: block;
+    padding: 0 1rem;
+    overflow: hidden;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+    background-color:$dark-white-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+.btn {
+    display: block;
+    padding: .7rem 1rem;
+    border-radius: .3rem;
+}
+
+.card {
+
+    padding: 1rem;
+    background-color: $white-color;
+    //border-radius: 0 0 .5rem .5rem;
+    border-radius:.5rem;
+    max-width: 350px;
+    margin: 0 auto;
+    box-shadow: 1px 2px 3px rgba($color: #000000, $alpha: .1);  
+}
+
+.global-form-bg {
+    background: url(../../images/page_BG.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        .form-group-item {
+            display: flex;
+            flex-direction: column;
+            margin: .5rem 0;
+            label {
+                &:first-child {
+                    font-size: 16px;
+                    color: $third-color;
+                }
+            }
+    
+            input {
+                margin: .3rem 0;
+                border: 1px solid $third-color;
+                padding: .8rem .5rem;
+                border-radius: .3rem;
+                outline-style: none;
+                font-size: 1rem;
+            }
+            
+            .form-alert {
+                color: $danger-color;
+                font-size: 12px;
+                text-decoration: wavy;
+                text-align: right;
+                &::after {
+                    content: "*";
+                }
+            }
+    
+            //Button
+            &:last-child {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                button {
+                    margin-top: 1rem;
+                    display: inline-block;
+                    padding: .7rem 1.8rem;
+                    border-radius: .3rem;
+                    background: $third-color;
+                    color: $white-color;
+                    border: 0;
+                    font-size: 1.1rem;
+                    transition: all .3s ease-in-out;
+                    box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: .2);
+                    cursor: pointer;
+                    &:hover{
+                        background-color: rgba($color: $third-color, $alpha: .6);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*MAIN*/
+.main {
+    max-width:100vw;
+}
+
+/*FORMULAR*/ 
+//For formular title
+.inner-title {
+    position: relative;
+    max-width: 325px;
+    margin: 0 auto;
+    border-radius: .5rem .5rem 0 0;
+    padding: 3.2rem .5rem;
+    overflow: hidden;
+    bottom: -37px;
+    //TODO mettre conforme à la maquette
+    div {
+        text-align: center;
+        h3 {
+            font-size: 2rem;
+            color: $dark-white-color;
+        }
+    }
+    &-text {
+        max-width: 325px;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        h3 {
+            text-align: center;
+        }
+    }
+    &-circle {
+        position: absolute;
+        width: 800px;
+        height: 800px;
+        top: -700px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 100%;
+        //clip-path: circle(50%);
+        background-color: $third-color;
+        box-shadow: 0 2px 2px rgba($color: #000000, $alpha: .3);
+    }
+}
+

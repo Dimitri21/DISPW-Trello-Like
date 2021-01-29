@@ -1,0 +1,5 @@
+# work space de visual studio code
+*.code-workspace
+
+# vendor de composer
+/vendor
