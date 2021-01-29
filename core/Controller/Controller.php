@@ -18,13 +18,13 @@ class Controller
         require($this->viewPath.'templates/'.$this->template.'.php');
     }
 
-
     protected function forbidden()
     {
         header('HTTP/1.0 403 Forbidden');
         die('What!!!, accès interdit');
 
     }
+
     protected function notFound()
     {
         header('HTTP/1.0 404 Not Found');
