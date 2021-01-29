@@ -4,71 +4,59 @@
  */
 
 use app\Entity\User;
+use app\Router;
 
 //Including autoload file
 require_once "../vendor/autoload.php";
 
 //Globals variables
-$_ROOT              = dirname(__DIR__); //dirname
-$uri                = $_SERVER['REQUEST_URI']; //url
-$error_404          = "../app/Views/home/404.php";
-$template_path      = "../app/Views/template/base.php";
-$default_page_path  = "../app/Views/home/home.php";
+$_ROOT              = dirname(__DIR__);
+$viewAbsPath        = $_ROOT.DIRECTORY_SEPARATOR."app".DIRECTORY_SEPARATOR."Views";
 
-//Using Route
-$router = new  AltoRouter();
+//--------------------------------------------------
+                    //DEV-TO DELETE ON PROD
+//--------------------------------------------------
+$whoops = new Whoops\Run;
+$whoops->pushHandler(new Whoops\Handler\PrettyPageHandler);
+$whoops->register();
+//-------------------------------------------------
+
+//Using our Router
+$router = new  Router($viewAbsPath);
 
 //test user for profile page
 $user   = new User();
 
+//TODO Possibilités de créer un fichier que pour les routes
 //--------------------------------------------------
-                    //STATICS PAGES
+//STATICS PAGES
 //--------------------------------------------------
-$router->map('GET', '/', 'home/home');
-
-//Formulaires---
-//  public
-$router->map('GET', '/connexion', 'home/login');
-$router->map('GET', '/inscription', 'home/signup');
-
-//  personnel
-$router->map('GET', '/reinit_mot_de_passe', 'user/resetpassword');
-$router->map('GET', '/profil', 'user/profile');
-
-//Pages Docs
-$router->map('GET', '/mentions-legales', 'home/mentions');
-$router->map('GET', '/conditions-generales-utilisation', 'home/cgu');
-$router->map('GET', '/politique-de-confidentialite', 'home/confidentialite');
+$router->getRouter('/', 'home/home','accueil')
+    ->getRouter( '/connexion', 'home/login')
+    ->getRouter('/inscription', 'home/signup')
+    ->getRouter( '/reinit_mot_de_passe', 'user/resetpassword')
+    ->getRouter(  '/profil', 'user/profile')
+    ->getRouter( '/mentions-legales', 'home/mentions')
+    ->getRouter( '/conditions-generales-utilisation', 'home/cgu')
+    ->getRouter( '/politique-de-confidentialite', 'home/confidentialite')
+    ->getRouter( '/[*:slugger]-[i:id]','user/profile')//last one has error to fixe
+    ->postRouter( '/connexion','admin/login');//last one has error to fixe
+$router->start();
 
 //-----------------------------------------------
-                //DYNAMICS PAGES
+//DYNAMICS PAGES
 //-----------------------------------------------
-$router->map('GET', '/[*:slugger]-[i:id]', function ($slugger, $id) {
+//$router->map('GET', '/[*:slugger]-[i:id]', function ($slugger, $id) {
     //slugger and id must br used soon when we are going to make request to database
-    $user = new User();
-    $user->setName("Jean")
-        ->setLastname("DOE")
-        ->setAvatar("https://source.unsplash.com/collection/190727/1600x900")
-        ->setEmail("admin@tft.fr")
-        ->setId(0)
-        ->getPassword("admin");
-    $path = "../app/Views/user/profile.php";
-    require_once $path;
-});
+//    $user = new User();
+//    $user->setName("Jean")
+//        ->setLastname("DOE")
+//        ->setAvatar("https://source.unsplash.com/collection/190727/1600x900")
+//        ->setEmail("admin@tft.fr")
+//        ->setId(0)
+//        ->getPassword("admin");
+//    $path = "../app/Views/user/profile.php";
+//    require_once $path;
+//});
 
-$match = $router->match();
 
-ob_start();
-if ($match) {
-    if (is_callable($match['target'])) {
-        call_user_func_array($match['target'], $match['params']);
-    } else {
-        require_once "../app/Views/{$match['target']}.php";
-    }
-    //extract($variables);
-} else {
-    require_once $error_404;
-}
-$content = ob_get_clean();
-
-require($template_path);
