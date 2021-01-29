@@ -7,29 +7,18 @@
     </style>
     <meta charset="utf-8">
 
-    <!--CDN -->
-    <!-- TODO remove this link or correct it -->
-
-    <!--JQuery_Bootstrap-->
-
-    <!--CSS_Bootstrap-->
-
-    <!--Javascript_Bootstrap-->
-
-    <!-- FIN DE CDN -->
-
-    <!--Font -->
+    <!--CDN AREA-->
 
     <!--STYLES-->
     <link rel="stylesheet" href="build/css/app.css">
 
+    <!--META AREA-->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="trello like">
     <meta name="author" content="">
 
     <!--ANIMATION FOR PICTURE ON HEADER-->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-
 
 </head>
 
@@ -78,7 +67,7 @@
         <!--CONTENT AREA-->
         <section role="main" class="container">
             <!-- L'ensemble de contenu envoyé par le serveur PHP -->
-            <?= $content; ?>
+            <?= $content?? '' ?>
         </section>
 
     </main>
@@ -97,7 +86,7 @@
     <!-- Bootstrap core JavaScript -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-
+    <script src="js/app.js"></script>
 </body>
 
 </html>

@@ -9,23 +9,21 @@ use app\Entity\User;
 require_once "../vendor/autoload.php";
 
 //Globals variables
-$_ROOT = dirname(__DIR__); //dirname
-$uri = $_SERVER['REQUEST_URI']; //url
-$error_404 = "../app/Views/home/404.php";
+$_ROOT              = dirname(__DIR__); //dirname
+$uri                = $_SERVER['REQUEST_URI']; //url
+$error_404          = "../app/Views/home/404.php";
+$template_path      = "../app/Views/template/base.php";
+$default_page_path  = "../app/Views/home/home.php";
 
 //Using Route
-//Init User
 $router = new  AltoRouter();
 
-//test user
-$user = new User();
+//test user for profile page
+$user   = new User();
 
-$template_path = "../app/Views/templates/default.php";
-$default_page_path = "../app/Views/home/home.php";
-
-//ROUTE MANUEL
-
-//PAGES STATIQUES
+//--------------------------------------------------
+                    //STATICS PAGES
+//--------------------------------------------------
 $router->map('GET', '/', 'home/home');
 
 //Formulaires---
@@ -42,16 +40,12 @@ $router->map('GET', '/mentions-legales', 'home/mentions');
 $router->map('GET', '/conditions-generales-utilisation', 'home/cgu');
 $router->map('GET', '/politique-de-confidentialite', 'home/confidentialite');
 
+//-----------------------------------------------
+                //DYNAMICS PAGES
+//-----------------------------------------------
 
-//Test
-$router->map('GET', '/toto', function () {
-    var_dump("Je suis en de travailler ");
-    die();
-});
-
-//PAGE DYNAMIQUE
-//$router->map('GET','/user/[:slug]-[:id]','user/');
-$router->map('GET', '/user/[*:slug]-[i:id]', function ($slug, $id) {
+$router->map('GET', '/user/[*:slugger]-[i:id]', function ($slugger, $id) {
+    //slugger and id must br used soon when we are going to make request to database
     $user = new User();
     $user->setName("Jean")
         ->setLastname("DOE")
@@ -59,8 +53,21 @@ $router->map('GET', '/user/[*:slug]-[i:id]', function ($slug, $id) {
         ->setEmail("admin@tft.fr")
         ->setId(0)
         ->getPassword("admin");
+    $path = "../app/Views/user/profile.php";
+    require_once $path;
+});
 
-    return require_once "../app/Views/user/profile.php";
+$router->map('GET', '/user/[*:slugger]-[i:id]', function ($slugger, $id) {
+    //slugger and id must br used soon when we are going to make request to database
+    $user = new User();
+    $user->setName("Jean")
+        ->setLastname("DOE")
+        ->setAvatar("https://source.unsplash.com/collection/190727/1600x900")
+        ->setEmail("admin@tft.fr")
+        ->setId(0)
+        ->getPassword("admin");
+    $path = "../app/Views/user/profile.php";
+    require_once $path;
 });
 
 $match = $router->match();
@@ -70,7 +77,6 @@ if ($match) {
     if (is_callable($match['target'])) {
         call_user_func_array($match['target'], $match['params']);
     } else {
-
         require_once "../app/Views/{$match['target']}.php";
     }
     //extract($variables);
@@ -79,4 +85,5 @@ if ($match) {
 }
 $content = ob_get_clean();
 
-require($template_path);
+//print_r($content);
+require_once($template_path);
