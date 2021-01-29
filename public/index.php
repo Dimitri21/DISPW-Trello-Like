@@ -1,62 +1,61 @@
 <?php
-
-define('ROOT', dirname(__DIR__));
-require ROOT . '/app/App.php';
-
-App::load();
-/*Traitement de la page home*/
-$banners = null;
-
-if (isset($_GET['p'])) {
-    $page = $_GET['p'];
-} else {
-    //Home page
-    $page = "home.home";
-}
-
-/**
- * @function explode
- * fonction met tout ce qui se trouve dans la "$page" dans un table
+/*
+ * ROOT MANAGER
  */
-$page = explode('.', $page);
 
-$arguments = count($page); // conte le contenu du table
-$controller = "";
+use app\Entity\User;
+use app\Router;
 
-if ($arguments === 1) {
-    //exemple : index.php?p=login
-    if ($page[0] === 'login') {
-        $controller = '\App\Controller\UtilisateurController';
-        $action = $page[0];
-    } elseif ($page[0] === 'logout') {
-        $controller = '\App\Controller\UtilisateurController';
-        $action = $page[0];
-    }
-} elseif ($arguments === 2) {
-    //exemple : index.php?p=tutoriels.index
-    $controller = '\App\Controller\\' . ucfirst($page[0]) . 'Controller';
-    $action = $page[1];
-} elseif ($arguments === 3) {
-    if ($page[0] === 'admin') {
-        $controller = '\App\Controller\Admin\\' . ucfirst($page[1]) . 'Controller';
-        $action = $page[2]; //c'est le nom de la methode existante dans /admin/
-    }
-} else {
-    $page = "modules.index";
-    $page = explode('.', $page);
-    $controller = '\App\Controller\\' . ucfirst($page[0]) . 'Controller';
-    $action = $page[1]; //est le nom de method
-}
+//Including autoload file
+require_once "../vendor/autoload.php";
 
-if ($controller === "") {
-    //header('Location:index.php?p=notFound');//Traitement de page NOTFOUND
-    die("Page not Found");
-}
+//Globals variables
+$_ROOT              = dirname(__DIR__);
+$viewAbsPath        = $_ROOT . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "Views";
 
-try {
-    $controller = new $controller();
-    $controller->$action();
-} catch (Exception $e) {
-    //header('Location:index.php?p=notFound');//Traitement de page NOTFOUND
-    die("En contruction!!! : " . $e->getMessage());
-}
+//--------------------------------------------------
+//DEV-TO DELETE ON PROD
+//--------------------------------------------------
+$whoops = new Whoops\Run;
+$whoops->pushHandler(new Whoops\Handler\PrettyPageHandler);
+$whoops->register();
+//-------------------------------------------------
+
+//Using our Router
+$router = new  Router($viewAbsPath);
+
+//test user for profile page
+$user   = new User();
+
+//TODO Possibilités de créer un fichier que pour les routes
+//--------------------------------------------------
+//STATICS PAGES
+//--------------------------------------------------
+$router->getRouter('/', 'home/home', 'accueil')
+    ->getRouter('/connexion', 'home/login')
+    ->getRouter('/inscription', 'home/signup')
+    ->getRouter('/reinit_mot_de_passe', 'user/resetpassword')
+    ->getRouter('/profil', 'user/profile')
+    ->getRouter('/project', 'user/project')
+    ->getRouter('/mentions-legales', 'home/mentions')
+    ->getRouter('/conditions-generales-utilisation', 'home/cgu')
+    ->getRouter('/politique-de-confidentialite', 'home/confidentialite')
+    ->getRouter('/[*:slugger]-[i:id]', 'user/profile') //last one has error to fixe
+    ->postRouter('/connexion', 'admin/login'); //last one has error to fixe
+$router->start();
+
+//-----------------------------------------------
+//DYNAMICS PAGES
+//-----------------------------------------------
+//$router->map('GET', '/[*:slugger]-[i:id]', function ($slugger, $id) {
+    //slugger and id must br used soon when we are going to make request to database
+//    $user = new User();
+//    $user->setName("Jean")
+//        ->setLastname("DOE")
+//        ->setAvatar("https://source.unsplash.com/collection/190727/1600x900")
+//        ->setEmail("admin@tft.fr")
+//        ->setId(0)
+//        ->getPassword("admin");
+//    $path = "../app/Views/user/profile.php";
+//    require_once $path;
+//});

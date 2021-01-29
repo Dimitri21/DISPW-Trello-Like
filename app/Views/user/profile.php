@@ -1,32 +1,45 @@
-<div class="signup global-form-bg" id="login-index">
+<div class="profile global-form-bg" id="login-index">
 
-    <div class="signup-inner ">
+    <div class="profile-inner ">
+
         <div class="inner-title">
             <div class=" inner-title-circle"></div>
             <div class="inner-title-text">
-                <h3>Inscription</h3>
+                <h3>Profil de <?= $user ? $user->getLastname() : "" ?></h3>
             </div>
         </div>
 
-        <div class="signup-inner-body card">
+        <div class="profile-inner-body card">
 
-            <form class="signup-inner-body-form form-group" action="/connexion" method="post">
+            <div class="profile-inner-body-avatar">
+
+                <div class="profile-canvas">
+                    <form class="profile-canvas-input" action="/upload-image" method="post" enctype="multipart/form-data">
+                        <input type="file" name="avatar" id="avatar">
+                        <span class="selected-filename"></span>
+                    </form>
+                    <img src="<?= $user ? $user->getAvatar() : '' ?>" alt=" image de <?= $user ? $user->getName() . ' ' . $user->getLastname() : '' ?>">
+                </div>
+
+            </div>
+
+            <form class="profile-inner-body-form form-group" action="/connexion" method="post">
 
                 <div class="form-group-item">
                     <label for="prenom">Prénom</label>
-                    <input type="text" name="prenom" id="prenom" placeholder="Prénom*">
+                    <input type="text" name="prenom" id="prenom" placeholder="Prénom*" value="<?= $user ? $user->getLastname() : '' ?>">
                     <span class=""></span>
                 </div>
 
                 <div class="form-group-item">
                     <label for="nom">Nom</label>
-                    <input type="text" name="nom" id="nom" placeholder="Nom*">
+                    <input type="text" name="nom" id="nom" placeholder="Nom*" value="<?= $user ? $user->getName() : '' ?>">
                     <span class=""></span>
                 </div>
 
                 <div class="form-group-item">
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" placeholder="Email*">
+                    <input type="email" name="email" id="email" placeholder="Email*" value="<?= $user ? $user->getEmail() : '' ?>">
                     <span class=""></span>
                 </div>
 
@@ -46,24 +59,8 @@
                     <span>*Champs obligatoires</span>
                 </div>
 
-                <div class="form-group-ugc">
-
-                    <div class="">
-                        <input type="checkbox" name="ugc" id="ugc">
-                        <label for="ugc">j'accepte les Conditions Générales d'Utilisation</label>
-                    </div>
-
-                    <div>
-                        <input type="checkbox" name="sprinto" id="sprinto">
-                        <label for="sprinto">j'accepte la société sprinto utiliser mes données personnelles conformément à la politique de confidentialité</label>
-                    </div>
-                    <div>
-                        <span for="">Vous avez déjà un compte?<a href="/connexion">Connectez-vous</a></span>
-                    </div>
-                </div>
-
                 <div class="form-group-item">
-                    <button type="submit">Inscription</button>
+                    <button type="submit">Sauvegarder</button>
                 </div>
 
             </form>

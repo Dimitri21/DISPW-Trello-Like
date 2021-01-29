@@ -1,3 +1,4 @@
+//GLOBAL SCRIPTS
 @import "components/variables";
 @import "components/colors";
 @import "components/global";
@@ -10,8 +11,10 @@
 //PAGES
 
 //SECURITY - LOGIN - PAGE
+@import "components/error_page";
 @import "components/login";
 @import "components/signup";
 @import "components/resetpassword";
 @import "components/profile";
+@import "components/projects";
 
