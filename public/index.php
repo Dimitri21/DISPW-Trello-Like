@@ -43,21 +43,7 @@ $router->map('GET', '/politique-de-confidentialite', 'home/confidentialite');
 //-----------------------------------------------
                 //DYNAMICS PAGES
 //-----------------------------------------------
-
-$router->map('GET', '/user/[*:slugger]-[i:id]', function ($slugger, $id) {
-    //slugger and id must br used soon when we are going to make request to database
-    $user = new User();
-    $user->setName("Jean")
-        ->setLastname("DOE")
-        ->setAvatar("https://source.unsplash.com/collection/190727/1600x900")
-        ->setEmail("admin@tft.fr")
-        ->setId(0)
-        ->getPassword("admin");
-    $path = "../app/Views/user/profile.php";
-    require_once $path;
-});
-
-$router->map('GET', '/user/[*:slugger]-[i:id]', function ($slugger, $id) {
+$router->map('GET', '/[*:slugger]-[i:id]', function ($slugger, $id) {
     //slugger and id must br used soon when we are going to make request to database
     $user = new User();
     $user->setName("Jean")
@@ -85,5 +71,4 @@ if ($match) {
 }
 $content = ob_get_clean();
 
-//print_r($content);
-require_once($template_path);
+require($template_path);

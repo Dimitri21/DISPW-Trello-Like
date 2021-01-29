@@ -1,1 +1,1 @@
-alert("Welcome");
+console.log("Tout va presque bien...");
