@@ -1,6 +1,6 @@
 <?php
+session_start();
 use app\App;
-use app\Entity\User;
 /*
  * ROOT MANAGER CONSTANT
  */

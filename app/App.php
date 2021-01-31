@@ -4,6 +4,7 @@
 namespace app;
 
 
+use app\Controller\UserController;
 use app\Database\SprintoDatabase;
 
 class App
@@ -68,7 +69,15 @@ class App
      */
     public function getRouter(string $url, string $viewName, string $name = null): self
     {
-        $this->altoRouter->map("GET", $url, $viewName, $name);
+        //Traitement de $uri
+        $url_exploded = explode("-",$url);
+        if (count($url_exploded) === 3) {
+            $this->altoRouter->map("GET", $url, function ($action,$id) {
+                return "Salut";
+            } ,$viewName);
+        }else {
+            $this->altoRouter->map("GET", $url, $viewName, $name);
+        }
         return $this;
     }
 
@@ -118,14 +127,13 @@ class App
         return new $class_name($this->getDatabase());
     }
 
-
     /**
      * @brief start function
      * @return $this
      */
     public function start()
     {
-        session_start();
+        //session_start();
         //Globals variables
         $error_404          = $this->viewAbsPath . DIRECTORY_SEPARATOR . "home" . DIRECTORY_SEPARATOR . "404.php";
         $template_path      = $this->viewAbsPath . DIRECTORY_SEPARATOR . "template" . DIRECTORY_SEPARATOR . "base.php";
@@ -134,7 +142,7 @@ class App
         $match = $this->altoRouter->match();
         $currentViewName =  $match['target'];
         $currentParams =  $match['params'];
-
+        $something= "";
         //TODO to move into App\Controller in the render method
         ob_start();
         //todo to delete soon
@@ -143,8 +151,29 @@ class App
         if ($match) {
             if (is_callable($match['target'])) {
                 //Call method with parames
-
-                call_user_func_array($currentViewName, $currentParams);
+                //Controller
+                if (count($currentParams) === 2 && array_key_exists("name",$match)) {
+                    $action = $currentParams['action'];
+                    $id = intval($currentParams["id"]);
+                    $controllerNameShort = $match['name'];
+                    require_once _ROOT.DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.'Controller'.
+                        DIRECTORY_SEPARATOR.$match['name'].'.php';
+                    $controllerName = 'app'.DIRECTORY_SEPARATOR.'Controller'.
+                        DIRECTORY_SEPARATOR.$match['name'];//controller
+                    try {
+                        $controller = new $controllerName();
+                        if (method_exists($controller, $action)) {
+                            $instances = $controller->$action($id);
+                            require_once $this->viewAbsPath.DIRECTORY_SEPARATOR.strtolower(explode("Controller",$controllerNameShort)[0]).DIRECTORY_SEPARATOR.$action.'.php';
+                        } else {
+                            exit(0);
+                        }
+                    } catch (Exception $e) {
+                        //header('Location:index.php?p=notFound');//Traitement de page NOTFOUND
+                        die("Hahahahahha Bien essayé!!! : " . $e->getMessage());
+                    }
+                }
+                $something = call_user_func_array($currentViewName, $currentParams);
             } else {
                 //Static page
                 require_once $this->viewAbsPath . "/{$match['target']}.php";

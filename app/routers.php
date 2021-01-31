@@ -2,16 +2,17 @@
 /**
  * $app must exist where this one will be used
  */
-$app->getRouter('/', 'home/home', 'accueil')
+$app->getRouter('/user-[show|edit:action]-[i:id]', 'UserController')
+    ->getRouter('/', 'home/home', 'accueil')
     ->getRouter('/connexion', 'home/login')
     ->getRouter('/inscription', 'home/signup')
     ->getRouter('/reinit_mot_de_passe', 'user/resetpassword')
     ->getRouter('/profil', 'user/profile')
     ->getRouter('/project', 'user/project')
-    ->getRouter('/mentions-legales', 'home/mentions')
-    ->getRouter('/conditions-generales-utilisation', 'home/cgu')
-    ->getRouter('/politique-de-confidentialite', 'home/confidentialite')
-    ->getRouter('/[*:slugger]-[i:id]', 'user/profile') //last one has error to fixe
+    ->getRouter('/mentions_legales', 'home/mentions')
+    ->getRouter('/conditions_generales_utilisation', 'home/cgu')
+    ->getRouter('/politique_de_confidentialite', 'home/confidentialite')
+//    ->getRouter('/[*:slugger]-[i:id]', 'user/profile') //last one has error to fixe
     ->postRouter('/connexion', 'admin/login'); //last one has error to fixe
 $app->start();
 
