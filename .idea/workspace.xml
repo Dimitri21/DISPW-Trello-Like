@@ -2,9 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ebcb4fd-b170-4057-9acc-7278261162e3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Controller/UsersController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Entity/Entity.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Views/users/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/DISPW-Trello-Like.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DISPW-Trello-Like.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/App.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/App.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controller/AppController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controller/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controller/UserController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Database/SprintoDatabase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Database/SprintoDatabase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Entity/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Entity/CommentEntity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Entity/Guest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Entity/GuestEntity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Entity/Lists.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Entity/ListsEntity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Entity/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Entity/ProjectEntity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Entity/Sticker.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Entity/StickerEntity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Entity/Task.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Entity/TaskEntity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Entity/UsersEntity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/home/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/home/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/user/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/users/edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/user/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/users/profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/user/project.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/users/project.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/user/resetpassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/users/resetpassword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/user/show.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/users/show.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/Config.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/Controller/Controller.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,16 +58,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
-    <include_path>
-      <path value="$PROJECT_DIR$/vendor/altorouter/altorouter" />
-      <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
-      <path value="$PROJECT_DIR$/vendor/filp/whoops" />
-      <path value="$PROJECT_DIR$/vendor/psr/log" />
-    </include_path>
-  </component>
   <component name="ProjectId" id="1njmdgiSXPtBURUfGIW9TOuu7h8" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -48,11 +69,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Views/user" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Views/users" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\app\Views\users" />
+      <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\app\Controller" />
+      <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\public" />
       <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\app\Views\user" />
       <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\public\images\profile" />
     </key>
@@ -72,6 +96,7 @@
       <workItem from="1611911963529" duration="1154000" />
       <workItem from="1611940180103" duration="5238000" />
       <workItem from="1612023807843" duration="10422000" />
+      <workItem from="1612107190044" duration="15388000" />
     </task>
     <servers />
   </component>

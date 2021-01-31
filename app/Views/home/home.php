@@ -18,5 +18,6 @@
             <li><a href="/politique-de-confidentialite">politique-de-confidentialite</a></li>
             <li><a href="/conditions-generales-utilisation">conditions-generales-utilisation</a></li>
         </ul>
+
     </div>
 </div>

@@ -1,9 +1,6 @@
 <?php
-namespace App\Entity;
 
-use DateTime;
-
-class User
+class UsersEntity extends Entity
 {
     /**
      * @var int
@@ -41,12 +38,14 @@ class User
     private $avatar;
 
     /**
-     * @var array Project
+     * @var array ProjectEntity
      */
     private $projects ;
 
     public function __construct()
     {
+        $this->tableName = strtolower(str_replace("Entity","",get_class($this)));
+        $this->getDatabase();
         $this->projects = [];
     }
 
@@ -60,7 +59,7 @@ class User
 
     /**
      * @param int $id
-     * @return User
+     * @return UsersEntity
      */
     public function setId($id)
     {
@@ -79,7 +78,7 @@ class User
 
     /**
      * @param string $name
-     * @return User
+     * @return UsersEntity
      */
     public function setName($name)
     {
@@ -97,7 +96,7 @@ class User
 
     /**
      * @param string $lastname
-     * @return User
+     * @return UsersEntity
      */
     public function setLastname($lastname)
     {
@@ -115,7 +114,7 @@ class User
 
     /**
      * @param string $email
-     * @return User
+     * @return UsersEntity
      */
     public function setEmail($email)
     {
@@ -133,7 +132,7 @@ class User
 
     /**
      * @param string $password
-     * @return User
+     * @return UsersEntity
      */
     public function setPassword($password)
     {
@@ -151,7 +150,7 @@ class User
 
     /**
      * @param DateTime $subscriptionAt
-     * @return User
+     * @return UsersEntity
      */
     public function setSubscriptionAt($subscriptionAt)
     {
@@ -169,7 +168,7 @@ class User
 
     /**
      * @param string $avatar
-     * @return User
+     * @return UsersEntity
      */
     public function setAvatar($avatar)
     {
@@ -187,7 +186,7 @@ class User
 
     /**
      * @param array $projects
-     * @return User
+     * @return UsersEntity
      */
     public function setProjects($projects)
     {

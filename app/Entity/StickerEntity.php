@@ -4,7 +4,7 @@
 namespace App\Entity;
 
 
-class Sticker
+class StickerEntity
 {
     /**
      * @var int
@@ -38,7 +38,7 @@ class Sticker
 
     /**
      * @param int $id
-     * @return Sticker
+     * @return StickerEntity
      */
     public function setId($id)
     {
@@ -56,7 +56,7 @@ class Sticker
 
     /**
      * @param mixed|string $name
-     * @return Sticker
+     * @return StickerEntity
      */
     public function setName($name)
     {
@@ -74,7 +74,7 @@ class Sticker
 
     /**
      * @param mixed|string $color
-     * @return Sticker
+     * @return StickerEntity
      */
     public function setColor($color)
     {

@@ -6,7 +6,7 @@ namespace App\Entity;
 
 use DateTimeZone;
 
-class Project
+class ListsEntity
 {
     /**
      * @var int
@@ -29,21 +29,15 @@ class Project
     private $createAt;
 
     /**
-     * @var array Lists
+     * @var array TaskEntity
      */
-    private $lists;
-
-    /**
-     * @var array User
-     */
-    private  $guest;
+    private $tasks;
 
     public function __construct()
     {
-        //TODO aleatoirement
+        //TODO aleat
         $this->id = 0;
-        $this->lists = [];
-        $this->guest = [];
+        $this->tasks = [];
         $this->createAt = new DateTimeZone();
     }
 
@@ -57,7 +51,7 @@ class Project
 
     /**
      * @param int $id
-     * @return Project
+     * @return ListsEntity
      */
     public function setId($id)
     {
@@ -75,7 +69,7 @@ class Project
 
     /**
      * @param string $name
-     * @return Project
+     * @return ListsEntity
      */
     public function setName($name)
     {
@@ -93,7 +87,7 @@ class Project
 
     /**
      * @param string $description
-     * @return Project
+     * @return ListsEntity
      */
     public function setDescription($description)
     {
@@ -111,7 +105,7 @@ class Project
 
     /**
      * @param DateTimeZone $createAt
-     * @return Project
+     * @return ListsEntity
      */
     public function setCreateAt($createAt)
     {
@@ -122,37 +116,20 @@ class Project
     /**
      * @return array
      */
-    public function getLists()
+    public function getTasks()
     {
-        return $this->lists;
+        return $this->tasks;
     }
 
     /**
-     * @param array $lists
-     * @return Project
+     * @param array $tasks
+     * @return ListsEntity
      */
-    public function setLists($lists)
+    public function setTasks($tasks)
     {
-        $this->lists = $lists;
+        $this->tasks = $tasks;
         return $this;
     }
 
-    /**
-     * @return arra
-     */
-    public function getGuest()
-    {
-        return $this->guest;
-    }
-
-    /**
-     * @param arra $guest
-     * @return Project
-     */
-    public function setGuest($guest)
-    {
-        $this->guest = $guest;
-        return $this;
-    }
 
 }
