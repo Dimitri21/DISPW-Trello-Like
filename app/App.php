@@ -70,7 +70,7 @@ class App
     public function getRouter(string $url, string $viewName, string $name = null): self
     {
         //Traitement de $uri
-        $url_exploded = explode("-",$url);
+        $url_exploded = explode("_",$url);
         if (count($url_exploded) === 3) {
             $this->altoRouter->map("GET", $url, function ($action,$id) {
                 return "Salut";
