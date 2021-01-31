@@ -32,18 +32,25 @@ if (!is_null($path_uri)) {
     $controller         = $controllerPath.$controller_name.'.php';
     $action             = $uri_params[1];
 
-    require_once($controller);
+    if (file_exists($controller)) {
 
-    $controller_instance = new $controller_name();
+        require_once($controller);
 
-    if (method_exists($controller_instance,$action)) {
+        $controller_instance = new $controller_name();
 
-        $params = $uri_params;
-        unset($params[0]);
-        unset($params[1]);
-        call_user_func_array([$controller_instance,$action],$params);
+        if (method_exists($controller_instance,$action)) {
+
+            $params = $uri_params;
+            unset($params[0]);
+            unset($params[1]);
+            call_user_func_array([$controller_instance,$action],$params);
+        }else {
+            var_dump("Action {$action} doen't existe");
+            header("http/1.1 404 page not found");
+        }
     }else {
-        var_dump("Action Page not Found");
+        var_dump("Controller Page not Found");
         header("http/1.1 404 page not found");
     }
+
 }
