@@ -1,25 +1,30 @@
 <?php
 
 
+namespace app\Controller;
+
+
 abstract class Controller
 {
+    /**
+     * @var string
+     */
+    protected $viewAbsPath;
 
-    public function loadModel(string $modelName) {
-        $model = ucfirst($modelName).'Entity';
-        require_once(_ROOT.DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.'Entity'.DIRECTORY_SEPARATOR.$model.'.php');
-        $this->$modelName = new $model();
-    }
+    /**
+     * @var string
+     */
+    protected $template;
 
+    //TODO TO delete
     protected function render(string $view, array  $variables = [])
     {
         ob_start();
         extract($variables);
-        $viewsPath = _ROOT.DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR."Views".DIRECTORY_SEPARATOR;
-
-        $current_view = $viewsPath.str_replace('.',DIRECTORY_SEPARATOR,$view).'.php';
-        require $current_view;
+        $view = $this->viewAbsPath.str_replace('.','/',$view).'.php';
+        require $view;
         $content = ob_get_clean();
-        require_once($viewsPath.'template'.DIRECTORY_SEPARATOR.'base.php');
+        require($this->viewAbsPath.'template/'.$this->template.'.php');
     }
 
     protected function forbidden()

@@ -6,7 +6,7 @@ namespace App\Entity;
 
 use DateTimeZone;
 
-class Lists
+class ProjectEntity
 {
     /**
      * @var int
@@ -29,15 +29,21 @@ class Lists
     private $createAt;
 
     /**
-     * @var array Task
+     * @var array ListsEntity
      */
-    private $tasks;
+    private $lists;
+
+    /**
+     * @var array UsersEntity
+     */
+    private  $guest;
 
     public function __construct()
     {
-        //TODO aleat
+        //TODO aleatoirement
         $this->id = 0;
-        $this->tasks = [];
+        $this->lists = [];
+        $this->guest = [];
         $this->createAt = new DateTimeZone();
     }
 
@@ -51,7 +57,7 @@ class Lists
 
     /**
      * @param int $id
-     * @return Lists
+     * @return ProjectEntity
      */
     public function setId($id)
     {
@@ -69,7 +75,7 @@ class Lists
 
     /**
      * @param string $name
-     * @return Lists
+     * @return ProjectEntity
      */
     public function setName($name)
     {
@@ -87,7 +93,7 @@ class Lists
 
     /**
      * @param string $description
-     * @return Lists
+     * @return ProjectEntity
      */
     public function setDescription($description)
     {
@@ -105,7 +111,7 @@ class Lists
 
     /**
      * @param DateTimeZone $createAt
-     * @return Lists
+     * @return ProjectEntity
      */
     public function setCreateAt($createAt)
     {
@@ -116,20 +122,37 @@ class Lists
     /**
      * @return array
      */
-    public function getTasks()
+    public function getLists()
     {
-        return $this->tasks;
+        return $this->lists;
     }
 
     /**
-     * @param array $tasks
-     * @return Lists
+     * @param array $lists
+     * @return ProjectEntity
      */
-    public function setTasks($tasks)
+    public function setLists($lists)
     {
-        $this->tasks = $tasks;
+        $this->lists = $lists;
         return $this;
     }
 
+    /**
+     * @return arra
+     */
+    public function getGuest()
+    {
+        return $this->guest;
+    }
+
+    /**
+     * @param arra $guest
+     * @return ProjectEntity
+     */
+    public function setGuest($guest)
+    {
+        $this->guest = $guest;
+        return $this;
+    }
 
 }

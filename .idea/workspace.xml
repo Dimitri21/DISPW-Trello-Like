@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2ebcb4fd-b170-4057-9acc-7278261162e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/App.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,16 +26,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
-    <include_path>
-      <path value="$PROJECT_DIR$/vendor/altorouter/altorouter" />
-      <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
-      <path value="$PROJECT_DIR$/vendor/filp/whoops" />
-      <path value="$PROJECT_DIR$/vendor/psr/log" />
-    </include_path>
-  </component>
   <component name="ProjectId" id="1njmdgiSXPtBURUfGIW9TOuu7h8" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -48,11 +37,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Views/user" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Views/users" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\app\Views\users" />
+      <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\app\Controller" />
+      <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\public" />
       <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\app\Views\user" />
       <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\public\images\profile" />
     </key>
@@ -72,6 +64,8 @@
       <workItem from="1611911963529" duration="1154000" />
       <workItem from="1611940180103" duration="5238000" />
       <workItem from="1612023807843" duration="10422000" />
+      <workItem from="1612107190044" duration="15437000" />
+      <workItem from="1612122794700" duration="238000" />
     </task>
     <servers />
   </component>

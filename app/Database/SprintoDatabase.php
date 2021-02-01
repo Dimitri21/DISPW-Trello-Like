@@ -1,9 +1,5 @@
 <?php
 
-
-namespace app\Database;
-
-
 class SprintoDatabase
 {
     private $db_name;
@@ -11,7 +7,6 @@ class SprintoDatabase
     private $db_pass;
     private $db_host;
     private $pdo;
-
     public function __construct(array $dbInfos)
     {
         $this->db_name = $dbInfos['db_name'];
@@ -40,6 +35,7 @@ class SprintoDatabase
 
         $requete = $this->getPDO($this->db_name)->query($statement);
 
+
         //Used for simple statement and to get response as array
         if(strpos($statement,'UPDATE') === 0 ||
             strpos($statement,'INSERT')=== 0 ||
@@ -66,6 +62,7 @@ class SprintoDatabase
             //Fetch all
             return $requete->fetchAll();
         }
+
     }
 
     public function getDBName()

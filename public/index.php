@@ -4,29 +4,53 @@ use app\App;
 /*
  * ROOT MANAGER CONSTANT
  */
+//TODO to put on a file juste for variables ou constants
 define('_ROOT', dirname(__DIR__));
-$viewAbsPath        = _ROOT . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "Views";
+$appPath        = _ROOT . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR ;
+$viewsPath      = $appPath. "Views". DIRECTORY_SEPARATOR;
+$controllerPath = $appPath. "Controller". DIRECTORY_SEPARATOR;
+$entityPath     = $appPath. "Entity". DIRECTORY_SEPARATOR;
 
-//Including autoload file
-require_once "../vendor/autoload.php";
+//MODEL et CONTROLLER Principal
+require_once($controllerPath.'Controller.php');
+require_once($entityPath.'Entity.php');
+require_once($appPath.DIRECTORY_SEPARATOR.'Database'.DIRECTORY_SEPARATOR."SprintoDatabase.php");
 
-//Create App instance
-$app = App::getInstance();
+//Traitement de paramètre d'URL
+$home_page  = "home-home";
+$path_uri   = isset($_GET["path"]) && !empty($_GET['path']) ? $_GET["path"] :$home_page;
 
-//Globals variables
-$app->setViewAbsPath($viewAbsPath);
+if (!is_null($path_uri)) {
 
-//--------------------------------------------------
-//DEV-TO DELETE ON PROD
-//--------------------------------------------------
-$whoops = new Whoops\Run;
-$whoops->pushHandler(new Whoops\Handler\PrettyPageHandler);
-$whoops->register();
-//-------------------------------------------------
+    $uri_params =(array) explode("-",$path_uri);
 
-//TODO Possibilités de créer un fichier que pour les routes
-//--------------------------------------------------
-//ROUTERS
-//--------------------------------------------------
-require_once(_ROOT.DIRECTORY_SEPARATOR."app".DIRECTORY_SEPARATOR."routers.php");
+    //Pour un paramètre de longueur 3 => controller/action/slug , où slug = title-id
+    if ( count($uri_params) == 1) {
+        $uri_params = array_merge(array("home"),$uri_params);
+    }
+    $controller_name    = ucfirst($uri_params[0]).'Controller';
+    $controller         = $controllerPath.$controller_name.'.php';
+    $action             = $uri_params[1];
 
+    if (file_exists($controller)) {
+
+        require_once($controller);
+
+        $controller_instance = new $controller_name();
+
+        if (method_exists($controller_instance,$action)) {
+
+            $params = $uri_params;
+            unset($params[0]);
+            unset($params[1]);
+            call_user_func_array([$controller_instance,$action],$params);
+        }else {
+            var_dump("Action {$action} doen't existe");
+            header("http/1.1 404 page not found");
+        }
+    }else {
+        var_dump("Controller Page not Found");
+        header("http/1.1 404 page not found");
+    }
+
+}
