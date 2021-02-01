@@ -2,9 +2,7 @@
 <html lang="fr">
 
 <head>
-    <style>
 
-    </style>
     <meta charset="utf-8">
 
     <!--CDN AREA-->
@@ -15,7 +13,7 @@
     <!--META AREA-->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="trello like">
-    <meta name="author" content="">
+    <meta name="author" content="CECILE E., DIMITRI H. ET DURAMANA K.">
 
     <!--FONT AWESOME PRO -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
@@ -28,7 +26,6 @@
 
         <!--NAVBAR AREA-->
         <nav class="my-navbar">
-
             <div class="my-container">
 
                 <div class="my-navbar-inner">
@@ -41,6 +38,7 @@
                     </div>
 
                     <!--NAVBAR LIST ITEMS-->
+
                     <ul class="my-navbar-inner-list">
 
                         <li class="my-navbar-inner-list-item">
@@ -57,18 +55,41 @@
 
                     </ul>
 
+                    <!--HUMBURGER-->
+                    <div class="my-navbar-inner-humburger nav-humburger-js">
+                        <span></span>
+                    </div>
+
                 </div>
 
             </div>
-
         </nav>
-
 
         <!--CONTENT AREA-->
         <section role="main" class="container">
             <!-- L'ensemble de contenu envoyé par le serveur PHP -->
             <?= $content ?? '' ?>
         </section>
+
+        <!--LIST ITEM BY HUMBURGER BTN CLICK-->
+        <div class="main-humburger">
+
+            <ul class="main-humburger-list ">
+
+                <li class="main-humburger-list-item">
+                    <a href="/">ACCUEIL</a>
+                </li>
+
+                <li class="main-humburger-list-item">
+                    <a href="/connexion">Connexion</a>
+                </li>
+
+                <li class="main-humburger-list-item">
+                    <a href="/inscription">Inscription</a>
+                </li>
+
+            </ul>
+        </div>
 
     </main>
 

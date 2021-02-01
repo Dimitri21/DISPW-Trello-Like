@@ -1,6 +1,6 @@
-/*NAVBAR - LEFT*/
+//NAVBAR - LEFT
 
-/*NAVBAR*/
+//NAVBAR
 .my-navbar {
      background-color: $primary-color-dark;
      padding: .5rem 0;
@@ -11,19 +11,20 @@
           justify-content: space-between;
           align-items: center;
 
-          /*NAVBAR - LOGO*/
+          //NAVBAR - LOGO
           &-logo {
-               /*IMAGE*/
+               //IMAGE
                img{
                     width: 70px;
                 }
           }
 
-          /*NAVBAR - RIGHT LIST*/
+          //NAVBAR - RIGHT LIST
           &-list {
-               display: flex;
+               display: none;
                flex-direction: row;
                align-items: center;
+
                &-item {
                     a {
                          display: inline-block;
@@ -52,6 +53,134 @@
                      }
                }
           }
+
+          //HUMBURGER
+          &-humburger {
+               display: flex;
+               flex-direction: column;
+               justify-content: center;
+               align-items: center;
+               width: 45px;
+               height: 40px;
+               border-radius: .2rem;
+               background-color: rgba($color: #ffffff, $alpha: .2);
+               cursor: pointer;
+               position: relative;
+
+               span {
+                    display: inline-block;
+                    width: 35px;
+                    height: 4px;
+                    background: $white-color;
+                    position: relative;
+                    transition: all .3s ease-in-out;
+
+                    // display: flex;
+                    // flex-direction: column;
+                    // justify-content: center;
+                    // align-items: center;
+
+                    transition: all .3s ease-in-out;
+
+                    &::before,&::after {
+                         content: "";
+                         position: absolute;
+                         top: -10px;
+                         left: 0;
+                         width: inherit;
+                         height: inherit;
+                         background: $white-color;
+                    }
+                    &::before{
+                         top: -10px;
+                    }
+                    &::after{
+                         top: 10px;
+                    }
+               }
+
+               
+               &.open {
+                    background-color: rgba($color: #ffffff, $alpha: .5);
+                    span {
+                         transform: rotate(-45deg);
+                         background-color: $first-color;
+                         &::before {
+                              top: 0;
+                              background-color: $first-color;
+                              transform: rotate(-90deg);
+                         }
+                         &::after {
+                              display: none;
+                         }
+                    }
+               }
+          }
      }
  }
  
+.main-humburger {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100vw;
+     height: 100vh;
+     background-color: rgba($color: $first-color, $alpha: .8);
+     display: none;
+     place-items: center;
+     overflow: hidden;
+     
+     .main-humburger-list {
+
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+         &-item {
+              a {
+                   display: inline-block;
+                   padding: .7rem 1.2rem;
+                   text-transform: uppercase;
+                   color: $white-color;
+                   &:hover {
+                        text-decoration: underline;
+                   }
+              }
+         }
+    }
+    &.show-js {
+         display: grid;
+    }
+}
+
+//Overflow for menu
+.overflow {
+     height: 100vh;
+     overflow: hidden;
+}
+//-----------------------------------------------------------------
+                            // TABLET
+//-----------------------------------------------------------------
+@media screen and (min-width : 725px) {
+     .my-navbar {
+          &-inner {
+     
+               //NAVBAR - RIGHT LIST
+               &-list {
+                    display:flex;
+               }
+
+               //HUMBURGER
+               &-humburger {
+                    display: none;
+               }
+          }
+      }
+ }
+ //-----------------------------------------------------------------
+                             // DESKTOP
+ //-----------------------------------------------------------------
+ 
+ @media screen and (min-width : 1024px) {
+    
+ }

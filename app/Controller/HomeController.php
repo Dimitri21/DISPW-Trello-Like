@@ -15,5 +15,8 @@ class HomeController extends Controller
         $this->render("home.login");
     }
 
+    public function error404() {
+        $this->notFound();
+    }
 
 }

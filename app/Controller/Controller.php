@@ -33,8 +33,8 @@ abstract class Controller
     protected function notFound()
     {
         header('HTTP/1.0 404 Not Found');
-        $message="Erreur de Module";
-        $this->render('notfound.index',compact('message'));
+        $message = "Page Not Found";
+        $this->render('error.404',compact('message'));
         exit(0);
     }
 
