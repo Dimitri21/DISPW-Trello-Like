@@ -30,6 +30,7 @@
                          display: inline-block;
                          padding: .7rem 1rem;
                          color: $dark-white-color;
+                         font-weight: 700;
                          text-transform: uppercase;
                          transition: all .3s ease-in-out;
                     }
@@ -125,11 +126,12 @@
      left: 0;
      width: 100vw;
      height: 100vh;
-     background-color: rgba($color: $first-color, $alpha: .8);
-     display: none;
+     background-color: rgba($color: $third-color, $alpha: .1);
+     display: grid;
      place-items: center;
+     transform: translateY(-100vh);
+     transition: all .4s ease-in-out;
      overflow: hidden;
-     
      .main-humburger-list {
 
           display: flex;
@@ -149,7 +151,10 @@
          }
     }
     &.show-js {
-         display: grid;
+         //display: grid;
+         transform: translateY(0);
+         background-color: rgba($color: $third-color, $alpha: 1);
+
     }
 }
 

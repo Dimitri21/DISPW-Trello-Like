@@ -291,6 +291,7 @@ body {
   display: inline-block;
   padding: .7rem 1rem;
   color: #F4F4F4;
+  font-weight: 700;
   text-transform: uppercase;
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
@@ -396,9 +397,14 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 75, 123, 0.8);
-  display: none;
+  background-color: rgba(0, 193, 152, 0.1);
+  display: -ms-grid;
+  display: grid;
   place-items: center;
+  -webkit-transform: translateY(-100vh);
+          transform: translateY(-100vh);
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
   overflow: hidden;
 }
 
@@ -427,8 +433,9 @@ body {
 }
 
 .main-humburger.show-js {
-  display: -ms-grid;
-  display: grid;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  background-color: #00c198;
 }
 
 .overflow {
