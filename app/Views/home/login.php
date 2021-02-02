@@ -11,7 +11,7 @@
 
         <div class="login-inner-body card">
 
-            <form class="login-inner-body-form form-group" action="/connexion" method="post">
+            <form class="login-inner-body-form form-group" action="/admin-sign-login" method="post">
 
                 <div class="form-group-item">
                     <label for="email">Email</label>
@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="form-group-item">
-                    <button type="submit">Connexion</button>
+                    <button type="submit" name="submit">Connexion</button>
                 </div>
 
             </form>

@@ -45,13 +45,19 @@
                             <a href="/">ACCUEIL</a>
                         </li>
 
-                        <li class="my-navbar-inner-list-item">
-                            <a href="/connexion">Connexion</a>
-                        </li>
+                       <?php if (isset($user) && !is_null($user)): ?>
+                            <li class="profile-user">
+                                <a href="/admin-profile-show-<?=$user->getId()?>"><?=$user->getName()?></a>
+                            </li>
+                        <?php else : ?>
+                           <li class="my-navbar-inner-list-item">
+                               <a href="/connexion">Connexion</a>
+                           </li>
 
-                        <li class="my-navbar-inner-list-item">
-                            <a href="/inscription">Inscription</a>
-                        </li>
+                           <li class="my-navbar-inner-list-item">
+                               <a href="/inscription">Inscription</a>
+                           </li>
+                        <?php endif; ?>
 
                     </ul>
 

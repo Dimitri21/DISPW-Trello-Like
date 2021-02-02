@@ -1,8 +1,14 @@
 <?php
 
+namespace App\Controller;
 
-abstract class Controller
+class Controller
 {
+    public function __construct()
+    {
+        //Check is is log in
+
+    }
 
     public function loadModel(string $modelName) {
         $model = ucfirst($modelName).'Entity';
@@ -14,11 +20,10 @@ abstract class Controller
     {
         ob_start();
         extract($variables);
-        $viewsPath = _ROOT.DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR."Views".DIRECTORY_SEPARATOR;
-
-        $current_view = $viewsPath.str_replace('.',DIRECTORY_SEPARATOR,$view).'.php';
+        $viewsPath      = _ROOT.DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR."Views".DIRECTORY_SEPARATOR;
+        $current_view   = $viewsPath.str_replace('.',DIRECTORY_SEPARATOR,$view).'.php';
         require $current_view;
-        $content = ob_get_clean();
+        $content        = ob_get_clean();
         require_once($viewsPath.'template'.DIRECTORY_SEPARATOR.'base.php');
     }
 

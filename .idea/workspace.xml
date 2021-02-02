@@ -2,16 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ebcb4fd-b170-4057-9acc-7278261162e3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Autoloader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Controller/Admin/SignController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/App.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/App.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Controller/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Views/home/404.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/error/404.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Database/SprintoDatabase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Database/SprintoDatabase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Entity/Entity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Entity/Entity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Entity/UsersEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Entity/UsersEntity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/admin/login.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/home/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/home/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Views/template/base.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/template/base.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/css/app.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/css/app.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/users/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/admin/users/edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/users/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/admin/users/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/users/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/admin/profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/users/project.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/admin/project.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/users/resetpassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/admin/users/resetpassword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/users/show.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/admin/users/show.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/sprintoConfig.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/sprinto.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/components/_navbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/components/_navbar.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,8 +67,9 @@
       <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\public\images\profile" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\app\Views\error" />
       <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\app\Views\admin\users" />
+      <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\app\Views\admin" />
+      <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\app\Views\error" />
       <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\public\docs" />
     </key>
   </component>
