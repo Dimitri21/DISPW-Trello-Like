@@ -1,8 +1,7 @@
 <?php
 
 
-namespace app\Repository;
-
+namespace app;
 
 use app\Database\SprintoDatabase;
 

@@ -1,12 +1,10 @@
 <?php
 
+namespace app\Repository;
 
-namespace app\Repositories;
+use app\Repository;
 
-
-use app\Repository\Repository;
-
-class UserRepository extends Repository
+class UsersRepository extends Repository
 {
     public function findAll() {
         return $this->query("SELECT * from users");
