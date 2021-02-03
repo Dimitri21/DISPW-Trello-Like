@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="public/build/css/dashboard.css">
+    <title>Dashboard</title>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <section class="dashboard">
+
+            <!--NAVBAR-->
+            <div class="dashboard-nav">
+
+                <!--SITE LOGO-->
+                <div class="dashboard-nav-left">
+                    <img src="public/images/logo/sprinto.svg" alt="logo of website">
+                </div>
+
+                <div class="dashboard-nav-right">
+
+                    <!--BREADCRUMB-->
+                    <ul class="dashboard-nav-right-breadcrumb">
+                        <li class="dashboard-nav-right-breadcrumb-item"><a href="#1">Project</a></li>
+                        <li class="dashboard-nav-right-breadcrumb-item "><a href="#2">List</a></li>
+                        <li class="dashboard-nav-right-breadcrumb-item active">Task</li>
+                    </ul>
+
+                    <!--PROFILE INFOS-->
+                    <ul class="dashboard-nav-right-profile">
+
+                        <!--TODO to delete-->
+                        <li class="dashboard-nav-right-profile-item">
+                            <a href="#"><i class="fal fa-envelope"></i></a>
+                            <span class="badge success">3</span>
+                        </li>
+
+                        <li class="dashboard-nav-right-profile-item">
+                            <a href="#"><i class="fal fa-flag"></i></a>
+                            <span class="badge danger">1</span>
+                        </li>
+
+                        <li class="dashboard-nav-right-profile-item">
+                            <a href="#"><i class="fal fa-bell"></i></a>
+                            <span class="badge warning">2</span>
+                        </li>
+
+                        <li class="dashboard-nav-right-profile-item profile">
+                            <!--USER PICTURE-->
+                            <!-- 
+                            <a href="#">
+                                <i class="fal fa-user-circle"></i>
+                            </a> -->
+                            <a href="#" class="profile-image">
+                                <img src="public/images/profile/photo_passe.jpg" alt="profile picture">
+                            </a>
+
+                            <!--DROPDOWN-->
+                            <div class="dashboard-nav-right-profile-item-dropdown">
+                                <ul>
+                                    <li><a href="/user-parametre">Parametre</a></li>
+                                    <li><a href="/profile">Profile</a></li>
+                                    <li><a href="/deconnexion">Deconnection</a></li>
+                                </ul>
+                            </div>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <!--CONTENT-->
+            <div class="dashboard-inner">
+
+                <!--ASIDE BAR-->
+                <div class="dashboard-inner-aside">
+
+                    <nav class="dashboard-inner-aside-list">
+
+                        <li class="projects">
+                            <i class="fas fa-tools"></i>
+                            <a href="#">Tableau</a>
+                        </li>
+
+                        <li class="members">
+                            <i class="fas fa-clipboard"></i>
+                            <a href="#">Membres</a>
+                        </li>
+
+                        <li class="lists">
+                            <i class="fas fa-address-card"></i>
+                            <a href="#">Listes</a>
+                        </li>
+
+                        <li class="tasks">
+                            <i class="fab fa-gitlab"></i>
+                            <a href="#">Tâches</a>
+                        </li>
+                    </nav>
+
+                    <!--SETTING ON BOTTOM-->
+                    <div class="dashboard-inner-aside-tools">
+                        <a href="#">
+                            <i class="fal fa-cog"></i>
+                            <span>Project settings</span>
+                            <i class="fal fa-chevron-double-left"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!--CONTENT-->
+                <div class="dashboard-inner-content">
+
+                    <!--PROJECT TITLE-->
+                    <div class="dashboard-inner-content-title">
+                        <h2>Tableau Création de site </h2>
+                        <p><i class="fal fa-filter"></i></p>
+                    </div>
+
+                    <!--PROJECT CONTENT-->
+                    <div class="dashboard-inner-content-lists">
+
+                        <div class="dashboard-inner-content-lists-item">
+
+                            <div class="project-list">
+
+                                <!--LISK TODO-->
+                                <div class="project-list-tasks todo">
+
+                                    <!--TITLE-->
+                                    <div class="project-list-tasks-title">
+                                        <span>A faire</span>
+
+                                        <div class="project-list-tasks-title-right">
+                                            <i class="far fa-clipboard-list"></i>
+                                            <span>/2</span>
+                                            <button class="project-list-title-right-add">
+                                                <i class="far fa-plus"></i>
+                                            </button>
+                                            <button class="project-list-title-right-add">
+                                                <i class="fas fa-tools"></i>
+                                            </button>
+                                        </div>
+
+                                    </div>
+
+                                    <!--ADD-->
+                                    <div class="project-list-add">
+                                        <i class="far fa-plus"></i>
+                                    </div>
+
+                                    <!--LISK TASK-->
+                                    <div class="project-list-tasks-task prop ">
+
+                                        <!--TASK TITLE-->
+                                        <p class="project-list-tasks-item-title">
+                                            <i class="fal fa-heading"></i>
+                                            <span>Faire la bare de navigation</span>
+                                        </p>
+
+                                        <!--TASK LEAD-->
+                                        <div class="project-list-tasks-item-lead">
+                                            <img src="public/images/profile/photo_passe.jpg" alt="user profile avatar">
+                                            <span>John DOE</span>
+                                        </div>
+
+                                        <!--TASK STATE-->
+                                        <div class="project-list-tasks-item-state">
+                                            <span>Etat</span>
+                                            <span>
+                                                <span></span>
+                                                <span>Proposée</span>
+                                            </span>
+                                        </div>
+
+                                        <!--TASK MEMBERS-->
+                                        <div class="project-list-tasks-item-members">
+                                            <div class="project-list-tasks-item-members-item success">
+                                                <span>Jean D.</span>
+                                            </div>
+                                            <div class="project-list-tasks-item-members-item danger">
+                                                <span>Pierre P.</span>
+                                            </div>
+                                            <div class="project-list-tasks-item-members-item primary">
+                                                <span>Pierre P.</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <!--LISK TASK-->
+                                    <div class="project-list-tasks-task active ">
+
+                                        <!--TASK TITLE-->
+                                        <p class="project-list-tasks-item-title">
+                                            <i class="fal fa-heading"></i>
+                                            <span>Faire la bare de navigation</span>
+                                        </p>
+
+                                        <!--TASK LEAD-->
+                                        <div class="project-list-tasks-item-lead">
+                                            <img src="public/images/profile/photo_passe.jpg" alt="user profile avatar">
+                                            <span>John DOE</span>
+                                        </div>
+
+                                        <!--TASK STATE-->
+                                        <div class="project-list-tasks-item-state">
+                                            <span>Etat</span>
+                                            <span>
+                                                <span></span>
+                                                <span>Proposée</span>
+                                            </span>
+                                        </div>
+
+                                        <!--TASK MEMBERS-->
+                                        <div class="project-list-tasks-item-members">
+                                            <div class="project-list-tasks-item-members-item success">
+                                                <span>Jean D.</span>
+                                            </div>
+                                            <div class="project-list-tasks-item-members-item danger">
+                                                <span>Pierre P.</span>
+                                            </div>
+                                            <div class="project-list-tasks-item-members-item primary">
+                                                <span>Pierre P.</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <!--LISK DOING-->
+                                <div class="project-list-tasks doing">
+
+                                    <!--TITLE-->
+                                    <div class="project-list-tasks-title">
+                                        <span>Encours</span>
+
+                                        <div class="project-list-tasks-title-right">
+                                            <i class="far fa-clipboard-list"></i>
+                                            <span>/2</span>
+                                            <button class="project-list-title-right-add">
+                                                <i class="far fa-plus"></i>
+                                            </button>
+                                            <button class="project-list-title-right-add">
+                                                <i class="fas fa-tools"></i>
+                                            </button>
+                                        </div>
+
+                                    </div>
+
+                                    <!--LISK TASK-->
+                                    <div class="project-list-tasks-task prop ">
+
+                                        <!--TASK TITLE-->
+                                        <p class="project-list-tasks-item-title">
+                                            <i class="fal fa-heading"></i>
+                                            <span>Faire la bare de navigation</span>
+                                        </p>
+
+                                        <!--TASK LEAD-->
+                                        <div class="project-list-tasks-item-lead">
+                                            <img src="public/images/profile/photo_passe.jpg" alt="user profile avatar">
+                                            <span>John DOE</span>
+                                        </div>
+
+                                        <!--TASK STATE-->
+                                        <div class="project-list-tasks-item-state">
+                                            <span>Etat</span>
+                                            <span>
+                                                <span></span>
+                                                <span>Proposée</span>
+                                            </span>
+                                        </div>
+
+                                        <!--TASK MEMBERS-->
+                                        <div class="project-list-tasks-item-members">
+                                            <div class="project-list-tasks-item-members-item success">
+                                                <span>Jean D.</span>
+                                            </div>
+                                            <div class="project-list-tasks-item-members-item danger">
+                                                <span>Pierre P.</span>
+                                            </div>
+                                            <div class="project-list-tasks-item-members-item primary">
+                                                <span>Pierre P.</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <!--LISK TASK-->
+                                    <div class="project-list-tasks-task active ">
+
+                                        <!--TASK TITLE-->
+                                        <p class="project-list-tasks-item-title">
+                                            <i class="fal fa-heading"></i>
+                                            <span>Faire la bare de navigation</span>
+                                        </p>
+
+                                        <!--TASK LEAD-->
+                                        <div class="project-list-tasks-item-lead">
+                                            <img src="public/images/profile/photo_passe.jpg" alt="user profile avatar">
+                                            <span>John DOE</span>
+                                        </div>
+
+                                        <!--TASK STATE-->
+                                        <div class="project-list-tasks-item-state">
+                                            <span>Etat</span>
+                                            <span>
+                                                <span></span>
+                                                <span>Proposée</span>
+                                            </span>
+                                        </div>
+
+                                        <!--TASK MEMBERS-->
+                                        <div class="project-list-tasks-item-members">
+                                            <div class="project-list-tasks-item-members-item success">
+                                                <span>Jean D.</span>
+                                            </div>
+                                            <div class="project-list-tasks-item-members-item danger">
+                                                <span>Pierre P.</span>
+                                            </div>
+                                            <div class="project-list-tasks-item-members-item primary">
+                                                <span>Pierre P.</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <!--LISK TEST-->
+                                <div class="project-list-tasks test">
+
+                                    <!--TITLE-->
+                                    <div class="project-list-tasks-title">
+                                        <span>Test</span>
+
+                                        <div class="project-list-tasks-title-right">
+                                            <i class="far fa-clipboard-list"></i>
+                                            <span>/2</span>
+                                            <button class="project-list-title-right-add">
+                                                <i class="far fa-plus"></i>
+                                            </button>
+                                            <button class="project-list-title-right-add">
+                                                <i class="fas fa-tools"></i>
+                                            </button>
+                                        </div>
+
+                                    </div>
+
+                                    <!--LISK TASK-->
+                                    <div class="project-list-tasks-task prop ">
+
+                                        <!--TASK TITLE-->
+                                        <p class="project-list-tasks-item-title">
+                                            <i class="fal fa-heading"></i>
+                                            <span>Faire la bare de navigation</span>
+                                        </p>
+
+                                        <!--TASK LEAD-->
+                                        <div class="project-list-tasks-item-lead">
+                                            <img src="public/images/profile/photo_passe.jpg" alt="user profile avatar">
+                                            <span>John DOE</span>
+                                        </div>
+
+                                        <!--TASK STATE-->
+                                        <div class="project-list-tasks-item-state">
+                                            <span>Etat</span>
+                                            <span>
+                                                <span></span>
+                                                <span>Proposée</span>
+                                            </span>
+                                        </div>
+
+                                        <!--TASK MEMBERS-->
+                                        <div class="project-list-tasks-item-members">
+                                            <div class="project-list-tasks-item-members-item success">
+                                                <span>Jean D.</span>
+                                            </div>
+                                            <div class="project-list-tasks-item-members-item danger">
+                                                <span>Pierre P.</span>
+                                            </div>
+                                            <div class="project-list-tasks-item-members-item primary">
+                                                <span>Pierre P.</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <!--LISK TASK-->
+                                    <div class="project-list-tasks-task active ">
+
+                                        <!--TASK TITLE-->
+                                        <p class="project-list-tasks-item-title">
+                                            <i class="fal fa-heading"></i>
+                                            <span>Faire la bare de navigation</span>
+                                        </p>
+
+                                        <!--TASK LEAD-->
+                                        <div class="project-list-tasks-item-lead">
+                                            <img src="public/images/profile/photo_passe.jpg" alt="user profile avatar">
+                                            <span>John DOE</span>
+                                        </div>
+
+                                        <!--TASK STATE-->
+                                        <div class="project-list-tasks-item-state">
+                                            <span>Etat</span>
+                                            <span>
+                                                <span></span>
+                                                <span>Proposée</span>
+                                            </span>
+                                        </div>
+
+                                        <!--TASK MEMBERS-->
+                                        <div class="project-list-tasks-item-members">
+                                            <div class="project-list-tasks-item-members-item success">
+                                                <span>Jean D.</span>
+                                            </div>
+                                            <div class="project-list-tasks-item-members-item danger">
+                                                <span>Pierre P.</span>
+                                            </div>
+                                            <div class="project-list-tasks-item-members-item primary">
+                                                <span>Pierre P.</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <!--LISK INCREMENT-->
+                                <div class="project-list-tasks increment">
+
+                                    <!--TITLE-->
+                                    <div class="project-list-tasks-title">
+                                        <span>Incrementé</span>
+
+                                        <div class="project-list-tasks-title-right">
+                                            <i class="far fa-clipboard-list"></i>
+                                            <span>/2</span>
+                                            <button class="project-list-title-right-add">
+                                                <i class="far fa-plus"></i>
+                                            </button>
+                                            <button class="project-list-title-right-add">
+                                                <i class="fas fa-tools"></i>
+                                            </button>
+                                        </div>
+
+                                    </div>
+
+
+                                    <!--LISK TASK-->
+                                    <div class="project-list-tasks-task prop ">
+
+                                        <!--TASK TITLE-->
+                                        <p class="project-list-tasks-item-title">
+                                            <i class="fal fa-heading"></i>
+                                            <span>Faire la bare de navigation</span>
+                                        </p>
+
+                                        <!--TASK LEAD-->
+                                        <div class="project-list-tasks-item-lead">
+                                            <img src="public/images/profile/photo_passe.jpg" alt="user profile avatar">
+                                            <span>John DOE</span>
+                                        </div>
+
+                                        <!--TASK STATE-->
+                                        <div class="project-list-tasks-item-state">
+                                            <span>Etat</span>
+                                            <span>
+                                                <span></span>
+                                                <span>Proposée</span>
+                                            </span>
+                                        </div>
+
+                                        <!--TASK MEMBERS-->
+                                        <div class="project-list-tasks-item-members">
+                                            <div class="project-list-tasks-item-members-item success">
+                                                <span>Jean D.</span>
+                                            </div>
+                                            <div class="project-list-tasks-item-members-item danger">
+                                                <span>Pierre P.</span>
+                                            </div>
+                                            <div class="project-list-tasks-item-members-item primary">
+                                                <span>Pierre P.</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <!--LISK TASK-->
+                                    <div class="project-list-tasks-task active ">
+
+                                        <!--TASK TITLE-->
+                                        <p class="project-list-tasks-item-title">
+                                            <i class="fal fa-heading"></i>
+                                            <span>Faire la bare de navigation</span>
+                                        </p>
+
+                                        <!--TASK LEAD-->
+                                        <div class="project-list-tasks-item-lead">
+                                            <img src="public/images/profile/photo_passe.jpg" alt="user profile avatar">
+                                            <span>John DOE</span>
+                                        </div>
+
+                                        <!--TASK STATE-->
+                                        <div class="project-list-tasks-item-state">
+                                            <span>Etat</span>
+                                            <span>
+                                                <span></span>
+                                                <span>Proposée</span>
+                                            </span>
+                                        </div>
+
+                                        <!--TASK MEMBERS-->
+                                        <div class="project-list-tasks-item-members">
+                                            <div class="project-list-tasks-item-members-item success">
+                                                <span>Jean D.</span>
+                                            </div>
+                                            <div class="project-list-tasks-item-members-item danger">
+                                                <span>Pierre P.</span>
+                                            </div>
+                                            <div class="project-list-tasks-item-members-item primary">
+                                                <span>Pierre P.</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <!--LISK CLOSED-->
+                                <div class="project-list-tasks closed">
+
+                                    <!--TITLE-->
+                                    <div class="project-list-tasks-title">
+                                        <span>Terminé</span>
+
+                                        <div class="project-list-tasks-title-right">
+                                            <i class="far fa-clipboard-list"></i>
+                                            <span>/2</span>
+                                            <button class="project-list-title-right-add">
+                                                <i class="far fa-plus"></i>
+                                            </button>
+                                            <button class="project-list-title-right-add">
+                                                <i class="fas fa-tools"></i>
+                                            </button>
+                                        </div>
+
+                                    </div>
+
+                                    <!--LISK TASK-->
+                                    <div class="project-list-tasks-task prop ">
+
+                                        <!--TASK TITLE-->
+                                        <p class="project-list-tasks-item-title">
+                                            <i class="fal fa-heading"></i>
+                                            <span>Faire la bare de navigation</span>
+                                        </p>
+
+                                        <!--TASK LEAD-->
+                                        <div class="project-list-tasks-item-lead">
+                                            <img src="public/images/profile/photo_passe.jpg" alt="user profile avatar">
+                                            <span>John DOE</span>
+                                        </div>
+
+                                        <!--TASK STATE-->
+                                        <div class="project-list-tasks-item-state">
+                                            <span>Etat</span>
+                                            <span>
+                                                <span></span>
+                                                <span>Proposée</span>
+                                            </span>
+                                        </div>
+
+                                        <!--TASK MEMBERS-->
+                                        <div class="project-list-tasks-item-members">
+                                            <div class="project-list-tasks-item-members-item success">
+                                                <span>Jean D.</span>
+                                            </div>
+                                            <div class="project-list-tasks-item-members-item danger">
+                                                <span>Pierre P.</span>
+                                            </div>
+                                            <div class="project-list-tasks-item-members-item primary">
+                                                <span>Pierre P.</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <!--LISK TASK-->
+                                    <div class="project-list-tasks-task active ">
+
+                                        <!--TASK TITLE-->
+                                        <p class="project-list-tasks-item-title">
+                                            <i class="fal fa-heading"></i>
+                                            <span>Faire la bare de navigation</span>
+                                        </p>
+
+                                        <!--TASK LEAD-->
+                                        <div class="project-list-tasks-item-lead">
+                                            <img src="public/images/profile/photo_passe.jpg" alt="user profile avatar">
+                                            <span>John DOE</span>
+                                        </div>
+
+                                        <!--TASK STATE-->
+                                        <div class="project-list-tasks-item-state">
+                                            <span>Etat</span>
+                                            <span>
+                                                <span></span>
+                                                <span>Proposée</span>
+                                            </span>
+                                        </div>
+
+                                        <!--TASK MEMBERS-->
+                                        <div class="project-list-tasks-item-members">
+                                            <div class="project-list-tasks-item-members-item success">
+                                                <span>Jean D.</span>
+                                            </div>
+                                            <div class="project-list-tasks-item-members-item danger">
+                                                <span>Pierre P.</span>
+                                            </div>
+                                            <div class="project-list-tasks-item-members-item primary">
+                                                <span>Pierre P.</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+</body>
+
+</html>
