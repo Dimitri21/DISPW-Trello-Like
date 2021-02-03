@@ -1,5 +1,7 @@
 <?php
 
+namespace app\Database;
+
 class SprintoDatabase
 {
     private $db_name;
@@ -50,7 +52,6 @@ class SprintoDatabase
         {
             return $requette;
         }
-
 
         if($class_name === null)
         {

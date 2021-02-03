@@ -1,10 +1,13 @@
 <?php
+namespace app\Controller;
 
-class SignController extends \Controller
+use app\App;
+
+class SignController extends AppController
 {
     public function __construct()
     {
-        $this->loadModel('Users');
+        $this->loadModel('Users','sprinto');
     }
 
     public function login() {

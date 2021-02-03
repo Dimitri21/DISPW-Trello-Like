@@ -1,4 +1,6 @@
 <?php
+namespace app\Entity;
+use app\Entity;
 
 class UsersEntity extends Entity
 {
@@ -44,8 +46,8 @@ class UsersEntity extends Entity
 
     public function __construct()
     {
-        $this->tableName = strtolower(str_replace("Entity","",get_class($this)));
-        $this->getDatabase();
+        $class_name = explode(DIRECTORY_SEPARATOR,get_class($this));
+        $this->tableName = strtolower(str_replace("Entity","",end($class_name)));
         $this->projects = [];
     }
 

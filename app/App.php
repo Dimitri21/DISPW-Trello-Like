@@ -1,7 +1,7 @@
 <?php
 
-namespace App;
-use App\Autoloader;
+namespace app;
+use app\Database\SprintoDatabase;
 
 class App
 {
@@ -20,9 +20,9 @@ class App
         return self::$_instance;
     }
 
-    public function getTable($name)
+    public function getRepository($name)
     {
-        $class_name = '\\App\\Repository\\' . ucfirst($name) . 'Repository';
+        $class_name = '\\app\\Repository\\' . ucfirst($name) . 'Repository';
         return new $class_name($this->getDatabase($this->configPage));
     }
 
@@ -44,15 +44,17 @@ class App
     /**
      * Mise en place de autoloader fait maison
      */
-    public static function start()
+    public function start()
     {
         session_start();
-        require _ROOT . DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.'Autoloader.php';
-        \App\Autoloader::register();
-
-
+        require_once _ROOT.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php';
     }
 
+    /**
+     * @brief allow to get value from config array
+     * @param $key
+     * @return mixed|null
+     */
     public function get($key)
     {
         if(!isset($this->settings[$key]))
@@ -63,6 +65,10 @@ class App
         return $this->settings[$key];
     }
 
+    /**
+     * @brief getting DAtabase config infos
+     * @return array
+     */
     public function getSetting()
     {
         return $this->settings;

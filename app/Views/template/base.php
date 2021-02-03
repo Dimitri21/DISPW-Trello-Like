@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="fr">
 
@@ -18,10 +19,10 @@
     <!--FONT AWESOME PRO -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
+    <title><?=\app\App::getInstance()->titre?></title>
 </head>
 
 <body>
-
     <main class="main">
 
         <!--NAVBAR AREA-->
@@ -103,9 +104,9 @@
     <footer class="footer">
         <div class="my-container">
             <ul class="footer-inner">
-                <li><a href="/politique-de-confidentialite">Politique de confidentialité</a></li>
-                <li><a href="/mentions-legales">Mentions légales</a></li>
-                <li><a href="/conditions-generales-utilisation">Conditions générales d'utilisation</a></li>
+                <li><a href="/politique_de_confidentialite">Politique de confidentialité</a></li>
+                <li><a href="/mentions_legales">Mentions légales</a></li>
+                <li><a href="/conditions_generales_utilisation">Conditions générales d'utilisation</a></li>
             </ul>
         </div>
     </footer>
