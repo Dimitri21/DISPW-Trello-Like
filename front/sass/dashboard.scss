@@ -32,6 +32,12 @@ img {
     width: 100px;
     display: block;
 }
+
+
+button {
+    border: none;
+    outline-style: none;
+}
 $first-color : #004b7b;
 $second-color : #8ee17f;
 $third-color : #00c198;
@@ -318,10 +324,23 @@ $navbar-bg-color: rgb(84, 92, 100);
                 align-items: center;
                 padding: 1.5rem 2rem;
                 background-color: $white-color;
-                i {
-                    cursor: pointer;
-                    color: $primary-color-dark;
-                    font-size: 1.5rem;
+                border: 1px solid red;
+                
+                //Add a new list on the project
+                button {
+                    padding: 0.2rem .5rem;
+                    background-color: $success-color;
+                    border-radius: .3rem;
+                    transition: all .3s ease-in-out;
+
+                    i {
+                        cursor: pointer;
+                        color: $white-color;
+                        font-size: 2rem;
+                    }
+                    &:hover {
+                        background-color: rgba($color: $success-color, $alpha: .5);
+                    }
                 }
             }
             
@@ -550,24 +569,53 @@ $navbar-bg-color: rgb(84, 92, 100);
     }
 
     //TODO - à continuer plus tarde
-    &-task {
+    &-list {
         position: absolute;
         width: 100vw;
         height: 100vh;
         overflow: hidden;
         top: 0;
         left: 50%;
-        transform: translateX(-50%);
-        border: 1px solid red;
+        //transform: translateX(-50%);
         display: flex;
         justify-content: center;
         align-items: center;
+        background-color: rgba($color: $dark-color, $alpha: .5);
+        transform: translateX(100vw);
         &-add {
-            width: 312px;
-            height: 200px;
+            width: 350px;
             border-radius: .3rem;
             background-color: $white-color;
             box-shadow: 0 2px 2px rgba($color: $dark-color, $alpha: .2);
+            &-title {
+                padding: .5rem;
+                text-align: center;
+            }
+            &-form {
+                padding: 1rem;
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    &>* {
+                        margin-top: .5rem;
+                        border: none;
+                        padding: .7rem .5rem;
+                        border-radius: .3rem;
+                        background-color: rgba($color: $dark-color, $alpha: .2);
+                        outline-style: none;
+                    }
+                    button {
+                        background-color: $success-color;
+                        color: $white-color;
+                        font-size: 1.2rem;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        &.show {
+            transform: translateX(-50%);
         }
     }
 }

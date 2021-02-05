@@ -125,7 +125,7 @@
                     <!--PROJECT TITLE-->
                     <div class="dashboard-inner-content-title">
                         <h2>Tableau Création de site </h2>
-                        <button id="list-add"><i class="far fa-plus"></i></button>
+                        <button id="list-add-js"><i class="far fa-plus"></i></button>
                     </div>
 
                     <!--PROJECT CONTENT-->
@@ -234,13 +234,35 @@
 
             </div>
 
+
+
             <div class="dashboard-list">
+                <!--ADD NEW LIST-->
+                <div class="dashboard-list-add">
+
+                    <div class="dashboard-list-add-title">
+                        <h4>Ajouter une liste</h4>
+                    </div>
+
+                    <div class="dashboard-list-add-form">
+
+                        <form method="get" id="dashboard-list-add-form">
+                            <input type="text" name="taskname" placeholder="Nom de la tâche">
+                            <textarea name="description" id="description" cols="20" rows="5"
+                                placeholder="Description"></textarea>
+
+                            <button type="submit" id="">Ajouter</button>
+                        </form>
+
+                    </div>
+
+                </div>
+
                 <div class="dashboard-list-edit">
-                    <form action="/user-list-edit" method="post">
-                        <input type="text" name="taskname" placeholder="Nom de la tâche">
-                    </form>
+
                 </div>
             </div>
+
         </section>
 
     </main>

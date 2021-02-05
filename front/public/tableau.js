@@ -46,7 +46,7 @@ $(document).ready(function () {
     const add_buttons = $('.project-list-title-right-add');
     if (add_buttons) {
         //on click - add task element
-        add_buttons.click(function (event){
+        add_buttons.click(function (event) {
             let id = $(`#${this.id}`);
             let parent = id.parents(".project-list-tasks-task-task");
             let list_container = parent.children(".project-list-tasks-task-body");
@@ -59,7 +59,7 @@ $(document).ready(function () {
                     list_container.prepend(clone)
                     myprint(clone.find('.task-title').text());
                 }
-            }else{
+            } else {
                 //TODO - création d'une tâche
                 let task = ` 
                             <div class="project-list-tasks-task-body-task prop task-js">
@@ -116,7 +116,33 @@ $(document).ready(function () {
             }
         });
     }
+
+    //Add a new list on the project
+    const list_add_btn = $("#list-add-js");
+    if (list_add_btn) {
+        myprint(list_add_btn)
+        list_add_btn.click(event => {
+            let dashboard_list = $('.dashboard-list');
+            if (dashboard_list.length) {
+                dashboard_list.addClass("show")
+                myprint(dashboard_list.classList);
+
+                let create_List_btn = $('#dashboard-list-add-form');
+                if (create_List_btn.length) {
+                    create_List_btn.submit(event => {
+                        event.preventDefault();
+                        dashboard_list.removeClass("show")
+                    });
+                }
+            }
+        })
+
+    }
+
 });
+
+
+
 
 function createTask() {
     const task = null;
