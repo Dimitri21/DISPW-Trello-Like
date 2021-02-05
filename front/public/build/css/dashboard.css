@@ -181,6 +181,7 @@ button {
 
 .dashboard-nav-right-profile-item.profile {
   position: relative;
+  padding-left: 1rem;
 }
 
 .dashboard-nav-right-profile-item.profile .profile-image {
@@ -198,13 +199,14 @@ button {
   overflow: hidden;
   border-radius: 50%;
   border: 2px solid #909399;
+  cursor: pointer;
 }
 
 .dashboard-nav-right-profile-item.profile .profile-image img {
+  display: block;
   position: relative;
-  width: 170%;
-  left: -7px;
-  top: 10px;
+  width: 100%;
+  top: 5px;
 }
 
 .dashboard-nav-right-profile-item-dropdown {
@@ -237,7 +239,7 @@ button {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-.dashboard-nav-right-profile-item-dropdown.active {
+.dashboard-nav-right-profile-item-dropdown.show {
   display: block;
 }
 
@@ -265,6 +267,8 @@ button {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-transition: width .3s ease-in-out;
+  transition: width .3s ease-in-out;
 }
 
 .dashboard-inner-aside-list {
@@ -291,22 +295,32 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
   margin-bottom: 0.1rem;
   background-color: #FFFFFF;
 }
 
-.dashboard-inner-aside-list li i {
-  width: 50px;
-  font-size: 1.5rem;
-  padding: 0 1rem;
-}
-
 .dashboard-inner-aside-list li a {
   width: 100%;
-  display: inline-block;
-  padding: 0.7rem 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.7rem;
+}
+
+.dashboard-inner-aside-list li a i {
+  width: 50px;
+  font-size: 2rem;
+}
+
+.dashboard-inner-aside-list li a span {
+  font-size: 1rem;
 }
 
 .dashboard-inner-aside-list li:hover {
@@ -329,11 +343,7 @@ button {
   color: #F56C6C;
 }
 
-.dashboard-inner-aside-tools a {
-  color: #606266;
-  width: 100%;
-  display: inline-block;
-  padding: 0.7rem 0.5rem;
+.dashboard-inner-aside-tools {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -347,15 +357,56 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 50px;
+  border-top: 2px solid #E4E7ED;
 }
 
-.dashboard-inner-aside-tools a i {
-  height: 100%;
+.dashboard-inner-aside-tools i {
+  cursor: pointer;
+}
+
+.dashboard-inner-aside-tools i:hover {
+  color: rgba(48, 49, 51, 0.5);
+}
+
+.dashboard-inner-aside-tools div {
+  padding: 0 .5rem;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dashboard-inner-aside-tools div i {
   font-size: 1.5rem;
+  margin-right: .7rem;
 }
 
-.dashboard-inner-aside-tools a:hover {
-  background-color: rgba(48, 49, 51, 0.2);
+.dashboard-inner-aside-tools div span {
+  font-size: 1rem;
+}
+
+.dashboard-inner-aside-tools > i {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50px;
+  padding: 0 .5rem;
+  font-size: 1.5rem;
 }
 
 .dashboard-inner-content {
@@ -381,7 +432,6 @@ button {
           align-items: center;
   padding: 1.5rem 2rem;
   background-color: #FFFFFF;
-  border: 1px solid red;
 }
 
 .dashboard-inner-content-title button {
@@ -666,6 +716,356 @@ button {
   background-color: #00c198;
 }
 
+.dashboard-inner.reduce {
+  -ms-grid-columns: 70px 100vw;
+      grid-template-columns: 70px 100vw;
+}
+
+.dashboard-inner.reduce .dashboard-inner-aside {
+  width: 70px;
+}
+
+.dashboard-inner.reduce .dashboard-inner-aside-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: inherit;
+}
+
+.dashboard-inner.reduce .dashboard-inner-aside-list li {
+  text-align: center;
+}
+
+.dashboard-inner.reduce .dashboard-inner-aside-list li a span {
+  display: none;
+}
+
+.dashboard-inner.reduce .dashboard-inner-aside-tools {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.dashboard-inner.reduce .dashboard-inner-aside-tools div span {
+  display: none;
+}
+
+.dashboard-inner.reduce .dashboard-inner-aside-tools > i {
+  width: 0;
+  position: relative;
+  left: -22px;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content {
+  width: 100%;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-title {
+  width: 97%;
+  height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: #FFFFFF;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-title button {
+  padding: 0.2rem .5rem;
+  background-color: #67C23A;
+  border-radius: .3rem;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-title button i {
+  cursor: pointer;
+  color: #FFFFFF;
+  font-size: 2rem;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-title button:hover {
+  background-color: rgba(103, 194, 58, 0.5);
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists {
+  width: inherit;
+  height: 83vh;
+  overflow-x: scroll;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (300px)[6];
+      grid-template-columns: repeat(6, 300px);
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task {
+  width: 300px;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-title {
+  height: 6vh;
+  margin: .2rem 0 2rem 0;
+  padding: .5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #FFFFFF;
+  border-left: 1px solid rgba(48, 49, 51, 0.7);
+  color: rgba(48, 49, 51, 0.7);
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-title-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-title-right div {
+  margin-right: 1rem;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-title-right div span::before {
+  content: "/";
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-title-right i {
+  font-size: 1rem;
+  padding: .2rem;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-title-right button {
+  color: rgba(48, 49, 51, 0.7);
+  padding: 0 .3rem;
+  outline-style: none;
+  border: 1px solid rgba(48, 49, 51, 0.7);
+  cursor: pointer;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-title-right button:first-of-type {
+  border-radius: .3rem 0 0 .3rem;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-title-right button:last-of-type {
+  border-radius: 0 .3rem .3rem 0;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-title-right button:hover {
+  background-color: rgba(48, 49, 51, 0.2);
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-body {
+  height: 77vh;
+  padding: 0 .5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow-y: scroll;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-body-task {
+  width: 265px;
+  position: relative;
+  border-radius: 0 .3rem .3rem 0;
+  margin-bottom: .5rem;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-body-task-front {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-left: 4px solid #67C23A;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 2px 2px rgba(48, 49, 51, 0.2);
+          box-shadow: 0 2px 2px rgba(48, 49, 51, 0.2);
+  padding: .5rem;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-body-task-front-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-body-task-front-title i {
+  font-size: 1.2rem;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-body-task-front-title span {
+  font-size: .8rem;
+  margin-left: .5rem;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-body-task-front-lead {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: .5rem 0;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-body-task-front-lead-picture {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: .5rem;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-body-task-front-lead-picture img {
+  width: 110%;
+  position: relative;
+  left: -3px;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-body-task-front-lead > span {
+  font-weight: 700;
+  color: rgba(48, 49, 51, 0.5);
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-body-task-front-state {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: rgba(48, 49, 51, 0.5);
+  font-size: .8rem;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-body-task-front-state span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-body-task-front-state span > *:first-child {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgba(48, 49, 51, 0.5);
+  margin-right: .2rem;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-body-task-front-members {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-body-task-front-members-item {
+  font-size: .8rem;
+  padding: .1rem .4rem;
+  margin-right: .3rem;
+  border-radius: .3rem;
+  color: #67C23A;
+  background-color: rgba(103, 194, 58, 0.3);
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-body-task:hover {
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-body-task.active .project-list-tasks-body-task-front span > *:first-child {
+  background-color: #4285F4;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-body-task.solve .project-list-tasks-body-task-front span > *:first-child {
+  background-color: #67C23A;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-body-task.tested .project-list-tasks-body-task-front span > *:first-child {
+  background-color: #AA66CC;
+}
+
+.dashboard-inner.reduce .dashboard-inner-content-lists .project-list-tasks-task-body-task.closed .project-list-tasks-body-task-front span > *:first-child {
+  background-color: #00c198;
+}
+
 .dashboard-list {
   position: absolute;
   width: 100vw;
@@ -698,6 +1098,21 @@ button {
 .dashboard-list-add-title {
   padding: .5rem;
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dashboard-list-add-title i {
+  display: inline-block;
+  padding: .3rem;
+  cursor: pointer;
 }
 
 .dashboard-list-add-form {

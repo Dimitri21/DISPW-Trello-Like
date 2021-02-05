@@ -3,10 +3,13 @@
     <div class="login-inner ">
 
         <div class="inner-title">
+
             <div class=" inner-title-circle"></div>
+
             <div class="inner-title-text">
                 <h3>Connexion</h3>
             </div>
+
         </div>
 
         <div class="login-inner-body card">

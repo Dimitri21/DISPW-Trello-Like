@@ -3,11 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="2ebcb4fd-b170-4057-9acc-7278261162e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repository/UsersRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repository/UsersRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/home/cgu.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/home/cgu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/home/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/home/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/public/build/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/public/build/css/dashboard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/public/build/css/dashboard.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/front/public/build/css/dashboard.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/public/tableau.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/public/tableau.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/sass/dashboard.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front/sass/dashboard.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +94,7 @@
       <workItem from="1612276691664" duration="13033000" />
       <workItem from="1612336729225" duration="2135000" />
       <workItem from="1612424713672" duration="2604000" />
+      <workItem from="1612514117169" duration="2249000" />
     </task>
     <servers />
   </component>

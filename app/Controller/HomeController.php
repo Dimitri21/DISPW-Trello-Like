@@ -30,18 +30,22 @@ class HomeController extends AppController
         App::getInstance()->titre = "reinit mot de passe";
         $this->render("admin.users.resetpassword");
     }
+
     public function politique_de_confidentialite() {
         App::getInstance()->titre = "politique de confidentialite";
         $this->render("home.confidentialite");
     }
+
     public function mentions_legales() {
         App::getInstance()->titre = "mentions legales";
         $this->render("home.mentions");
     }
+
     public function conditions_generales_utilisation() {
         App::getInstance()->titre = "conditions generales utilisation";
         $this->render("home.cgu");
     }
+
     public function dashboard() {
         App::getInstance()->titre = "Dashboard";
         $this->render("home.dashboard");

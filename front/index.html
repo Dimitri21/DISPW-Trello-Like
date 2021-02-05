@@ -58,12 +58,12 @@
                             <a href="#">
                                 <i class="fal fa-user-circle"></i>
                             </a> -->
-                            <a href="#" class="profile-image">
+                            <div href="#" class="profile-image" id="dropdown_js">
                                 <img src="public/images/profile/photo_passe.jpg" alt="profile picture">
-                            </a>
+                            </div>
 
                             <!--DROPDOWN-->
-                            <div class="dashboard-nav-right-profile-item-dropdown">
+                            <div class="dashboard-nav-right-profile-item-dropdown " id="profile_dropdown_js">
                                 <ul>
                                     <li><a href="/user-parametre">Parametre</a></li>
                                     <li><a href="/profile">Profile</a></li>
@@ -80,7 +80,7 @@
             </div>
 
             <!--CONTENT-->
-            <div class="dashboard-inner">
+            <div class="dashboard-inner" id="dashboard_inner_js">
 
                 <!--ASIDE BAR-->
                 <div class="dashboard-inner-aside">
@@ -88,39 +88,43 @@
                     <nav class="dashboard-inner-aside-list">
 
                         <li class="projects">
-                            <i class="fas fa-tools"></i>
-                            <a href="#">Tableau</a>
+                            <a href="#">
+                                <i class="fas fa-tools"></i> <span>Tableau</span>
+                            </a>
                         </li>
 
                         <li class="members">
-                            <i class="fas fa-clipboard"></i>
-                            <a href="#">Membres</a>
+                            <a href="#">
+                                <i class="fas fa-clipboard"></i> <span>Membres</span>
+                            </a>
                         </li>
 
                         <li class="lists">
-                            <i class="fas fa-address-card"></i>
-                            <a href="#">Listes</a>
+                            <a href="#">
+                                <i class="fas fa-address-card"></i> <span>Listes</span>
+                            </a>
                         </li>
 
                         <li class="tasks">
-                            <i class="fab fa-gitlab"></i>
-                            <a href="#">Tâches</a>
+                            <a href="#">
+                                <i class="fab fa-gitlab"></i> <span>Tâches</span>
+                            </a>
                         </li>
                     </nav>
 
                     <!--SETTING ON BOTTOM-->
                     <div class="dashboard-inner-aside-tools">
-                        <a href="#">
+                        <div>
                             <i class="fal fa-cog"></i>
                             <span>Project settings</span>
-                            <i class="fal fa-chevron-double-left"></i>
-                        </a>
+                        </div>
+                        <i class="fal fa-chevron-double-left" id="setting_chevron_js"></i>
                     </div>
 
                 </div>
 
                 <!--CONTENT-->
-                <div class="dashboard-inner-content">
+                <div class="dashboard-inner-content" id="dashboard_inner_content_js">
 
                     <!--PROJECT TITLE-->
                     <div class="dashboard-inner-content-title">
@@ -133,7 +137,7 @@
 
                         <div class="dashboard-inner-content-lists-item">
 
-                            <div class="project-list">
+                            <div class="project-list" id="tasks_js">
 
                                 <!--LISK TODO-->
                                 <div class="project-list-tasks todo">
@@ -146,16 +150,20 @@
                                             <span class="project-list-tasks-task-title-js">A faire</span>
 
                                             <div class="project-list-tasks-task-title-right">
+
                                                 <div>
                                                     <i class="far fa-clipboard-list"></i>
-                                                    <span>2</span>
+                                                    <span class="nb_task_js">2</span>
                                                 </div>
+
                                                 <button class="project-list-title-right-add" id="btn-todo">
                                                     <i class="far fa-plus"></i>
                                                 </button>
+
                                                 <button class="project-list-title-right-add">
                                                     <i class="fas fa-tools"></i>
                                                 </button>
+
                                             </div>
                                         </div>
 
@@ -224,6 +232,72 @@
 
                                 </div>
 
+                                <!--LISK DOING-->
+                                <div class="project-list-tasks doing">
+
+                                    <!--TASK FRONT-->
+                                    <div class="project-list-tasks-task-task">
+
+                                        <!--LIST TITLE-->
+                                        <div class="project-list-tasks-task-title">
+                                            <span class="project-list-tasks-task-title-js">Doing</span>
+
+                                            <div class="project-list-tasks-task-title-right">
+                                                <div>
+                                                    <i class="far fa-clipboard-list"></i>
+                                                    <span>2</span>
+                                                </div>
+                                                <button class="project-list-title-right-add" id="btn-doing">
+                                                    <i class="far fa-plus"></i>
+                                                </button>
+                                                <button class="project-list-title-right-add">
+                                                    <i class="fas fa-tools"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <!--LIST BODY-->
+                                        <div class="project-list-tasks-task-body">
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <!--LISK CLOSE-->
+                                <div class="project-list-tasks close">
+
+                                    <!--TASK FRONT-->
+                                    <div class="project-list-tasks-task-task">
+
+                                        <!--LIST TITLE-->
+                                        <div class="project-list-tasks-task-title">
+                                            <span class="project-list-tasks-task-title-js">Terminé</span>
+
+                                            <div class="project-list-tasks-task-title-right">
+                                                <div>
+                                                    <i class="far fa-clipboard-list"></i>
+                                                    <span>2</span>
+                                                </div>
+                                                <button class="project-list-title-right-add" id="btn-doing">
+                                                    <i class="far fa-plus"></i>
+                                                </button>
+                                                <button class="project-list-title-right-add">
+                                                    <i class="fas fa-tools"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <!--LIST BODY-->
+                                        <div class="project-list-tasks-task-body">
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
                             </div>
 
                         </div>
@@ -236,12 +310,13 @@
 
 
 
-            <div class="dashboard-list">
+            <div class="dashboard-list ">
                 <!--ADD NEW LIST-->
                 <div class="dashboard-list-add">
 
                     <div class="dashboard-list-add-title">
                         <h4>Ajouter une liste</h4>
+                        <i class="fal fa-times" id="list_add-close-js"></i>
                     </div>
 
                     <div class="dashboard-list-add-form">
