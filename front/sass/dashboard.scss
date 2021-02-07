@@ -76,12 +76,9 @@ $navbar-bg-color: rgb(84, 92, 100);
         align-items: center;
         max-width:inherit;
         background-color: $grey1-color;
-        height: 7vh;
+        height: 55px;
         max-width: inherit;
-
         &-left {
-
-            padding: .3rem 0 ;
             padding-left: .5rem;
             border-right: 4px solid $white-color;
             img {
@@ -233,6 +230,7 @@ $navbar-bg-color: rgb(84, 92, 100);
         width: inherit;
         height: 93vh;
         overflow: hidden;
+        transition: all .3s ease-in-out;
         //ASIDE
         &-aside {
             width: 22vw;
@@ -240,7 +238,6 @@ $navbar-bg-color: rgb(84, 92, 100);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: width .3s ease-in-out;
             
             &-list {
                 display: flex;
@@ -254,6 +251,7 @@ $navbar-bg-color: rgb(84, 92, 100);
                     align-items: center;
                     margin-bottom: 0.1rem;
                     background-color: $white-color;
+                    transition: background-color .3s ease-in-out;
                     a {
                         width: 100%;
                         display: flex;
@@ -271,6 +269,10 @@ $navbar-bg-color: rgb(84, 92, 100);
 
                     &:hover {
                         background-color: rgba($color: $dark-color, $alpha: .2);
+                    }
+                    &.active {
+                        border-left: 5px solid $success-color;
+                        background-color: rgba($color: $success-color, $alpha: .2);
                     }
 
                     &.projects {
@@ -345,7 +347,6 @@ $navbar-bg-color: rgb(84, 92, 100);
             width: 78vw;
             max-width:inherit;
             background-color: $grey-color;
-            
             &-title {
                 height: 10vh;
                 display: flex;
@@ -356,12 +357,11 @@ $navbar-bg-color: rgb(84, 92, 100);
                 background-color: $white-color;
                 
                 //Add a new list on the project
-                button {
+                span {
                     padding: 0.2rem .5rem;
                     background-color: $success-color;
                     border-radius: .3rem;
                     transition: all .3s ease-in-out;
-
                     i {
                         cursor: pointer;
                         color: $white-color;
@@ -383,8 +383,9 @@ $navbar-bg-color: rgb(84, 92, 100);
 
                     //DEFAULT LIST
                     &-tasks {
-
+                        
                         &-task {
+                            
                             width: 300px;
                             //LIST TITLE
                             &-title {
@@ -440,15 +441,14 @@ $navbar-bg-color: rgb(84, 92, 100);
                                 display: flex;
                                 flex-direction: column;
                                 overflow-y: scroll;
-                            
+                                
+
                                 //TASK
                                 &-task {
-                                    width: 265px;
                                     position: relative;
                                     border-radius: 0 .3rem .3rem 0;
                                     margin-bottom: .5rem;
-                                    &-front {
-                                        width: 100%;
+
                                         display: flex;
                                         flex-direction: column;
                                         justify-content: space-between;
@@ -531,7 +531,6 @@ $navbar-bg-color: rgb(84, 92, 100);
                                             }
                                         }
                                     
-                                    }
 
                                     transition: all .3s ease-in-out;
                                     
@@ -639,7 +638,7 @@ $navbar-bg-color: rgb(84, 92, 100);
                     flex-direction: row;
                     justify-content: space-between;
                     align-items: center;
-                    padding: 1.5rem 2rem;
+                    padding: 1.5rem 4rem 1.5rem 2rem;
                     background-color: $white-color;
                     
                     //Add a new list on the project
@@ -886,28 +885,29 @@ $navbar-bg-color: rgb(84, 92, 100);
     }
 
     //TODO - à continuer plus tarde
-    &-list {
+    &-list,&-task {
         position: absolute;
         width: 100vw;
         height: 100vh;
         overflow: hidden;
         top: 0;
-        left: 50%;
-        //transform: translateX(-50%);
-        display: flex;
+        left: 0;
+        display: none;
         justify-content: center;
         align-items: center;
         background-color: rgba($color: $dark-color, $alpha: .5);
-        transform: translateX(100vw);
-
-        &-add , &-config{
+        
+        &-add{
             width: 350px;
+            margin: 0 auto;
             border-radius: .3rem;
             background-color: $white-color;
             box-shadow: 0 2px 2px rgba($color: $dark-color, $alpha: .2);
+            transform: translateX(100vw);
+            transition: transform 0.3s ease-in-out;
 
             &-title {
-                padding: .5rem;
+                padding: .5rem .8rem;
                 text-align: center;
                 display: flex;
                 justify-content: space-between;
@@ -943,15 +943,63 @@ $navbar-bg-color: rgb(84, 92, 100);
         }
 
 
-        &.show {
-
+        &.show{
+            display: flex;
             .dashboard-list-add.add {
-                display: block;
+                transform: translateX(0);
             } 
-
-            .dashboard-list-config.add {
-                display: block;
+    
+            .dashboard-task-add.add {
+                transform: translateX(0);
             } 
         }
+
+        //Task ADD 
+        &-task-add{
+            width: 350px;
+            margin: 0 auto;
+            border-radius: .3rem;
+            background-color: $white-color;
+            box-shadow: 0 2px 2px rgba($color: $dark-color, $alpha: .2);
+            //transform: translateX(100vw);
+            transition: transform 0.3s ease-in-out;
+    
+            &-title {
+                padding: .5rem .8rem;
+                text-align: center;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                i{
+                    display: inline-block;
+                    padding: .3rem;
+                    cursor: pointer;
+                }
+            }
+    
+            &-form {
+                padding: 1rem;
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    &>* {
+                        margin-top: .5rem;
+                        border: none;
+                        padding: .7rem .5rem;
+                        border-radius: .3rem;
+                        background-color: rgba($color: $dark-color, $alpha: .2);
+                        outline-style: none;
+                    }
+                    button {
+                        background-color: $success-color;
+                        color: $white-color;
+                        font-size: 1.2rem;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
     }
+
+
 }

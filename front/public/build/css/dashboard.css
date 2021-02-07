@@ -54,12 +54,11 @@ button {
           align-items: center;
   max-width: inherit;
   background-color: #E4E7ED;
-  height: 7vh;
+  height: 55px;
   max-width: inherit;
 }
 
 .dashboard-nav-left {
-  padding: .3rem 0;
   padding-left: .5rem;
   border-right: 4px solid #FFFFFF;
 }
@@ -252,6 +251,8 @@ button {
   width: inherit;
   height: 93vh;
   overflow: hidden;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
 .dashboard-inner-aside {
@@ -267,8 +268,6 @@ button {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-transition: width .3s ease-in-out;
-  transition: width .3s ease-in-out;
 }
 
 .dashboard-inner-aside-list {
@@ -297,6 +296,8 @@ button {
           align-items: center;
   margin-bottom: 0.1rem;
   background-color: #FFFFFF;
+  -webkit-transition: background-color .3s ease-in-out;
+  transition: background-color .3s ease-in-out;
 }
 
 .dashboard-inner-aside-list li a {
@@ -325,6 +326,11 @@ button {
 
 .dashboard-inner-aside-list li:hover {
   background-color: rgba(48, 49, 51, 0.2);
+}
+
+.dashboard-inner-aside-list li.active {
+  border-left: 5px solid #67C23A;
+  background-color: rgba(103, 194, 58, 0.2);
 }
 
 .dashboard-inner-aside-list li.projects i {
@@ -434,7 +440,7 @@ button {
   background-color: #FFFFFF;
 }
 
-.dashboard-inner-content-title button {
+.dashboard-inner-content-title span {
   padding: 0.2rem .5rem;
   background-color: #67C23A;
   border-radius: .3rem;
@@ -442,13 +448,13 @@ button {
   transition: all .3s ease-in-out;
 }
 
-.dashboard-inner-content-title button i {
+.dashboard-inner-content-title span i {
   cursor: pointer;
   color: #FFFFFF;
   font-size: 2rem;
 }
 
-.dashboard-inner-content-title button:hover {
+.dashboard-inner-content-title span:hover {
   background-color: rgba(103, 194, 58, 0.5);
 }
 
@@ -551,16 +557,9 @@ button {
 }
 
 .dashboard-inner-content-lists .project-list-tasks-task-body-task {
-  width: 265px;
   position: relative;
   border-radius: 0 .3rem .3rem 0;
   margin-bottom: .5rem;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-}
-
-.dashboard-inner-content-lists .project-list-tasks-task-body-task-front {
-  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -576,9 +575,11 @@ button {
   -webkit-box-shadow: 0 2px 2px rgba(48, 49, 51, 0.2);
           box-shadow: 0 2px 2px rgba(48, 49, 51, 0.2);
   padding: .5rem;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
-.dashboard-inner-content-lists .project-list-tasks-task-body-task-front-title {
+.dashboard-inner-content-lists .project-list-tasks-task-body-task-title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -591,16 +592,16 @@ button {
           align-items: center;
 }
 
-.dashboard-inner-content-lists .project-list-tasks-task-body-task-front-title i {
+.dashboard-inner-content-lists .project-list-tasks-task-body-task-title i {
   font-size: 1.2rem;
 }
 
-.dashboard-inner-content-lists .project-list-tasks-task-body-task-front-title span {
+.dashboard-inner-content-lists .project-list-tasks-task-body-task-title span {
   font-size: .8rem;
   margin-left: .5rem;
 }
 
-.dashboard-inner-content-lists .project-list-tasks-task-body-task-front-lead {
+.dashboard-inner-content-lists .project-list-tasks-task-body-task-lead {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -614,7 +615,7 @@ button {
   margin: .5rem 0;
 }
 
-.dashboard-inner-content-lists .project-list-tasks-task-body-task-front-lead-picture {
+.dashboard-inner-content-lists .project-list-tasks-task-body-task-lead-picture {
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -622,18 +623,18 @@ button {
   margin-right: .5rem;
 }
 
-.dashboard-inner-content-lists .project-list-tasks-task-body-task-front-lead-picture img {
+.dashboard-inner-content-lists .project-list-tasks-task-body-task-lead-picture img {
   width: 110%;
   position: relative;
   left: -3px;
 }
 
-.dashboard-inner-content-lists .project-list-tasks-task-body-task-front-lead > span {
+.dashboard-inner-content-lists .project-list-tasks-task-body-task-lead > span {
   font-weight: 700;
   color: rgba(48, 49, 51, 0.5);
 }
 
-.dashboard-inner-content-lists .project-list-tasks-task-body-task-front-state {
+.dashboard-inner-content-lists .project-list-tasks-task-body-task-state {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -651,7 +652,7 @@ button {
   font-size: .8rem;
 }
 
-.dashboard-inner-content-lists .project-list-tasks-task-body-task-front-state span {
+.dashboard-inner-content-lists .project-list-tasks-task-body-task-state span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -664,7 +665,7 @@ button {
           align-items: center;
 }
 
-.dashboard-inner-content-lists .project-list-tasks-task-body-task-front-state span > *:first-child {
+.dashboard-inner-content-lists .project-list-tasks-task-body-task-state span > *:first-child {
   display: inline-block;
   width: 15px;
   height: 15px;
@@ -673,7 +674,7 @@ button {
   margin-right: .2rem;
 }
 
-.dashboard-inner-content-lists .project-list-tasks-task-body-task-front-members {
+.dashboard-inner-content-lists .project-list-tasks-task-body-task-members {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -686,7 +687,7 @@ button {
           align-items: center;
 }
 
-.dashboard-inner-content-lists .project-list-tasks-task-body-task-front-members-item {
+.dashboard-inner-content-lists .project-list-tasks-task-body-task-members-item {
   font-size: .8rem;
   padding: .1rem .4rem;
   margin-right: .3rem;
@@ -780,7 +781,7 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem 4rem 1.5rem 2rem;
   background-color: #FFFFFF;
 }
 
@@ -1066,16 +1067,14 @@ button {
   background-color: #00c198;
 }
 
-.dashboard-list {
+.dashboard-list, .dashboard-task {
   position: absolute;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   top: 0;
-  left: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  left: 0;
+  display: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -1083,20 +1082,25 @@ button {
       -ms-flex-align: center;
           align-items: center;
   background-color: rgba(48, 49, 51, 0.5);
-  -webkit-transform: translateX(100vw);
-          transform: translateX(100vw);
 }
 
-.dashboard-list-add {
+.dashboard-list-add, .dashboard-task-add {
   width: 350px;
+  margin: 0 auto;
   border-radius: .3rem;
   background-color: #FFFFFF;
   -webkit-box-shadow: 0 2px 2px rgba(48, 49, 51, 0.2);
           box-shadow: 0 2px 2px rgba(48, 49, 51, 0.2);
+  -webkit-transform: translateX(100vw);
+          transform: translateX(100vw);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
 
-.dashboard-list-add-title {
-  padding: .5rem;
+.dashboard-list-add-title, .dashboard-task-add-title {
+  padding: .5rem .8rem;
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1109,17 +1113,17 @@ button {
           align-items: center;
 }
 
-.dashboard-list-add-title i {
+.dashboard-list-add-title i, .dashboard-task-add-title i {
   display: inline-block;
   padding: .3rem;
   cursor: pointer;
 }
 
-.dashboard-list-add-form {
+.dashboard-list-add-form, .dashboard-task-add-form {
   padding: 1rem;
 }
 
-.dashboard-list-add-form form {
+.dashboard-list-add-form form, .dashboard-task-add-form form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1129,7 +1133,7 @@ button {
           flex-direction: column;
 }
 
-.dashboard-list-add-form form > * {
+.dashboard-list-add-form form > *, .dashboard-task-add-form form > * {
   margin-top: .5rem;
   border: none;
   padding: .7rem .5rem;
@@ -1138,15 +1142,89 @@ button {
   outline-style: none;
 }
 
-.dashboard-list-add-form form button {
+.dashboard-list-add-form form button, .dashboard-task-add-form form button {
   background-color: #67C23A;
   color: #FFFFFF;
   font-size: 1.2rem;
   cursor: pointer;
 }
 
-.dashboard-list.show {
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+.dashboard-list.show, .dashboard-task.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dashboard-list.show .dashboard-list-add.add, .dashboard-task.show .dashboard-list-add.add {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.dashboard-list.show .dashboard-task-add.add, .dashboard-task.show .dashboard-task-add.add {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.dashboard-list-task-add, .dashboard-task-task-add {
+  width: 350px;
+  margin: 0 auto;
+  border-radius: .3rem;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 2px 2px rgba(48, 49, 51, 0.2);
+          box-shadow: 0 2px 2px rgba(48, 49, 51, 0.2);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+.dashboard-list-task-add-title, .dashboard-task-task-add-title {
+  padding: .5rem .8rem;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dashboard-list-task-add-title i, .dashboard-task-task-add-title i {
+  display: inline-block;
+  padding: .3rem;
+  cursor: pointer;
+}
+
+.dashboard-list-task-add-form, .dashboard-task-task-add-form {
+  padding: 1rem;
+}
+
+.dashboard-list-task-add-form form, .dashboard-task-task-add-form form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.dashboard-list-task-add-form form > *, .dashboard-task-task-add-form form > * {
+  margin-top: .5rem;
+  border: none;
+  padding: .7rem .5rem;
+  border-radius: .3rem;
+  background-color: rgba(48, 49, 51, 0.2);
+  outline-style: none;
+}
+
+.dashboard-list-task-add-form form button, .dashboard-task-task-add-form form button {
+  background-color: #67C23A;
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 /*# sourceMappingURL=dashboard.css.map */
