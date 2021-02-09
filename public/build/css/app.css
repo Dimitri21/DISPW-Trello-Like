@@ -617,9 +617,23 @@ body {
 
 .home .section-CTA {
   padding-bottom: 15vh;
-  margin: auto;
   max-width: 1200px;
-  text-align: center;
+}
+
+.home .section-CTA div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .home .section-contact {
@@ -689,7 +703,7 @@ body {
 
 @media screen and (max-width: 800px) {
   .home h1 {
-    font-size: 35px;
+    font-size: 37px;
   }
   .home h2 {
     font-size: 30px;
@@ -701,11 +715,15 @@ body {
     padding-top: 50px;
     padding-bottom: 50px;
   }
-  .home .subsection, .home .section-CTA div, .home .contact-form {
+  .home .subsection, .home .section-CTA {
+    text-align: center;
+    max-width: 500px;
+  }
+  .home .subsection, .home .section-CTA, .home .contact-form {
     width: 90%;
   }
   .home .animation {
-    display: none;
+    display: none !important;
   }
   .home .flex {
     -webkit-box-orient: vertical;
@@ -716,6 +734,13 @@ body {
   .home .section-contact {
     padding-top: 50px;
     padding-bottom: 50px;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+  .home .subsection, .home .section-CTA {
+    margin-left: 10vh;
+    margin-right: 10vh;
   }
 }
 

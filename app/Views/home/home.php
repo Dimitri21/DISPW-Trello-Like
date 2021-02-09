@@ -43,12 +43,14 @@
             <div>
                 <div class="animation">
                     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                    <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_jvkbug4h.json"  background="transparent"  speed="1"  style="width: 500px; height: 400px;"  loop autoplay></lottie-player>
+                    <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_jvkbug4h.json"  background="transparent"  speed="1"  style="width: 500px; height: 300px;"  loop autoplay></lottie-player>
                 </div>
-                <h3>
-                    N'attendez plus pour vous inscrire
-                </h3>
-                <button class="btn-CTA">Inscrivez vous, c'est gratuit</button>
+                <div>
+                    <h3>
+                        N'attendez plus pour vous inscrire
+                    </h3>
+                    <button class="btn-CTA">Inscrivez vous, c'est gratuit</button>
+                </div>
             </div>
         </section>
 
