@@ -1,0 +1,142 @@
+.home {
+    color: #363636;
+
+    h1, h2, h3, h4, h5, h6 {
+        margin-bottom: 1rem;
+    }
+    
+    h1 {
+        font-size: 3.2em;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    h3 {
+        font-size: 2.8rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+    .wrapper {
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .flex {
+        display: flex;
+        align-items: center;
+    }
+
+    .jc {
+        justify-content: center;
+    }
+
+    .row {
+        flex-direction: row;
+    }
+
+    .col {
+        flex-direction: column;
+    }
+
+    .btn-CTA {
+        padding: 15px;
+        padding-left: 25px;
+        padding-right: 25px;
+        color: white;
+        font-size: 1.2rem;
+        font-weight: 400;
+        border-radius: 25px !important;
+        border: none;
+        margin-top: 2rem;
+        background: linear-gradient(to left, $second-color, $third-color);
+        box-shadow: 3px 3px 6px 0.5px rgba(0, 0, 0, .2);
+    }
+
+
+    .hero-section-1, .hero-section-2 {
+        width: 50%;
+    }
+
+    .subhero {
+        background: #004b7b;
+        color: white;
+        
+        .subhero-section-1, .subhero-section-2 {
+            width: 50%;
+        }
+        
+    }
+
+    .section-CTA {
+        padding-top: 15vh;
+        padding-bottom: 15vh;
+        margin: auto;
+        max-width: 1200px;
+        text-align: center;
+    }
+
+    .section-contact {
+        background: #004b7b;
+        padding-top: 15vh;
+        padding-bottom: 15vh;
+        display: flex;        
+        justify-content: center;
+
+        h3 {
+            color: white;
+        }
+
+        .contact-form {
+    
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            form {
+                
+                width: 400px;
+
+                div {
+                    display: flex;
+                    flex-direction: column;
+                }
+                    
+                label {
+                    margin-top: 10px;
+                    color: white;
+                    padding-left: 10px;
+                }
+            
+                input, textarea {
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    border-radius: 10px;
+                    border: none;
+                    padding: 7px;
+                }
+    
+                textarea {
+                    padding: 5px;
+                    padding-top: 10px;
+                }
+
+                input[type="submit"] {
+                margin: auto;
+                width: 300px;
+                margin-top: 20px;
+                }
+
+
+
+            }
+
+        }
+
+    }
+
+
+}
