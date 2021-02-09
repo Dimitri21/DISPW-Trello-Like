@@ -28,18 +28,8 @@
     .flex {
         display: flex;
         align-items: center;
-    }
-
-    .jc {
         justify-content: center;
-    }
-
-    .row {
         flex-direction: row;
-    }
-
-    .col {
-        flex-direction: column;
     }
 
     .btn-CTA {
@@ -54,10 +44,21 @@
         margin-top: 2rem;
         background: linear-gradient(to left, $second-color, $third-color);
         box-shadow: 3px 3px 6px 0.5px rgba(0, 0, 0, .2);
+        transition: all .5s ease-in-out;
+
+        &:hover, &:focus {
+            transform: scale(1.05);
+            cursor: pointer;
+
+        }
     }
 
+    .animation {
+        display: flex;
+        justify-content: center;
+    }
 
-    .hero-section-1, .hero-section-2 {
+    .subsection {
         width: 50%;
     }
 
@@ -72,7 +73,6 @@
     }
 
     .section-CTA {
-        padding-top: 15vh;
         padding-bottom: 15vh;
         margin: auto;
         max-width: 1200px;
@@ -97,8 +97,6 @@
             justify-content: center;
 
             form {
-                
-                width: 400px;
 
                 div {
                     display: flex;
@@ -136,6 +134,46 @@
 
         }
 
+    }
+
+
+}
+
+@media screen and (max-width: 800px) {
+
+    .home {
+
+        h1 {
+            font-size: 35px;
+        }
+
+        h2 {
+            font-size: 30px;
+        }
+
+        section {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .subsection {
+            width: 90%;
+        }
+
+        .animation {
+            display: none;
+        }
+    
+        .flex {
+            flex-direction: column;
+        }
+
+        .section-contact {
+            padding-top: 50px;
+            padding-bottom: 50px;
+         
+        }
+        
     }
 
 

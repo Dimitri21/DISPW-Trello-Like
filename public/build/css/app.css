@@ -560,26 +560,13 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.home .jc {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-.home .row {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-}
-
-.home .col {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
 }
 
 .home .btn-CTA {
@@ -596,9 +583,26 @@ body {
   background: linear-gradient(to left, #8ee17f, #00c198);
   -webkit-box-shadow: 3px 3px 6px 0.5px rgba(0, 0, 0, 0.2);
           box-shadow: 3px 3px 6px 0.5px rgba(0, 0, 0, 0.2);
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
 }
 
-.home .hero-section-1, .home .hero-section-2 {
+.home .btn-CTA:hover, .home .btn-CTA:focus {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  cursor: pointer;
+}
+
+.home .animation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.home .subsection {
   width: 50%;
 }
 
@@ -612,7 +616,6 @@ body {
 }
 
 .home .section-CTA {
-  padding-top: 15vh;
   padding-bottom: 15vh;
   margin: auto;
   max-width: 1200px;
@@ -648,10 +651,6 @@ body {
           justify-content: center;
 }
 
-.home .section-contact .contact-form form {
-  width: 400px;
-}
-
 .home .section-contact .contact-form form div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -685,6 +684,35 @@ body {
   margin: auto;
   width: 300px;
   margin-top: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .home h1 {
+    font-size: 35px;
+  }
+  .home h2 {
+    font-size: 30px;
+  }
+  .home section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .home .subsection {
+    width: 90%;
+  }
+  .home .animation {
+    display: none;
+  }
+  .home .flex {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .home .section-contact {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
 }
 
 .error {

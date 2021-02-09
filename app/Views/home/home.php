@@ -1,8 +1,8 @@
 <div class="home">
     <div>
     
-        <section class="section-hero wrapper flex jc row">
-            <div class="hero-section-1">
+        <section class="section-hero wrapper flex">
+            <div class="subsection">
                 <h1>
                     Collaborer activement avec vos équipes
                 </h1>
@@ -11,20 +11,24 @@
                 </p>
                 <button class="btn-CTA">Inscrivez vous, c'est gratuit</button>
             </div>
-            <div class="hero-section-2">
-                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_rycdh53q.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop  autoplay></lottie-player>
+            <div class="subsection">
+                <div class="animation">
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_rycdh53q.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop  autoplay></lottie-player>
+                </div>
             </div>
         </section>
 
         <section class="subhero">
-            <div class="wrapper flex jc row">
-                <div class="subhero-section-1">
-                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                    <lottie-player src="https://assets1.lottiefiles.com/private_files/lf30_lKuCPz.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop autoplay></lottie-player>
+            <div class="wrapper flex">
+                <div class="subsection">
+                    <div class="animation">
+                        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                        <lottie-player src="https://assets1.lottiefiles.com/private_files/lf30_lKuCPz.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop autoplay></lottie-player>
+                    </div>
                 </div>
     
-                <div class="subhero-section-2">
+                <div class="subsection">
                     <h2>
                         Créer et gérer simplement vos tableaux Kanban
                     </h2>
@@ -37,13 +41,14 @@
 
         <section class="section-CTA">
             <div>
-  
-                    <h3>
-                        N'attendez plus pour vous inscrire
-                    </h3>
-                    <button class="btn-CTA">Inscrivez vous, c'est gratuit</button>
-
-         
+                <div class="animation">
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_jvkbug4h.json"  background="transparent"  speed="1"  style="width: 500px; height: 400px;"  loop autoplay></lottie-player>
+                </div>
+                <h3>
+                    N'attendez plus pour vous inscrire
+                </h3>
+                <button class="btn-CTA">Inscrivez vous, c'est gratuit</button>
             </div>
         </section>
 
