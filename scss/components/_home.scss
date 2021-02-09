@@ -85,9 +85,11 @@
         padding-bottom: 15vh;
         display: flex;        
         justify-content: center;
+       
 
         h3 {
             color: white;
+            text-align: center;
         }
 
         .contact-form {
@@ -151,12 +153,16 @@
             font-size: 30px;
         }
 
+        h3 {
+            font-size: 32px;;
+        }
+
         section {
             padding-top: 50px;
             padding-bottom: 50px;
         }
 
-        .subsection {
+        .subsection, .section-CTA div, .contact-form {
             width: 90%;
         }
 

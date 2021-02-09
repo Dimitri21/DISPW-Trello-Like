@@ -636,6 +636,7 @@ body {
 
 .home .section-contact h3 {
   color: white;
+  text-align: center;
 }
 
 .home .section-contact .contact-form {
@@ -693,11 +694,14 @@ body {
   .home h2 {
     font-size: 30px;
   }
+  .home h3 {
+    font-size: 32px;
+  }
   .home section {
     padding-top: 50px;
     padding-bottom: 50px;
   }
-  .home .subsection {
+  .home .subsection, .home .section-CTA div, .home .contact-form {
     width: 90%;
   }
   .home .animation {
