@@ -2,6 +2,8 @@
 
 namespace app\Database;
 
+use PDO;
+
 class SprintoDatabase
 {
     private $db_name;
@@ -32,9 +34,6 @@ class SprintoDatabase
     {
         if($this->pdo === null)
         {
-
-            //$pdo = new PDO('mysql:dbname='.$db_name.';host=localhost;charset=utf8','tutofree_tutofree','Hackerangola1');
-
             $pdo = new PDO('mysql:dbname='.$db_name.';charset=utf8;host='.$this->db_host,$this->db_user,$this->db_pass);
             $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             $this->pdo = $pdo;

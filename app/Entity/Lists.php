@@ -6,7 +6,7 @@ namespace App\Entity;
 
 use DateTimeZone;
 
-class ListsEntity
+class Lists
 {
     /**
      * @var int
@@ -29,7 +29,7 @@ class ListsEntity
     private $createAt;
 
     /**
-     * @var array TaskEntity
+     * @var array Task
      */
     private $tasks;
 
@@ -51,7 +51,7 @@ class ListsEntity
 
     /**
      * @param int $id
-     * @return ListsEntity
+     * @return Lists
      */
     public function setId($id)
     {
@@ -69,7 +69,7 @@ class ListsEntity
 
     /**
      * @param string $name
-     * @return ListsEntity
+     * @return Lists
      */
     public function setName($name)
     {
@@ -87,7 +87,7 @@ class ListsEntity
 
     /**
      * @param string $description
-     * @return ListsEntity
+     * @return Lists
      */
     public function setDescription($description)
     {
@@ -105,7 +105,7 @@ class ListsEntity
 
     /**
      * @param DateTimeZone $createAt
-     * @return ListsEntity
+     * @return Lists
      */
     public function setCreateAt($createAt)
     {
@@ -123,7 +123,7 @@ class ListsEntity
 
     /**
      * @param array $tasks
-     * @return ListsEntity
+     * @return Lists
      */
     public function setTasks($tasks)
     {

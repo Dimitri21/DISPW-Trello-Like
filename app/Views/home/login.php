@@ -14,7 +14,7 @@
 
         <div class="login-inner-body card">
 
-            <form class="login-inner-body-form form-group" action="/sign-login" method="post">
+            <form class="login-inner-body-form form-group" action="/connexion" method="post">
 
                 <div class="form-group-item">
                     <label for="email">Email</label>

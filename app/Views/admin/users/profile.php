@@ -14,7 +14,7 @@
             <div class="profile-inner-body-avatar">
 
                 <div class="profile-canvas">
-                    <form class="profile-canvas-input" action="/upload-image" method="post" enctype="multipart/form-data">
+                    <form class="profile-canvas-input" action="/admin-users-edit&id=<?=$user->getId()?>" method="post" enctype="multipart/form-data">
                         <input type="file" name="avatar" id="avatar">
                         <span class="selected-filename"></span>
                     </form>
@@ -23,7 +23,7 @@
 
             </div>
 
-            <form class="profile-inner-body-form form-group" action="/connexion" method="post">
+            <form class="profile-inner-body-form form-group" action="/admin-users-edit&id=<?=$user->getId()?>" method="post">
 
                 <div class="form-group-item">
                     <label for="prenom">Prénom</label>
@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="form-group-item">
-                    <button type="submit">Sauvegarder</button>
+                    <button type="submit">Sauvegasssrder</button>
                 </div>
 
             </form>

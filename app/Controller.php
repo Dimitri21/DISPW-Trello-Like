@@ -14,16 +14,19 @@ class Controller
         extract($variables);
         $this->viewsPath= _ROOT.DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR."Views".DIRECTORY_SEPARATOR;
         $current_view   = $this->viewsPath.str_replace('.',DIRECTORY_SEPARATOR,$view).'.php';
+        if (!file_exists($current_view)) {
+            $this->notFound();
+        }
         require $current_view;
         $content        = ob_get_clean();
-        require_once($this->viewsPath. 'template' . DIRECTORY_SEPARATOR . 'base.php');
+        require_once($this->viewsPath. 'template' . DIRECTORY_SEPARATOR . $this->template.'.php');
     }
 
     protected function forbidden()
     {
         header('HTTP/1.0 403 Forbidden');
-        $message="Erreur de Module";
-        $this->render('notfound.index',compact('message'));
+        $message="Forbidden to access this page.";
+        $this->render('error.404',compact('message'));
         exit(0);
     }
 

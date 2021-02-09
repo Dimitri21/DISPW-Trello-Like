@@ -1,8 +1,10 @@
 <?php
+
 namespace app\Entity;
+
 use app\Entity;
 
-class UsersEntity extends Entity
+class Users extends Entity
 {
     /**
      * @var int
@@ -40,14 +42,14 @@ class UsersEntity extends Entity
     private $avatar;
 
     /**
-     * @var array ProjectEntity
+     * @var array Project
      */
-    private $projects ;
+    private $projects;
 
     public function __construct()
     {
-        $class_name = explode(DIRECTORY_SEPARATOR,get_class($this));
-        $this->tableName = strtolower(str_replace("Entity","",end($class_name)));
+        $class_name = explode(DIRECTORY_SEPARATOR, get_class($this));
+        $this->tableName = strtolower(str_replace("Entity", "", end($class_name)));
         $this->projects = [];
     }
 
@@ -61,7 +63,7 @@ class UsersEntity extends Entity
 
     /**
      * @param int $id
-     * @return UsersEntity
+     * @return Users
      */
     public function setId($id)
     {
@@ -80,7 +82,7 @@ class UsersEntity extends Entity
 
     /**
      * @param string $name
-     * @return UsersEntity
+     * @return Users
      */
     public function setName($name)
     {
@@ -98,7 +100,7 @@ class UsersEntity extends Entity
 
     /**
      * @param string $lastname
-     * @return UsersEntity
+     * @return Users
      */
     public function setLastname($lastname)
     {
@@ -116,7 +118,7 @@ class UsersEntity extends Entity
 
     /**
      * @param string $email
-     * @return UsersEntity
+     * @return Users
      */
     public function setEmail($email)
     {
@@ -134,7 +136,7 @@ class UsersEntity extends Entity
 
     /**
      * @param string $password
-     * @return UsersEntity
+     * @return Users
      */
     public function setPassword($password)
     {
@@ -152,7 +154,7 @@ class UsersEntity extends Entity
 
     /**
      * @param DateTime $subscriptionAt
-     * @return UsersEntity
+     * @return Users
      */
     public function setSubscriptionAt($subscriptionAt)
     {
@@ -170,7 +172,7 @@ class UsersEntity extends Entity
 
     /**
      * @param string $avatar
-     * @return UsersEntity
+     * @return Users
      */
     public function setAvatar($avatar)
     {
@@ -188,13 +190,11 @@ class UsersEntity extends Entity
 
     /**
      * @param array $projects
-     * @return UsersEntity
+     * @return Users
      */
     public function setProjects($projects)
     {
         $this->projects = $projects;
         return $this;
     }
-
-
 }

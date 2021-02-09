@@ -53,6 +53,110 @@
                          }
                      }
                }
+
+               //Profile - Project area
+               &-profile {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    &-item {
+                         position: relative;
+                         display: flex;
+                         justify-content: center;
+                         align-items: center;
+
+                         &:not(.profil) {
+                              top: 7px;
+                         }
+
+                         &>a {
+                              margin: 0 .5rem;
+                              padding-left: 1rem;
+                              i {
+                                   font-size: 1.5rem;
+                                   color: $white-color;
+                              }
+                         }
+
+                         &>span{
+
+                              &.badge{
+                                   position: absolute;
+                                   top: -12px;
+                                   right: 0;
+                                   padding: 0 .3rem;
+                                   border-radius: .2rem;
+                                   color: $dark-white-color;
+                                   font-size: 12px;
+                                   display: block;
+                                   &.success {
+                                   background: $success-color;
+                                   }
+                                   display: block;
+                                   &.danger {
+                                   background: $danger-color;
+                                   }
+                                   &.warning {
+                                   background: $warning-color;
+                                   }
+                              }
+                         }
+
+                         &.profil {
+                              position: relative;
+                              padding-left: 1rem;
+                              
+                              .profile-image {
+                                   display: flex;
+                                   justify-content: center;
+                                   align-items: center;
+                                   width: 40px;
+                                   height: 40px;
+                                   overflow: hidden;
+                                   border-radius: 50%;
+                                   border: 2px solid $default-color;
+                                   cursor: pointer;
+                                   img {
+                                   display: block;
+                                   position: relative;
+                                   width: 100%;
+                                   top: 5px;
+                                   }
+                              }
+                         }
+                         border: 1px solid red;
+                         &-dropdown {
+                              display: block;
+                              position: absolute;
+                              top: 0;
+                              right: 20px;
+                              max-width: auto;
+                              background-color: $dark-white-color;
+                              ul {
+                                   display: flex;
+                                   flex-direction: column;
+                                   li {
+                                        a {
+                                             display: block;
+                                             width: 100%;
+                                             padding: .5rem 0.5rem;
+                                             color: $dark-color;
+                                        }
+                                        &:hover {
+                                             a {
+                                                  background-color: rgba($color: $white-color, $alpha: .5);
+                                             }
+                                        }
+                                   }
+                              }
+
+                              //dropdown activate
+                              &.show {
+                                   display: block;
+                              }
+                         }
+                    }
+               }
           }
 
           //HUMBURGER

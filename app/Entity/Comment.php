@@ -3,7 +3,7 @@
 
 namespace App\Entity;
 
-class CommentEntity
+class Comment
 {
     /**
      * @var int
@@ -21,7 +21,7 @@ class CommentEntity
     private $createAt;
 
     /**
-     * @var array UsersEntity
+     * @var array Users
      */
     private $users;
 
@@ -43,7 +43,7 @@ class CommentEntity
 
     /**
      * @param int $id
-     * @return CommentEntity
+     * @return Comment
      */
     public function setId($id)
     {
@@ -61,7 +61,7 @@ class CommentEntity
 
     /**
      * @param string $comment
-     * @return CommentEntity
+     * @return Comment
      */
     public function setComment($comment)
     {
@@ -79,7 +79,7 @@ class CommentEntity
 
     /**
      * @param \DateTimeZone $createAt
-     * @return CommentEntity
+     * @return Comment
      */
     public function setCreateAt($createAt)
     {
@@ -97,7 +97,7 @@ class CommentEntity
 
     /**
      * @param array $users
-     * @return CommentEntity
+     * @return Comment
      */
     public function setUsers($users)
     {

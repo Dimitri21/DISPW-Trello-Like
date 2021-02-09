@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Entity;
+namespace app\Entity;
 
 
 use DateTimeZone;
 
-class ProjectEntity
+class Project
 {
     /**
      * @var int
@@ -24,17 +24,17 @@ class ProjectEntity
     private $description;
 
     /**
-     * @var DateTimeZone
+     * @var \DateTime
      */
     private $createAt;
 
     /**
-     * @var array ListsEntity
+     * @var array Lists
      */
     private $lists;
 
     /**
-     * @var array UsersEntity
+     * @var array Users
      */
     private  $guest;
 
@@ -44,7 +44,7 @@ class ProjectEntity
         $this->id = 0;
         $this->lists = [];
         $this->guest = [];
-        $this->createAt = new DateTimeZone();
+        $this->createAt = new \DateTime();
     }
 
     /**
@@ -57,7 +57,7 @@ class ProjectEntity
 
     /**
      * @param int $id
-     * @return ProjectEntity
+     * @return Project
      */
     public function setId($id)
     {
@@ -75,7 +75,7 @@ class ProjectEntity
 
     /**
      * @param string $name
-     * @return ProjectEntity
+     * @return Project
      */
     public function setName($name)
     {
@@ -93,7 +93,7 @@ class ProjectEntity
 
     /**
      * @param string $description
-     * @return ProjectEntity
+     * @return Project
      */
     public function setDescription($description)
     {
@@ -111,7 +111,7 @@ class ProjectEntity
 
     /**
      * @param DateTimeZone $createAt
-     * @return ProjectEntity
+     * @return Project
      */
     public function setCreateAt($createAt)
     {
@@ -129,7 +129,7 @@ class ProjectEntity
 
     /**
      * @param array $lists
-     * @return ProjectEntity
+     * @return Project
      */
     public function setLists($lists)
     {
@@ -147,7 +147,7 @@ class ProjectEntity
 
     /**
      * @param arra $guest
-     * @return ProjectEntity
+     * @return Project
      */
     public function setGuest($guest)
     {

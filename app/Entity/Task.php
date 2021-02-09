@@ -3,7 +3,7 @@
 
 namespace App\Entity;
 
-class TaskEntity
+class Task
 {
     /**
      * @var int
@@ -47,7 +47,7 @@ class TaskEntity
     private $sticker;
 
     /**
-     * @var array CommentEntity
+     * @var array Comment
      */
     private $comments;
 
@@ -69,7 +69,7 @@ class TaskEntity
 
     /**
      * @param int $id
-     * @return TaskEntity
+     * @return Task
      */
     public function setId($id)
     {
@@ -87,7 +87,7 @@ class TaskEntity
 
     /**
      * @param string $name
-     * @return TaskEntity
+     * @return Task
      */
     public function setName($name)
     {
@@ -105,7 +105,7 @@ class TaskEntity
 
     /**
      * @param string $desciption
-     * @return TaskEntity
+     * @return Task
      */
     public function setDesciption($desciption)
     {
@@ -123,7 +123,7 @@ class TaskEntity
 
     /**
      * @param \DateTimeZone $createAt
-     * @return TaskEntity
+     * @return Task
      */
     public function setCreateAt($createAt)
     {
@@ -141,7 +141,7 @@ class TaskEntity
 
     /**
      * @param \DateTime $startAt
-     * @return TaskEntity
+     * @return Task
      */
     public function setStartAt($startAt)
     {
@@ -159,7 +159,7 @@ class TaskEntity
 
     /**
      * @param \DateTime $endAt
-     * @return TaskEntity
+     * @return Task
      */
     public function setEndAt($endAt)
     {
@@ -177,7 +177,7 @@ class TaskEntity
 
     /**
      * @param UserEntity $lead
-     * @return TaskEntity
+     * @return Task
      */
     public function setLead($lead)
     {
@@ -195,7 +195,7 @@ class TaskEntity
 
     /**
      * @param int $sticker
-     * @return TaskEntity
+     * @return Task
      */
     public function setSticker($sticker)
     {
@@ -213,7 +213,7 @@ class TaskEntity
 
     /**
      * @param array $comments
-     * @return TaskEntity
+     * @return Task
      */
     public function setComments($comments)
     {

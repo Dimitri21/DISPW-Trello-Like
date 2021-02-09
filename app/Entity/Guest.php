@@ -4,7 +4,7 @@
 namespace App\Entity;
 
 
-class GuestEntity
+class Guest
 {
     /**
      * @var int
@@ -22,11 +22,11 @@ class GuestEntity
     private $invitedAt;
 
     /**
-     * @var ProjectEntity
+     * @var Project
      */
     private $project;
 
-    public function __construct(UserEntity $user, ProjectEntity $project)
+    public function __construct(UserEntity $user, Project $project)
     {
         $this->id = 0;
         $this->user = $user;
@@ -44,7 +44,7 @@ class GuestEntity
 
     /**
      * @param int $id
-     * @return GuestEntity
+     * @return Guest
      */
     public function setId($id)
     {
@@ -62,7 +62,7 @@ class GuestEntity
 
     /**
      * @param UserEntity $user
-     * @return GuestEntity
+     * @return Guest
      */
     public function setUser($user)
     {
@@ -80,7 +80,7 @@ class GuestEntity
 
     /**
      * @param \DateTime $invitedAt
-     * @return GuestEntity
+     * @return Guest
      */
     public function setInvitedAt($invitedAt)
     {
@@ -89,7 +89,7 @@ class GuestEntity
     }
 
     /**
-     * @return ProjectEntity
+     * @return Project
      */
     public function getProject()
     {
@@ -97,8 +97,8 @@ class GuestEntity
     }
 
     /**
-     * @param ProjectEntity $project
-     * @return GuestEntity
+     * @param Project $project
+     * @return Guest
      */
     public function setProject($project)
     {
