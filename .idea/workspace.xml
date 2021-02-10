@@ -3,17 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="2ebcb4fd-b170-4057-9acc-7278261162e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controller/Admin/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/Admin/UsersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controller/Admin/AppController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/Admin/AppController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Controller/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controller/SignController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Database/SprintoDatabase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Database/SprintoDatabase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repository/UsersRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repository/UsersRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Views/home/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/home/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Entity/Lists.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Migration/request.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/Migration/request.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/home/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/home/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/template/base.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/template/base.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/build/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/build/css/app.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/css/app.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/components/_global.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scss/components/_login.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/components/_login.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scss/components/_navbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/components/_navbar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_projects.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/components/_projects.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/mixins/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/mixins/_mixins.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +104,7 @@
       <workItem from="1612854664734" duration="927000" />
       <workItem from="1612855650010" duration="23000" />
       <workItem from="1612855675335" duration="21156000" />
-      <workItem from="1612943101153" duration="4045000" />
+      <workItem from="1612943101153" duration="5902000" />
     </task>
     <servers />
   </component>

@@ -342,11 +342,14 @@ function dropdown(element) {
     const dropdown_element = $_(element);
     if (dropdown_element) {
         dropdown_element.addEventListener('click', e => {
-            if ($_('.main-dropdown').classList.contains('show')) {
-                console.log(e.currentTarget)
-                $_('.main-dropdown').classList.remove('show');
-            } else {
-                $_('.main-dropdown').classList.add('show');
+            console.log(e.currentTarget)
+            const dropdown = $_('.main-dropdown');
+            if (dropdown) {
+                if (dropdown.classList.contains('show')) {
+                    dropdown.classList.remove('show');
+                } else {
+                    dropdown.classList.add('show');
+                }
             }
         });
 

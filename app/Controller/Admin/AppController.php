@@ -4,12 +4,13 @@ namespace app\Controller\Admin;
 
 use app\App;
 use app\Controller;
-use app\Security\AuthController;
+use app\Controller\AuthController;
 
 class AppController extends Controller
 {
     //Changed base page for admin side
-    protected $template = "admin/base";
+    //protected $template = "admin/base";
+    protected $template = "base";
 
     public function __construct()
     {

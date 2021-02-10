@@ -6,7 +6,7 @@ namespace App\Entity;
 
 use DateTimeZone;
 
-class Lists
+class List
 {
     /**
      * @var int

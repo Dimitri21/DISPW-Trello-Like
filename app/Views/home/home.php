@@ -1,4 +1,4 @@
-<div class="row" id="home-index">
+<div class="my-container" id="home-index">
 
     <div class="">
         <h2 id="info"> HOME PAGE </h2>

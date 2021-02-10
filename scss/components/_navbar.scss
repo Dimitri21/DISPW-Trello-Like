@@ -66,7 +66,7 @@
                          display: flex;
                          justify-content: center;
                          align-items: center;
-
+                         position: relative;
                          &:not(.profil) {
                               top: 7px;
                          }
@@ -126,10 +126,7 @@
                                    }
                               }
                          }
-
-                        
                     }
-
                }
           }
 
@@ -197,17 +194,19 @@
           }
      }
  }
-
- //DROPDOWN
- .main-dropdown {
+  //DROPDOWN
+//TODO - don't work as i want
+.main-dropdown {
      position: absolute;
-     top: 6%;
-     right: 15%;
+     top: 0;
+     right: 15px;
      display: none;
-     min-width: 150px;
-     background-color: $dark-white-color;
-     z-index: 4;
+     background-color: $primary-color-dark;
+     float: right;
+     z-index: 3;
+     
      ul {
+          min-width: 200px;
           display: flex;
           flex-direction: column;
           li {
@@ -215,7 +214,7 @@
                     display: block;
                     width: 100%;
                     padding: .8rem 0.5rem;
-                    color: $dark-color;
+                    color: $white-color;
                }
                &:hover {
                     a {
@@ -227,10 +226,10 @@
 
      //dropdown activate
      &.show {
-          display: block;
+          display: none;
      }
 }
-
+ 
 .main-humburger {
      position: absolute;
      top: 0;
@@ -293,6 +292,15 @@
                }
           }
       }
+
+        //DROPDOWN
+     //TODO - don't work as i want
+     .main-dropdown {
+          &.show {
+               display: block;
+          }
+     }
+ 
  }
  //-----------------------------------------------------------------
                              // DESKTOP

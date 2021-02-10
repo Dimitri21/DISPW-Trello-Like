@@ -11,13 +11,14 @@ class AuthController extends AppController
      * DatabaseAuth constructor.
      * @param SprintoDatabase $getDatabase
      */
-    public function __construct(SprintoDatabase $getDatabase)
+    public function __construct(SprintoDatabase $getDatabase = null)
     {
         $this->db = $getDatabase;
-        $this->loadModel('Users','sprinto');
+        $this->loadModel('Users', 'sprinto');
     }
 
-    public function login($email, $password) {
+    public function login($email, $password)
+    {
         $user       = $this->Users->findBy($email);
         $login_info = $_REQUEST;
 
@@ -27,22 +28,23 @@ class AuthController extends AppController
             //clean up array
             $user       = $this->Users->findBy($email);
 
-            if ($user && $user->getPassword() === sha1($password) ) {
+            if ($user && $user->getPassword() === sha1($password)) {
                 $user->setPassword('');
                 $_SESSION['auth'] = true;
                 $_SESSION['user'] = serialize($user);
-                $this->render('admin.project.index',compact('user'));
+                $this->render('admin.project.index', compact('user'));
             }
         }
         $message = "Email ou mot de passe incorrect";
-        $this->render('home.login',compact('message'));
+        $this->render('home.login', compact('message'));
     }
 
     /**
      * @brief
      * @route "/deconnexion"
      */
-    public function logout() {
+    public function logout()
+    {
 
         session_unset();
         session_destroy();
@@ -51,7 +53,8 @@ class AuthController extends AppController
     /**
      * @brief Vérification if user is logged in
      */
-    public function isLogged() {
-        return $_SESSION['user']?? null;
+    public function isLogged()
+    {
+        return $_SESSION['user'] ?? null;
     }
 }
