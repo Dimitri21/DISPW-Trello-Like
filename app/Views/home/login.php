@@ -1,4 +1,9 @@
 <div class="login global-form-bg" id="login-index">
+    <?php if (isset($message)) : ?>
+        <div class="toast danger">
+            <?= $message ?>
+        </div>
+    <?php endif; ?>
 
     <div class="login-inner ">
 

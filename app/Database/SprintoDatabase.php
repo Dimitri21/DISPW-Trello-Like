@@ -46,7 +46,6 @@ class SprintoDatabase
 
         $requette = $this->getPDO($this->db_name)->query($statement);
 
-
         if(strpos($statement,'UPDATE')=== 0 || strpos($statement,'INSERT')=== 0 || strpos($statement,'DELETE')=== 0)
         {
             return $requette;
@@ -65,9 +64,7 @@ class SprintoDatabase
             return $requette->fetch();
         }else
         {
-
             return $requette->fetchAll();
-
         }
         // return $data;
 

@@ -1,0 +1,4 @@
+@mixin toast($color) {
+    background-color: rgba($color: $color, $alpha: .3);
+    color: $color;
+}

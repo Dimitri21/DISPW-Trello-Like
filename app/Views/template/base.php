@@ -71,15 +71,6 @@
                                         <img src="images/profile/photo_passe.jpg" alt="profile picture">
                                     </div>
 
-                                    <!--DROPDOWN-->
-                                    <div class="my-navbar-inner-list-profile-item-dropdown " id="profile_dropdown_js">
-                                        <ul>
-                                            <li><a href="/user-parametre">Parametre</a></li>
-                                            <li><a href="/profile">Profile</a></li>
-                                            <li><a href="/deconnexion">Deconnection</a></li>
-                                        </ul>
-                                    </div>
-
                                 </li>
 
                             </ul>
@@ -104,6 +95,18 @@
 
             </div>
         </nav>
+
+        <!--DROPDOWN-->
+        <?php if ($user) : ?>
+            <div class="main-dropdown" id="profile_dropdown_js">
+                <ul>
+                    <li><a href="/user-parametre">Parametre</a></li>
+                    <li><a href="/profile">Profile</a></li>
+                    <li><a href="/deconnexion">Deconnection</a></li>
+                </ul>
+            </div>
+
+        <?php endif; ?>
 
         <!--CONTENT AREA-->
         <section role="main" class="container">

@@ -1,0 +1,15 @@
+.toast {
+    position: absolute;
+    min-width: 20px;
+    min-height: 20px;
+    display: block;
+    font-size: 1.2rem;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding:1rem;
+    border-radius: .3rem;
+    &.danger{
+        @include toast($danger-color);
+    }
+}

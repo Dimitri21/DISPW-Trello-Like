@@ -20,7 +20,6 @@ nav_humburger.addEventListener('click', e => {
     }
 });
 
-//PROFILE - DROPDOWN 
 const $_ = (element, all = false) => {
     if (all) {
         return document.querySelectorAll(element);
@@ -28,6 +27,7 @@ const $_ = (element, all = false) => {
         return document.querySelector(element);
     }
 }
+
 //CALL PLAGE-------------------------------------------
 dropdown("#dropdown_js");
 reduceAside("#setting_chevron_js");
@@ -342,10 +342,11 @@ function dropdown(element) {
     const dropdown_element = $_(element);
     if (dropdown_element) {
         dropdown_element.addEventListener('click', e => {
-            if ($_('.my-navbar-inner-list-profile-item-dropdown').classList.contains('show')) {
-                $_('.my-navbar-inner-list-profile-item-dropdown').classList.remove('show');
+            if ($_('.main-dropdown').classList.contains('show')) {
+                console.log(e.currentTarget)
+                $_('.main-dropdown').classList.remove('show');
             } else {
-                $_('.my-navbar-inner-list-profile-item-dropdown').classList.add('show');
+                $_('.main-dropdown').classList.add('show');
             }
         });
 

@@ -18,14 +18,24 @@ class AuthController extends AppController
     }
 
     public function login($email, $password) {
+        $user       = $this->Users->findBy($email);
+        $login_info = $_REQUEST;
 
-        $user = $this->Users->findBy($email);
-        if ($user->getPassword() === $password) {
-            $_SESSION['user'] = 1;
-        }else {
-            $user = null;
+        if (isset($_REQUEST['email']) && !empty($_REQUEST['email'])) {
+            $email      = htmlspecialchars($_REQUEST['email']);
+            $password   = htmlspecialchars($_REQUEST['password']);
+            //clean up array
+            $user       = $this->Users->findBy($email);
+
+            if ($user && $user->getPassword() === sha1($password) ) {
+                $user->setPassword('');
+                $_SESSION['auth'] = true;
+                $_SESSION['user'] = serialize($user);
+                $this->render('admin.project.index',compact('user'));
+            }
         }
-        return $user;
+        $message = "Email ou mot de passe incorrect";
+        $this->render('home.login',compact('message'));
     }
 
     /**

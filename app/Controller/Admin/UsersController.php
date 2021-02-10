@@ -1,4 +1,5 @@
 <?php
+
 namespace app\Controller\Admin;
 
 
@@ -10,12 +11,14 @@ class UsersController extends AppController
         $this->loadModel("Users", 'sprinto');
     }
 
-    public function index() {
+    public function index()
+    {
         $users = $this->Users->all();
-        $this->render("admin.users.index",compact('users'));
+        $this->render("admin.users.index", compact('users'));
     }
 
-    public function edit() {
+    public function edit()
+    {
         //Getting id on GET variable
 
         //Removing empty attribut
@@ -28,17 +31,16 @@ class UsersController extends AppController
             }
             //We don't need this field
             unset($post_traited['password-conf']);
-            $this->Users->update($_GET['id'],$post_traited);
+            $this->Users->update($_GET['id'], $post_traited);
         }
         $user = $this->Users->find($_GET['id']);
 
-        $this->render("admin.users.edit",compact('user'));
+        $this->render("admin.users.edit", compact('user'));
     }
 
-    public function show($id,$slug) {
+    public function show($id, $slug)
+    {
         $user = $this->Users->findBy($id);
-        $this->render("admin.users.show",compact('user'));
+        $this->render("admin.users.show", compact('user'));
     }
-
-
 }

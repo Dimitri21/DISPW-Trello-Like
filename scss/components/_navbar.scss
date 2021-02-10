@@ -5,6 +5,7 @@
      background-color: $primary-color-dark;
      padding: .5rem 0;
      max-width: 100%;
+
      &-inner {
           display: flex;
           flex-direction: row;
@@ -56,11 +57,12 @@
 
                //Profile - Project area
                &-profile {
+
                     display: flex;
                     flex-direction: row;
                     align-items: center;
+
                     &-item {
-                         position: relative;
                          display: flex;
                          justify-content: center;
                          align-items: center;
@@ -124,38 +126,10 @@
                                    }
                               }
                          }
-                         border: 1px solid red;
-                         &-dropdown {
-                              display: block;
-                              position: absolute;
-                              top: 0;
-                              right: 20px;
-                              max-width: auto;
-                              background-color: $dark-white-color;
-                              ul {
-                                   display: flex;
-                                   flex-direction: column;
-                                   li {
-                                        a {
-                                             display: block;
-                                             width: 100%;
-                                             padding: .5rem 0.5rem;
-                                             color: $dark-color;
-                                        }
-                                        &:hover {
-                                             a {
-                                                  background-color: rgba($color: $white-color, $alpha: .5);
-                                             }
-                                        }
-                                   }
-                              }
 
-                              //dropdown activate
-                              &.show {
-                                   display: block;
-                              }
-                         }
+                        
                     }
+
                }
           }
 
@@ -171,7 +145,7 @@
                background-color: rgba($color: #ffffff, $alpha: .2);
                cursor: pointer;
                position: relative;
-
+              z-index: 3;
                span {
                     display: inline-block;
                     width: 35px;
@@ -223,7 +197,40 @@
           }
      }
  }
- 
+
+ //DROPDOWN
+ .main-dropdown {
+     position: absolute;
+     top: 6%;
+     right: 15%;
+     display: none;
+     min-width: 150px;
+     background-color: $dark-white-color;
+     z-index: 4;
+     ul {
+          display: flex;
+          flex-direction: column;
+          li {
+               a {
+                    display: block;
+                    width: 100%;
+                    padding: .8rem 0.5rem;
+                    color: $dark-color;
+               }
+               &:hover {
+                    a {
+                         background-color: rgba($color: $white-color, $alpha: .5);
+                    }
+               }
+          }
+     }
+
+     //dropdown activate
+     &.show {
+          display: block;
+     }
+}
+
 .main-humburger {
      position: absolute;
      top: 0;
@@ -236,6 +243,7 @@
      transform: translateY(-100vh);
      transition: all .4s ease-in-out;
      overflow: hidden;
+     z-index: 1;
      .main-humburger-list {
 
           display: flex;
@@ -291,5 +299,4 @@
  //-----------------------------------------------------------------
  
  @media screen and (min-width : 1024px) {
-    
  }

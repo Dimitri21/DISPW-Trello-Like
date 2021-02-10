@@ -1,6 +1,12 @@
 //GLOBAL SCRIPTS
 @import "components/variables";
 @import "components/colors";
+
+//Mixins
+@import "mixins/mixins";
+
+
+//Functions
 @import "components/global";
 @import "components/navbar";
 @import "components/header";
@@ -8,6 +14,9 @@
 @import "components/mobile";
 @import "components/tablet";
 @import "components/desktop";
+//COMPONENTS
+@import "components/toast";
+
 //PAGES
 
 //SECURITY - LOGIN - PAGE
