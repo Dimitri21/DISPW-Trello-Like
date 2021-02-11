@@ -3,7 +3,7 @@
 
 namespace App\Entity;
 
-class Comment
+class Comments
 {
     /**
      * @var int
@@ -16,20 +16,23 @@ class Comment
     private $comment;
 
     /**
-     * @var \DateTimeZone
+     * @var \DateTime
      */
     private $createAt;
 
     /**
-     * @var array Users
+     * @var Users
      */
-    private $users;
+    private $user;
+
+    /**
+     * @var Tasks
+     */
+    private $task;
 
     public function __construct()
     {
-        $this->id = 0;
-        $this->createAt  = new \DateTimeZone();
-        $this->users = [];
+        $this->createAt  = new \DateTime();
         $this->comment = "";
     }
 
@@ -42,8 +45,8 @@ class Comment
     }
 
     /**
-     * @param int $id
-     * @return Comment
+     * @param $id
+     * @return $this
      */
     public function setId($id)
     {
@@ -60,8 +63,8 @@ class Comment
     }
 
     /**
-     * @param string $comment
-     * @return Comment
+     * @param $comment
+     * @return $this
      */
     public function setComment($comment)
     {
@@ -70,7 +73,7 @@ class Comment
     }
 
     /**
-     * @return \DateTimeZone
+     * @return \DateTime
      */
     public function getCreateAt()
     {
@@ -78,8 +81,8 @@ class Comment
     }
 
     /**
-     * @param \DateTimeZone $createAt
-     * @return Comment
+     * @param $createAt
+     * @return $this
      */
     public function setCreateAt($createAt)
     {
@@ -88,20 +91,38 @@ class Comment
     }
 
     /**
-     * @return array
+     * @return Users
      */
-    public function getUsers()
+    public function getUser() : Users
     {
-        return $this->users;
+        return $this->user;
     }
 
     /**
-     * @param array $users
-     * @return Comment
+     * @param Users $user
+     * @return $this
      */
-    public function setUsers($users)
+    public function setUser(Users $user)
     {
-        $this->users = $users;
+        $this->user = $user;
+        return $this;
+    }
+
+    /**
+     * @return Tasks
+     */
+    public function getTask(): Tasks
+    {
+        return $this->task;
+    }
+
+    /**
+     * @param Tasks $task
+     * @return Comments
+     */
+    public function setTask(Tasks $task): Comments
+    {
+        $this->task = $task;
         return $this;
     }
 

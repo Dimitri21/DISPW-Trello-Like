@@ -32,8 +32,7 @@ class AuthController extends AppController
                 $user->setPassword('');
                 $_SESSION['auth'] = true;
                 $_SESSION['user'] = serialize($user);
-                //$this->render('admin.project.index', compact('user'));
-                $this->render('admin.project.index', compact('user'));
+                $this->redirect("/admin-projects-index");
             }
         }
         $message = "Email ou mot de passe incorrect";

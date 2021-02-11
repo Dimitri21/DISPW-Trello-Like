@@ -91,17 +91,17 @@ function setEventForAddCardOnList(element) {
 }
 
 /**
- * @precond : Must check the max number for list on the project ou tableau
+ * @precond : Must check the max number for list on the projects ou tableau
  * @param {*} name 
  * @param {*} container 
  */
 function createList(name, container) {
-    let project_list_tasks = $_('.project-list-tasks', true);
+    let project_list_tasks = $_('.projects-list-tasks', true);
 
     //TODO - Must xheck the max List number
     const index = project_list_tasks.length + 1;
     let div_tasks = document.createElement('div');
-    div_tasks.classList.add('project-list-tasks');
+    div_tasks.classList.add('projects-list-tasks');
     div_tasks.innerHTML = `
         <!--TASK FRONT-->
         <div class="project-list-tasks-task">
@@ -229,7 +229,7 @@ function createTask(infos) {
     //TODO - update the tasks number on the current list title
 
     let task_element = document.createElement('div');
-    task_element.classList.add('project-list-tasks-task-body-task');
+    task_element.classList.add('projects-list-tasks-task-body-task');
     task_element.innerHTML = `
         <!--TASK TITLE-->
         <p class="project-list-tasks-task-body-task-title">

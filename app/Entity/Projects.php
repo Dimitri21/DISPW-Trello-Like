@@ -6,7 +6,7 @@ namespace app\Entity;
 
 use DateTimeZone;
 
-class Project
+class Projects
 {
     /**
      * @var int
@@ -60,7 +60,7 @@ class Project
 
     /**
      * @param int $id
-     * @return Project
+     * @return Projects
      */
     public function setId($id)
     {
@@ -78,7 +78,7 @@ class Project
 
     /**
      * @param string $name
-     * @return Project
+     * @return Projects
      */
     public function setName($name)
     {
@@ -96,7 +96,7 @@ class Project
 
     /**
      * @param string $description
-     * @return Project
+     * @return Projects
      */
     public function setDescription($description)
     {
@@ -114,7 +114,7 @@ class Project
 
     /**
      * @param DateTimeZone $createAt
-     * @return Project
+     * @return Projects
      */
     public function setCreateAt($createAt)
     {
@@ -132,7 +132,7 @@ class Project
 
     /**
      * @param array $lists
-     * @return Project
+     * @return Projects
      */
     public function setLists($lists)
     {
@@ -150,7 +150,7 @@ class Project
 
     /**
      * @param arra $guest
-     * @return Project
+     * @return Projects
      */
     public function setGuest($guest)
     {
@@ -168,9 +168,9 @@ class Project
 
     /**
      * @param string $picture
-     * @return Project
+     * @return Projects
      */
-    public function setPicture(string $picture): Project
+    public function setPicture(string $picture): Projects
     {
         $this->picture = $picture;
         return $this;

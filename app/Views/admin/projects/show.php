@@ -8,7 +8,7 @@
             <nav class="dashboard-inner-aside-list">
 
                 <li class="projects" data-url="/projects-index">
-                    <a href="/admin-project-index">
+                    <a href="/admin-projects-index">
                         <i class="fas fa-tools"></i> <span>Tableau</span>
                     </a>
                 </li>
@@ -49,7 +49,7 @@
 
             <!--PROJECT TITLE-->
             <div class="dashboard-inner-content-title">
-                <h2><?=$project->getName()  ?></h2>
+                <h2><?= $project->getName()  ?></h2>
                 <span id="list_add_js"><i class="far fa-plus"></i></span>
             </div>
 
@@ -60,8 +60,8 @@
 
                     <div class="project-list" id="tasks_js">
 
-                        <?php foreach($lists as $list):?>
-                        
+                        <?php foreach ($lists as $list) : ?>
+
                             <!--TASK TODO-->
                             <div class="project-list-tasks todo">
                                 <!--TASK-->
@@ -95,13 +95,13 @@
                                     <div class="project-list-tasks-task-body" id="tasks_container_js_<?= $list->getId() ?>">
 
                                         <!--BACKLOG-->
-                                        <?php foreach ($list->getTasks() as $task): ?>
+                                        <?php foreach ($list->getTasks() as $task) : ?>
                                             <div class="project-list-tasks-task-body-task">
 
                                                 <!--TASK TITLE-->
                                                 <p class="project-list-tasks-task-body-task-title">
                                                     <i class="fal fa-book-open"></i>
-                                                    <span class="task-title"><?= $task->getName()?></span>
+                                                    <span class="task-title"><?= $task->getName() ?></span>
                                                 </p>
 
                                                 <!--TASK LEAD-->
@@ -141,7 +141,7 @@
                                                 </div>
 
                                             </div>
-                                        
+
                                         <?php endforeach; ?>
                                     </div>
 

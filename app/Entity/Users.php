@@ -39,10 +39,10 @@ class Users extends Entity
     /**
      * @var string
      */
-    private $avatar;
+    private $picture;
 
     /**
-     * @var array Project
+     * @var array Projects
      */
     private $projects;
 
@@ -165,18 +165,18 @@ class Users extends Entity
     /**
      * @return string
      */
-    public function getAvatar()
+    public function getPicture()
     {
-        return $this->avatar;
+        return $this->picture;
     }
 
     /**
-     * @param string $avatar
+     * @param string $picture
      * @return Users
      */
-    public function setAvatar($avatar)
+    public function setPicture($picture)
     {
-        $this->avatar = $avatar;
+        $this->picture = $picture;
         return $this;
     }
 
