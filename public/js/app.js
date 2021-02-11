@@ -304,7 +304,7 @@ function asideListeItemSelected(element) {
 
     for (let i = 0; i < list_item.length; i++) {
         list_item[i].addEventListener('click', e => {
-            e.preventDefault();
+            //e.preventDefault();
             //Remove de old actived element
             let old_active_element = $_('.dashboard-inner-aside-list li.active');
             if (old_active_element) {

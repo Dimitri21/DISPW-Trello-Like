@@ -8,7 +8,7 @@
             <nav class="dashboard-inner-aside-list">
 
                 <li class="projects" data-url="/projects-index">
-                    <a href="#">
+                    <a href="/admin-project-tableau">
                         <i class="fas fa-tools"></i> <span>Tableau</span>
                     </a>
                 </li>
