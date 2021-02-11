@@ -60,167 +60,96 @@
 
                     <div class="project-list" id="tasks_js">
 
-                        <!--TASK TODO-->
-                        <div class="project-list-tasks todo">
-                            <!--TASK-->
-                            <div class="project-list-tasks-task">
+                        <?php foreach($lists as $list):?>
+                        
+                            <!--TASK TODO-->
+                            <div class="project-list-tasks todo">
+                                <!--TASK-->
+                                <div class="project-list-tasks-task">
 
-                                <!--LIST TITLE-->
-                                <div class="project-list-tasks-task-title">
-                                    <span class="project-list-tasks-task-title-js" id="list-1">A faire</span>
+                                    <!--LIST TITLE-->
+                                    <div class="project-list-tasks-task-title">
+                                        <span class="project-list-tasks-task-title-js" id="list-<?= $list->getId() ?>"><?= $list->getName() ?></span>
 
-                                    <div class="project-list-tasks-task-title-right">
+                                        <div class="project-list-tasks-task-title-right">
 
-                                        <div>
-                                            <i class="far fa-clipboard-list"></i>
-                                            <span class="nb_task_js">1</span>
+                                            <div>
+                                                <i class="far fa-clipboard-list"></i>
+                                                <span class="nb_task_js">1</span>
+                                            </div>
+
+                                            <!--//TODO event for btn-dodo-->
+                                            <button onclick="showAddTaskForm(<?= $list->getId() ?>)" class="project-list-title-right-add" id="add-<?= $list->getId() ?>">
+                                                <i class="far fa-plus"></i>
+                                            </button>
+
+                                            <!--//TODO event for btn-dodo-->
+                                            <button onclick="listConfigEvent('list-<?= $list->getId() ?>')" class="project-list-title-right-config" id="config-<?= $list->getId() ?>">
+                                                <i class="fas fa-tools"></i>
+                                            </button>
+
                                         </div>
-
-                                        <!--//TODO event for btn-dodo-->
-                                        <button onclick="showAddTaskForm(1)" class="project-list-title-right-add" id="add-1">
-                                            <i class="far fa-plus"></i>
-                                        </button>
-
-                                        <!--//TODO event for btn-dodo-->
-                                        <button onclick="listConfigEvent('list-1')" class="project-list-title-right-config" id="config-1">
-                                            <i class="fas fa-tools"></i>
-                                        </button>
-
                                     </div>
-                                </div>
 
-                                <!--LIST BODY-->
-                                <div class="project-list-tasks-task-body" id="tasks_container_js_1">
+                                    <!--LIST BODY-->
+                                    <div class="project-list-tasks-task-body" id="tasks_container_js_<?= $list->getId() ?>">
 
-                                    <!--BACKLOG-->
-                                    <div class="project-list-tasks-task-body-task">
+                                        <!--BACKLOG-->
+                                        <?php foreach ($list->getTasks() as $task): ?>
+                                            <div class="project-list-tasks-task-body-task">
 
-                                        <!--TASK TITLE-->
-                                        <p class="project-list-tasks-task-body-task-title">
-                                            <i class="fal fa-book-open"></i>
-                                            <span class="task-title">Faire la bare de navigation</span>
-                                        </p>
+                                                <!--TASK TITLE-->
+                                                <p class="project-list-tasks-task-body-task-title">
+                                                    <i class="fal fa-book-open"></i>
+                                                    <span class="task-title"><?= $task->getName()?></span>
+                                                </p>
 
-                                        <!--TASK LEAD-->
-                                        <div class="project-list-tasks-task-body-task-lead">
-                                            <div class="project-list-tasks-task-body-task-lead-picture">
-                                                <img src="images/profile/photo_passe.jpg" alt="user profile avatar">
+                                                <!--TASK LEAD-->
+                                                <div class="project-list-tasks-task-body-task-lead">
+                                                    <div class="project-list-tasks-task-body-task-lead-picture">
+                                                        <img src="images/profile/photo_passe.jpg" alt="user profile avatar">
+                                                    </div>
+                                                    <span>John DOE</span>
+                                                </div>
+
+                                                <!--TASK STATE-->
+                                                <div class="project-list-tasks-task-body-task-state">
+                                                    <span>Etat</span>
+
+                                                    <span>
+                                                        <span></span>
+                                                        <span>Proposée</span>
+                                                    </span>
+
+                                                </div>
+
+                                                <!--TASK MEMBERS-->
+                                                <div class="project-list-tasks-task-body-task-members">
+
+                                                    <div class="project-list-tasks-task-body-task-members-item success">
+                                                        <span>Jean D.</span>
+                                                    </div>
+
+                                                    <div class="project-list-tasks-task-body-task-members-item danger">
+                                                        <span>Pierre P.</span>
+                                                    </div>
+
+                                                    <div class="project-list-tasks-task-body-task-members-item primary">
+                                                        <span>Pierre P.</span>
+                                                    </div>
+
+                                                </div>
+
                                             </div>
-                                            <span>John DOE</span>
-                                        </div>
-
-                                        <!--TASK STATE-->
-                                        <div class="project-list-tasks-task-body-task-state">
-                                            <span>Etat</span>
-
-                                            <span>
-                                                <span></span>
-                                                <span>Proposée</span>
-                                            </span>
-
-                                        </div>
-
-                                        <!--TASK MEMBERS-->
-                                        <div class="project-list-tasks-task-body-task-members">
-
-                                            <div class="project-list-tasks-task-body-task-members-item success">
-                                                <span>Jean D.</span>
-                                            </div>
-
-                                            <div class="project-list-tasks-task-body-task-members-item danger">
-                                                <span>Pierre P.</span>
-                                            </div>
-
-                                            <div class="project-list-tasks-task-body-task-members-item primary">
-                                                <span>Pierre P.</span>
-                                            </div>
-
-                                        </div>
-
+                                        
+                                        <?php endforeach; ?>
                                     </div>
 
                                 </div>
 
                             </div>
 
-                        </div>
-
-                        <!--TASK DOING-->
-                        <div class="project-list-tasks doing">
-                            <!--TASK-->
-                            <div class="project-list-tasks-task">
-
-                                <!--LIST TITLE-->
-                                <div class="project-list-tasks-task-title">
-                                    <span class="project-list-tasks-task-title-js" id="list-2">Encours</span>
-
-                                    <div class="project-list-tasks-task-title-right">
-
-                                        <div>
-                                            <i class="far fa-clipboard-list"></i>
-                                            <span class="nb_task_js">0</span>
-                                        </div>
-
-                                        <!--//TODO event for btn-dodo-->
-                                        <button onclick="showAddTaskForm(2)" class="project-list-title-right-add" id="add-2">
-                                            <i class="far fa-plus"></i>
-                                        </button>
-
-                                        <!--//TODO event for btn-dodo-->
-                                        <button onclick="listConfigEvent('list-2')" class="project-list-title-right-config" id="config-2">
-                                            <i class="fas fa-tools"></i>
-                                        </button>
-
-                                    </div>
-                                </div>
-
-                                <!--LIST BODY-->
-                                <div class="project-list-tasks-task-body" id="tasks_container_js_2">
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <!--TASK CLOSE-->
-                        <div class="project-list-tasks close">
-                            <!--TASK-->
-                            <div class="project-list-tasks-task">
-
-                                <!--LIST TITLE-->
-                                <div class="project-list-tasks-task-title">
-                                    <span class="project-list-tasks-task-title-js" id="list-3">Terminé</span>
-
-                                    <div class="project-list-tasks-task-title-right">
-
-                                        <div>
-                                            <i class="far fa-clipboard-list"></i>
-                                            <span class="nb_task_js">0</span>
-                                        </div>
-
-                                        <!--//TODO event for btn-dodo-->
-                                        <button onclick="showAddTaskForm(3)" class="project-list-title-right-add" id="add-3">
-                                            <i class="far fa-plus"></i>
-                                        </button>
-
-                                        <!--//TODO event for btn-dodo-->
-                                        <button onclick="listConfigEvent('list-3')" class="project-list-title-right-config" id="config-3">
-                                            <i class="fas fa-tools"></i>
-                                        </button>
-
-                                    </div>
-                                </div>
-
-                                <!--LIST BODY-->
-                                <div class="project-list-tasks-task-body" id="tasks_container_js_3">
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
+                        <?php endforeach; ?>
                     </div>
 
                 </div>

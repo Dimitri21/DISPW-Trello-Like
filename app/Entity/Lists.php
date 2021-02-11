@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Entity;
+namespace app\Entity;
 
 
-use DateTimeZone;
+use DateTime;
 
-class List
+class Lists
 {
     /**
      * @var int
@@ -24,7 +24,7 @@ class List
     private $description;
 
     /**
-     * @var DateTimeZone
+     * @var DateTime
      */
     private $createAt;
 
@@ -36,9 +36,8 @@ class List
     public function __construct()
     {
         //TODO aleat
-        $this->id = 0;
         $this->tasks = [];
-        $this->createAt = new DateTimeZone();
+        $this->createAt = new DateTime();
     }
 
     /**
@@ -96,7 +95,7 @@ class List
     }
 
     /**
-     * @return DateTimeZone
+     * @return DateTime
      */
     public function getCreateAt()
     {
@@ -104,7 +103,7 @@ class List
     }
 
     /**
-     * @param DateTimeZone $createAt
+     * @param DateTime $createAt
      * @return Lists
      */
     public function setCreateAt($createAt)
