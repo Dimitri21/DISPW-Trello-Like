@@ -7,26 +7,26 @@
 
             <nav class="dashboard-inner-aside-list">
 
-                <li class="projects" data-url="/projects-index">
-                    <a href="#">
+                <li class="projects" data-url="/admin.project.tableau">
+                    <a href="/admin.project.tableau">
                         <i class="fas fa-tools"></i> <span>Tableau</span>
                     </a>
                 </li>
 
                 <li class="members" data-url="/members-index">
-                    <a href="#">
+                    <a href="/admin.project.members">
                         <i class="fas fa-clipboard"></i> <span>Membres</span>
                     </a>
                 </li>
 
                 <li class="lists" data-url="/lists-index">
-                    <a href="#">
+                    <a href="/admin.project.list">
                         <i class="fas fa-address-card"></i> <span>Listes</span>
                     </a>
                 </li>
 
                 <li class="tasks" data-url="/tasks-index">
-                    <a href="#">
+                    <a href="/admin.project.task">
                         <i class="fab fa-gitlab"></i> <span>Tâches</span>
                     </a>
                 </li>
