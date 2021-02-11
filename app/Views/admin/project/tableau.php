@@ -66,7 +66,7 @@
                             <h4>Project Name</h4>
                             <i class="fas fa-ellipsis-v"></i>
                         </div>
-                        <a href="/project/edit-1" class="projects-item-link"></a>
+                        <a href="/admin-project-show&id=1" class="projects-item-link"></a>
                     </div>
 
                 </div>
@@ -89,7 +89,7 @@
                             <h4>Project Name</h4>
                             <i class="fas fa-ellipsis-v"></i>
                         </div>
-                        <a href="/project/edit-2" class="projects-item-link"></a>
+                        <a href="/admin-project-show&id=2" class="projects-item-link"></a>
                     </div>
 
                     <div class="projects-item">
@@ -98,7 +98,7 @@
                             <h4>Project Name</h4>
                             <i class="fas fa-ellipsis-v"></i>
                         </div>
-                        <a href="/project/edit-2" class="projects-item-link"></a>
+                        <a href="/admin-project-show&id=2" class="projects-item-link"></a>
                     </div>
 
                     <div class="projects-item">
@@ -107,7 +107,7 @@
                             <h4>Project Name</h4>
                             <i class="fas fa-ellipsis-v"></i>
                         </div>
-                        <a href="/project/edit-1" class="projects-item-link"></a>
+                        <a href="/admin-project-show&id=1" class="projects-item-link"></a>
                     </div>
 
                     <div class="projects-item">
@@ -116,7 +116,7 @@
                             <h4>Project Name</h4>
                             <i class="fas fa-ellipsis-v"></i>
                         </div>
-                        <a href="/project/edit-1" class="projects-item-link"></a>
+                        <a href="/admin-project-show&id=1" class="projects-item-link"></a>
                     </div>
                 </div>
 
