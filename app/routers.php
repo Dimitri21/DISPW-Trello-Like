@@ -21,7 +21,7 @@ $app->start();
 //-----------------------------------------------
 //$router->map('GET', '/[*:slugger]-[i:id]', function ($slugger, $id) {
 //slugger and id must br used soon when we are going to make request to database
-//    $users = new UsersEntity();
+//    $users = new Users();
 //    $users->setName("Jean")
 //        ->setLastname("DOE")
 //        ->setAvatar("https://source.unsplash.com/collection/190727/1600x900")

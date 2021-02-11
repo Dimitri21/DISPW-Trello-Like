@@ -5,14 +5,16 @@
  */
 
 use app\App;
-use app\Entity\UsersEntity;
+use app\Entity\Users;
 
 define('_ROOT', dirname(__DIR__));
 
 require _ROOT . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'App.php';
+
 $app = App::getInstance();
+//Autoloader
 $app->start();
-$user = new UsersEntity();
+$user = new Users();
 
 //Traitement de paramètre d'URL
 $home_page  = "home";
@@ -32,30 +34,32 @@ if (!is_null($path_uri)) {
     //Pour un paramètre de longueur 3 => controller/action/slug , où slug = title-id
     $url_length = count($uri_params);
 
-    if ($url_length <= 1) {
-        //home
+    if ($url_length === 1) {
+        //Eg : /connexion
         $uri_params         = array_merge(array("home"), $uri_params);
         $controller_name    = ucfirst($uri_params[0]) . 'Controller';
         $controller_path    = $controllerPath . $controller_name . '.php';
         $controller_name    = "app\Controller\\" . ucfirst($uri_params[0]) . 'Controller';
         $action             = end($uri_params);
-        //var_dump("taille  : 1 ", $uri_params);
+    } else if ($url_length === 2) {
+        //Eg : /home-home
+        $controller_name    = ucfirst($uri_params[0]) . 'Controller';
+        $controller_path    = $controllerPath . $controller_name . '.php';
+        $controller_name    = "app\Controller\\" . ucfirst($uri_params[0]) . 'Controller';
+        $action             = end($uri_params);
     } else if ($url_length === 3) {
-        var_dump("taille  : 3 ", $uri_params);
-        $controller_name    = 'Admin';
-        $controller_name    = ucfirst($uri_params[1]) . 'Controller';
-        $controller_path    = $controllerPath . 'Admin' . DIRECTORY_SEPARATOR . $controller_name . '.php';
+        //Eg : /admin-users-index
+        //app\Controller\Admin
+        $controller_name    = 'app\Controller\Admin\\' . ucfirst($uri_params[1]) . 'Controller';
+        $controller_path    = $controllerPath . 'Admin' . DIRECTORY_SEPARATOR . ucfirst($uri_params[1]) . 'Controller' . '.php';
         $action             = end($uri_params);
     } else {
-        //var_dump("taille  : 2 ", $uri_params);
         $controller_name    = ucfirst($uri_params[0]) . 'Controller';
         $controller_path    = $controllerPath . $controller_name . '.php';
         $controller_name    = "app\Controller\\" . ucfirst($uri_params[0]) . 'Controller';
         $action             = $uri_params[1];
     }
     if (file_exists($controller_path)) {
-
-        //var_dump($controller_name,$controllerPath,$action);
         $controller_instance = new $controller_name();
         if (method_exists($controller_instance, $action)) {
             $params = $uri_params;
@@ -63,8 +67,6 @@ if (!is_null($path_uri)) {
             unset($params[1]);
             call_user_func_array([$controller_instance, $action], $params);
         } else {
-            //            var_dump("Action {$action} doen't existe");
-            //            header("http/1.1 404 page not found");
             $params = [];
             $action = "error404";
             call_user_func_array([$controller_instance, $action], $params);

@@ -1,6 +1,12 @@
 //GLOBAL SCRIPTS
 @import "components/variables";
 @import "components/colors";
+
+//Mixins
+@import "mixins/mixins";
+
+
+//Functions
 @import "components/global";
 @import "components/navbar";
 @import "components/header";
@@ -8,6 +14,8 @@
 @import "components/mobile";
 @import "components/tablet";
 @import "components/desktop";
+//COMPONENTS
+@import "components/toast";
 
 //PAGES
 @import "components/home";
@@ -21,4 +29,5 @@
 @import "components/resetpassword";
 @import "components/profile";
 @import "components/projects";
+@import "components/dashboard";
 

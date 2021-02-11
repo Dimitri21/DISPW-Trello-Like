@@ -6,7 +6,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    @include flex-row-center-center(column,center,center);
+    position: relative;
     &-inner {
         margin-top: -2rem;
         width: 350px;

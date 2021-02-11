@@ -1,0 +1,786 @@
+.dashboard {
+    max-width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    //INNER
+    &-inner {
+        display: grid;
+        grid-template-columns: 22vw 78vw;
+        grid-gap: .2rem;
+        width: inherit;
+        height: 93vh;
+        overflow: hidden;
+        transition: all .3s ease-in-out;
+        //ASIDE
+        &-aside {
+            width: 22vw;
+            height: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            
+            &-list {
+                display: flex;
+                flex-direction: column;
+                width: inherit;
+                background-color: $grey1-color;
+                li {
+                    width: inherit;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    margin-bottom: 0.1rem;
+                    background-color: $white-color;
+                    transition: background-color .3s ease-in-out;
+                    a {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        padding: 0.7rem;
+                        i {
+                            width: 50px;
+                            font-size:2rem;
+                        }
+                        span {
+                            font-size: 1rem;
+                        }
+                    }
+
+                    &:hover {
+                        background-color: rgba($color: $dark-color, $alpha: .2);
+                    }
+                    &.active {
+                        border-left: 5px solid $success-color;
+                        background-color: rgba($color: $success-color, $alpha: .2);
+                    }
+
+                    &.projects {
+                        i {
+                            color: $primary-color;
+                        }
+                    }
+
+                    &.members {
+                        i {
+                            color: $warning-color;
+                        }
+                    }
+
+                    &.lists {
+                        i {
+                            color: $success-color;
+                        }
+                    }
+
+                    &.tasks {
+                        i {
+                            color: $danger-color;
+                        }
+                    }
+
+                }
+            }
+
+            &-tools {
+
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                height: 50px;
+                border-top: 2px solid $grey1-color ;
+                
+                i {
+                    cursor: pointer;
+                    &:hover {
+                        color: rgba($color: $dark-color, $alpha: .5);
+                    }
+                }
+                div {
+                    padding: 0 .5rem;
+                    height: 50px;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    i{
+                        font-size: 1.5rem;
+                        margin-right: .7rem;
+                    }
+                    span{
+                        font-size: 1rem;
+                    }
+                }
+                &>i {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    height: 50px;
+                    padding: 0 .5rem;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+
+        //CONTENT
+        &-content {
+            width: 78vw;
+            max-width:inherit;
+            background-color: $grey-color;
+            &-title {
+                height: 10vh;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1.5rem 2rem;
+                background-color: $white-color;
+                
+                //Add a new list on the project
+                span {
+                    padding: 0.2rem .5rem;
+                    background-color: $success-color;
+                    border-radius: .3rem;
+                    transition: all .3s ease-in-out;
+                    i {
+                        cursor: pointer;
+                        color: $white-color;
+                        font-size: 2rem;
+                    }
+                    &:hover {
+                        background-color: rgba($color: $success-color, $alpha: .5);
+                    }
+                }
+            }
+            
+            &-lists {
+                width: inherit;
+                height: 83vh;
+                overflow-x: scroll;
+                .project-list {
+                    display: grid;
+                    grid-template-columns: repeat(6,300px) ;
+
+                    //DEFAULT LIST
+                    &-tasks {
+                        
+                        &-task {
+                            
+                            width: 300px;
+                            //LIST TITLE
+                            &-title {
+                                height: 6vh; // 83vh - 6 = 77vh;
+                                margin: .2rem 0 2rem 0;
+                                padding:.5rem;
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                align-items: center;
+                                background-color: $white-color;
+                                border-left: 1px solid rgba($color: $dark-color, $alpha: .7);
+                                color: rgba($color: $dark-color, $alpha: .7);
+                                &-right {
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    div {
+                                        margin-right: 1rem;
+                                        span {
+                                            &::before{
+                                                content: "/";
+                                            }
+                                        }
+                                    }
+                                    i {
+                                        font-size: 1rem;
+                                        padding: .2rem;
+                                    }
+
+                                    button {
+                                        color: rgba($color: $dark-color, $alpha: .7);
+                                        padding: 0 .3rem;
+                                        outline-style: none;
+                                        border: 1px solid rgba($color: $dark-color, $alpha: .7);
+                                        cursor: pointer;
+                                        &:first-of-type {
+                                            border-radius: .3rem 0 0 .3rem;
+                                        }
+                                        &:last-of-type {
+                                            border-radius: 0 .3rem .3rem 0;
+                                        }
+                                        &:hover {
+                                            background-color: rgba($color: $dark-color, $alpha: .2);
+                                        }
+                                    }
+                                }
+                            }
+
+                            &-body {
+                                height:77vh;
+                                padding: 0 .5rem;
+                                display: flex;
+                                flex-direction: column;
+                                overflow-y: scroll;
+                                
+
+                                //TASK
+                                &-task {
+                                    position: relative;
+                                    border-radius: 0 .3rem .3rem 0;
+                                    margin-bottom: .5rem;
+
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;
+                                        border-left: 4px solid $success-color;
+                                        background-color: $white-color;
+                                        box-shadow: 0 2px 2px rgba($color: $dark-color, $alpha: .2);
+                                        padding: .5rem;
+
+                                        &-title {
+                                            display: flex;
+                                            flex-direction: row;
+                                            align-items: center;
+                                            i {
+                                                font-size: 1.2rem;
+                                            }
+                                            span {
+                                                font-size: .8rem;
+                                                margin-left: .5rem;
+                                            }
+                                        }
+
+                                        &-lead {
+                                            display: flex;
+                                            flex-direction: row;
+                                            align-items: center;
+                                            margin: .5rem 0;
+                                            &-picture {
+                                                width: 35px;
+                                                height: 35px;
+                                                border-radius: 50%;
+                                                overflow: hidden;
+                                                margin-right: .5rem;
+                                                img {
+                                                    width: 110%;
+                                                    position: relative;
+                                                    left: -3px;
+                                                }
+                                            }
+                                            &>span {
+                                                font-weight: 700;
+                                                color: rgba($color: $dark-color, $alpha: .5);
+                                            }
+                                        }
+
+                                        &-state {
+                                            display: flex;
+                                            flex-direction: row;
+                                            justify-content: space-between;
+                                            align-items: center;
+                                            color: rgba($color: $dark-color, $alpha: .5);
+                                            font-size: .8rem;
+                                            span {
+                                                display: flex;
+                                                flex-direction: row;
+                                                align-items: center;
+                                                &> * {
+                                                    &:first-child {
+                                                        display: inline-block;
+                                                        width: 15px;
+                                                        height: 15px;
+                                                        border-radius: 50%;
+                                                        background-color: rgba($color: $dark-color, $alpha: .5);;
+                                                        margin-right: .2rem;
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        &-members {
+                                            display: flex;
+                                            flex-direction: row;
+                                            align-items: center;
+                                            &-item {
+                                                font-size: .8rem;
+                                                padding: .1rem .4rem;
+                                                margin-right: .3rem;
+                                                border-radius: .3rem;
+                                                color: $success-color;
+                                                background-color: rgba($color: $success-color, $alpha: .3);
+                                            }
+                                        }
+                                    
+
+                                    transition: all .3s ease-in-out;
+                                    
+                                    &:hover{
+                                        cursor: grab;
+                                    }
+                                    //TODO - faire un mixins
+                                    //TASK - STATE 
+                                    &.active {
+                                        .project-list-tasks-body-task-front {
+                                            span {
+                                                &> * {
+                                                    &:first-child {
+                                                        background-color: $primary-color;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    } 
+
+                                    &.solve {
+                                        .project-list-tasks-body-task-front {
+                                            span {
+                                                &> * {
+                                                    &:first-child {
+                                                        background-color: $success-color;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    &.tested {
+                                        .project-list-tasks-body-task-front {
+                                            span {
+                                                &> * {
+                                                    &:first-child {
+                                                        background-color: $secondary-color;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    &.closed {
+                                        .project-list-tasks-body-task-front {
+                                            span {
+                                                &> * {
+                                                    &:first-child {
+                                                        background-color: $third-color;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        //JS 
+        &.reduce {
+             grid-template-columns: 70px 100vw;
+            .dashboard-inner-aside {
+                width: 70px;
+                &-list {
+                    display: flex;
+                    flex-direction: column;
+                    width: inherit;
+                    li {
+                        text-align: center;
+                        a {
+                            span {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+    
+                &-tools {
+                    justify-content: flex-start;
+                    div {
+                        span {
+                            display: none;
+                        }
+                    }
+                    &>i {
+                        width: 0;
+                        position: relative;
+                        left: -22px;
+                    }
+                }
+            }
+            
+            .dashboard-inner-content {
+                width: 100%;
+                &-title {
+                    width: 97%;
+                    height: 10vh;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 1.5rem 4rem 1.5rem 2rem;
+                    background-color: $white-color;
+                    
+                    //Add a new list on the project
+                    button {
+                        padding: 0.2rem .5rem;
+                        background-color: $success-color;
+                        border-radius: .3rem;
+                        transition: all .3s ease-in-out;
+
+                        i {
+                            cursor: pointer;
+                            color: $white-color;
+                            font-size: 2rem;
+                        }
+                        &:hover {
+                            background-color: rgba($color: $success-color, $alpha: .5);
+                        }
+                    }
+                }
+                
+                &-lists {
+                    width: inherit;
+                    height: 83vh;
+                    overflow-x: scroll;
+                    .project-list {
+                        display: grid;
+                        grid-template-columns: repeat(6,300px) ;
+
+                        //DEFAULT LIST
+                        &-tasks {
+
+                            &-task {
+                                width: 300px;
+                                //LIST TITLE
+                                &-title {
+                                    height: 6vh; // 83vh - 6 = 77vh;
+                                    margin: .2rem 0 2rem 0;
+                                    padding:.5rem;
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    background-color: $white-color;
+                                    border-left: 1px solid rgba($color: $dark-color, $alpha: .7);
+                                    color: rgba($color: $dark-color, $alpha: .7);
+                                    &-right {
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        div {
+                                            margin-right: 1rem;
+                                            span {
+                                                &::before{
+                                                    content: "/";
+                                                }
+                                            }
+                                        }
+                                        i {
+                                            font-size: 1rem;
+                                            padding: .2rem;
+                                        }
+
+                                        button {
+                                            color: rgba($color: $dark-color, $alpha: .7);
+                                            padding: 0 .3rem;
+                                            outline-style: none;
+                                            border: 1px solid rgba($color: $dark-color, $alpha: .7);
+                                            cursor: pointer;
+                                            &:first-of-type {
+                                                border-radius: .3rem 0 0 .3rem;
+                                            }
+                                            &:last-of-type {
+                                                border-radius: 0 .3rem .3rem 0;
+                                            }
+                                            &:hover {
+                                                background-color: rgba($color: $dark-color, $alpha: .2);
+                                            }
+                                        }
+                                    }
+                                }
+
+                                &-body {
+                                    height:77vh;
+                                    padding: 0 .5rem;
+                                    display: flex;
+                                    flex-direction: column;
+                                    overflow-y: scroll;
+                                
+                                    //TASK
+                                    &-task {
+                                        width: 265px;
+                                        position: relative;
+                                        border-radius: 0 .3rem .3rem 0;
+                                        margin-bottom: .5rem;
+                                        &-front {
+                                            width: 100%;
+                                            display: flex;
+                                            flex-direction: column;
+                                            justify-content: space-between;
+                                            border-left: 4px solid $success-color;
+                                            background-color: $white-color;
+                                            box-shadow: 0 2px 2px rgba($color: $dark-color, $alpha: .2);
+                                            padding: .5rem;
+
+                                            &-title {
+                                                display: flex;
+                                                flex-direction: row;
+                                                align-items: center;
+                                                i {
+                                                    font-size: 1.2rem;
+                                                }
+                                                span {
+                                                    font-size: .8rem;
+                                                    margin-left: .5rem;
+                                                }
+                                            }
+
+                                            &-lead {
+                                                display: flex;
+                                                flex-direction: row;
+                                                align-items: center;
+                                                margin: .5rem 0;
+                                                &-picture {
+                                                    width: 35px;
+                                                    height: 35px;
+                                                    border-radius: 50%;
+                                                    overflow: hidden;
+                                                    margin-right: .5rem;
+                                                    img {
+                                                        width: 110%;
+                                                        position: relative;
+                                                        left: -3px;
+                                                    }
+                                                }
+                                                &>span {
+                                                    font-weight: 700;
+                                                    color: rgba($color: $dark-color, $alpha: .5);
+                                                }
+                                            }
+
+                                            &-state {
+                                                display: flex;
+                                                flex-direction: row;
+                                                justify-content: space-between;
+                                                align-items: center;
+                                                color: rgba($color: $dark-color, $alpha: .5);
+                                                font-size: .8rem;
+                                                span {
+                                                    display: flex;
+                                                    flex-direction: row;
+                                                    align-items: center;
+                                                    &> * {
+                                                        &:first-child {
+                                                            display: inline-block;
+                                                            width: 15px;
+                                                            height: 15px;
+                                                            border-radius: 50%;
+                                                            background-color: rgba($color: $dark-color, $alpha: .5);;
+                                                            margin-right: .2rem;
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            &-members {
+                                                display: flex;
+                                                flex-direction: row;
+                                                align-items: center;
+                                                &-item {
+                                                    font-size: .8rem;
+                                                    padding: .1rem .4rem;
+                                                    margin-right: .3rem;
+                                                    border-radius: .3rem;
+                                                    color: $success-color;
+                                                    background-color: rgba($color: $success-color, $alpha: .3);
+                                                }
+                                            }
+                                        
+                                        }
+
+                                        transition: all .3s ease-in-out;
+                                        
+                                        &:hover{
+                                            cursor: grab;
+                                        }
+                                        //TODO - faire un mixins
+                                        //TASK - STATE 
+                                        &.active {
+                                            .project-list-tasks-body-task-front {
+                                                span {
+                                                    &> * {
+                                                        &:first-child {
+                                                            background-color: $primary-color;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        } 
+
+                                        &.solve {
+                                            .project-list-tasks-body-task-front {
+                                                span {
+                                                    &> * {
+                                                        &:first-child {
+                                                            background-color: $success-color;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        &.tested {
+                                            .project-list-tasks-body-task-front {
+                                                span {
+                                                    &> * {
+                                                        &:first-child {
+                                                            background-color: $secondary-color;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        &.closed {
+                                            .project-list-tasks-body-task-front {
+                                                span {
+                                                    &> * {
+                                                        &:first-child {
+                                                            background-color: $third-color;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //TODO - à continuer plus tarde
+    &-list,&-task {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba($color: $dark-color, $alpha: .5);
+        
+        &-add{
+            width: 350px;
+            margin: 0 auto;
+            border-radius: .3rem;
+            background-color: $white-color;
+            box-shadow: 0 2px 2px rgba($color: $dark-color, $alpha: .2);
+            transform: translateX(100vw);
+            transition: transform 0.3s ease-in-out;
+
+            &-title {
+                padding: .5rem .8rem;
+                text-align: center;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                i{
+                    display: inline-block;
+                    padding: .3rem;
+                    cursor: pointer;
+                }
+            }
+
+            &-form {
+                padding: 1rem;
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    &>* {
+                        margin-top: .5rem;
+                        border: none;
+                        padding: .7rem .5rem;
+                        border-radius: .3rem;
+                        background-color: rgba($color: $dark-color, $alpha: .2);
+                        outline-style: none;
+                    }
+                    button {
+                        background-color: $success-color;
+                        color: $white-color;
+                        font-size: 1.2rem;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+
+        &.show{
+            display: flex;
+            .dashboard-list-add.add {
+                transform: translateX(0);
+            } 
+    
+            .dashboard-task-add.add {
+                transform: translateX(0);
+            } 
+        }
+
+        //Task ADD 
+        &-task-add{
+            width: 350px;
+            margin: 0 auto;
+            border-radius: .3rem;
+            background-color: $white-color;
+            box-shadow: 0 2px 2px rgba($color: $dark-color, $alpha: .2);
+            //transform: translateX(100vw);
+            transition: transform 0.3s ease-in-out;
+    
+            &-title {
+                padding: .5rem .8rem;
+                text-align: center;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                i{
+                    display: inline-block;
+                    padding: .3rem;
+                    cursor: pointer;
+                }
+            }
+    
+            &-form {
+                padding: 1rem;
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    &>* {
+                        margin-top: .5rem;
+                        border: none;
+                        padding: .7rem .5rem;
+                        border-radius: .3rem;
+                        background-color: rgba($color: $dark-color, $alpha: .2);
+                        outline-style: none;
+                    }
+                    button {
+                        background-color: $success-color;
+                        color: $white-color;
+                        font-size: 1.2rem;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+}

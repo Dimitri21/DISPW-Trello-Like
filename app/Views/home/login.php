@@ -1,17 +1,25 @@
 <div class="login global-form-bg" id="login-index">
+    <?php if (isset($message)) : ?>
+        <div class="toast danger">
+            <?= $message ?>
+        </div>
+    <?php endif; ?>
 
     <div class="login-inner ">
 
         <div class="inner-title">
+
             <div class=" inner-title-circle"></div>
+
             <div class="inner-title-text">
                 <h3>Connexion</h3>
             </div>
+
         </div>
 
         <div class="login-inner-body card">
 
-            <form class="login-inner-body-form form-group" action="/sign-login" method="post">
+            <form class="login-inner-body-form form-group" action="/connexion" method="post">
 
                 <div class="form-group-item">
                     <label for="email">Email</label>

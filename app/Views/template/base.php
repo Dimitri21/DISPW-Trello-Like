@@ -13,7 +13,7 @@
     <!--META AREA-->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="trello like">
-    <meta name="author" content="CECILE E., DIMITRI H. ET DURAMANA K.">
+    <meta name="authors" content="CECILE E., DIMITRI H. ET DURAMANA K.">
 
     <!--SCRIPT FOR LLOTTIES-->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
@@ -48,10 +48,37 @@
                             <a href="/">ACCUEIL</a>
                         </li>
 
-                        <?php if (isset($user) && !is_null($user)) : ?>
-                            <li class="profile-user">
-                                <a href="/admin-profile-show-<?= $user->getId() ?>"><?= $user->getName() ?></a>
-                            </li>
+                        <?php if (isset($_SESSION['auth']) && !empty($_SESSION['auth'])) : ?>
+                            <!--PROFILE INFOS-->
+                            <ul class="my-navbar-inner-list-profile">
+
+                                <!--TODO to delete-->
+                                <?php if (isset($project)) : ?>
+                                    <li class="my-navbar-inner-list-profile-item">
+                                        <a href="#"><i class="fal fa-envelope"></i></a>
+                                        <span class="badge success">3</span>
+                                    </li>
+
+                                    <li class="my-navbar-inner-list-profile-item">
+                                        <a href="#"><i class="fal fa-flag"></i></a>
+                                        <span class="badge danger">1</span>
+                                    </li>
+
+                                    <li class="my-navbar-inner-list-profile-item">
+                                        <a href="#"><i class="fal fa-bell"></i></a>
+                                        <span class="badge warning">2</span>
+                                    </li>
+                                <?php endif; ?>
+
+                                <li class="my-navbar-inner-list-profile-item profil">
+                                    <!--USER PICTURE-->
+                                    <div href="#" class="profile-image" id="dropdown_js">
+                                        <img src="images/profile/photo_passe.jpg" alt="profile picture">
+                                    </div>
+
+                                </li>
+
+                            </ul>
                         <?php else : ?>
                             <li class="my-navbar-inner-list-item">
                                 <a href="/connexion">Connexion</a>
@@ -73,6 +100,19 @@
 
             </div>
         </nav>
+
+        <!--DROPDOWN-->
+        <?php if (isset($_SESSION['auth'])) : ?>
+            <div class="my-container">
+                <div class="main-dropdown" id="profile_dropdown_js">
+                    <ul>
+                        <li><a href="/admin-project-index">Dashboard</a></li>
+                        <li><a href="/admin-users-index">Profile</a></li>
+                        <li><a href="/auth-logout">Deconnection</a></li>
+                    </ul>
+                </div>
+            </div>
+        <?php endif; ?>
 
         <!--CONTENT AREA-->
         <section role="main" class="container">
@@ -103,15 +143,17 @@
     </main>
 
     <!--FOOTER AREA-->
-    <footer class="footer">
-        <div class="my-container">
-            <ul class="footer-inner">
-                <li><a href="/politique_de_confidentialite">Politique de confidentialité</a></li>
-                <li><a href="/mentions_legales">Mentions légales</a></li>
-                <li><a href="/conditions_generales_utilisation">Conditions générales d'utilisation</a></li>
-            </ul>
-        </div>
-    </footer>
+    <?php if (!isset($projects)) : ?>
+        <footer class="footer">
+            <div class="my-container">
+                <ul class="footer-inner">
+                    <li><a href="/politique_de_confidentialite">Politique de confidentialité</a></li>
+                    <li><a href="/mentions_legales">Mentions légales</a></li>
+                    <li><a href="/conditions_generales_utilisation">Conditions générales d'utilisation</a></li>
+                </ul>
+            </div>
+        </footer>
+    <?php endif; ?>
 
     <!-- Bootstrap core JavaScript -->
     <!-- Placed at the end of the document so the pages load faster -->
