@@ -24,7 +24,7 @@ class Lists
     private $description;
 
     /**
-     * @var DateTimeZone
+     * @var DateTime
      */
     private $createAt;
 
@@ -36,9 +36,8 @@ class Lists
     public function __construct()
     {
         //TODO aleat
-        $this->id = 0;
         $this->tasks = [];
-        $this->createAt = new DateTimeZone();
+        $this->createAt = new DateTime();
     }
 
     /**
@@ -96,7 +95,7 @@ class Lists
     }
 
     /**
-     * @return DateTimeZone
+     * @return DateTime
      */
     public function getCreateAt()
     {
@@ -104,7 +103,7 @@ class Lists
     }
 
     /**
-     * @param DateTimeZone $createAt
+     * @param DateTime $createAt
      * @return Lists
      */
     public function setCreateAt($createAt)

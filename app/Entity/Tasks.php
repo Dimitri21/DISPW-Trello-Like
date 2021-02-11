@@ -1,9 +1,9 @@
 <?php
 
 
-namespace App\Entity;
+namespace app\Entity;
 
-class Task
+class Tasks
 {
     /**
      * @var int
@@ -21,7 +21,7 @@ class Task
     private $desciption;
 
     /**
-     * @var \DateTimeZone
+     * @var \DateTIme
      */
     private $createAt;
 
@@ -36,15 +36,15 @@ class Task
     private $endAt;
 
     /**
-     * @var UserEntity
+     * @var UsersEntity
      */
     private $lead;
 
-    //TODO à determiner le type de sticker
+    //TODO à determiner le type de state
     /**
      * @var int
      */
-    private $sticker;
+    private $state;
 
     /**
      * @var array Comment
@@ -53,10 +53,9 @@ class Task
 
     public function __construct()
     {
-        $this->id = 0;
-        $this->lead = new UserEntity();
+
         $this->comments = [];
-        $this->createAt = new \DateTimeZone();
+        $this->createAt = new \DateTime();
     }
 
     /**
@@ -69,7 +68,7 @@ class Task
 
     /**
      * @param int $id
-     * @return Task
+     * @return Tasks
      */
     public function setId($id)
     {
@@ -87,7 +86,7 @@ class Task
 
     /**
      * @param string $name
-     * @return Task
+     * @return Tasks
      */
     public function setName($name)
     {
@@ -105,7 +104,7 @@ class Task
 
     /**
      * @param string $desciption
-     * @return Task
+     * @return Tasks
      */
     public function setDesciption($desciption)
     {
@@ -114,7 +113,7 @@ class Task
     }
 
     /**
-     * @return \DateTimeZone
+     * @return \DateTIme
      */
     public function getCreateAt()
     {
@@ -122,8 +121,8 @@ class Task
     }
 
     /**
-     * @param \DateTimeZone $createAt
-     * @return Task
+     * @param \DateTIme $createAt
+     * @return Tasks
      */
     public function setCreateAt($createAt)
     {
@@ -141,7 +140,7 @@ class Task
 
     /**
      * @param \DateTime $startAt
-     * @return Task
+     * @return Tasks
      */
     public function setStartAt($startAt)
     {
@@ -159,7 +158,7 @@ class Task
 
     /**
      * @param \DateTime $endAt
-     * @return Task
+     * @return Tasks
      */
     public function setEndAt($endAt)
     {
@@ -168,7 +167,7 @@ class Task
     }
 
     /**
-     * @return UserEntity
+     * @return UsersEntity
      */
     public function getLead()
     {
@@ -176,8 +175,8 @@ class Task
     }
 
     /**
-     * @param UserEntity $lead
-     * @return Task
+     * @param UsersEntity $lead
+     * @return Tasks
      */
     public function setLead($lead)
     {
@@ -188,18 +187,18 @@ class Task
     /**
      * @return int
      */
-    public function getSticker()
+    public function getState()
     {
-        return $this->sticker;
+        return $this->state;
     }
 
     /**
-     * @param int $sticker
-     * @return Task
+     * @param int $state
+     * @return Tasks
      */
-    public function setSticker($sticker)
+    public function setState($state)
     {
-        $this->sticker = $sticker;
+        $this->state = $state;
         return $this;
     }
 
@@ -213,7 +212,7 @@ class Task
 
     /**
      * @param array $comments
-     * @return Task
+     * @return Tasks
      */
     public function setComments($comments)
     {
