@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ebcb4fd-b170-4057-9acc-7278261162e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Views/admin/project/show.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controller/Admin/ProjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/Admin/ProjectController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controller/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Entity/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Entity/Project.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Migration/request.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/Migration/request.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repository/ProjectRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repository/ProjectRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repository/UsersRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repository/UsersRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Views/admin/project/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/admin/project/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Views/admin/project/tableau.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Entity/List.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Entity/Lists.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +94,7 @@
       <workItem from="1612855675335" duration="21156000" />
       <workItem from="1612943101153" duration="6369000" />
       <workItem from="1612977154449" duration="598000" />
-      <workItem from="1613032186877" duration="6112000" />
+      <workItem from="1613032186877" duration="9357000" />
     </task>
     <servers />
   </component>

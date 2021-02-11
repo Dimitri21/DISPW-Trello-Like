@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Entity;
+namespace app\Entity;
 
 
-use DateTimeZone;
+use DateTime;
 
-class List
+class Lists
 {
     /**
      * @var int
