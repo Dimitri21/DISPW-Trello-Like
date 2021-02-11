@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="fr">
 
@@ -16,10 +15,13 @@
     <meta name="description" content="trello like">
     <meta name="author" content="CECILE E., DIMITRI H. ET DURAMANA K.">
 
+    <!--SCRIPT FOR LLOTTIES-->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
     <!--FONT AWESOME PRO -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-    <title><?=\app\App::getInstance()->titre?></title>
+    <title><?= \app\App::getInstance()->titre ?></title>
 </head>
 
 <body>
@@ -46,18 +48,18 @@
                             <a href="/">ACCUEIL</a>
                         </li>
 
-                       <?php if (isset($user) && !is_null($user)): ?>
+                        <?php if (isset($user) && !is_null($user)) : ?>
                             <li class="profile-user">
-                                <a href="/admin-profile-show-<?=$user->getId()?>"><?=$user->getName()?></a>
+                                <a href="/admin-profile-show-<?= $user->getId() ?>"><?= $user->getName() ?></a>
                             </li>
                         <?php else : ?>
-                           <li class="my-navbar-inner-list-item">
-                               <a href="/connexion">Connexion</a>
-                           </li>
+                            <li class="my-navbar-inner-list-item">
+                                <a href="/connexion">Connexion</a>
+                            </li>
 
-                           <li class="my-navbar-inner-list-item">
-                               <a href="/inscription">Inscription</a>
-                           </li>
+                            <li class="my-navbar-inner-list-item">
+                                <a href="/inscription">Inscription</a>
+                            </li>
                         <?php endif; ?>
 
                     </ul>
