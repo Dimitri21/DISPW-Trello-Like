@@ -1,4 +1,4 @@
 RewriteEngine On
-#RewriteRule ^(.*)$ /index.php?path=$1 [NC,L,QSA]
-# For uri like : /article-show&id=2 => index.php?path=article-show&id=
+#RewriteRule ^(.*)$ /show.php?path=$1 [NC,L,QSA]
+# For uri like : /article-show&id=2 => show.php?path=article-show&id=
 RewriteRule ^([a-zA-Z0-9\-\_\/]*)(&id=[0-9]*)?$ index.php?path=$1&id=$2 [NC,L,QSA]

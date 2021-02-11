@@ -24,6 +24,11 @@ class Project
     private $description;
 
     /**
+     * @var string
+     */
+    private $picture;
+
+    /**
      * @var \DateTime
      */
     private $createAt;
@@ -40,8 +45,6 @@ class Project
 
     public function __construct()
     {
-        //TODO aleatoirement
-        $this->id = 0;
         $this->lists = [];
         $this->guest = [];
         $this->createAt = new \DateTime();
@@ -152,6 +155,24 @@ class Project
     public function setGuest($guest)
     {
         $this->guest = $guest;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPicture(): string
+    {
+        return $this->picture;
+    }
+
+    /**
+     * @param string $picture
+     * @return Project
+     */
+    public function setPicture(string $picture): Project
+    {
+        $this->picture = $picture;
         return $this;
     }
 

@@ -39,8 +39,8 @@ CREATE TABLE sticker(
 );
 
 CREATE TABLE project(
-    id INT(11),
-    name VARCHAR(150),
+    id INT(11) AUTO_INCREMENT,
+    name VARCHAR(150) NOT NULL,
     description VARCHAR(255),
     create_at DATETIME DEFAULT NOW(),
     CONSTRAINT PK_PROJECT_ID PRIMARY KEY(id)
