@@ -61,12 +61,12 @@
 
                     <!--PROJECT CARD-->
                     <div class="projects-item">
-                        <img src="<?=$updated_project->getPicture()?>" alt="project bg">
+                        <img src="<?= $updated_project->getPicture() ?>" alt="project bg">
                         <div class="projects-item-title">
-                            <h4><?=$updated_project->getName()?></h4>
+                            <h4><?= $updated_project->getName() ?></h4>
                             <i class="fas fa-ellipsis-v"></i>
                         </div>
-                        <a href="/admin-project-show&id=<?=$updated_project->getId()?>" class="projects-item-link"></a>
+                        <a href="/admin-project-show&id=<?= $updated_project->getId() ?>" class="projects-item-link"></a>
                     </div>
 
                 </div>
@@ -82,16 +82,16 @@
 
                 <div class="projects">
                     <!--PROJECT CARD-->
-                    <?php foreach ($projects as $project): ?>
+                    <?php foreach ($projects as $project) : ?>
                         <div class="projects-item">
-                            <img src="<?=$project->getPicture()?>" alt="project bg">
+                            <img src="<?= $project->getPicture() ?>" alt="project bg">
                             <div class="projects-item-title">
-                                <h4><?=$project->getName()?></h4>
+                                <h4><?= $project->getName() ?></h4>
                                 <i class="fas fa-ellipsis-v"></i>
                             </div>
-                            <a href="/admin-project-show&id=<?=$project->getId()?>" class="projects-item-link"></a>
+                            <a href="/admin-project-show&id=<?= $project->getId() ?>" class="projects-item-link"></a>
                         </div>
-                    <?php endforeach;?>
+                    <?php endforeach; ?>
 
                 </div>
 
