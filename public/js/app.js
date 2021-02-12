@@ -33,13 +33,44 @@ dropdown("#dropdown_js");
 reduceAside("#setting_chevron_js");
 asideListeItemSelected('.dashboard-inner-aside-list li');
 setEventForAddCardOnList("#list_add_js");
-
+setEventProjectAdd('#project_add_js');
 setEventOnCloseAddTaskForm("#task_add_close_js"); //close form
 setTaskAddEvent('#dashboard-task-add-form');//for btn add
 //-----------------------------------------------------
 
 
 //Definition of functions------------------------------
+
+function setEventProjectShowHover(element_p) {
+    const element_v = $_(element_p);
+    if (element_v) {
+        element_v.classList.add('hover');
+        setTimeout(e => {
+            element_v.classList.remove('hover');
+        }, 5000);
+    }
+}
+
+function setEventProjectAdd(element_) {
+    const element = $_(element_);
+    const element_container_bg = $_('.project-add');
+    const element_container_annuler = $_('#project_annuler_js');
+    const project_element = $_('#project_js');
+    if (element) {
+        element.addEventListener('click', e => {
+            e.preventDefault();
+            if (element_container_bg) {
+                element_container_bg.classList.add('active');
+                project_element.classList.add('active');
+            }
+        })
+
+        element_container_annuler.addEventListener('click', e => {
+            project_element.classList.remove('active');
+            element_container_bg.classList.remove('active');
+        })
+    }
+}
 
 function setEventForAddCardOnList(element) {
     const add_btn = $_(element);

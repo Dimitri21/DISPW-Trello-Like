@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&display=swap');
+
 *{
     padding: 0;
     margin: 0;
@@ -50,13 +53,69 @@ body{
 
 .card {
 
-    padding: 1rem;
     background-color: $white-color;
     //border-radius: 0 0 .5rem .5rem;
     border-radius:.5rem;
     max-width: 350px;
     margin: 0 auto;
     box-shadow: 1px 2px 3px rgba($color: #000000, $alpha: .1);  
+    padding: 3rem 1rem 1rem 1rem;
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+       
+    
+        &-item {
+            width: 100%;
+            label {
+                display: block;
+                margin-top:1rem;
+            }
+
+            input,textarea {
+                padding: .8rem .5rem;
+                width: inherit;
+                border-radius: .3rem;
+                font-size: 1rem;
+                border: 1px solid $first-color;
+                width: 100%;
+                font-family: 'Open Sans', sans-serif;
+            }
+            //TODO Répétition inutile à optimiser
+            button,a {
+                margin-top: 1rem;
+                display: inline-block;
+                padding: .8rem 1.8rem;
+                border-radius: .3rem;
+                background: $first-color;
+                color: $white-color;
+                border: 0;
+                font-size: 1.1rem;
+                transition: all .3s ease-in-out;
+                box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: .2);
+                cursor: pointer;
+                &:hover{
+                    background-color: rgba($color: $first-color, $alpha: .6);
+                }
+            }
+    
+            a {
+                background: rgba($color: $first-color, $alpha: .2);
+                color: $first-color;
+            }
+    
+            &.btn_group {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+    
+        }
+    }
 }
 
 .global-form-bg {
