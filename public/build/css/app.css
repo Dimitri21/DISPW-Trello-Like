@@ -988,30 +988,39 @@ body {
   }
 }
 
-.home {
-  padding-top: 15vh;
-  padding-bottom: 15vh;
+.mentionslegales {
+  margin-top: 10vh;
+  margin-bottom: 15vh;
+  margin-left: 10vh;
   color: #363636;
+  max-width: 500px;
 }
 
-.home h1, .home h2, .home h3, .home h4, .home h5, .home h6 {
+.mentionslegales h1, .mentionslegales h2, .mentionslegales h3, .mentionslegales h4, .mentionslegales h5, .mentionslegales h6 {
+  margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
-.home h1 {
-  font-size: 3.2em;
+.mentionslegales h1 {
+  font-size: 2rem;
 }
 
-.home h2 {
-  font-size: 2.5rem;
+.mentionslegales h2 {
+  font-size: 1.5rem;
 }
 
-.home h3 {
-  font-size: 2.8rem;
-}
-
-.home p {
+.mentionslegales h3 {
   font-size: 1.2rem;
+}
+
+.mentionslegales p {
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+  .mentionslegales {
+    margin-left: 5vh;
+  }
 }
 
 .error {

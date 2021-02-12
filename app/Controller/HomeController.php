@@ -61,7 +61,7 @@ class HomeController extends AppController
     public function mentions_legales()
     {
         App::getInstance()->titre = "mentions legales";
-        $this->render("home.mentions");
+        $this->render("home.mentionslegales");
     }
 
     public function conditions_generales_utilisation()
