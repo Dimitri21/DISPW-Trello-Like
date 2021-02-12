@@ -100,7 +100,7 @@ class SprintoDatabase
 
     public function lastInsertID()
     {
-        return $this->getPDO()->lastInsertId();
+        return $this->getPDO("sprinto")->lastInsertId();
     }
 
     /**

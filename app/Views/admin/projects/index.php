@@ -29,21 +29,22 @@
                 </div>
 
                 <div class="projects">
-                    <?php if (isset($updated_project)) : ?>
+
+                    <?php if (isset($updated_project) && !empty($updated_project)) : ?>
                         <!--PROJECT CARD-->
 
                         <div class="projects-item">
                             <img src="<?= $updated_project->getPicture() ?>" alt="project bg">
 
-                            <div class="projects-item-title " id="project_item_js<?= $updated_project->getId() ?>">
+                            <div class="projects-item-title " id="project_item_js<?= $updated_project->getId() ?>_">
 
                                 <div class="projects-item-title-front">
                                     <h4><?= $updated_project->getName() ?></h4>
-                                    <i class="fas fa-ellipsis-v" onclick="setEventProjectShowHover('#project_item_js<?= $updated_project->getId() ?>')"></i>
+                                    <i class="fas fa-ellipsis-v" onclick="setEventProjectShowHover('#project_item_js<?= $updated_project->getId() ?>_')"></i>
                                 </div>
 
                                 <div class="projects-item-title-hover">
-                                    <a href="/admin-projects-edit&id=<?= $updated_project->getId() ?>"><i class="far fa-edit"></i></a>
+                                    <a href="/admin-projects-edit&id=<?= $updated_project->getId() ?>_"><i class="far fa-edit"></i></a>
                                     <form action="/admin-projects-delete" method="DELETE">
                                         <input type="text" name="id" value="<?= $updated_project->getId() ?>" hidden>
                                         <button type="submit"><i class="fas fa-trash-alt"></i></button>
@@ -57,12 +58,14 @@
                         </div>
 
                     <?php endif; ?>
+
                 </div>
 
             </div>
 
             <!--ALL PROJECT-->
             <div class="project-inner-projects">
+
                 <div class="project-title">
                     <i class="fas fa-business-time"></i>
                     <h3>Tous mes tableaux</h3>

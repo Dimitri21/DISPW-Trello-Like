@@ -95,20 +95,42 @@ function setEventForAddCardOnList(element) {
                     form_element.addEventListener('submit', e => {
                         e.preventDefault();
 
+                        //Form fields
                         const list_name = $_('#listname');
                         const list_description = $_('#description');
-                        if (list_name.value && list_description.value) {
+                        const url = $_(".projecr_list_add_js");
+
+                        if (list_name.value && list_description.value && url.dataset.url) {
                             const list_container = $_('#tasks_js');
-                            //Create List element
-                            createList(list_name.value, list_container);
+                            const data = {
+                                name: list_name.value,
+                                description: list_description.value,
+                            };
 
-                            //Clean fields
-                            list_name.value = "";
-                            list_description.value = "";
+                            //send AJAX Message
+                            $.ajax({
+                                type: "POST",
+                                url: url.dataset.url,
+                                data: data,
+                                cache: false,
+                                success: function (data_get) {
+                                    //Remise de string en object JSON
+                                    const returnValue = JSON.parse(data_get);
+                                    if (returnValue == "success") {
+                                        //Clean fields
+                                        list_name.textContent = "";
+                                        list_description.textContent = "";
+                                        createList(list_name.value, list_container);
 
-                            //Remove container  and form
-                            form_container.classList.remove('show');
-                            form.classList.remove('add');
+                                        //Remove container  and form
+                                        form_container.classList.remove('show');
+                                        form.classList.remove('add');
+                                    }
+                                },
+                                error: function (error_get) {
+                                    console.error("FATAL : ", error_get);
+                                }
+                            });
 
                         } else {
                             list_name.style.border = "1px solid red";
@@ -123,13 +145,13 @@ function setEventForAddCardOnList(element) {
 
 /**
  * @precond : Must check the max number for list on the projects ou tableau
- * @param {*} name 
+ * @param {*} name
  * @param {*} container 
  */
 function createList(name, container) {
     let project_list_tasks = $_('.projects-list-tasks', true);
-
-    //TODO - Must xheck the max List number
+    console.log("il me faut créer une liste");
+    //TODO - Must check the max List number
     const index = project_list_tasks.length + 1;
     let div_tasks = document.createElement('div');
     div_tasks.classList.add('projects-list-tasks');

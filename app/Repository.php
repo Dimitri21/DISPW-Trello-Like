@@ -144,4 +144,7 @@ class Repository
         return $return;
     }
 
+    public function getLastId() {
+        return $this->db->lastInsertID();
+    }
 }

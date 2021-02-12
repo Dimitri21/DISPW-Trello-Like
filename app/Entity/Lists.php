@@ -29,15 +29,26 @@ class Lists
     private $createAt;
 
     /**
+     * @var DateTime
+     */
+    private $modifiedAt;
+
+    /**
      * @var array Task
      */
     private $tasks;
+
+    /**
+     * @var int
+     */
+    private $orders;
 
     public function __construct()
     {
         //TODO aleat
         $this->tasks = [];
-        $this->createAt = new DateTime();
+        $this->createAt = new DateTime("now");
+        $this->modifiedAt = new DateTime('now');
     }
 
     /**
@@ -129,6 +140,43 @@ class Lists
         $this->tasks = $tasks;
         return $this;
     }
+
+    /**
+     * @return DateTime
+     */
+    public function getModifiedAt(): DateTime
+    {
+        return $this->modifiedAt;
+    }
+
+    /**
+     * @param DateTime $modifiedAt
+     * @return Lists
+     */
+    public function setModifiedAt(DateTime $modifiedAt): Lists
+    {
+        $this->modifiedAt = $modifiedAt;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getOrders(): int
+    {
+        return $this->orders;
+    }
+
+    /**
+     * @param int $orders
+     * @return Lists
+     */
+    public function setOrders(int $orders): Lists
+    {
+        $this->orders = $orders;
+        return $this;
+    }
+
 
 
 }

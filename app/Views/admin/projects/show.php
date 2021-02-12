@@ -75,7 +75,7 @@
 
                                             <div>
                                                 <i class="far fa-clipboard-list"></i>
-                                                <span class="nb_task_js">1</span>
+                                                <span class="nb_task_js"><?= count($list->getTasks()) ?></span>
                                             </div>
 
                                             <!--//TODO event for btn-dodo-->
@@ -171,7 +171,7 @@
 
             <div class="dashboard-list-add-form">
 
-                <form method="get" id="dashboard-list-add-form">
+                <form method="get" id="dashboard-list-add-form" data-url="/admin-lists-addAjax&id=<?= $project->getId() ?>" class="projecr_list_add_js">
                     <input type="text" name="listname" id="listname" placeholder="Nom de la tâche" maxlength="20" minlength="3">
                     <textarea name="description" id="description" cols="15" rows="5" placeholder="Description"></textarea>
 
@@ -185,6 +185,7 @@
 
     <!--CONFIG NEW TASK-->
     <div class="dashboard-task">
+
         <div class="dashboard-task-add">
 
             <div class="dashboard-task-add-title">
@@ -194,12 +195,29 @@
 
             <div class="dashboard-task-add-form">
 
-                <form method="get" id="dashboard-task-add-form">
-                    <input type="text" name="taskname" id="taskname" placeholder="Nom de la tâche" maxlength="20" minlength="3">
-                    <textarea name="description" id="taskdescription" cols="15" rows="5" placeholder="Description de la tâche"></textarea>
+                <div class="card">
+                    <form id="dashboard-task-add-form" class="form-group" action="/admin-lists-add" method="post">
 
-                    <button type="submit">Ajouter</button>
-                </form>
+                        <div class="form-group-item">
+                            <input type="text" name="project_name" id="project_name" placeholder="project">
+                            <span class=""></span>
+                        </div>
+
+                        <div class="form-group-item">
+                            <textarea name="description" id="taskdescription" cols="15" rows="5" placeholder="Description de la tâche"></textarea>
+                            <span class=""></span>
+                        </div>
+
+                        <div class="form-group-item btn_group">
+                            <a id="project_annuler_js">Annuler</a>
+                            <button type="submit">Ajouter</button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+
 
             </div>
 

@@ -13,6 +13,7 @@ class ListsRepository extends Repository
 
     public function findList($projectId)
     {
-        return $this->query("SELECT * FROM {$this->table} WHERE project = ?", [$projectId], false);
+        return $this->query("SELECT * FROM {$this->table} WHERE project = ? ORDER  BY orders ASC ", [$projectId], false);
     }
+
 }
