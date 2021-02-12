@@ -47,7 +47,7 @@ class Tasks
     private $state;
 
     /**
-     * @var array Comment
+     * @var array Comments
      */
     private $comments;
 

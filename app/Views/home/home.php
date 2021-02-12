@@ -42,7 +42,7 @@
                 
             <span class="animation-lottie">
                     <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_jvkbug4h.json" background="transparent" speed="1" style="width: 500px; height: 300px;" loop autoplay></lottie-player>
-</span> 
+            </span> 
 
                 <div>
                     <h2>

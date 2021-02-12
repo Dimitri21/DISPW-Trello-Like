@@ -3,7 +3,7 @@
 namespace app\Controller;
 
 use app\App;
-use app\Entity\Project;
+use app\Entity\Projects;
 use app\Entity\Users;
 
 class HomeController extends AppController
@@ -12,7 +12,7 @@ class HomeController extends AppController
     {
         parent::__construct();
         $this->loadModel('Users', 'sprinto');
-        $this->loadModel('Project', 'sprinto');
+        $this->loadModel('Projects', 'sprinto');
     }
 
     public function home()
@@ -34,7 +34,7 @@ class HomeController extends AppController
             $user = $auth->login($email,$password);
             if ($user) {
                 $project = [];
-                $this->render("admin.project.index", compact('user','project'));
+                $this->render("admin.projects.index", compact('user','project'));
             }
         }
         $this->render("home.login");
@@ -74,7 +74,7 @@ class HomeController extends AppController
     {
         App::getInstance()->titre = "Dashboard";
         $user = new Users();
-        $projects = new Project();
+        $projects = new Projects();
         $this->render("home.dashboard", compact('user','projects'));
     }
 

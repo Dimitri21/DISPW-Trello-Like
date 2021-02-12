@@ -33,13 +33,44 @@ dropdown("#dropdown_js");
 reduceAside("#setting_chevron_js");
 asideListeItemSelected('.dashboard-inner-aside-list li');
 setEventForAddCardOnList("#list_add_js");
-
+setEventProjectAdd('#project_add_js');
 setEventOnCloseAddTaskForm("#task_add_close_js"); //close form
 setTaskAddEvent('#dashboard-task-add-form');//for btn add
 //-----------------------------------------------------
 
 
 //Definition of functions------------------------------
+
+function setEventProjectShowHover(element_p) {
+    const element_v = $_(element_p);
+    if (element_v) {
+        element_v.classList.add('hover');
+        setTimeout(e => {
+            element_v.classList.remove('hover');
+        }, 5000);
+    }
+}
+
+function setEventProjectAdd(element_) {
+    const element = $_(element_);
+    const element_container_bg = $_('.project-add');
+    const element_container_annuler = $_('#project_annuler_js');
+    const project_element = $_('#project_js');
+    if (element) {
+        element.addEventListener('click', e => {
+            e.preventDefault();
+            if (element_container_bg) {
+                element_container_bg.classList.add('active');
+                project_element.classList.add('active');
+            }
+        })
+
+        element_container_annuler.addEventListener('click', e => {
+            project_element.classList.remove('active');
+            element_container_bg.classList.remove('active');
+        })
+    }
+}
 
 function setEventForAddCardOnList(element) {
     const add_btn = $_(element);
@@ -91,17 +122,17 @@ function setEventForAddCardOnList(element) {
 }
 
 /**
- * @precond : Must check the max number for list on the project ou tableau
+ * @precond : Must check the max number for list on the projects ou tableau
  * @param {*} name 
  * @param {*} container 
  */
 function createList(name, container) {
-    let project_list_tasks = $_('.project-list-tasks', true);
+    let project_list_tasks = $_('.projects-list-tasks', true);
 
     //TODO - Must xheck the max List number
     const index = project_list_tasks.length + 1;
     let div_tasks = document.createElement('div');
-    div_tasks.classList.add('project-list-tasks');
+    div_tasks.classList.add('projects-list-tasks');
     div_tasks.innerHTML = `
         <!--TASK FRONT-->
         <div class="project-list-tasks-task">
@@ -229,7 +260,7 @@ function createTask(infos) {
     //TODO - update the tasks number on the current list title
 
     let task_element = document.createElement('div');
-    task_element.classList.add('project-list-tasks-task-body-task');
+    task_element.classList.add('projects-list-tasks-task-body-task');
     task_element.innerHTML = `
         <!--TASK TITLE-->
         <p class="project-list-tasks-task-body-task-title">
