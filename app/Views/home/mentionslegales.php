@@ -1,4 +1,4 @@
-<div class="mentionslegales">
+<div class="mentionslegales ">
     <h1>MENTIONS LEGALES</h1>
     
     <h2>Editeur et directeur de la publication</h2>
