@@ -87,6 +87,29 @@ class Repository
     }
 
     /**
+     * @param $fieds
+     * @return mixed
+     */
+    public function insert($fieds)
+    {
+        //preparations aux champs de ma requette sql
+        $sql_parts = [];
+        $attributes = [];
+        foreach ($fieds as $k => $v)
+        {
+            $sql_parts[] = "$k = ?";
+            $attributes [] = $v;
+        }
+        $sql_part = implode(',',$sql_parts);
+        return $this->query("INSERT INTO {$this->table} SET $sql_part",$attributes,true);
+    }
+
+    public function delete($id)
+    {
+        return $this->query("DELETE FROM {$this->table} WHERE id = ? ",[$id],true);
+    }
+
+    /**
      * @param $key
      * @param $value
      * @return array

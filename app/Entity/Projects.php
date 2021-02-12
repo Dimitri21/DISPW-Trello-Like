@@ -24,14 +24,24 @@ class Projects
     private $description;
 
     /**
-     * @var string
+     * @var \DateTime
      */
-    private $picture;
+    private $createAt;
 
     /**
      * @var \DateTime
      */
-    private $createAt;
+    private $modifiedAt;
+
+    /**
+     * @var int
+     */
+    private $user;
+
+    /**
+     * @var string
+     */
+    private $picture;
 
     /**
      * @var array Lists
@@ -47,7 +57,8 @@ class Projects
     {
         $this->lists = [];
         $this->guest = [];
-        $this->createAt = new \DateTime();
+        $this->createAt = new \DateTime('now');
+        $this->modifiedAt = new \DateTime('now');
     }
 
     /**
@@ -141,7 +152,7 @@ class Projects
     }
 
     /**
-     * @return arra
+     * @return array
      */
     public function getGuest()
     {
@@ -175,5 +186,43 @@ class Projects
         $this->picture = $picture;
         return $this;
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getModifiedAt(): \DateTime
+    {
+        return $this->modifiedAt;
+    }
+
+    /**
+     * @param \DateTime $modifiedAt
+     * @return Projects
+     */
+    public function setModifiedAt(\DateTime $modifiedAt): Projects
+    {
+        $this->modifiedAt = $modifiedAt;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUser(): int
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param int $user
+     * @return Projects
+     */
+    public function setUser(int $user): Projects
+    {
+        $this->user = $user;
+        return $this;
+    }
+
+
 
 }
