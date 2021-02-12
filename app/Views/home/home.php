@@ -12,7 +12,7 @@
                 <button class="btn-CTA">Inscrivez vous, c'est gratuit</button>
             </div>
             <div class="subsection">
-                <div class="animation">
+                <div class="animation-lottie">
                     <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_rycdh53q.json" background="transparent" speed="1" style="width: 500px; height: 500px;" loop autoplay></lottie-player>
                 </div>
             </div>
@@ -21,7 +21,7 @@
         <section class="subhero">
             <div class="wrapper flex">
                 <div class="subsection">
-                    <div class="animation">
+                    <div class="animation-lottie">
                         <lottie-player src="https://assets1.lottiefiles.com/private_files/lf30_lKuCPz.json" background="transparent" speed="1" style="width: 500px; height: 500px;" loop autoplay></lottie-player>
                     </div>
                 </div>
@@ -39,13 +39,15 @@
 
         <section class="section-CTA">
             <div>
-                <div class="animation">
+                
+            <span class="animation-lottie">
                     <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_jvkbug4h.json" background="transparent" speed="1" style="width: 500px; height: 300px;" loop autoplay></lottie-player>
-                </div>
+</span> 
+
                 <div>
-                    <h3>
+                    <h2>
                         N'attendez plus pour vous inscrire
-                    </h3>
+                    </h2>
                     <button class="btn-CTA">Inscrivez vous, c'est gratuit</button>
                 </div>
             </div>

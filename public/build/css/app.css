@@ -704,7 +704,7 @@ body {
 
 .home .wrapper {
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .home .flex {
@@ -772,6 +772,7 @@ body {
 .home .section-CTA {
   padding-bottom: 15vh;
   max-width: 1200px;
+  margin: 0 auto;
 }
 
 .home .section-CTA div {
@@ -805,6 +806,7 @@ body {
 .home .section-contact h3 {
   color: white;
   text-align: center;
+  margin-bottom: 12vh;
 }
 
 .home .section-contact .contact-form {
@@ -855,15 +857,26 @@ body {
   margin-top: 20px;
 }
 
+@media screen and (max-width: 1200px) {
+  .home .subsection, .home .section-CTA, .home .wrapper {
+    margin-left: 10vh;
+    margin-right: 10vh;
+  }
+  .home section {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .home h1 {
-    font-size: 37px;
+    font-size: 2.2rem  !important;
   }
   .home h2 {
-    font-size: 30px;
+    font-size: 2.2rem !important;
   }
   .home h3 {
-    font-size: 32px;
+    font-size: 20px !important;
   }
   .home section {
     padding-top: 50px;
@@ -876,9 +889,6 @@ body {
   .home .subsection, .home .section-CTA, .home .contact-form {
     width: 90%;
   }
-  .home .animation {
-    display: none !important;
-  }
   .home .flex {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -889,12 +899,15 @@ body {
     padding-top: 50px;
     padding-bottom: 50px;
   }
+  .home .subsection, .home .section-CTA, .home .wrapper {
+    margin-left: 5vh;
+    margin-right: 5vh;
+  }
 }
 
-@media screen and (min-width: 800px) and (max-width: 1200px) {
-  .home .subsection, .home .section-CTA {
-    margin-left: 10vh;
-    margin-right: 10vh;
+@media screen and (max-width: 600px) {
+  .home .animation-lottie {
+    display: none !important;
   }
 }
 
