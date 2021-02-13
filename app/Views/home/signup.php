@@ -10,34 +10,34 @@
 
         <div class="signup-inner-body card">
 
-            <form class="signup-inner-body-form form-group" action="/connexion" method="post">
+            <form class="signup-inner-body-form form-group" action="/inscription" method="post">
 
                 <div class="form-group-item">
-                    <label for="prenom">Prénom</label>
-                    <input type="text" name="prenom" id="prenom" placeholder="Prénom*">
+                    <label for="lastname">Prénom*</label>
+                    <input type="text" name="lastname" id="lastname" placeholder="Prénom*">
                     <span class=""></span>
                 </div>
 
                 <div class="form-group-item">
-                    <label for="nom">Nom</label>
-                    <input type="text" name="nom" id="nom" placeholder="Nom*">
+                    <label for="name">Nom*</label>
+                    <input type="text" name="name" id="name" placeholder="Nom*">
                     <span class=""></span>
                 </div>
 
                 <div class="form-group-item">
-                    <label for="email">Email</label>
+                    <label for="email">Email*</label>
                     <input type="email" name="email" id="email" placeholder="Email*">
                     <span class=""></span>
                 </div>
 
                 <div class="form-group-item">
-                    <label for="password">Password</label>
+                    <label for="password">Password*</label>
                     <input type="password" name="password" id="password" placeholder="Password*">
                     <span class=""></span>
                 </div>
 
                 <div class="form-group-item">
-                    <label for="password-conf">Password de confirmation</label>
+                    <label for="password-conf">Password de confirmation*</label>
                     <input type="password" name="password-conf" id="password-conf" placeholder="Mot de passe de confirmation*">
                     <span class=""></span>
                 </div>

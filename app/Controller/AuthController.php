@@ -3,6 +3,7 @@
 namespace app\Controller;
 
 use app\Database\SprintoDatabase;
+use app\Entity\Users;
 
 class AuthController extends AppController
 {
@@ -20,6 +21,27 @@ class AuthController extends AppController
     public function login($email, $password)
     {
         $user       = $this->Users->findBy($email);
+        $login_info = $_REQUEST;
+
+        if (isset($_REQUEST['email']) && !empty($_REQUEST['email'])) {
+            $email      = htmlspecialchars($_REQUEST['email']);
+            $password   = htmlspecialchars($_REQUEST['password']);
+            //clean up array
+            $user       = $this->Users->findBy($email);
+
+            if ($user && $user->getPassword() === sha1($password)) {
+                $user->setPassword('');
+                $_SESSION['auth'] = true;
+                $_SESSION['user'] = serialize($user);
+                $this->redirect("/admin-projects-index");
+            }
+        }
+        $message = "Email ou mot de passe incorrect";
+        $this->render('home.login', compact('message'));
+    }
+
+    public function signup(Users $user)
+    {
         $login_info = $_REQUEST;
 
         if (isset($_REQUEST['email']) && !empty($_REQUEST['email'])) {

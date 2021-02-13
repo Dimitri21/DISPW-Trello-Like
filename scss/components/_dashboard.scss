@@ -224,94 +224,92 @@
                                 flex-direction: column;
                                 overflow-y: scroll;
                                 
-
+                                
                                 //TASK
                                 &-task {
                                     position: relative;
                                     border-radius: 0 .3rem .3rem 0;
                                     margin-bottom: .5rem;
-
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: space-between;
+                                    border-left: 4px solid $success-color;
+                                    background-color: $white-color;
+                                    box-shadow: 0 2px 2px rgba($color: $dark-color, $alpha: .2);
+                                    padding: .5rem;
+                                    &-title {
                                         display: flex;
-                                        flex-direction: column;
-                                        justify-content: space-between;
-                                        border-left: 4px solid $success-color;
-                                        background-color: $white-color;
-                                        box-shadow: 0 2px 2px rgba($color: $dark-color, $alpha: .2);
-                                        padding: .5rem;
-
-                                        &-title {
-                                            display: flex;
-                                            flex-direction: row;
-                                            align-items: center;
-                                            i {
-                                                font-size: 1.2rem;
-                                            }
-                                            span {
-                                                font-size: .8rem;
-                                                margin-left: .5rem;
-                                            }
+                                        flex-direction: row;
+                                        align-items: center;
+                                        i {
+                                            font-size: 1.2rem;
                                         }
-
-                                        &-lead {
-                                            display: flex;
-                                            flex-direction: row;
-                                            align-items: center;
-                                            margin: .5rem 0;
-                                            &-picture {
-                                                width: 35px;
-                                                height: 35px;
-                                                border-radius: 50%;
-                                                overflow: hidden;
-                                                margin-right: .5rem;
-                                                img {
-                                                    width: 110%;
-                                                    position: relative;
-                                                    left: -3px;
-                                                }
-                                            }
-                                            &>span {
-                                                font-weight: 700;
-                                                color: rgba($color: $dark-color, $alpha: .5);
-                                            }
-                                        }
-
-                                        &-state {
-                                            display: flex;
-                                            flex-direction: row;
-                                            justify-content: space-between;
-                                            align-items: center;
-                                            color: rgba($color: $dark-color, $alpha: .5);
+                                        span {
                                             font-size: .8rem;
-                                            span {
-                                                display: flex;
-                                                flex-direction: row;
-                                                align-items: center;
-                                                &> * {
-                                                    &:first-child {
-                                                        display: inline-block;
-                                                        width: 15px;
-                                                        height: 15px;
-                                                        border-radius: 50%;
-                                                        background-color: rgba($color: $dark-color, $alpha: .5);;
-                                                        margin-right: .2rem;
-                                                    }
-                                                }
+                                            margin-left: .5rem;
+                                        }
+                                    }
+
+                                    &-lead {
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        margin: .5rem 0;
+                                        &-picture {
+                                            width: 35px;
+                                            height: 35px;
+                                            border-radius: 50%;
+                                            overflow: hidden;
+                                            margin-right: .5rem;
+                                            img {
+                                                width: 110%;
+                                                position: relative;
+                                                left: -3px;
                                             }
                                         }
+                                        &>span {
+                                            font-weight: 700;
+                                            color: rgba($color: $dark-color, $alpha: .5);
+                                        }
+                                    }
 
-                                        &-members {
+                                    &-state {
+                                        display: flex;
+                                        flex-direction: row;
+                                        justify-content: space-between;
+                                        align-items: center;
+                                        color: rgba($color: $dark-color, $alpha: .5);
+                                        font-size: .8rem;
+                                        span {
                                             display: flex;
                                             flex-direction: row;
                                             align-items: center;
-                                            &-item {
-                                                font-size: .8rem;
-                                                padding: .1rem .4rem;
-                                                margin-right: .3rem;
-                                                border-radius: .3rem;
-                                                color: $success-color;
-                                                background-color: rgba($color: $success-color, $alpha: .3);
+                                            &> * {
+                                                &:first-child {
+                                                    display: inline-block;
+                                                    width: 15px;
+                                                    height: 15px;
+                                                    border-radius: 50%;
+                                                    background-color: rgba($color: $dark-color, $alpha: .5);;
+                                                    margin-right: .2rem;
+                                                }
                                             }
                                         }
+                                    }
+
+                                    &-members {
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        &-item {
+                                            font-size: .8rem;
+                                            padding: .1rem .4rem;
+                                            margin-right: .3rem;
+                                            border-radius: .3rem;
+                                            color: $success-color;
+                                            background-color: rgba($color: $success-color, $alpha: .3);
+                                        }
+                                    }
                                     
 
                                     transition: all .3s ease-in-out;

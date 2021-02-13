@@ -62,20 +62,21 @@
 
                         <?php foreach ($lists as $list) : ?>
 
-                            <!--TASK TODO-->
-                            <div class="project-list-tasks todo">
+                            <!--TASK-->
+                            <div class="project-list-tasks">
                                 <!--TASK-->
                                 <div class="project-list-tasks-task">
 
                                     <!--LIST TITLE-->
                                     <div class="project-list-tasks-task-title">
+
                                         <span class="project-list-tasks-task-title-js" id="list-<?= $list->getId() ?>"><?= $list->getName() ?></span>
 
                                         <div class="project-list-tasks-task-title-right">
 
                                             <div>
                                                 <i class="far fa-clipboard-list"></i>
-                                                <span class="nb_task_js"><?= count($list->getTasks()) ?></span>
+                                                <span class="nb_task_js" id="nb_task_js_<?= $list->getId() ?>"><?= count($list->getTasks()) ?></span>
                                             </div>
 
                                             <!--//TODO event for btn-dodo-->
@@ -93,7 +94,6 @@
 
                                     <!--LIST BODY-->
                                     <div class="project-list-tasks-task-body" id="tasks_container_js_<?= $list->getId() ?>">
-
                                         <!--BACKLOG-->
                                         <?php foreach ($list->getTasks() as $task) : ?>
                                             <div class="project-list-tasks-task-body-task">
@@ -109,7 +109,7 @@
                                                     <div class="project-list-tasks-task-body-task-lead-picture">
                                                         <img src="images/profile/photo_passe.jpg" alt="user profile avatar">
                                                     </div>
-                                                    <span>John DOE</span>
+                                                    <span><?= $task->getCreator() ?></span>
                                                 </div>
 
                                                 <!--TASK STATE-->
@@ -118,7 +118,7 @@
 
                                                     <span>
                                                         <span></span>
-                                                        <span>Proposée</span>
+                                                        <span><?= $task->getStickerString() ?></span>
                                                     </span>
 
                                                 </div>
@@ -141,7 +141,6 @@
                                                 </div>
 
                                             </div>
-
                                         <?php endforeach; ?>
                                     </div>
 
@@ -170,7 +169,7 @@
             </div>
 
             <div class="dashboard-list-add-form">
-
+                <!--TODO to correct the class name typing mistake-->
                 <form method="get" id="dashboard-list-add-form" data-url="/admin-lists-addAjax&id=<?= $project->getId() ?>" class="projecr_list_add_js">
                     <input type="text" name="listname" id="listname" placeholder="Nom de la tâche" maxlength="20" minlength="3">
                     <textarea name="description" id="description" cols="15" rows="5" placeholder="Description"></textarea>
@@ -196,14 +195,16 @@
             <div class="dashboard-task-add-form">
 
                 <div class="card">
-                    <form id="dashboard-task-add-form" class="form-group" action="/admin-lists-add" method="post">
+                    <form id="dashboard-task-add-form" class="form-group project_list_task_add_js" data-url="/admin-tasks-addAjax&id=" method="post">
 
                         <div class="form-group-item">
-                            <input type="text" name="project_name" id="project_name" placeholder="project">
+                            <label for="task_name">Titre</label>
+                            <input type="text" name="task_name" id="task_name" placeholder="Task Title">
                             <span class=""></span>
                         </div>
 
                         <div class="form-group-item">
+                            <label for="taskdescription">Description</label>
                             <textarea name="description" id="taskdescription" cols="15" rows="5" placeholder="Description de la tâche"></textarea>
                             <span class=""></span>
                         </div>
@@ -216,8 +217,6 @@
                     </form>
 
                 </div>
-
-
 
             </div>
 

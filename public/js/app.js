@@ -35,7 +35,7 @@ asideListeItemSelected('.dashboard-inner-aside-list li');
 setEventForAddCardOnList("#list_add_js");
 setEventProjectAdd('#project_add_js');
 setEventOnCloseAddTaskForm("#task_add_close_js"); //close form
-setTaskAddEvent('#dashboard-task-add-form');//for btn add
+setTaskAddEvent('.project_list_task_add_js');//for btn add
 //-----------------------------------------------------
 
 
@@ -216,34 +216,72 @@ function setEventOnCloseAddTaskForm(element) {
  */
 function setTaskAddEvent(element) {
     const task_form = $_(element);
-
     if (task_form) {
-
         task_form.addEventListener('submit', e => {
+
             e.preventDefault();
-            let task_name = $_("#taskname");
+            let task_name = $_("#task_name");
             let task_description = $_("#taskdescription");
 
             if (task_name.value && task_description.value) {
                 let task_container = $_(".dashboard-task");
                 let task_container_form = $_(".dashboard-task-add");
-                let jsonObject = {
-                    title: task_name.value,
-                    description: task_description.value,
-                    user: "Incognito DOE",
-                    state: "Proposée",
-                    picture: "images/profile/photo_passe.jpg",
-                    members: ['LastName NAME1', 'LastName NAME2']
-                }
-                createTask(jsonObject);
 
-                //Clean up fields
-                task_name.value = "";
-                task_description.value = "";
-                if (task_container && task_container_form) {
-                    task_container.classList.remove('show')
-                    task_container_form.classList.remove('add')
+
+                //Form fields
+                const list_name = $_('#task_name');
+                const list_description = $_('#taskdescription');
+                let current_task_container = $_('.list_activate');
+                let id = current_list_id = null;
+                if (current_task_container) {
+                    let id_temp = current_task_container.id.split("_");
+                    id = parseInt(id_temp[id_temp.length - 1]);
                 }
+
+                if (list_name.value && list_description.value && task_form.dataset.url) {
+                    const data = {
+                        name: list_name.value,
+                        description: list_description.value,
+                        list_id :id
+                    };
+                    //send AJAX Message
+                    $.ajax({
+                        type: "POST",
+                        url: task_form.dataset.url + id,
+                        data: data,
+                        cache: false,
+                        success: function (data_get) {
+                            //Remise de string en object JSON
+                            const returnValue = JSON.parse(data_get);
+                            if (returnValue.status == "success") {
+                                //Clean fields
+                                list_name.textContent = "";
+                                list_description.textContent = "";
+
+                                createTask(returnValue,current_task_container);
+                                let nb_tasks_ = $_(`#nb_task_js_${id}`);
+                                if (nb_tasks_) {
+                                    nb_tasks_.textContent = parseInt(nb_tasks_.textContent) + 1;
+                                }
+                                //Clean up fields
+                                if (task_container && task_container_form) {
+                                    task_container.classList.remove('show')
+                                    task_container_form.classList.remove('add')
+                                }
+
+                            }
+                        },
+                        error: function (error_get) {
+                            console.error("FATAL : ", error_get);
+                        }
+                    });
+
+                } else {
+                    list_name.style.border = "1px solid red";
+                    list_description.style.border = "1px solid red";
+                }
+
+
             } else {
                 task_name.style.border = "1px solid red";
                 task_description.style.border = "1px solid red";
@@ -276,24 +314,23 @@ function showAddTaskForm(index) {
     }
 }
 
-function createTask(infos) {
-    const task_container = $_('.list_activate');
-
+function createTask(infos, element) {
+    const task_container = element;
     //TODO - update the tasks number on the current list title
 
     let task_element = document.createElement('div');
-    task_element.classList.add('projects-list-tasks-task-body-task');
+    task_element.classList.add('project-list-tasks-task-body-task');
     task_element.innerHTML = `
         <!--TASK TITLE-->
         <p class="project-list-tasks-task-body-task-title">
             <i class="fal fa-book-open"></i>
-            <span class="task-title">${infos.title}</span>
+            <span class="task-title">${infos.name}</span>
         </p>
-
+                
         <!--TASK LEAD-->
         <div class="project-list-tasks-task-body-task-lead">
             <div class="project-list-tasks-task-body-task-lead-picture">
-                <img src="${infos.picture}"
+                <img src="images/profile/${infos.picture}"
                     alt="user profile avatar">
             </div>
             <span>${infos.user}</span>
@@ -304,7 +341,7 @@ function createTask(infos) {
             <span>Etat</span>
             <span>
                 <span></span>
-                <span>${infos.state}</span>
+                <span>${infos.sticker}</span>
             </span>
 
         </div>

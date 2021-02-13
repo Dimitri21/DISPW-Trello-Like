@@ -5,6 +5,7 @@ namespace app\Entity;
 
 class Tasks
 {
+    const STICKERS = ["proposée","active","solve", "tested","closed"];
     /**
      * @var int
      */
@@ -33,10 +34,15 @@ class Tasks
     /**
      * @var \DateTime
      */
+    private $modified_at;
+
+    /**
+     * @var \DateTime
+     */
     private $endAt;
 
     /**
-     * @var UsersEntity
+     * @var Users
      */
     private $lead;
 
@@ -51,11 +57,30 @@ class Tasks
      */
     private $comments;
 
+    /**
+     * @var int
+     */
+    private $sticker;
+
+    /**
+     * @var int
+     */
+    private $created_by;
+
+    /**
+     * @var Users
+     */
+    private $created_by_obj;
+
     public function __construct()
     {
-
         $this->comments = [];
-        $this->createAt = new \DateTime();
+        $this->createAt = new \DateTime("now");
+        $this->modified_at = new \DateTime('now');
+        $this->startAt = new  \DateTime('now');
+        $this->endAt = new  \DateTime('now');
+        $this->lead = -1;
+        $this->sticker = 1;
     }
 
     /**
@@ -167,7 +192,7 @@ class Tasks
     }
 
     /**
-     * @return UsersEntity
+     * @return Users
      */
     public function getLead()
     {
@@ -175,7 +200,7 @@ class Tasks
     }
 
     /**
-     * @param UsersEntity $lead
+     * @param Users $lead
      * @return Tasks
      */
     public function setLead($lead)
@@ -219,5 +244,96 @@ class Tasks
         $this->comments = $comments;
         return $this;
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getModifiedAt(): \DateTime
+    {
+        return $this->modified_at;
+    }
+
+    /**
+     * @param \DateTime $modified_at
+     * @return Tasks
+     */
+    public function setModifiedAt(\DateTime $modified_at): Tasks
+    {
+        $this->modified_at = $modified_at;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSticker(): int
+    {
+        return $this->sticker;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStickerString(): string
+    {
+        //TODO  check index range
+        return Tasks::STICKERS[$this->sticker-1];
+    }
+
+    /**
+     * @param int $sticker
+     * @return Tasks
+     */
+    public function setSticker(int $sticker): Tasks
+    {
+        $this->sticker = $sticker;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCreatedBy(): int
+    {
+        return $this->created_by;
+    }
+
+    /**
+     * @param int $created_by
+     * @return Tasks
+     */
+    public function setCreatedBy(int $created_by): Tasks
+    {
+        $this->created_by = $created_by;
+        return $this;
+    }
+
+    /**
+     * @return Users
+     */
+    public function getCreatedByObj(): Users
+    {
+        return $this->created_by_obj;
+    }
+
+    /**
+     * @param Users $created_by_obj
+     * @return Tasks
+     */
+    public function setCreatedByObj(Users $created_by_obj): Tasks
+    {
+        $this->created_by_obj = $created_by_obj;
+        return $this;
+    }
+    /**
+     * @param Users $created_by_obj
+     * @return Tasks
+     */
+    public function getCreator()
+    {
+        return strtoupper($this->getCreatedByObj()->getName()) ." ".ucfirst($this->getCreatedByObj()->getLastname());
+    }
+
+
 
 }

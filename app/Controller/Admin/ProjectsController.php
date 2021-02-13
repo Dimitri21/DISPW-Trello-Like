@@ -27,6 +27,7 @@ class ProjectsController extends AppController
         $projects = $this->Projects->findProject($this->user->getId());
         $updated_project = $this->Projects->findLastModified($this->user->getId());
         $this->render("admin.projects.index", compact("projects", "updated_project"));
+
     }
 
     public function  add()
@@ -124,9 +125,11 @@ class ProjectsController extends AppController
             foreach ($lists as $list) {
 
                 $list->setTasks($this->Tasks->findTask($list->getId()));
-                /* TODO chercher le lead de chaque tâche
-                $list->setLead($this->Users->find($list->getLead()));
-                */
+                $tasks = $list->getTasks();
+                // TODO prepare members for each task
+                foreach ($tasks as $task) {
+                    $task->setCreatedByObj($this->Users->find($task->getCreatedBy()));
+                }
             }
 
             $this->render("admin.projects.show", compact('project', 'lists'));
