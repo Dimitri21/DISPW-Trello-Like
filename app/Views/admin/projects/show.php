@@ -210,7 +210,7 @@
 
                         <div class="form-group-item">
                             <label for="task_name">Titre</label>
-                            <input type="text" name="task_name" id="task_name" placeholder="Task Title">
+                            <input type="text" name="task_name" id="task_name" placeholder="Votre titre">
                             <span class=""></span>
                         </div>
 
