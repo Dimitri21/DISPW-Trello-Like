@@ -37,9 +37,9 @@ class TasksController extends AppController
         if(isset($_POST) && !empty($_POST) && isset($_GET['id']) &&
             !empty($_GET['id']) && is_numeric($_GET['id']))
         {
-            $today      = date("Y-m-d H:i:s");
-            $sticker = 1;
-            $is_inserted= $this->Tasks->insert(
+            $today          = date("Y-m-d H:i:s");
+            $sticker        = 1;
+            $is_inserted    = $this->Tasks->insert(
                 ["name"=>$_POST['name'],
                     "description"=>$_POST['description'],
                     "created_by"=>$this->user->getId(),
@@ -49,20 +49,19 @@ class TasksController extends AppController
                     "end_at"=>$today,
                     "sticker"=>$sticker,
                     "lists"=>$_GET['id']]);
-            $members = ['LastName NAME1'];
+            $members        = ['LastName NAME1'];
             if($is_inserted){
-                $return_message['id'] = $this->Tasks->getLastId();
-                $return_message['status'] = "success";
-                $return_message['name'] = $_POST['name'];
-                $return_message['user'] = strtoupper($this->user->getName()) . " ".ucfirst($this->user->getLastname());
-                $return_message['picture'] = $this->user->getPicture();
-                $return_message['members'] = $members;
-                $return_message['sticker'] = Tasks::STICKERS[$sticker-1];
-                $return_message['message'] = "Tâche créée avec succès!";
-
+                $return_message['id']       = $this->Tasks->getLastId();
+                $return_message['status']   = "success";
+                $return_message['name']     = $_POST['name'];
+                $return_message['user']     = strtoupper($this->user->getName()) . " ".ucfirst($this->user->getLastname());
+                $return_message['picture']  = $this->user->getPicture();
+                $return_message['members']  = $members;
+                $return_message['sticker']  = Tasks::STICKERS[$sticker-1];
+                $return_message['message']  = "Tâche créée avec succès!";
             }else {
-                $return_message['status'] = "success";
-                $return_message['message'] = "Erreur lors de création de tâche";
+                $return_message['status']   = "success";
+                $return_message['message']  = "Erreur lors de création de tâche";
             }
         }
 
