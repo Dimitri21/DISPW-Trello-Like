@@ -142,7 +142,7 @@
                                                 </div>
 
                                                 <div class="project-list-tasks-task-body-task-hover">
-                                                    <a href="/admin-task-edit&id=<?= $task->getId() ?>"><i class="far fa-edit"></i></a>
+                                                    <a href="/admin-tasks-edit&id=<?= $task->getId() ?>"><i class="far fa-edit"></i></a>
                                                     <form action="/admin-task-delete">
                                                         <input type="text" name="id" value="<?= $task->getId() ?>" hidden>
                                                         <button class="btn btn-danger" type="submit">
@@ -210,7 +210,7 @@
 
                         <div class="form-group-item">
                             <label for="task_name">Titre</label>
-                            <input type="text" name="task_name" id="task_name" placeholder="Task Title">
+                            <input type="text" name="task_name" id="task_name" placeholder="Votre titre">
                             <span class=""></span>
                         </div>
 

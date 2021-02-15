@@ -71,11 +71,14 @@ class TasksController extends AppController
 
     public function  edit()
     {
-        var_dump("List/edi");
+        var_dump($_REQUEST, $_POST, $_GET);
         die();
+        
+       
     }
 
-    public function delete() {
+    public function delete() 
+    {
         var_dump("List/del");
         die();
     }

@@ -8,6 +8,9 @@ use app\Entity\Users;
 
 class HomeController extends AppController
 {
+
+    private $error_message = "";
+
     public function __construct()
     {
         parent::__construct();
@@ -18,8 +21,9 @@ class HomeController extends AppController
     public function home()
     {
         $user = null;
+        $message = $this->error_message;
         App::getInstance()->titre = "Accueil";
-        $this->render("home.home", compact('user'));
+        $this->render("home.home", compact('user', 'message'));
     }
 
     public function connexion()
@@ -104,5 +108,26 @@ class HomeController extends AppController
     public function error404()
     {
         $this->notFound();
+    }
+
+    public function contact() 
+    {
+        if(isset($_POST["submit"])) {
+            $name = htmlentities($_POST["name"]);
+            $email = htmlentities($_POST["email"]);
+            $message = htmlentities($_POST["message"]);
+            
+            if (empty($name) or empty($email) or empty($message)) {
+                $this->error_message = "Merci de compléter tous les champs requis";
+                return $this->home();
+            }
+
+            // Send email
+
+            $headers = 'FROM: ' . $email;
+
+            mail('contact@trello.webo', 'Formulaire de contact de ' . $name, $message, $headers);
+            return $this->home();
+        }
     }
 }

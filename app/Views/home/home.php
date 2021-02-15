@@ -54,12 +54,19 @@
         </section>
 
         <section class="section-contact">
+            
             <div class="contact-form">
+            <?php if(isset($message) and !empty($message)):?>
+                    <div class="form-danger">
+                        <?= $message ?>
+                    </div>
+                <?php endif;?>
                 <h3>
                     N'hésitez pas à nous contacter
                 </h3>
+            
                 <div class="flex jc row">
-                    <form class="contact-form" action="" method="POST">
+                    <form class="contact-form" action="/home-contact" method="POST">
                         <div>
                             <label for="name">Nom</label>
                             <input type="text" name="name">
@@ -73,7 +80,7 @@
                             <textarea name="message" id="message" cols="30" rows="10"></textarea>
                         </div>
                         <div>
-                            <input type="submit" value="Envoyer" class="btn-CTA">
+                            <input type="submit" value="Envoyer" name="submit" class="btn-CTA">
                         </div>
                     </form>
                 </div>

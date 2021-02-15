@@ -2,13 +2,17 @@
 
     <div class="my-container">
 
-        <div class="project-inner">
+        <div class="project-inner"> 
 
             <div class="inner-title">
                 <div>
                     <h3>Vos tableaux</h3>
                 </div>
             </div>
+
+            <?php if (isset($message) and !empty($message)) :?>
+                    <div class="toast danger left"><?= $message ?></div>
+            <?php endif; ?>   
 
             <!--ADD BTN-->
 
@@ -36,7 +40,7 @@
                         <div class="projects-item">
                             <img src="<?= $updated_project->getPicture() ?>" alt="project bg">
 
-                            <div class="projects-item-title " id="project_item_js<?= $updated_project->getId() ?>_">
+                            <div class="projects-item-title " id="project_item_js<?= $updated_project->getId() ?>">
 
                                 <div class="projects-item-title-front">
                                     <h4><?= $updated_project->getName() ?></h4>
@@ -122,7 +126,7 @@
                 <form class=" form-group" action="/admin-projects-add" method="post">
 
                     <div class="form-group-item">
-                        <input type="text" name="project_name" id="project_name" placeholder="project">
+                        <input type="text" name="project_name" id="project_name" placeholder="project" require>
                         <span class=""></span>
                     </div>
 
