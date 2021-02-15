@@ -4,7 +4,7 @@
 
         <div class="project-edit-inner">
             <div class="card">
-                <form class=" form-group" action="/admin-projects-add" method="post">
+                <form class=" form-group" action="/admin-projects-<?=$method?? 'add'?>" method="post">
 
                     <div class="form-group-item">
                         <label for="project_name">Name</label>

@@ -242,7 +242,7 @@ function setTaskAddEvent(element) {
                     const data = {
                         name: list_name.value,
                         description: list_description.value,
-                        list_id :id
+                        list_id: id
                     };
                     //send AJAX Message
                     $.ajax({
@@ -258,7 +258,7 @@ function setTaskAddEvent(element) {
                                 list_name.textContent = "";
                                 list_description.textContent = "";
 
-                                createTask(returnValue,current_task_container);
+                                createTask(returnValue, current_task_container);
                                 let nb_tasks_ = $_(`#nb_task_js_${id}`);
                                 if (nb_tasks_) {
                                     nb_tasks_.textContent = parseInt(nb_tasks_.textContent) + 1;
@@ -321,38 +321,43 @@ function createTask(infos, element) {
     let task_element = document.createElement('div');
     task_element.classList.add('project-list-tasks-task-body-task');
     task_element.innerHTML = `
-        <!--TASK TITLE-->
-        <p class="project-list-tasks-task-body-task-title">
-            <i class="fal fa-book-open"></i>
-            <span class="task-title">${infos.name}</span>
-        </p>
-                
-        <!--TASK LEAD-->
-        <div class="project-list-tasks-task-body-task-lead">
-            <div class="project-list-tasks-task-body-task-lead-picture">
-                <img src="images/profile/${infos.picture}"
-                    alt="user profile avatar">
-            </div>
-            <span>${infos.user}</span>
-        </div>
-
-        <!--TASK STATE-->
-        <div class="project-list-tasks-task-body-task-state">
-            <span>Etat</span>
-            <span>
-                <span></span>
-                <span>${infos.sticker}</span>
-            </span>
-
-        </div>
-
-        <!--TASK MEMBERS-->
-        <div class="project-list-tasks-task-body-task-members">
-            <!--TODO have to make a loop here-->
-            <div class="project-list-tasks-task-body-task-members-item success">
-                <span>${infos.members[0]}</span>
+        <div class="project-list-tasks-task-body-task-front">
+            <!--TASK TITLE-->
+            <p class="project-list-tasks-task-body-task-front-title">
+                <i class="fal fa-book-open"></i>
+                <span class="task-title">${infos.name}</span>
+            </p>
+                    
+            <!--TASK LEAD-->
+            <div class="project-list-tasks-task-body-task-front-lead">
+                <div class="project-list-tasks-task-body-task-front-lead-picture">
+                    <img src="images/profile/${infos.picture}"
+                        alt="user profile avatar">
+                </div>
+                <span>${infos.user}</span>
             </div>
 
+            <!--TASK STATE-->
+            <div class="project-list-tasks-task-body-task-front-state">
+                <span>Etat</span>
+                <span>
+                    <span></span>
+                    <span>${infos.sticker}</span>
+                </span>
+
+            </div>
+
+            <!--TASK MEMBERS-->
+            <div class="project-list-tasks-task-body-task-front-members">
+                <!--TODO have to make a loop here-->
+                <div class="project-list-tasks-task-body-task-front-members-item success">
+                    <span>${infos.members[0]}</span>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="project-list-tasks-task-body-task-hover">
         </div>
     `;
     task_container.appendChild(task_element)
