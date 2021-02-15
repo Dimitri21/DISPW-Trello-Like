@@ -71,10 +71,32 @@ class TasksController extends AppController
 
     public function  edit()
     {
-        var_dump($_REQUEST, $_POST, $_GET);
-        die();
-        
-       
+        $error_message ="";
+        //Traitement des informations en $_POST
+        $task = $this->Tasks->find($_GET['id']);
+        if(isset($_POST) && !empty($_POST))
+        {
+            $today      = date("Y-m-d H:i:s");
+            $is_inserted= $this->Projects->update($_GET['id'],
+                ["name"=>$_POST['project_name'],
+                    "description"=>'Tableau modifié',
+                    "create_at"=>$today,
+                    'modified_at'=>$today,
+                    'picture'=>'images/projects/ps.jpg',
+                    'users'=>$this->user->getId()]);
+
+            if($is_inserted)
+            {
+                return $this->index();
+            } else {
+                $login_error =  "Erreur pendant l'enregistrement";
+            }
+
+        }
+        $method = "edit&id=".$project->getId();
+        $this->render('admin.projects.edit', compact('project','login_error','method'));
+
+
     }
 
     public function delete() 
