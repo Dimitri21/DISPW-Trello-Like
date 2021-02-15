@@ -116,11 +116,11 @@ function setEventForAddCardOnList(element) {
                                 success: function (data_get) {
                                     //Remise de string en object JSON
                                     const returnValue = JSON.parse(data_get);
-                                    if (returnValue == "success") {
+                                    if (returnValue.status == "success") {
+                                        createList(list_name.value, list_container,returnValue.id);
                                         //Clean fields
-                                        list_name.textContent = "";
-                                        list_description.textContent = "";
-                                        createList(list_name.value, list_container);
+                                        list_name.value = "";
+                                        list_description.value = "";
 
                                         //Remove container  and form
                                         form_container.classList.remove('show');
@@ -148,20 +148,20 @@ function setEventForAddCardOnList(element) {
  * @param {*} name
  * @param {*} container 
  */
-function createList(name, container) {
-    let project_list_tasks = $_('.projects-list-tasks', true);
-    console.log("il me faut créer une liste");
+function createList(name, container,id) {
+    let project_list_tasks = $_('.project-list-tasks', true);
     //TODO - Must check the max List number
     const index = project_list_tasks.length + 1;
+    //create a new div element
     let div_tasks = document.createElement('div');
-    div_tasks.classList.add('projects-list-tasks');
+    div_tasks.classList.add('project-list-tasks');
     div_tasks.innerHTML = `
         <!--TASK FRONT-->
         <div class="project-list-tasks-task">
 
             <!--LIST TITLE-->
             <div class="project-list-tasks-task-title">
-                <span class="project-list-tasks-task-title-js"  id="list-${index}">${name}</span>
+                <span class="project-list-tasks-task-title-js"  id="list-${id}">${name}</span>
 
                 <div class="project-list-tasks-task-title-right">
 
@@ -171,12 +171,12 @@ function createList(name, container) {
                     </div>
 
                     <!--//TODO event for btn-dodo-->
-                    <button onclick="showAddTaskForm(${index})"  class="project-list-title-right-add" id="add-${index}">
+                    <button onclick="showAddTaskForm(${id})"  class="project-list-title-right-add" id="add-${id}">
                         <i class="far fa-plus"></i>
                     </button>
 
                     <!--//TODO event for btn-dodo-->
-                    <button onclick="listConfigEvent('list-${index}')" class="project-list-title-right-config" id="config-${index}">
+                    <button onclick="listConfigEvent('list-${id}')" class="project-list-title-right-config" id="config-${id}">
                         <i class="fas fa-tools"></i>
                     </button>
 
@@ -184,7 +184,7 @@ function createList(name, container) {
             </div>
 
             <!--LIST BODY-->
-            <div class="project-list-tasks-task-body" id="tasks_container_js_${index}">
+            <div class="project-list-tasks-task-body" id="tasks_container_js_${id}">
 
             </div>
 
@@ -255,8 +255,8 @@ function setTaskAddEvent(element) {
                             const returnValue = JSON.parse(data_get);
                             if (returnValue.status == "success") {
                                 //Clean fields
-                                list_name.textContent = "";
-                                list_description.textContent = "";
+                                list_name.value = "";
+                                list_description.value = "";
 
                                 createTask(returnValue, current_task_container);
                                 let nb_tasks_ = $_(`#nb_task_js_${id}`);
@@ -358,26 +358,33 @@ function createTask(infos, element) {
 
         </div>
         <div class="project-list-tasks-task-body-task-hover">
+            <a href="/admin-task-edit&id=${infos.id}"><i class="far fa-edit"></i></a>
+            <form action="/admin-task-delete">
+                <input type="text" name="id" value="${infos.id}" hidden>
+                <button class="btn btn-danger" type="submit">
+                    <i class="far fa-edit"></i>
+                </button>
+            </form>
         </div>
     `;
     task_container.appendChild(task_element)
 }
 
-function listAddEvent(tasks_container_js_id) {
-    let task_container = $_(`#tasks_container_js_${tasks_container_js_id}`);
-    //let task_container = $_(".dashboard-task");
-    let task_container_form = $_(".dashboard-task-add");
-    createList(task_name.value, task_container);
-
-    //Clean up fields
-    task_name.value = "";
-    task_description.value = "";
-    if (task_container && task_container_form) {
-        task_container.classList.remove('show')
-        task_container_form.classList.remove('add')
-    }
-
-}
+// function listAddEvent(tasks_container_js_id) {
+//     let task_container = $_(`#tasks_container_js_${tasks_container_js_id}`);
+//     //let task_container = $_(".dashboard-task");
+//     let task_container_form = $_(".dashboard-task-add");
+//     createList(task_name.value, task_container);
+//
+//     //Clean up fields
+//     task_name.value = "";
+//     task_description.value = "";
+//     if (task_container && task_container_form) {
+//         task_container.classList.remove('show')
+//         task_container_form.classList.remove('add')
+//     }
+//
+// }
 
 function listConfigEvent(element) {
     const list_name = $_(`#${element}`);

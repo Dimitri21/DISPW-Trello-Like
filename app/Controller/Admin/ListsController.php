@@ -33,7 +33,7 @@ class ListsController extends AppController
      */
     public function  addAjax()
     {
-        $login_error ="";
+        $return_message =[];
 
         //Traitement des informations en $_POST
         if(isset($_POST) && !empty($_POST) && isset($_GET['id']) && !empty($_GET['id']) && is_numeric($_GET['id']))
@@ -43,15 +43,17 @@ class ListsController extends AppController
                     "description"=>$_POST['description'],
                     "project"=>$_GET['id'],
                     "orders"=>$this->user->getId()]);
-
             if($is_inserted){
-                $login_error = "success";
+                $return_message['status'] = "success";
+                $return_message['id'] = $this->Lists->getLastId();
+                $return_message['message'] = "Liste créée avec succès!";
             }else {
-                $login_error = "error";
+                $return_message['status'] = "error";
+                $return_message['message'] = "Erreur lors de création d'une liste";
             }
         }
 
-        echo json_encode($login_error);
+        echo json_encode($return_message);
         exit(0);
     }
 

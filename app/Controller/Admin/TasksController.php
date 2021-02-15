@@ -32,7 +32,7 @@ class TasksController extends AppController
      */
     public function  addAjax()
     {
-        $login_error = [];
+        $return_message = [];
         //Traitement des informations en $_POST
         if(isset($_POST) && !empty($_POST) && isset($_GET['id']) &&
             !empty($_GET['id']) && is_numeric($_GET['id']))
@@ -51,31 +51,35 @@ class TasksController extends AppController
                     "lists"=>$_GET['id']]);
             $members = ['LastName NAME1'];
             if($is_inserted){
-                $login_error['status'] = "success";
-                $login_error['name'] = htmlspecialchars($_POST['name']);
-                $login_error['user'] = strtoupper($this->user->getName()) . " ".ucfirst($this->user->getLastname());
-                $login_error['picture'] = $this->user->getPicture();
-                $login_error['members'] = $members;
-                $login_error['sticker'] = Tasks::STICKERS[$sticker-1];
-                $login_error['message'] = "Tâche créée avec succès!";
+                $return_message['id'] = $this->Tasks->getLastId();
+                $return_message['status'] = "success";
+                $return_message['name'] = $_POST['name'];
+                $return_message['user'] = strtoupper($this->user->getName()) . " ".ucfirst($this->user->getLastname());
+                $return_message['picture'] = $this->user->getPicture();
+                $return_message['members'] = $members;
+                $return_message['sticker'] = Tasks::STICKERS[$sticker-1];
+                $return_message['message'] = "Tâche créée avec succès!";
 
             }else {
-                $login_error['status'] = "success";
-                $login_error['message'] = "Erreur lors de création de tâche";
+                $return_message['status'] = "success";
+                $return_message['message'] = "Erreur lors de création de tâche";
             }
         }
 
-        echo json_encode($login_error);
+        echo json_encode($return_message);
         exit(0);
     }
 
     public function  edit()
     {
-        var_dump("List/edi");
+        var_dump($_REQUEST, $_POST, $_GET);
         die();
+        
+       
     }
 
-    public function delete() {
+    public function delete() 
+    {
         var_dump("List/del");
         die();
     }

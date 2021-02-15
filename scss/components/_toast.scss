@@ -18,3 +18,15 @@
         position: none !important;
     }
 }
+
+.form-danger {
+    min-width: 20px;
+    min-height: 20px;
+    display: block;
+    font-size: 1.2rem;
+    padding:1rem;
+    border-radius: .3rem;
+    background-color: rgba($color: $danger-color, $alpha: .7);
+    color: white;
+    margin-bottom: 2rem;
+}
