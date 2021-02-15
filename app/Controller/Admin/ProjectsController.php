@@ -11,6 +11,7 @@ class ProjectsController extends AppController
 {
 
     private $user = null;
+    private $error_message = "";
 
     public function __construct()
     {
@@ -26,7 +27,8 @@ class ProjectsController extends AppController
     {
         $projects = $this->Projects->findProject($this->user->getId());
         $updated_project = $this->Projects->findLastModified($this->user->getId());
-        $this->render("admin.projects.index", compact("projects", "updated_project"));
+        $message = $this->error_message;
+        $this->render("admin.projects.index", compact("projects", "updated_project", "message"));
 
     }
 
@@ -34,12 +36,12 @@ class ProjectsController extends AppController
     {
         $login_error ="";
         //Traitement des informations en $_POST
-        if(isset($_POST) && !empty($_POST))
+        if(isset($_POST["project_name"]) && !empty($_POST["project_name"]))
         {
             $today      = date("Y-m-d H:i:s");
             $is_inserted= $this->Projects->insert(
                 ["name"=>$_POST['project_name'],
-                    "description"=>'il faut écrire quelque chose ici',
+                    "description"=>'Votre description du projet',
                     'picture'=>'images/projects/ps.jpg',
                     'users'=>$this->user->getId()]);
             $current_project_id  = $this->Projects->getLastId();
@@ -49,7 +51,7 @@ class ProjectsController extends AppController
             foreach ($default_list_title as $default_title) {
                 $this->Lists->insert([
                     "name"=>$default_title,
-                    "description"=>"à complèter",
+                    "description"=>"A compléter",
                     "project"=>$current_project_id
                 ]);
             }
@@ -61,8 +63,10 @@ class ProjectsController extends AppController
             {
                 $login_error =  "<div class=\"alert alert-warning\" align='center'>Erreur pendant l'enregistrement.</div>";
             }
+        } else {
+            $this->error_message =  "Oups .. Merci d'indiquer un nom de projet.";
         }
-        header('location:/admin-projects-index');
+        return $this->index();
     }
 
     public function  edit()
@@ -84,8 +88,7 @@ class ProjectsController extends AppController
             if($is_inserted)
             {
                 return $this->index();
-            }else
-            {
+            } else {
                 $login_error =  "Erreur pendant l'enregistrement";
             }
 

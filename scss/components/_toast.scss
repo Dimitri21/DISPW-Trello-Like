@@ -12,4 +12,9 @@
     &.danger{
         @include toast($danger-color);
     }
+
+    &.left {
+        left: 10px;
+        position: none !important;
+    }
 }

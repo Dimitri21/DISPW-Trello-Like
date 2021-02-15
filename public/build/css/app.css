@@ -762,6 +762,11 @@ body {
   color: #F56C6C;
 }
 
+.toast.left {
+  left: 10px;
+  position: none !important;
+}
+
 .home {
   color: #363636;
 }
