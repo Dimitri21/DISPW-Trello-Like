@@ -59,7 +59,6 @@
                 <div class="dashboard-inner-content-lists-item">
 
                     <div class="project-list" id="tasks_js">
-
                         <?php foreach ($lists as $list) : ?>
 
                             <!--TASK-->
@@ -79,12 +78,12 @@
                                                 <span class="nb_task_js" id="nb_task_js_<?= $list->getId() ?>"><?= count($list->getTasks()) ?></span>
                                             </div>
 
-                                            <!--//TODO event for btn-dodo-->
+                                            <!--//TODO event for btn-todo-->
                                             <button onclick="showAddTaskForm(<?= $list->getId() ?>)" class="project-list-title-right-add" id="add-<?= $list->getId() ?>">
                                                 <i class="far fa-plus"></i>
                                             </button>
 
-                                            <!--//TODO event for btn-dodo-->
+                                            <!--//TODO event for btn-todo-->
                                             <button onclick="listConfigEvent('list-<?= $list->getId() ?>')" class="project-list-title-right-config" id="config-<?= $list->getId() ?>">
                                                 <i class="fas fa-tools"></i>
                                             </button>

@@ -44,7 +44,7 @@
                                 </div>
 
                                 <div class="projects-item-title-hover">
-                                    <a href="/admin-projects-edit&id=<?= $updated_project->getId() ?>_"><i class="far fa-edit"></i></a>
+                                    <a href="/admin-projects-edit&id=<?= $updated_project->getId() ?>"><i class="far fa-edit"></i></a>
                                     <form action="/admin-projects-delete" method="DELETE">
                                         <input type="text" name="id" value="<?= $updated_project->getId() ?>" hidden>
                                         <button type="submit"><i class="fas fa-trash-alt"></i></button>
