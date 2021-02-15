@@ -70,7 +70,6 @@ class Repository
      */
     public function update($id,$fieds)
     {
-        //preparations aux champs de ma requette sql
         $sql_parts = [];
         $attributes = [];
         foreach ($fieds as $k => $v)
@@ -147,4 +146,5 @@ class Repository
     public function getLastId() {
         return $this->db->lastInsertID();
     }
+
 }

@@ -73,13 +73,14 @@ class ProjectsController extends AppController
         if(isset($_POST) && !empty($_POST))
         {
             $today      = date("Y-m-d H:i:s");
-            $is_inserted= $this->Projects->update(
+            $is_inserted= $this->Projects->update($_GET['id'],
                 ["name"=>$_POST['project_name'],
                     "description"=>'Tableau modifié',
                     "create_at"=>$today,
                     'modified_at'=>$today,
                     'picture'=>'images/projects/ps.jpg',
                     'users'=>$this->user->getId()]);
+
             if($is_inserted)
             {
                 return $this->index();
@@ -89,8 +90,8 @@ class ProjectsController extends AppController
             }
 
         }
-
-        $this->render('admin.projects.edit', compact('project','login_error'));
+        $method = "edit&id=".$project->getId();
+        $this->render('admin.projects.edit', compact('project','login_error','method'));
 
     }
 

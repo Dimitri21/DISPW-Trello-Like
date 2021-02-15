@@ -48,19 +48,25 @@ body{
 .btn {
     display: block;
     padding: .7rem 1rem;
-    border-radius: .3rem;
+    border-radius: 1rem;
+    outline: none;
+    border: none;
+    &-danger{
+        background: $danger-color;
+        color: $white-color;
+    }
 }
 
 .card {
 
     background-color: $white-color;
     //border-radius: 0 0 .5rem .5rem;
-    border-radius:.5rem;
+    border-radius:1rem;
     max-width: 350px;
     margin: 0 auto;
     box-shadow: 1px 2px 3px rgba($color: #000000, $alpha: .1);  
-    padding: 3rem 1rem 1rem 1rem;
-
+    padding: 1rem 1rem 1rem 1rem;
+    //border: 1px solid $first-color;
     .form-group {
         display: flex;
         flex-direction: column;
@@ -89,7 +95,7 @@ body{
                 margin-top: 1rem;
                 display: inline-block;
                 padding: .8rem 1.8rem;
-                border-radius: .3rem;
+                border-radius: 1rem;
                 background: $first-color;
                 color: $white-color;
                 border: 0;
