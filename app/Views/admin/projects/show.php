@@ -58,7 +58,7 @@
 
                 <div class="dashboard-inner-content-lists-item">
 
-                    <div class="project-list" id="tasks_js">
+                    <div class="project-list" id="tasks_js" style="grid-template-columns: repeat(<?= count($lists) ?? 3 ?>, 300px);">
                         <?php foreach ($lists as $list) : ?>
 
                             <!--TASK-->
@@ -84,9 +84,7 @@
                                             </button>
 
                                             <!--//TODO event for btn-todo-->
-                                            <button onclick="listConfigEvent('list-<?= $list->getId() ?>')" class="project-list-title-right-config" id="config-<?= $list->getId() ?>">
-                                                <i class="fas fa-tools"></i>
-                                            </button>
+                                            <a href="/admin-lists-edit&id=<?= $list->getId() ?>"><i class="fas fa-tools"></i></a>
 
                                         </div>
                                     </div>
@@ -171,6 +169,7 @@
     </div>
 
     <div class="dashboard-list">
+
         <!--ADD NEW LIST-->
         <div class="dashboard-list-add">
 
@@ -185,12 +184,13 @@
                     <input type="text" name="listname" id="listname" placeholder="Nom de la tâche" maxlength="20" minlength="3">
                     <textarea name="description" id="description" cols="15" rows="5" placeholder="Description"></textarea>
 
-                    <button type="submit" id="">Ajouter</button>
+                    <button type="submit" id="project_list_add_js">Ajouter</button>
                 </form>
 
             </div>
 
         </div>
+
     </div>
 
     <!--CONFIG NEW TASK-->

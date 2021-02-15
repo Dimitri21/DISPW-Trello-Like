@@ -41,6 +41,11 @@ class Lists
     /**
      * @var int
      */
+    private $project;
+
+    /**
+     * @var int
+     */
     private $orders;
 
     public function __construct()
@@ -174,6 +179,24 @@ class Lists
     public function setOrders(int $orders): Lists
     {
         $this->orders = $orders;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getProject(): int
+    {
+        return $this->project;
+    }
+
+    /**
+     * @param int $project
+     * @return Lists
+     */
+    public function setProject(int $project): Lists
+    {
+        $this->project = $project;
         return $this;
     }
 
