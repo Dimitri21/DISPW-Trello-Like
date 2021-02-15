@@ -5,7 +5,7 @@ namespace app\Entity;
 
 class Tasks
 {
-    const STICKERS = ["proposée","active","solve", "tested","closed"];
+    const STICKERS = ["proposée", "active", "solve", "tested", "closed"];
     /**
      * @var int
      */
@@ -24,7 +24,7 @@ class Tasks
     /**
      * @var \DateTIme
      */
-    private $createAt;
+    private $createdAt;
 
     /**
      * @var \DateTime
@@ -72,10 +72,15 @@ class Tasks
      */
     private $created_by_obj;
 
+    /**
+     * @var int
+     */
+    private $lists;
+
     public function __construct()
     {
         $this->comments = [];
-        $this->createAt = new \DateTime("now");
+        $this->createdAt = new \DateTime("now");
         $this->modified_at = new \DateTime('now');
         $this->startAt = new  \DateTime('now');
         $this->endAt = new  \DateTime('now');
@@ -140,18 +145,18 @@ class Tasks
     /**
      * @return \DateTIme
      */
-    public function getCreateAt()
+    public function getCreatedAt()
     {
-        return $this->createAt;
+        return $this->createdAt;
     }
 
     /**
-     * @param \DateTIme $createAt
+     * @param \DateTIme $createdAt
      * @return Tasks
      */
-    public function setCreateAt($createAt)
+    public function setCreatedAt($createdAt)
     {
-        $this->createAt = $createAt;
+        $this->createdAt = $createdAt;
         return $this;
     }
 
@@ -277,7 +282,7 @@ class Tasks
     public function getStickerString(): string
     {
         //TODO  check index range
-        return Tasks::STICKERS[$this->sticker-1];
+        return Tasks::STICKERS[$this->sticker - 1];
     }
 
     /**
@@ -326,14 +331,34 @@ class Tasks
         return $this;
     }
     /**
-     * @param Users $created_by_obj
+     * @param string
      * @return Tasks
      */
     public function getCreator()
     {
-        return strtoupper($this->getCreatedByObj()->getName()) ." ".ucfirst($this->getCreatedByObj()->getLastname());
+        return strtoupper($this->getCreatedByObj()->getName()) . " " . ucfirst($this->getCreatedByObj()->getLastname());
     }
 
+    /**
+     * @return int
+     */
+    public function getLists(): int
+    {
+        return $this->lists;
+    }
 
+    /**
+     * @param int $lists
+     * @return Tasks
+     */
+    public function setLists(int $lists): Tasks
+    {
+        $this->lists = $lists;
+        return $this;
+    }
 
+    public function formatDate(\DateTime $date)
+    {
+        return $date->format("Y-m-d");
+    }
 }

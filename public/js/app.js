@@ -358,7 +358,7 @@ function createTask(infos, element) {
 
         </div>
         <div class="project-list-tasks-task-body-task-hover">
-            <a href="/admin-task-edit&id=${infos.id}"><i class="far fa-edit"></i></a>
+            <a href="/admin-tasks-edit&id=${infos.id}"><i class="far fa-edit"></i></a>
             <form action="/admin-task-delete">
                 <input type="text" name="id" value="${infos.id}" hidden>
                 <button class="btn btn-danger" type="submit">

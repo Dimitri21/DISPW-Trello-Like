@@ -74,4 +74,11 @@ class App
         return $this->settings;
     }
 
+    /**
+     * @param \DateTime $date
+     * @return false|string
+     */
+    public static function formatDate(\DateTime $date) {
+        return date("d/m/Y",$date);
+    }
 }
