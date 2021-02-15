@@ -98,46 +98,58 @@
                                         <?php foreach ($list->getTasks() as $task) : ?>
                                             <div class="project-list-tasks-task-body-task">
 
-                                                <!--TASK TITLE-->
-                                                <p class="project-list-tasks-task-body-task-title">
-                                                    <i class="fal fa-book-open"></i>
-                                                    <span class="task-title"><?= $task->getName() ?></span>
-                                                </p>
+                                                <div class="project-list-tasks-task-body-task-front">
+                                                    <!--TASK TITLE-->
+                                                    <p class="project-list-tasks-task-body-task-front-title">
+                                                        <i class="fal fa-book-open"></i>
+                                                        <span class="task-title"><?= $task->getName() ?></span>
+                                                    </p>
 
-                                                <!--TASK LEAD-->
-                                                <div class="project-list-tasks-task-body-task-lead">
-                                                    <div class="project-list-tasks-task-body-task-lead-picture">
-                                                        <img src="images/profile/photo_passe.jpg" alt="user profile avatar">
+                                                    <!--TASK LEAD-->
+                                                    <div class="project-list-tasks-task-body-task-front-lead">
+                                                        <div class="project-list-tasks-task-body-task-front-lead-picture">
+                                                            <img src="images/profile/photo_passe.jpg" alt="user profile avatar">
+                                                        </div>
+                                                        <span><?= $task->getCreator() ?></span>
                                                     </div>
-                                                    <span><?= $task->getCreator() ?></span>
+
+                                                    <!--TASK STATE-->
+                                                    <div class="project-list-tasks-task-body-task-front-state">
+                                                        <span>Etat</span>
+
+                                                        <span>
+                                                            <span></span>
+                                                            <span><?= $task->getStickerString() ?></span>
+                                                        </span>
+
+                                                    </div>
+
+                                                    <!--TASK MEMBERS-->
+                                                    <div class="project-list-tasks-task-body-task-front-members">
+
+                                                        <div class="project-list-tasks-task-body-task-front-members-item success">
+                                                            <span>Jean D.</span>
+                                                        </div>
+
+                                                        <div class="project-list-tasks-task-body-task-front-members-item danger">
+                                                            <span>Pierre P.</span>
+                                                        </div>
+
+                                                        <div class="project-list-tasks-task-body-task-front-members-item primary">
+                                                            <span>Pierre P.</span>
+                                                        </div>
+
+                                                    </div>
                                                 </div>
 
-                                                <!--TASK STATE-->
-                                                <div class="project-list-tasks-task-body-task-state">
-                                                    <span>Etat</span>
-
-                                                    <span>
-                                                        <span></span>
-                                                        <span><?= $task->getStickerString() ?></span>
-                                                    </span>
-
-                                                </div>
-
-                                                <!--TASK MEMBERS-->
-                                                <div class="project-list-tasks-task-body-task-members">
-
-                                                    <div class="project-list-tasks-task-body-task-members-item success">
-                                                        <span>Jean D.</span>
-                                                    </div>
-
-                                                    <div class="project-list-tasks-task-body-task-members-item danger">
-                                                        <span>Pierre P.</span>
-                                                    </div>
-
-                                                    <div class="project-list-tasks-task-body-task-members-item primary">
-                                                        <span>Pierre P.</span>
-                                                    </div>
-
+                                                <div class="project-list-tasks-task-body-task-hover">
+                                                    <a href="/admin-task-edit&id=<?= $task->getId() ?>"><i class="far fa-edit"></i></a>
+                                                    <form action="/admin-task-delete">
+                                                        <input type="text" name="id" value="<?= $task->getId() ?>" hidden>
+                                                        <button class="btn btn-danger" type="submit">
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </form>
                                                 </div>
 
                                             </div>

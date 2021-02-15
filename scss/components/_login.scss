@@ -1,26 +1,19 @@
 .login {
     max-width: 100vw;
-    height: 84vh;
+    height: 81vh;
     padding: 0 .5rem;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
     @include flex-row-center-center(column,center,center);
     position: relative;
     &-inner {
         margin-top: -2rem;
         width: 350px;
-        
         &-body {
-            
             &-form {
                 display: flex;
                 flex-direction: column;
                 padding-top: 2rem;
                 &.form-group {
                     .form-group-item {
-
                         .form-alert {
                             color: $danger-color;
                             font-size: 12px;
@@ -30,15 +23,14 @@
                                 content: "*";
                             }
                         }
-
-                        
                     }
 
                     .form-remember {
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: space-between;
-                        align-items: center;
+                        @include flex-row-center-center(row,space-between,center);
+                        // display: flex;
+                        // flex-direction: row;
+                        // justify-content: space-between;
+                        // align-items: center;
                         font-size: 12px;
                         a {
                             transition: all 0.3s ease-in-out;
