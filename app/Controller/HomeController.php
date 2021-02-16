@@ -112,22 +112,34 @@ class HomeController extends AppController
 
     public function contact() 
     {
-        if(isset($_POST["submit"])) {
+        $response = null;
+
+        if(isset($_POST["name"])) {
             $name = htmlentities($_POST["name"]);
             $email = htmlentities($_POST["email"]);
             $message = htmlentities($_POST["message"]);
             
             if (empty($name) or empty($email) or empty($message)) {
                 $this->error_message = "Merci de compléter tous les champs requis";
-                return $this->home();
             }
 
             // Send email
 
             $headers = 'FROM: ' . $email;
 
-            mail('contact@trello.webo', 'Formulaire de contact de ' . $name, $message, $headers);
-            return $this->home();
+            try {
+                mail('contact@trello.webo', 'Formulaire de contact de ' . $name, $message, $headers);
+                $response["status"] = "success";
+                $response["message"] = "Nous vous remercions pour votre message";
+
+            } catch (Exception $e) {
+                $response["status"] = "error";
+                $response["message"] = "Merci de compléter tous les champs requis";
+            }
+           
+    
         }
+
+        echo json_encode($response);
     }
 }

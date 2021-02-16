@@ -36,10 +36,57 @@ setEventForAddCardOnList("#list_add_js");
 setEventProjectAdd('#project_add_js');
 setEventOnCloseAddTaskForm("#task_add_close_js"); //close form
 setTaskAddEvent('.project_list_task_add_js');//for btn add
+setContactEvent('#btn_contact_form_js');
 //-----------------------------------------------------
 
 
 //Definition of functions------------------------------
+
+
+function setContactEvent(element) {
+    let element_btn = $_(element);
+    if (element_btn) {
+        element_btn.addEventListener('click', e => {
+            let formName = $_('#form-name');
+            let formEmail = $_('#form-email');
+            let formMessage = $_('#form-message');
+            let formDivError = $_('#form-danger-js')
+
+            if (formName.value && formEmail.value && formMessage.value) {
+                let formObject = {
+                    name: formName.value,
+                    email: formEmail.value,
+                    message: formMessage.value
+                };
+
+                $.ajax({
+                    type: "POST", 
+                    url: "/home-contact",
+                    data: formObject, 
+                    cache: false, 
+                    success: function (response) {
+                        let responseConvert = JSON.parse(response);
+                        if (responseConvert.status == "success") {
+                            formName.value = "";
+                            formEmail.value = "";
+                            formMessage.value = "";
+                            formDivError.style.display = "block";
+                            formDivError.innerHTML = responseConvert.message;
+                        }
+                    },
+                    error: function (errors) {
+
+                        console.error(errors);
+                    }
+                });
+            }
+            e.preventDefault();
+        })
+
+        
+    }
+
+}
 
 function setEventProjectShowHover(element_p) {
     const element_v = $_(element_p);

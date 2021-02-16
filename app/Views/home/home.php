@@ -56,31 +56,31 @@
         <section class="section-contact">
             
             <div class="contact-form">
-            <?php if(isset($message) and !empty($message)):?>
-                    <div class="form-danger">
-                        <?= $message ?>
+          
+                    <div id="form-danger-js" class="form-danger">
+                        
                     </div>
-                <?php endif;?>
+               
                 <h3>
                     N'hésitez pas à nous contacter
                 </h3>
             
                 <div class="flex jc row">
-                    <form class="contact-form" action="/home-contact" method="POST">
+                    <form class="contact-form" action="" method="POST">
                         <div>
                             <label for="name">Nom</label>
-                            <input type="text" name="name">
+                            <input type="text" name="name" id="form-name">
                         </div>
                         <div>
                             <label for="email">Email</label>
-                            <input type="email" name="email">
+                            <input type="email" name="email" id="form-email">
                         </div>
                         <div>
                             <label for="message">Message</label>
-                            <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                            <textarea name="message" id="form-message" cols="30" rows="10"></textarea>
                         </div>
                         <div>
-                            <input type="submit" value="Envoyer" name="submit" class="btn-CTA">
+                            <input type="submit" value="Envoyer" name="submit" class="btn-CTA" id="btn_contact_form_js">
                         </div>
                     </form>
                 </div>
