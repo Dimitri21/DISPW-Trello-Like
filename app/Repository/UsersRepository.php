@@ -15,5 +15,8 @@ class UsersRepository extends Repository
     {
         return $this->query("SELECT * FROM {$this->table} WHERE email = ? ",[$email],true);
     }
-
+    public function findById($user_id)
+    {
+        return $this->query("SELECT * FROM {$this->table} WHERE id = ? ",[$user_id],true);
+    }
 }

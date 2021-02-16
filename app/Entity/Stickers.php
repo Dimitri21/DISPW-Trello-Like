@@ -21,11 +21,8 @@ class Stickers
      */
     private $color;
 
-    public function __construct($name = "" , $color = "")
+    public function __construct()
     {
-        $this->id = 0;
-        $this->name = $name;
-        $this->color = $color;
     }
 
     /**

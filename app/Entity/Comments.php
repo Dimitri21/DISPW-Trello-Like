@@ -18,10 +18,15 @@ class Comments
     /**
      * @var \DateTime
      */
-    private $createAt;
+    private $created_at;
 
     /**
      * @var Users
+     */
+    private $user_obj;
+
+    /**
+     * @var int
      */
     private $user;
 
@@ -32,8 +37,6 @@ class Comments
 
     public function __construct()
     {
-        $this->createAt  = new \DateTime();
-        $this->comment = "";
     }
 
     /**
@@ -73,42 +76,6 @@ class Comments
     }
 
     /**
-     * @return \DateTime
-     */
-    public function getCreateAt()
-    {
-        return $this->createAt;
-    }
-
-    /**
-     * @param $createAt
-     * @return $this
-     */
-    public function setCreateAt($createAt)
-    {
-        $this->createAt = $createAt;
-        return $this;
-    }
-
-    /**
-     * @return Users
-     */
-    public function getUser() : Users
-    {
-        return $this->user;
-    }
-
-    /**
-     * @param Users $user
-     * @return $this
-     */
-    public function setUser(Users $user)
-    {
-        $this->user = $user;
-        return $this;
-    }
-
-    /**
      * @return Tasks
      */
     public function getTask(): Tasks
@@ -125,5 +92,60 @@ class Comments
         $this->task = $task;
         return $this;
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedAt(): \DateTime
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * @param \DateTime $created_at
+     * @return Comments
+     */
+    public function setCreatedAt(\DateTime $created_at): Comments
+    {
+        $this->created_at = $created_at;
+        return $this;
+    }
+
+    /**
+     * @return Users
+     */
+    public function getUserObj(): Users
+    {
+        return $this->user_obj;
+    }
+
+    /**
+     * @param Users $user_obj
+     * @return Comments
+     */
+    public function setUserObj(Users $user_obj): Comments
+    {
+        $this->user_obj = $user_obj;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUser(): int
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param int $user
+     * @return Comments
+     */
+    public function setUser(int $user): Comments
+    {
+        $this->user = $user;
+        return $this;
+    }
+
 
 }

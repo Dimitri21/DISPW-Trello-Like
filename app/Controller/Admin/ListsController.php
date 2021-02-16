@@ -22,32 +22,28 @@ class ListsController extends AppController
         $this->user = unserialize($_SESSION['user']);
     }
 
-    public function index()
-    {
-        var_dump("List/index");
-        die();
-    }
-
     /**
      * @brief Method used for ajax request POST
      */
     public function  addAjax()
     {
-        $return_message =[];
+        $return_message = [];
 
         //Traitement des informations en $_POST
-        if(isset($_POST) && !empty($_POST) && isset($_GET['id']) && !empty($_GET['id']) && is_numeric($_GET['id']))
-        {
-            $is_inserted= $this->Lists->insert(
-                ["name"=>$_POST['name'],
-                    "description"=>$_POST['description'],
-                    "project"=>$_GET['id'],
-                    "orders"=>$this->user->getId()]);
-            if($is_inserted){
+        if (isset($_POST) && !empty($_POST) && isset($_GET['id']) && !empty($_GET['id']) && is_numeric($_GET['id'])) {
+            $is_inserted = $this->Lists->insert(
+                [
+                    "name" => $_POST['name'],
+                    "description" => $_POST['description'],
+                    "project" => $_GET['id'],
+                    "orders" => $this->user->getId()
+                ]
+            );
+            if ($is_inserted) {
                 $return_message['status'] = "success";
                 $return_message['id'] = $this->Lists->getLastId();
                 $return_message['message'] = "Liste créée avec succès!";
-            }else {
+            } else {
                 $return_message['status'] = "error";
                 $return_message['message'] = "Erreur lors de création d'une liste";
             }
@@ -59,11 +55,15 @@ class ListsController extends AppController
 
     public function  edit()
     {
-        var_dump("List/edi");
-        die();
+        $return_message = "";
+        //Traitement des informations en $_POST
+        $list = $this->Lists->find($_GET['id']);
+
+        $this->render('admin.lists.edit', compact('list', 'return_message'));
     }
 
-    public function delete() {
+    public function delete()
+    {
         var_dump("List/del");
         die();
     }

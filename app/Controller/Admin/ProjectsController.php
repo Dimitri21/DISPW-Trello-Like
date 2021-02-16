@@ -20,6 +20,7 @@ class ProjectsController extends AppController
         $this->loadModel("Users", 'sprinto');
         $this->loadModel("Lists", 'sprinto');
         $this->loadModel("Tasks", 'sprinto');
+        $this->loadModel("Stickers", 'sprinto');
         $this->user = unserialize($_SESSION['user']);
     }
 
@@ -133,8 +134,10 @@ class ProjectsController extends AppController
                 // TODO prepare members for each task
                 foreach ($tasks as $task) {
                     $task->setCreatedByObj($this->Users->find($task->getCreatedBy()));
+                    $task->setStickerObj($this->Stickers->find($task->getSticker()));
                 }
             }
+
 
             $this->render("admin.projects.show", compact('project', 'lists'));
         }else {

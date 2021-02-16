@@ -3,9 +3,11 @@
 
 namespace app\Entity;
 
+use app\App;
+
 class Tasks
 {
-    const STICKERS = ["proposée","active","solve", "tested","closed"];
+    const STICKERS = ["proposed", "active", "solve", "tested", "closed"];
     /**
      * @var int
      */
@@ -19,17 +21,17 @@ class Tasks
     /**
      * @var string
      */
-    private $desciption;
+    private $description;
 
     /**
      * @var \DateTIme
      */
-    private $createAt;
+    private $created_at;
 
     /**
      * @var \DateTime
      */
-    private $startAt;
+    private $start_at;
 
     /**
      * @var \DateTime
@@ -39,21 +41,15 @@ class Tasks
     /**
      * @var \DateTime
      */
-    private $endAt;
+    private $end_at;
 
     /**
      * @var Users
      */
     private $lead;
 
-    //TODO à determiner le type de state
     /**
-     * @var int
-     */
-    private $state;
-
-    /**
-     * @var array Comments
+     * @var Comments[]
      */
     private $comments;
 
@@ -72,15 +68,18 @@ class Tasks
      */
     private $created_by_obj;
 
+    /**
+     * @var int
+     */
+    private $lists;
+
+    /**
+     * @var Stickers
+     */
+    private $stickerObj;
+
     public function __construct()
     {
-        $this->comments = [];
-        $this->createAt = new \DateTime("now");
-        $this->modified_at = new \DateTime('now');
-        $this->startAt = new  \DateTime('now');
-        $this->endAt = new  \DateTime('now');
-        $this->lead = -1;
-        $this->sticker = 1;
     }
 
     /**
@@ -122,72 +121,18 @@ class Tasks
     /**
      * @return string
      */
-    public function getDesciption()
+    public function getDescription()
     {
-        return $this->desciption;
+        return $this->description;
     }
 
     /**
-     * @param string $desciption
+     * @param string $description
      * @return Tasks
      */
-    public function setDesciption($desciption)
+    public function setDescription($description)
     {
-        $this->desciption = $desciption;
-        return $this;
-    }
-
-    /**
-     * @return \DateTIme
-     */
-    public function getCreateAt()
-    {
-        return $this->createAt;
-    }
-
-    /**
-     * @param \DateTIme $createAt
-     * @return Tasks
-     */
-    public function setCreateAt($createAt)
-    {
-        $this->createAt = $createAt;
-        return $this;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getStartAt()
-    {
-        return $this->startAt;
-    }
-
-    /**
-     * @param \DateTime $startAt
-     * @return Tasks
-     */
-    public function setStartAt($startAt)
-    {
-        $this->startAt = $startAt;
-        return $this;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getEndAt()
-    {
-        return $this->endAt;
-    }
-
-    /**
-     * @param \DateTime $endAt
-     * @return Tasks
-     */
-    public function setEndAt($endAt)
-    {
-        $this->endAt = $endAt;
+        $this->description = $description;
         return $this;
     }
 
@@ -210,25 +155,7 @@ class Tasks
     }
 
     /**
-     * @return int
-     */
-    public function getState()
-    {
-        return $this->state;
-    }
-
-    /**
-     * @param int $state
-     * @return Tasks
-     */
-    public function setState($state)
-    {
-        $this->state = $state;
-        return $this;
-    }
-
-    /**
-     * @return array
+     * @return Comments[]
      */
     public function getComments()
     {
@@ -246,38 +173,11 @@ class Tasks
     }
 
     /**
-     * @return \DateTime
-     */
-    public function getModifiedAt(): \DateTime
-    {
-        return $this->modified_at;
-    }
-
-    /**
-     * @param \DateTime $modified_at
-     * @return Tasks
-     */
-    public function setModifiedAt(\DateTime $modified_at): Tasks
-    {
-        $this->modified_at = $modified_at;
-        return $this;
-    }
-
-    /**
      * @return int
      */
     public function getSticker(): int
     {
         return $this->sticker;
-    }
-
-    /**
-     * @return string
-     */
-    public function getStickerString(): string
-    {
-        //TODO  check index range
-        return Tasks::STICKERS[$this->sticker-1];
     }
 
     /**
@@ -326,14 +226,126 @@ class Tasks
         return $this;
     }
     /**
-     * @param Users $created_by_obj
+     * @param string
      * @return Tasks
      */
     public function getCreator()
     {
-        return strtoupper($this->getCreatedByObj()->getName()) ." ".ucfirst($this->getCreatedByObj()->getLastname());
+        return strtoupper($this->getCreatedByObj()->getName()) . " " . ucfirst($this->getCreatedByObj()->getLastname());
     }
 
+    /**
+     * @return int
+     */
+    public function getLists(): int
+    {
+        return $this->lists;
+    }
+
+    /**
+     * @param int $lists
+     * @return Tasks
+     */
+    public function setLists(int $lists): Tasks
+    {
+        $this->lists = $lists;
+        return $this;
+    }
+
+    /**
+     * @return \DateTIme
+     */
+    public function getCreatedAt(): \DateTIme
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * @param \DateTIme $created_at
+     * @return Tasks
+     */
+    public function setCreatedAt(\DateTIme $created_at): Tasks
+    {
+        $this->created_at = $created_at;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStartAt()
+    {
+        return $this->start_at;
+    }
+
+    /**
+     * @param \DateTime $start_at
+     * @return Tasks
+     */
+    public function setStartAt(\DateTime $start_at): Tasks
+    {
+        $this->start_at = $start_at;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getModifiedAt()
+    {
+        return $this->modified_at;
+    }
+
+    /**
+     * @param \DateTime $modified_at
+     * @return Tasks
+     */
+    public function setModifiedAt(\DateTime $modified_at): Tasks
+    {
+        $this->modified_at = $modified_at;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEndAt()
+    {
+        return  $this->end_at;
+    }
+
+    /**
+     * @param \DateTime $end_at
+     * @return Tasks
+     */
+    public function setEndAt(\DateTime $end_at): Tasks
+    {
+        $this->end_at = $end_at;
+        return $this;
+    }
+
+    public function formatDate(string $date)
+    {
+        return date("Y-m-d", strtotime($date));
+    }
+
+    /**
+     * @return Stickers
+     */
+    public function getStickerObj(): Stickers
+    {
+        return $this->stickerObj;
+    }
+
+    /**
+     * @param Stickers $stickerObj
+     * @return Tasks
+     */
+    public function setStickerObj(Stickers $stickerObj): Tasks
+    {
+        $this->stickerObj = $stickerObj;
+        return $this;
+    }
 
 
 }

@@ -3,6 +3,7 @@ const nav_humburger = document.querySelector('.nav-humburger-js');
 const main_humburger = document.querySelector('.main-humburger');
 let body = document.querySelector('body');
 
+
 nav_humburger.addEventListener('click', e => {
     if (e.currentTarget) {
         if (e.currentTarget.classList.contains('open')) {
@@ -36,11 +37,67 @@ setEventForAddCardOnList("#list_add_js");
 setEventProjectAdd('#project_add_js');
 setEventOnCloseAddTaskForm("#task_add_close_js"); //close form
 setTaskAddEvent('.project_list_task_add_js');//for btn add
+createList('#dashboard-list-add-form');
+sendComment('#task_comment_js');
 //-----------------------------------------------------
 
 
 //Definition of functions------------------------------
+function sendComment(element_p) {
+    let comment_form_v = $_(element_p);
+    if (comment_form_v) {
+        comment_form_v.addEventListener('submit',e=>{
+            e.preventDefault();
+            let comment = $_("#comment");
+            let url = comment_form_v.action;
+            if (comment.value) {
+                const data_comment = {
+                    comment : comment.value
+                }
+                //Send Ajax
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: data_comment,
+                    cache: false,
+                    success: function (response){
+                        let responseConverted = JSON.parse(response);
+                        let comments_list_container = $_('#comments_list_js');
+                        if (responseConverted.status == "success") {
+                            comment.value ="";
+                            //Update comments list
+                            createComment(responseConverted, comments_list_container);
+                        }else {
+                            console.error("Erreur " ,responseConverted.message );
+                        }
+                    },
+                    error: function (errors) {
+                        console.error(errors);
+                    }
+                });
+            }
+        })
+    }
+}
 
+function  createComment(infos_p, container_p) {
+
+    let comment = document.createElement('div');
+    comment.classList.add('comment-item');
+    comment.innerHTML = `
+       <div class="comment-item-author">
+           <span> ${infos_p.user}</span>
+       </div>
+       <div class="comment-item-message">
+           <p>${infos_p.comment}</p>
+           <div>
+               <span><i class="far fa-calendar-alt"></i>${infos_p.date} - </span>
+               <span><i class="far fa-clock"></i>${infos_p.time} </span>
+           </div>
+       </div>
+    `;
+    container_p.appendChild(comment);
+}
 function setEventProjectShowHover(element_p) {
     const element_v = $_(element_p);
     if (element_v) {
@@ -74,12 +131,21 @@ function setEventProjectAdd(element_) {
 
 function setEventForAddCardOnList(element) {
     const add_btn = $_(element);
+
     if (add_btn) {
+
+        //Set Event
         add_btn.addEventListener('click', e => {
+
+            //Select list form to show
             let form = $_(".dashboard-list-add");
             let form_container = $_(".dashboard-list");
+
             if (form) {
+                //Added css class to cover the current page where form will be.
                 form_container.classList.add('show');
+
+                //Added css class to show list form
                 form.classList.add('add');
 
                 //Cross - to remove event
@@ -88,70 +154,83 @@ function setEventForAddCardOnList(element) {
                     form_container.classList.remove('show');
                     form.classList.remove('add');
                 });
+                //------------------------------------------
 
-                //submit form
-                let form_element = $_('#dashboard-list-add-form');
-                if (form_element) {
-                    form_element.addEventListener('submit', e => {
-                        e.preventDefault();
-
-                        //Form fields
-                        const list_name = $_('#listname');
-                        const list_description = $_('#description');
-                        const url = $_(".projecr_list_add_js");
-
-                        if (list_name.value && list_description.value && url.dataset.url) {
-                            const list_container = $_('#tasks_js');
-                            const data = {
-                                name: list_name.value,
-                                description: list_description.value,
-                            };
-
-                            //send AJAX Message
-                            $.ajax({
-                                type: "POST",
-                                url: url.dataset.url,
-                                data: data,
-                                cache: false,
-                                success: function (data_get) {
-                                    //Remise de string en object JSON
-                                    const returnValue = JSON.parse(data_get);
-                                    if (returnValue.status == "success") {
-                                        createList(list_name.value, list_container,returnValue.id);
-                                        //Clean fields
-                                        list_name.value = "";
-                                        list_description.value = "";
-
-                                        //Remove container  and form
-                                        form_container.classList.remove('show');
-                                        form.classList.remove('add');
-                                    }
-                                },
-                                error: function (error_get) {
-                                    console.error("FATAL : ", error_get);
-                                }
-                            });
-
-                        } else {
-                            list_name.style.border = "1px solid red";
-                            list_description.style.border = "1px solid red";
-                        }
-                    })
-                }
             }
         })
     }
 }
 
+function createList(element_p) {
+
+    //submit form
+    let form_element = $_(element_p);
+    if (form_element) {
+        form_element.addEventListener('submit', e => {
+            e.preventDefault();
+
+            //Form fields
+            const list_name = $_('#listname');
+            const list_description = $_('#description');
+            const url = $_(".projecr_list_add_js");
+            let form = $_(".dashboard-list-add");
+            let form_container = $_(".dashboard-list");
+
+            if (list_name.value && list_description.value && url.dataset.url) {
+                const list_container = $_('#tasks_js');
+                const data = {
+                    name: list_name.value,
+                    description: list_description.value,
+                };
+
+                //send AJAX Message
+                $.ajax({
+                    type: "POST",
+                    url: url.dataset.url,
+                    data: data,
+                    cache: false,
+                    success: function (data_get) {
+                        //Remise de string en object JSON
+                        const returnValue = JSON.parse(data_get);
+                        if (returnValue.status == "success") {
+
+                            //Updateing css grid
+                            buildList(list_name.value, list_container, returnValue.id);
+
+                            //Clean fields
+                            list_name.value = "";
+                            list_description.value = "";
+
+                            //Remove container  and form
+                            form_container.classList.remove('show');
+                            form.classList.remove('add');
+                        }
+                    },
+                    error: function (error_get) {
+                        console.error("FATAL : ", error_get);
+                    }
+                });
+
+            } else {
+                list_name.style.border = "1px solid red";
+                list_description.style.border = "1px solid red";
+            }
+        })
+    }
+}
 /**
  * @precond : Must check the max number for list on the projects ou tableau
  * @param {*} name
  * @param {*} container 
  */
-function createList(name, container,id) {
+function buildList(name, container, id) {
     let project_list_tasks = $_('.project-list-tasks', true);
     //TODO - Must check the max List number
     const index = project_list_tasks.length + 1;
+
+    //Updating css grid for lists container
+    container.style.gridTemplateColumns = `repeat(${index}, 300px)`;
+
     //create a new div element
     let div_tasks = document.createElement('div');
     div_tasks.classList.add('project-list-tasks');
@@ -216,12 +295,15 @@ function setEventOnCloseAddTaskForm(element) {
  */
 function setTaskAddEvent(element) {
     const task_form = $_(element);
+
     if (task_form) {
         task_form.addEventListener('submit', e => {
 
             e.preventDefault();
+            //Getting values from form fields
             let task_name = $_("#task_name");
             let task_description = $_("#taskdescription");
+            let sticker = $_("#sticker");
 
             if (task_name.value && task_description.value) {
                 let task_container = $_(".dashboard-task");
@@ -238,10 +320,11 @@ function setTaskAddEvent(element) {
                     id = parseInt(id_temp[id_temp.length - 1]);
                 }
 
-                if (list_name.value && list_description.value && task_form.dataset.url) {
+                if (list_name.value && list_description.value && task_form.dataset.url && sticker.value) {
                     const data = {
                         name: list_name.value,
                         description: list_description.value,
+                        sticker: sticker.value,
                         list_id: id
                     };
                     //send AJAX Message
@@ -257,7 +340,7 @@ function setTaskAddEvent(element) {
                                 //Clean fields
                                 list_name.value = "";
                                 list_description.value = "";
-
+                                sticker.value = "";//TODO to personalize
                                 createTask(returnValue, current_task_container);
                                 let nb_tasks_ = $_(`#nb_task_js_${id}`);
                                 if (nb_tasks_) {
@@ -268,7 +351,6 @@ function setTaskAddEvent(element) {
                                     task_container.classList.remove('show')
                                     task_container_form.classList.remove('add')
                                 }
-
                             }
                         },
                         error: function (error_get) {
@@ -358,7 +440,7 @@ function createTask(infos, element) {
 
         </div>
         <div class="project-list-tasks-task-body-task-hover">
-            <a href="/admin-task-edit&id=${infos.id}"><i class="far fa-edit"></i></a>
+            <a href="/admin-tasks-edit&id=${infos.id}"><i class="far fa-edit"></i></a>
             <form action="/admin-task-delete">
                 <input type="text" name="id" value="${infos.id}" hidden>
                 <button class="btn btn-danger" type="submit">
