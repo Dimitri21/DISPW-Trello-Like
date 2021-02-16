@@ -8,7 +8,6 @@ use app\Entity\Users;
 
 class HomeController extends AppController
 {
-
     private $error_message = "";
 
     public function __construct()
@@ -20,63 +19,127 @@ class HomeController extends AppController
 
     public function home()
     {
-        $user = null;
-        $message = $this->error_message;
+        $user       = null;
+        $message    = $this->error_message;
         App::getInstance()->titre = "Accueil";
         $this->render("home.home", compact('user', 'message'));
     }
 
+    /**
+     * @brief function connection
+     */
     public function connexion()
     {
-        //TODO - check if user is connected
-
         App::getInstance()->titre = "Connexion";
+        $message ="";
+        //check if user is already connected
+        if (isset($_SESSION['auth']) && !empty($_SESSION['auth'])) {
+            $this->redirect("/admin-projects-index");
+        }
         if (isset($_POST) && !empty($_POST)) {
             $auth       = new AuthController(App::getInstance()->getDatabase());
-            $email      = $_POST['email'];
-            $password   = $_POST['password'];
-            $user = $auth->login($email,$password);
-            if ($user) {
-                $project = [];
-                $this->render("admin.projects.index", compact('user','project'));
+            $email      = htmlentities($_POST['email']);
+            $password   = htmlentities($_POST['password']);
+            if ($auth->login($email,$password)) {
+                $this->redirect("/admin-projects-index");
             }
+            $message = "Email ou mot de passe incorrect";
         }
-        $this->render("home.login");
+
+        $this->render("home.login", compact("message"));
     }
 
     public function inscription()
     {
         App::getInstance()->titre = "Inscription";
-        $message = "Erreur lors de création de compte";
+        $message = "";
         $user = new  Users();
-        if (isset($_POST) && !empty($_POST)) {
-            $email      = $_POST['email'];
-            $password   = $_POST['password'];
+        if (isset($_POST['email']) && !empty($_POST['email']) &&
+            isset($_POST['name']) && !empty($_POST['name']) &&
+            isset($_POST['lastname']) && !empty($_POST['lastname']) &&
+            isset($_POST['password']) && !empty($_POST['password']) &&
+            isset($_POST['password-conf']) && !empty($_POST['password-conf']
+            )
+        ) {
+            $user->setEmail($_POST['email'])
+                ->setPassword(sha1(htmlentities($_POST['password'])))
+                ->setName(htmlentities($_POST['name']))
+                ->setLastname(htmlentities($_POST['lastname']));
             $today      = date("Y-m-d H:i:s");
 
-            $response = $this->Users->insert([
-                "name"=>htmlentities($_POST['name']),
-                "lastname"=>htmlentities($_POST['lastname']),
-                "email "=>htmlentities($_POST['email']),
-                "password"=>sha1(htmlentities($_POST['password'])),
-                "subscriptionAt"=>$today,
-                "picture"=>"photo_passe.jpg"
-            ]);
-            if ($response) {
-                //TODO traite success message
-                $project = [];
-                $message = "Création de coompte avec succès";
-                $this->redirect("/connexion");
+            if ($_POST['password'] !== $_POST['password-conf']) {
+                $message = "Mots de passe sont differents";
+            }else {
+                try {
+                    $response = $this->Users->insert([
+                        "name"=>$user->getName(),
+                        "lastname"=>$user->getLastname(),
+                        "email "=>$user->getEmail(),
+                        "password"=>$user->getPassword(),
+                        "subscriptionAt"=>$today,
+                        "picture"=>"photo_passe.jpg"
+                    ]);
+                    //TODO traite success message
+                    $_SESSION['message'] = "Création de compte avec succès";
+                    $this->redirect("/connexion");
+
+                }catch (\Exception $e) {
+                    $message = "Cet email existe déjà, veuillez en un autre";
+                }
             }
         }
 
-        $this->render("home.signup", compact("user"));
+        $this->render("home.signup", compact("user","message"));
     }
 
     public function reinit_mot_de_passe()
     {
+        //TODO to verifie on host online
+        $message = "";
+        $id = $_GET['id'];
+        $user = null;
+        if ($id) {
+            $user = $this->Users->find($id);
+        }else {
+            $message = "Vous éssayez de violer la privacité";
+        }
+
+        if ( $user &&
+            isset($_POST['password'])&&
+            !empty($_POST['password']) &&
+            isset($_POST['password-conf']) &&
+            !empty($_POST['password-conf']) &&
+            $_POST['password'] === $_POST['password-conf'] )
+        {
+            $password = htmlentities($_POST['password']);
+            $is_updated = $this->Users->update($user->getId(),[
+                "password" =>sha1($password)
+            ]);
+            if ($is_updated) {
+                $_SESSION['message'] = "Reinitialisation de mot de passe avec succès";
+                $this->redirect("/connexion");
+            }
+            $message = "Veuillez tenter plus plutard";
+        }
+
         App::getInstance()->titre = "reinit mot de passe";
-        $this->render("admin.users.resetpassword");
+        $this->render("admin.users.resetpassword", compact('message','id'));
+    }
+
+    public function forgotpassword()
+    {
+        App::getInstance()->titre = "reinit mot de passe";
+        $message = "";
+        if (isset($_POST['email']) && !empty($_POST['email'])) {
+            $email = htmlentities($_POST['email']);
+            $user = $this->Users->findBy($email);
+            //TODO - send email to this user to reset his/her password
+            //url = /home-resetpassword&id=number
+
+            $message = "Vous récéverez un email de confirmation";
+        }
+
+        $this->render("home.forgotpassword", compact('message'));
     }
 
     public function politique_de_confidentialite()

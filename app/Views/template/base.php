@@ -107,7 +107,7 @@
                 <div class="main-dropdown" id="profile_dropdown_js">
                     <ul>
                         <li><a href="/admin-projects-index">Dashboard</a></li>
-                        <li><a href="/admin-users-index">Profil</a></li>
+                        <li><a href="/admin-users-profile">Profil</a></li>
                         <li><a href="/auth-logout">Déconnexion</a></li>
                     </ul>
                 </div>

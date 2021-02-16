@@ -23,7 +23,7 @@
 
                     <div class="task-inner-form-group-item">
                         <label for="description">description</label>
-                        <textarea name="description" id="description" cols="30" rows="10"><?= $task->getName() ?></textarea>
+                        <textarea name="description" id="description" cols="30" rows="10"><?= $task->getDescription() ?></textarea>
                     </div>
 
                     <fieldset class="date_start_end">

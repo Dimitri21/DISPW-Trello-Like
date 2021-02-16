@@ -39,10 +39,25 @@ setTaskAddEvent('.project_list_task_add_js');//for btn add
 createList('#dashboard-list-add-form');
 sendComment('#task_comment_js');
 setContactEvent('#btn_contact_form_js');
+checkPassword("#profile_password_js", "#profile_password_confi_js");
 //-----------------------------------------------------
 
 
 //Definition of functions------------------------------
+function checkPassword(password_p, password_conf_p) {
+    let password_v = $_(password_p);
+    let password_conf_v = $_(password_conf_p);
+
+    if (password_v && password_conf_v) {
+        password_conf_v.addEventListener('keyup',e=>{
+            if (password_v.value !== e.currentTarget.value) {
+                e.currentTarget.style.border = "1px solid red"
+            }else {
+                e.currentTarget.style.border = "1px solid #004b7b"
+            }
+        });
+    }
+}
 function sendComment(element_p) {
     let comment_form_v = $_(element_p);
     if (comment_form_v) {

@@ -1,4 +1,10 @@
+    <?php if (isset($message) && !empty($message)) : ?>
+        <div class="alert alert-infos">
+            <?= $message ?>
+        </div>
+    <?php endif; ?>
 <div class="resetpassword global-form-bg" id="resetpassword-index">
+
 
     <div class="resetpassword-inner ">
         <div class="inner-title">
@@ -10,7 +16,7 @@
 
         <div class="resetpassword-inner-body card">
 
-            <form class="resetpassword-inner-body-form form-group" action="/reinit_mot_de_passe" method="post">
+            <form class="resetpassword-inner-body-form form-group" action="/reinit_mot_de_passe&id=<?=$id??''?>" method="post">
 
                 <div class="form-group-item">
                     <label for="password">Mot de passe</label>

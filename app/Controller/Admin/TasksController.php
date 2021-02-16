@@ -9,8 +9,6 @@ use app\Entity\Tasks;
 class TasksController extends AppController
 {
 
-    private $user = null;
-
     public function __construct()
     {
         parent::__construct();
@@ -19,7 +17,6 @@ class TasksController extends AppController
         $this->loadModel("Lists", 'sprinto');
         $this->loadModel("Stickers", 'sprinto');
         $this->loadModel("Comments", 'sprinto');
-        $this->user = unserialize($_SESSION['user']);
     }
 
     public function index()

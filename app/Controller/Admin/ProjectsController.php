@@ -10,7 +10,6 @@ use app\Entity\Projects;
 class ProjectsController extends AppController
 {
 
-    private $user = null;
     private $error_message = "";
 
     public function __construct()
@@ -21,7 +20,6 @@ class ProjectsController extends AppController
         $this->loadModel("Lists", 'sprinto');
         $this->loadModel("Tasks", 'sprinto');
         $this->loadModel("Stickers", 'sprinto');
-        $this->user = unserialize($_SESSION['user']);
     }
 
     public function index()

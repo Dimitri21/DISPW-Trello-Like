@@ -12,6 +12,8 @@ class AppController extends Controller
     //protected $template = "admin/base";
     protected $template = "base";
 
+    protected $user;
+
     public function __construct()
     {
         //TODO - Check is user is connected else send error or back to homepage
@@ -21,9 +23,11 @@ class AppController extends Controller
 
         if(!$auth->isLogged())
         {
-            return $this->render("home.login");
+            return $this->redirect("/connexion");
         }
 
+        $this->loadModel("Users","sprinto");
+        $this->user = $this->Users->find($_SESSION['user']);
         //TODO - add Admin keyword on the end of the next line
         $this->viewsPath = _ROOT.DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR;
     }

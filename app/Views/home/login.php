@@ -1,5 +1,5 @@
 <div class="login global-form-bg" id="login-index">
-    <?php if (isset($message)) : ?>
+    <?php if (isset($message) && !empty($message)) : ?>
         <div class="toast danger">
             <?= $message ?>
         </div>
@@ -38,7 +38,7 @@
                         <input type="checkbox" name="remember-me" id="remember-me">
                         <label for="remember-me">Restez connecté</label>
                     </div>
-                    <a href="/reinit_mot_de_passe">Mot de passe oublié</a>
+                    <a href="/forgotpassword">Mot de passe oublié</a>
                 </div>
 
                 <div class="form-group-item">

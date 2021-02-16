@@ -1,4 +1,9 @@
 <div class="signup global-form-bg" id="login-index">
+    <?php if (isset($message) && !empty($message)) : ?>
+        <div class="toast danger">
+            <?= $message ?>
+        </div>
+    <?php endif; ?>
 
     <div class="signup-inner ">
         <div class="inner-title">
@@ -14,19 +19,19 @@
 
                 <div class="form-group-item">
                     <label for="lastname">Prénom*</label>
-                    <input type="text" name="lastname" id="lastname" placeholder="Prénom*">
+                    <input type="text" name="lastname" id="lastname" placeholder="Prénom*" value="<?=$user->getLastname()?>">
                     <span class=""></span>
                 </div>
 
                 <div class="form-group-item">
                     <label for="name">Nom*</label>
-                    <input type="text" name="name" id="name" placeholder="Nom*">
+                    <input type="text" name="name" id="name" placeholder="Nom*" value="<?=$user->getName()?>">
                     <span class=""></span>
                 </div>
 
                 <div class="form-group-item">
                     <label for="email">Email*</label>
-                    <input type="email" name="email" id="email" placeholder="Email*">
+                    <input type="email" name="email" id="email" placeholder="Email*" value="<?=$user->getEmail()?>">
                     <span class=""></span>
                 </div>
 

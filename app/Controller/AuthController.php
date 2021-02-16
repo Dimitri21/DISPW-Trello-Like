@@ -20,54 +20,25 @@ class AuthController extends AppController
 
     public function login($email, $password)
     {
+        //Search email on database
         $user       = $this->Users->findBy($email);
-        $login_info = $_REQUEST;
-
-        if (isset($_REQUEST['email']) && !empty($_REQUEST['email'])) {
-            $email      = htmlspecialchars($_REQUEST['email']);
-            $password   = htmlspecialchars($_REQUEST['password']);
-            //clean up array
+        if ($user) {
             $user       = $this->Users->findBy($email);
-
             if ($user && $user->getPassword() === sha1($password)) {
-                $user->setPassword('');
                 $_SESSION['auth'] = true;
-                $_SESSION['user'] = serialize($user);
-                $this->redirect("/admin-projects-index");
+                $_SESSION['user'] = $user->getId();
+                return true;
             }
         }
-        $message = "Email ou mot de passe incorrect";
-        $this->render('home.login', compact('message'));
-    }
-
-    public function signup(Users $user)
-    {
-        $login_info = $_REQUEST;
-
-        if (isset($_REQUEST['email']) && !empty($_REQUEST['email'])) {
-            $email      = htmlspecialchars($_REQUEST['email']);
-            $password   = htmlspecialchars($_REQUEST['password']);
-            //clean up array
-            $user       = $this->Users->findBy($email);
-
-            if ($user && $user->getPassword() === sha1($password)) {
-                $user->setPassword('');
-                $_SESSION['auth'] = true;
-                $_SESSION['user'] = serialize($user);
-                $this->redirect("/admin-projects-index");
-            }
-        }
-        $message = "Email ou mot de passe incorrect";
-        $this->render('home.login', compact('message'));
+        return false;
     }
 
     /**
      * @brief
-     * @route "/deconnexion"
+     * @route "/auth-logout"
      */
     public function logout()
     {
-
         session_unset();
         session_destroy();
         return $this->render("home.home");
@@ -77,6 +48,6 @@ class AuthController extends AppController
      */
     public function isLogged()
     {
-        return $_SESSION['user'] ?? null;
+        return $_SESSION['auth'] ?? null;
     }
 }

@@ -9,9 +9,6 @@ use app\Entity\Projects;
 
 class ListsController extends AppController
 {
-
-    private $user = null;
-
     public function __construct()
     {
         parent::__construct();
@@ -19,7 +16,6 @@ class ListsController extends AppController
         $this->loadModel("Users", 'sprinto');
         $this->loadModel("Lists", 'sprinto');
         $this->loadModel("Tasks", 'sprinto');
-        $this->user = unserialize($_SESSION['user']);
     }
 
     /**
