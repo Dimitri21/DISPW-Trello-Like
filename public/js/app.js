@@ -39,6 +39,7 @@ setEventOnCloseAddTaskForm("#task_add_close_js"); //close form
 setTaskAddEvent('.project_list_task_add_js');//for btn add
 createList('#dashboard-list-add-form');
 sendComment('#task_comment_js');
+setContactEvent('#btn_contact_form_js');
 //-----------------------------------------------------
 
 
@@ -46,13 +47,13 @@ sendComment('#task_comment_js');
 function sendComment(element_p) {
     let comment_form_v = $_(element_p);
     if (comment_form_v) {
-        comment_form_v.addEventListener('submit',e=>{
+        comment_form_v.addEventListener('submit', e => {
             e.preventDefault();
             let comment = $_("#comment");
             let url = comment_form_v.action;
             if (comment.value) {
                 const data_comment = {
-                    comment : comment.value
+                    comment: comment.value
                 }
                 //Send Ajax
                 $.ajax({
@@ -60,15 +61,15 @@ function sendComment(element_p) {
                     url: url,
                     data: data_comment,
                     cache: false,
-                    success: function (response){
+                    success: function (response) {
                         let responseConverted = JSON.parse(response);
                         let comments_list_container = $_('#comments_list_js');
                         if (responseConverted.status == "success") {
-                            comment.value ="";
+                            comment.value = "";
                             //Update comments list
                             createComment(responseConverted, comments_list_container);
-                        }else {
-                            console.error("Erreur " ,responseConverted.message );
+                        } else {
+                            console.error("Erreur ", responseConverted.message);
                         }
                     },
                     error: function (errors) {
@@ -80,7 +81,7 @@ function sendComment(element_p) {
     }
 }
 
-function  createComment(infos_p, container_p) {
+function createComment(infos_p, container_p) {
 
     let comment = document.createElement('div');
     comment.classList.add('comment-item');
@@ -98,6 +99,52 @@ function  createComment(infos_p, container_p) {
     `;
     container_p.appendChild(comment);
 }
+
+function setContactEvent(element) {
+    let element_btn = $_(element);
+    if (element_btn) {
+        element_btn.addEventListener('click', e => {
+            let formName = $_('#form-name');
+            let formEmail = $_('#form-email');
+            let formMessage = $_('#form-message');
+            let formDivError = $_('#form-danger-js')
+
+            if (formName.value && formEmail.value && formMessage.value) {
+                let formObject = {
+                    name: formName.value,
+                    email: formEmail.value,
+                    message: formMessage.value
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: "/home-contact",
+                    data: formObject,
+                    cache: false,
+                    success: function (response) {
+                        let responseConvert = JSON.parse(response);
+                        if (responseConvert.status == "success") {
+                            formName.value = "";
+                            formEmail.value = "";
+                            formMessage.value = "";
+                            formDivError.style.display = "block";
+                            formDivError.innerHTML = responseConvert.message;
+                        }
+                    },
+                    error: function (errors) {
+
+                        console.error(errors);
+                    }
+                });
+            }
+            e.preventDefault();
+        })
+
+
+    }
+
+}
+
 function setEventProjectShowHover(element_p) {
     const element_v = $_(element_p);
     if (element_v) {
