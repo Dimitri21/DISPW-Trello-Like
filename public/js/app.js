@@ -38,12 +38,66 @@ setEventProjectAdd('#project_add_js');
 setEventOnCloseAddTaskForm("#task_add_close_js"); //close form
 setTaskAddEvent('.project_list_task_add_js');//for btn add
 createList('#dashboard-list-add-form');
-
+sendComment('#task_comment_js');
 //-----------------------------------------------------
 
 
 //Definition of functions------------------------------
+function sendComment(element_p) {
+    let comment_form_v = $_(element_p);
+    if (comment_form_v) {
+        comment_form_v.addEventListener('submit',e=>{
+            e.preventDefault();
+            let comment = $_("#comment");
+            let url = comment_form_v.action;
+            if (comment.value) {
+                const data_comment = {
+                    comment : comment.value
+                }
+                //Send Ajax
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: data_comment,
+                    cache: false,
+                    success: function (response){
+                        let responseConverted = JSON.parse(response);
+                        let comments_list_container = $_('#comments_list_js');
+                        if (responseConverted.status == "success") {
+                            comment.value ="";
+                            //Update comments list
+                            createComment(responseConverted, comments_list_container);
+                        }else {
+                            console.error("Erreur " ,responseConverted.message );
+                        }
+                    },
+                    error: function (errors) {
+                        console.error(errors);
+                    }
+                });
+            }
+        })
+    }
+}
 
+function  createComment(infos_p, container_p) {
+
+    let comment = document.createElement('div');
+    comment.classList.add('comment-item');
+    comment.innerHTML = `
+       <div class="comment-item-author">
+           <span> ${infos_p.user}</span>
+       </div>
+       <div class="comment-item-message">
+           <p>${infos_p.comment}</p>
+           <div>
+               <span><i class="far fa-calendar-alt"></i>${infos_p.date} - </span>
+               <span><i class="far fa-clock"></i>${infos_p.time} </span>
+           </div>
+       </div>
+    `;
+    container_p.appendChild(comment);
+}
 function setEventProjectShowHover(element_p) {
     const element_v = $_(element_p);
     if (element_v) {
@@ -116,11 +170,11 @@ function createList(element_p) {
             e.preventDefault();
 
             //Form fields
-            const list_name         = $_('#listname');
-            const list_description  = $_('#description');
-            const url               = $_(".projecr_list_add_js");
-            let form                = $_(".dashboard-list-add");
-            let form_container      = $_(".dashboard-list");
+            const list_name = $_('#listname');
+            const list_description = $_('#description');
+            const url = $_(".projecr_list_add_js");
+            let form = $_(".dashboard-list-add");
+            let form_container = $_(".dashboard-list");
 
             if (list_name.value && list_description.value && url.dataset.url) {
                 const list_container = $_('#tasks_js');
@@ -175,7 +229,7 @@ function buildList(name, container, id) {
     const index = project_list_tasks.length + 1;
 
     //Updating css grid for lists container
-    container.style.gridTemplateColumns =`repeat(${index}, 300px)`;
+    container.style.gridTemplateColumns = `repeat(${index}, 300px)`;
 
     //create a new div element
     let div_tasks = document.createElement('div');
@@ -241,12 +295,15 @@ function setEventOnCloseAddTaskForm(element) {
  */
 function setTaskAddEvent(element) {
     const task_form = $_(element);
+
     if (task_form) {
         task_form.addEventListener('submit', e => {
 
             e.preventDefault();
+            //Getting values from form fields
             let task_name = $_("#task_name");
             let task_description = $_("#taskdescription");
+            let sticker = $_("#sticker");
 
             if (task_name.value && task_description.value) {
                 let task_container = $_(".dashboard-task");
@@ -263,10 +320,11 @@ function setTaskAddEvent(element) {
                     id = parseInt(id_temp[id_temp.length - 1]);
                 }
 
-                if (list_name.value && list_description.value && task_form.dataset.url) {
+                if (list_name.value && list_description.value && task_form.dataset.url && sticker.value) {
                     const data = {
                         name: list_name.value,
                         description: list_description.value,
+                        sticker: sticker.value,
                         list_id: id
                     };
                     //send AJAX Message
@@ -282,7 +340,7 @@ function setTaskAddEvent(element) {
                                 //Clean fields
                                 list_name.value = "";
                                 list_description.value = "";
-
+                                sticker.value = "";//TODO to personalize
                                 createTask(returnValue, current_task_container);
                                 let nb_tasks_ = $_(`#nb_task_js_${id}`);
                                 if (nb_tasks_) {
@@ -293,7 +351,6 @@ function setTaskAddEvent(element) {
                                     task_container.classList.remove('show')
                                     task_container_form.classList.remove('add')
                                 }
-
                             }
                         },
                         error: function (error_get) {

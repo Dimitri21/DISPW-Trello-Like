@@ -16,6 +16,9 @@ class TasksController extends AppController
         parent::__construct();
         $this->loadModel("Users", 'sprinto');
         $this->loadModel("Tasks", 'sprinto');
+        $this->loadModel("Lists", 'sprinto');
+        $this->loadModel("Stickers", 'sprinto');
+        $this->loadModel("Comments", 'sprinto');
         $this->user = unserialize($_SESSION['user']);
     }
 
@@ -47,7 +50,7 @@ class TasksController extends AppController
                     "modified_at" => $today,
                     "start_at" => $today,
                     "end_at" => $today,
-                    "sticker" => $sticker,
+                    "sticker" => $_POST['sticker']?? 1,
                     "lists" => $_GET['id']
                 ]
             );
@@ -73,49 +76,86 @@ class TasksController extends AppController
 
     public function  edit()
     {
-        $error_message = "";
-
+        $error_message  = "";
         //Traitement des informations en $_POST
-        $task = null;
-        if (isset($_GET['id']) && !empty($_GET['id'])) {
-            $task =  $this->Tasks->find($_GET['id']);
-        }
+        $task           = null;
+
         if (isset($_POST) && !empty($_POST)) {
             $today      = date("Y-m-d H:i:s");
-            var_dump($_POST, $_GET);
-            die();
             $is_inserted = $this->Tasks->update(
                 $_GET['id'],
                 [
-                    "name" => $_POST['project_name'],
-                    "description" => 'Tableau modifié',
-                    "create_at" => $today,
+                    "name" => $_POST['name'],
+                    "description" => $_POST['description'],
+                    "end_at" => $_POST['end_at'],
                     'modified_at' => $today,
-                    'picture' => 'images/projects/ps.jpg',
-                    'users' => $this->user->getId()
+                    'sticker' => $_POST['sticker'],
+                    'lists' => $_POST['list']
                 ]
             );
 
             if ($is_inserted) {
-                return $this->index();
+                $this->redirect("/admin-projects-show&id={$_POST['project_id']}");
             } else {
-                $login_error =  "Erreur pendant l'enregistrement";
+                $login_error =  "Erreur pendant la modification de la tâche";
             }
+        }
+
+        if (isset($_GET['id']) && !empty($_GET['id'])) {
+            $task =  $this->Tasks->find($_GET['id']);
         }
 
         if ($task) {
             $task->setCreatedByObj($this->Users->find($task->getCreatedBy()));
+            $task->setComments($this->Comments->findBy($task->getId()));
+            foreach ($task->getComments() as $comment) {
+                $comment->setUserObj($this->Users->find($comment->getUser()));
+            }
         }
 
-        $method = "edit&id=" . $task->getId();
-        $sticker = $this->Stickers->all();
-        $this->render('admin.tasks.edit', compact('task', 'error_message', 'method', 'stickers'));
+        $method     = "edit&id=" . $task->getId();
+        $stickers   = $this->Stickers->findAll();
+        $project_id = $_GET['proj'];
+        $lisks      = $this->Lists->findList($project_id);
+        $this->render('admin.tasks.edit', compact('task', 'error_message', 'method', 'stickers','lisks',"project_id"));
     }
 
     public function delete()
     {
         var_dump("List/del");
         die();
+    }
+
+    /**
+     * @brief this function is called used Ajax method
+     */
+    public function comment()
+    {
+        $return_message = ["status"=>'',"message"=>''];
+        if (isset($_POST['comment']) && !empty($_POST['comment'])) {
+            $today      = date("Y-m-d H:i:s");
+            $date       = date("d/m/Y H:i:s");
+            $is_inserted = $this->Comments->insert([
+                "comment"=> $_POST['comment'],
+                "created_at"=>$today,
+                "user"=>$this->user->getId(),
+                "task"=>$_GET["id"]
+            ]);
+
+            if ($is_inserted) {
+
+                $return_message['status'] = "success";
+                $return_message['message'] ="Commentaire ajouté avec succès";
+                $return_message['user'] = $this->user->getName();
+                $return_message['comment'] = $_POST['comment'];
+                $return_message['date'] = explode(" ",$date)[0];
+                $return_message['time'] = explode(" ",$date)[1];
+            }else {
+                $return_message['status'] = "error";
+                $return_message['message'] = "Une erreur lors vient d'être detectée";
+            }
+        }
+        echo json_encode($return_message);
     }
 
     public function show()

@@ -116,7 +116,7 @@
 
                                                         <span>
                                                             <span></span>
-                                                            <span><?= $task->getStickerString() ?></span>
+                                                            <span><?= $task->getStickerObj()->getName() ?></span>
                                                         </span>
 
                                                     </div>
@@ -140,7 +140,7 @@
                                                 </div>
 
                                                 <div class="project-list-tasks-task-body-task-hover">
-                                                    <a href="/admin-tasks-edit&id=<?= $task->getId() ?>"><i class="far fa-edit"></i></a>
+                                                    <a href="/admin-tasks-edit&id=<?= $task->getId() ?>&proj=<?= $project->getId() ?>"><i class="far fa-edit"></i></a>
                                                     <form action="/admin-task-delete">
                                                         <input type="text" name="id" value="<?= $task->getId() ?>" hidden>
                                                         <button class="btn btn-danger" type="submit">
