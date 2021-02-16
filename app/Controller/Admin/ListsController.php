@@ -57,8 +57,24 @@ class ListsController extends AppController
     {
         $return_message = "";
         //Traitement des informations en $_POST
-        $list = $this->Lists->find($_GET['id']);
+        if (isset($_POST) && !empty($_POST)) {
+            $today      = date("Y-m-d H:i:s");
+            $is_updated = $this->Lists->update($_GET['id'],[
+                "name"=>$_POST['name'],
+                "description"=>$_POST['description'],
+                "modified_at"=>$today,
+                "orders"=>$_POST['orders']
+            ]);
 
+            if ($is_updated) {
+                $this->redirect("/admin-projects-show&id=".$_POST['project_id']);
+            }else {
+                $return_message = "Erreur lors d'actualisation de la liste";
+            }
+        }
+        $list = $this->Lists->find($_GET['id']);
+        //Update project attribut info
+        $list->setProjectObj($this->Projects->find($list->getProject()));
         $this->render('admin.lists.edit', compact('list', 'return_message'));
     }
 

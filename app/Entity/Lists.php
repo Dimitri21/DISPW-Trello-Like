@@ -44,6 +44,11 @@ class Lists
     private $project;
 
     /**
+     * @var Projects
+     */
+    private $project_obj;
+
+    /**
      * @var int
      */
     private $orders;
@@ -197,6 +202,24 @@ class Lists
     public function setProject(int $project): Lists
     {
         $this->project = $project;
+        return $this;
+    }
+
+    /**
+     * @return Projects
+     */
+    public function getProjectObj(): Projects
+    {
+        return $this->project_obj;
+    }
+
+    /**
+     * @param Projects $project_obj
+     * @return Lists
+     */
+    public function setProjectObj(Projects $project_obj): Lists
+    {
+        $this->project_obj = $project_obj;
         return $this;
     }
 

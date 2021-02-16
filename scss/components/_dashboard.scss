@@ -229,12 +229,11 @@
                                 flex-direction: column;
                                 overflow-y: scroll;
                                 
-                                
                                 //TASK
                                 &-task {
                                     position: relative;
                                     width: 270px;
-                                    min-height: 100px;
+                                    min-height: 125px;
                                     margin-bottom: .5rem;
                                     overflow: hidden;
                                     border-radius: 0 .3rem .3rem 0;
@@ -749,11 +748,8 @@
                     display: flex;
                     flex-direction: column;
                     &>* {
-                        margin-top: .5rem;
                         border: none;
-                        padding: .7rem .5rem;
                         border-radius: .3rem;
-                        background-color: rgba($color: $dark-color, $alpha: .2);
                         outline-style: none;
                     }
                     button {
@@ -779,50 +775,47 @@
         }
 
         //Task ADD 
-        &-task-add{
-            width: 350px;
-            margin: 0 auto;
-            border-radius: .3rem;
-            background-color: $white-color;
-            box-shadow: 0 2px 2px rgba($color: $dark-color, $alpha: .2);
-            //transform: translateX(100vw);
-            transition: transform 0.3s ease-in-out;
+        // &-task-add{
+        //     width: 350px;
+        //     margin: 0 auto;
+        //     border-radius: .3rem;
+        //     background-color: $white-color;
+        //     box-shadow: 0 2px 2px rgba($color: $dark-color, $alpha: .2);
+        //     //transform: translateX(100vw);
+        //     transition: transform 0.3s ease-in-out;
     
-            &-title {
-                padding: .5rem .8rem;
-                text-align: center;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                i{
-                    display: inline-block;
-                    padding: .3rem;
-                    cursor: pointer;
-                }
-            }
+        //     &-title {
+        //         padding: .5rem .8rem;
+        //         text-align: center;
+        //         display: flex;
+        //         justify-content: space-between;
+        //         align-items: center;
+        //         i{
+        //             display: inline-block;
+        //             padding: .3rem;
+        //             cursor: pointer;
+        //         }
+        //     }
     
-            &-form {
-                padding: 1rem;
-                form {
-                    display: flex;
-                    flex-direction: column;
-                    &>* {
-                        margin-top: .5rem;
-                        border: none;
-                        padding: .7rem .5rem;
-                        border-radius: .3rem;
-                        background-color: rgba($color: $dark-color, $alpha: .2);
-                        outline-style: none;
-                    }
-                    button {
-                        background-color: $success-color;
-                        color: $white-color;
-                        font-size: 1.2rem;
-                        cursor: pointer;
-                    }
-                }
-            }
-        }
+        //     &-form {
+        //         padding: 1rem;
+        //         form {
+        //             display: flex;
+        //             flex-direction: column;
+        //             &>* {
+        //                 border: none;
+        //                 border-radius: .3rem;
+        //                 outline-style: none;
+        //             }
+        //             button {
+        //                 background-color: $success-color;
+        //                 color: $white-color;
+        //                 font-size: 1.2rem;
+        //                 cursor: pointer;
+        //             }
+        //         }
+        //     }
+        // }
     }
 
 }

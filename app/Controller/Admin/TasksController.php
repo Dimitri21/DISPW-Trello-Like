@@ -56,13 +56,14 @@ class TasksController extends AppController
             );
             $members        = ['LastName NAME1'];
             if ($is_inserted) {
+                $sticker = $this->Stickers->find($_POST['sticker']);
                 $return_message['id']       = $this->Tasks->getLastId();
                 $return_message['status']   = "success";
                 $return_message['name']     = $_POST['name'];
                 $return_message['user']     = strtoupper($this->user->getName()) . " " . ucfirst($this->user->getLastname());
                 $return_message['picture']  = $this->user->getPicture();
                 $return_message['members']  = $members;
-                $return_message['sticker']  = Tasks::STICKERS[$sticker - 1];
+                $return_message['sticker']  = $sticker->getName();
                 $return_message['message']  = "Tâche créée avec succès!";
             } else {
                 $return_message['status']   = "success";
@@ -122,8 +123,16 @@ class TasksController extends AppController
 
     public function delete()
     {
-        var_dump("List/del");
-        die();
+        $return_message = "";
+        $return_message ="Erreur lors de suppresion de la tâche";
+        if (isset($_POST['task_id']) && !empty($_POST['task_id'])) {
+            $is_deleted = $this->Tasks->delete($_POST['task_id']);
+            if ($is_deleted) {
+                $return_message ="Tâche supprimée avec succès";
+            }
+        }
+        //TODO set session buffer for the message string
+        return $this->redirect("/admin-projects-show&id=".$_POST['project_id']);
     }
 
     /**

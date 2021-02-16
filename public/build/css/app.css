@@ -186,13 +186,14 @@ body {
   color: #004b7b;
 }
 
-.global-form-bg .form-group .form-group-item input {
+.global-form-bg .form-group .form-group-item input, .global-form-bg .form-group .form-group-item textarea, .global-form-bg .form-group .form-group-item select {
   margin: .3rem 0;
   border: 1px solid #004b7b;
   padding: .8rem .5rem;
   border-radius: .3rem;
   outline-style: none;
   font-size: 1rem;
+  font-family: 'Open-sans', sans-serif;
 }
 
 .global-form-bg .form-group .form-group-item .form-alert {
@@ -223,11 +224,11 @@ body {
           align-items: center;
 }
 
-.global-form-bg .form-group .form-group-item:last-child button {
-  margin-top: 1rem;
+.global-form-bg .form-group .form-group-item:last-child button, .global-form-bg .form-group .form-group-item:last-child a {
+  margin: 1rem .5rem 0 0.5rem;
   display: inline-block;
   padding: .8rem 1.8rem;
-  border-radius: .3rem;
+  border-radius: 0.3rem;
   background: #004b7b;
   color: #FFFFFF;
   border: 0;
@@ -239,8 +240,12 @@ body {
   cursor: pointer;
 }
 
-.global-form-bg .form-group .form-group-item:last-child button:hover {
+.global-form-bg .form-group .form-group-item:last-child button:hover, .global-form-bg .form-group .form-group-item:last-child a:hover {
   background-color: rgba(0, 75, 123, 0.6);
+}
+
+.global-form-bg .form-group .form-group-item:last-child a {
+  background: rgba(144, 147, 153, 0.5);
 }
 
 /*MAIN*/
@@ -2105,7 +2110,7 @@ body {
 .dashboard-inner-content-lists .project-list-tasks-task-body-task {
   position: relative;
   width: 270px;
-  min-height: 100px;
+  min-height: 125px;
   margin-bottom: .5rem;
   overflow: hidden;
   border-radius: 0 .3rem .3rem 0;
@@ -2754,11 +2759,8 @@ body {
 }
 
 .dashboard-list-add-form form > *, .dashboard-task-add-form form > * {
-  margin-top: .5rem;
   border: none;
-  padding: .7rem .5rem;
   border-radius: .3rem;
-  background-color: rgba(48, 49, 51, 0.2);
   outline-style: none;
 }
 
@@ -2783,68 +2785,5 @@ body {
 .dashboard-list.show .dashboard-task-add.add, .dashboard-task.show .dashboard-task-add.add {
   -webkit-transform: translateX(0);
           transform: translateX(0);
-}
-
-.dashboard-list-task-add, .dashboard-task-task-add {
-  width: 350px;
-  margin: 0 auto;
-  border-radius: .3rem;
-  background-color: #FFFFFF;
-  -webkit-box-shadow: 0 2px 2px rgba(48, 49, 51, 0.2);
-          box-shadow: 0 2px 2px rgba(48, 49, 51, 0.2);
-  -webkit-transition: -webkit-transform 0.3s ease-in-out;
-  transition: -webkit-transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-}
-
-.dashboard-list-task-add-title, .dashboard-task-task-add-title {
-  padding: .5rem .8rem;
-  text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.dashboard-list-task-add-title i, .dashboard-task-task-add-title i {
-  display: inline-block;
-  padding: .3rem;
-  cursor: pointer;
-}
-
-.dashboard-list-task-add-form, .dashboard-task-task-add-form {
-  padding: 1rem;
-}
-
-.dashboard-list-task-add-form form, .dashboard-task-task-add-form form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.dashboard-list-task-add-form form > *, .dashboard-task-task-add-form form > * {
-  margin-top: .5rem;
-  border: none;
-  padding: .7rem .5rem;
-  border-radius: .3rem;
-  background-color: rgba(48, 49, 51, 0.2);
-  outline-style: none;
-}
-
-.dashboard-list-task-add-form form button, .dashboard-task-task-add-form form button {
-  background-color: #67C23A;
-  color: #FFFFFF;
-  font-size: 1.2rem;
-  cursor: pointer;
 }
 /*# sourceMappingURL=app.css.map */

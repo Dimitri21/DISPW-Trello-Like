@@ -3,7 +3,6 @@ const nav_humburger = document.querySelector('.nav-humburger-js');
 const main_humburger = document.querySelector('.main-humburger');
 let body = document.querySelector('body');
 
-
 nav_humburger.addEventListener('click', e => {
     if (e.currentTarget) {
         if (e.currentTarget.classList.contains('open')) {
@@ -366,7 +365,7 @@ function setTaskAddEvent(element) {
                     let id_temp = current_task_container.id.split("_");
                     id = parseInt(id_temp[id_temp.length - 1]);
                 }
-
+                console.log(sticker)
                 if (list_name.value && list_description.value && task_form.dataset.url && sticker.value) {
                     const data = {
                         name: list_name.value,
@@ -498,22 +497,6 @@ function createTask(infos, element) {
     `;
     task_container.appendChild(task_element)
 }
-
-// function listAddEvent(tasks_container_js_id) {
-//     let task_container = $_(`#tasks_container_js_${tasks_container_js_id}`);
-//     //let task_container = $_(".dashboard-task");
-//     let task_container_form = $_(".dashboard-task-add");
-//     createList(task_name.value, task_container);
-//
-//     //Clean up fields
-//     task_name.value = "";
-//     task_description.value = "";
-//     if (task_container && task_container_form) {
-//         task_container.classList.remove('show')
-//         task_container_form.classList.remove('add')
-//     }
-//
-// }
 
 function listConfigEvent(element) {
     const list_name = $_(`#${element}`);

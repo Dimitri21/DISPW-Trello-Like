@@ -138,8 +138,8 @@ class ProjectsController extends AppController
                 }
             }
 
-
-            $this->render("admin.projects.show", compact('project', 'lists'));
+            $stickers = $this->Stickers->findAll();
+            $this->render("admin.projects.show", compact('project', 'lists', 'stickers'));
         }else {
             $this->index();
         }

@@ -142,14 +142,15 @@ body{
                     color: $first-color;
                 }
             }
-    
-            input {
+            
+            input,textarea,select {
                 margin: .3rem 0;
                 border: 1px solid $first-color;
                 padding: .8rem .5rem;
                 border-radius: .3rem;
                 outline-style: none;
                 font-size: 1rem;
+                font-family: 'Open-sans', sans-serif;
             }
             
             .form-alert {
@@ -168,11 +169,12 @@ body{
                 flex-direction: row;
                 justify-content: center;
                 align-items: center;
-                button {
-                    margin-top: 1rem;
+                button,a {
+
+                    margin: 1rem .5rem 0 0.5rem;
                     display: inline-block;
                     padding: .8rem 1.8rem;
-                    border-radius: .3rem;
+                    border-radius: 0.3rem;
                     background: $first-color;
                     color: $white-color;
                     border: 0;
@@ -183,6 +185,9 @@ body{
                     &:hover{
                         background-color: rgba($color: $first-color, $alpha: .6);
                     }
+                }
+                a {
+                    background: rgba($color: $default-color, $alpha: .5);
                 }
             }
         }

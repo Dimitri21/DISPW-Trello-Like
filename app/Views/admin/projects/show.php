@@ -141,10 +141,11 @@
 
                                                 <div class="project-list-tasks-task-body-task-hover">
                                                     <a href="/admin-tasks-edit&id=<?= $task->getId() ?>&proj=<?= $project->getId() ?>"><i class="far fa-edit"></i></a>
-                                                    <form action="/admin-task-delete">
-                                                        <input type="text" name="id" value="<?= $task->getId() ?>" hidden>
+                                                    <form action="/admin-tasks-delete" method="POST">
+                                                        <input type="text" name="task_id" value="<?= $task->getId() ?>" hidden>
+                                                        <input type="text" name="project_id" value="<?= $project->getId() ?>" hidden>
                                                         <button class="btn btn-danger" type="submit">
-                                                            <i class="far fa-edit"></i>
+                                                            <i class="far fa-trash-alt"></i>
                                                         </button>
                                                     </form>
                                                 </div>
@@ -168,9 +169,8 @@
 
     </div>
 
+    <!--ADD NEW LIST-->
     <div class="dashboard-list">
-
-        <!--ADD NEW LIST-->
         <div class="dashboard-list-add">
 
             <div class="dashboard-list-add-title">
@@ -179,18 +179,32 @@
             </div>
 
             <div class="dashboard-list-add-form">
-                <!--TODO to correct the class name typing mistake-->
-                <form method="get" id="dashboard-list-add-form" data-url="/admin-lists-addAjax&id=<?= $project->getId() ?>" class="projecr_list_add_js">
-                    <input type="text" name="listname" id="listname" placeholder="Nom de la tâche" maxlength="20" minlength="3">
-                    <textarea name="description" id="description" cols="15" rows="5" placeholder="Description"></textarea>
+                <div class="global-form-bg">
+                    <!--TODO to correct the class name typing mistake-->
+                    <form class="form-group projecr_list_add_js" method="get" id="dashboard-list-add-form" data-url="/admin-lists-addAjax&id=<?= $project->getId() ?>">
 
-                    <button type="submit" id="project_list_add_js">Ajouter</button>
-                </form>
+                        <div class="form-group-item">
+                            <label for="listname">Nom</label>
+                            <input type="text" name="listname" id="listname" placeholder="Nom de la tâche" maxlength="20" minlength="3">
+                            <span class=""></span>
+                        </div>
+
+                        <div class="form-group-item">
+                            <label for="description">Description</label>
+                            <textarea name="description" id="description" cols="15" rows="5" placeholder="Description"></textarea>
+                            <span class=""></span>
+                        </div>
+
+                        <div class="form-group-item">
+                            <button type="submit" id="project_list_add_js">Ajouter</button>
+                        </div>
+
+                    </form>
+                </div>
 
             </div>
 
         </div>
-
     </div>
 
     <!--CONFIG NEW TASK-->
@@ -205,7 +219,7 @@
 
             <div class="dashboard-task-add-form">
 
-                <div class="card">
+                <div class="global-form-bg">
                     <form id="dashboard-task-add-form" class="form-group project_list_task_add_js" data-url="/admin-tasks-addAjax&id=" method="post">
 
                         <div class="form-group-item">
@@ -219,14 +233,21 @@
                             <textarea name="description" id="taskdescription" cols="15" rows="5" placeholder="Description de la tâche"></textarea>
                             <span class=""></span>
                         </div>
+                        <div class="form-group-item">
+                            <label for="sticker">Etiquette</label>
+                            <select name="sticker" id="sticker">
+                                <?php foreach ($stickers as $sticker) : ?>
+                                    <option value="<?= $sticker->getId() ?>"><?= $sticker->getName() ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <span class=""></span>
+                        </div>
 
                         <div class="form-group-item btn_group">
-                            <a id="project_annuler_js">Annuler</a>
                             <button type="submit">Ajouter</button>
                         </div>
 
                     </form>
-
                 </div>
 
             </div>
