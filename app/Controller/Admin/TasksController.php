@@ -53,14 +53,16 @@ class TasksController extends AppController
             );
             $members        = ['LastName NAME1'];
             if ($is_inserted) {
-                $sticker = $this->Stickers->find($_POST['sticker']);
-                $return_message['id']       = $this->Tasks->getLastId();
+                $last_id = $this->Tasks->getLastId();
+                $sticker = $this->Stickers->find(htmlentities($_POST['sticker']));
+                $return_message['task_id']  = $last_id;
                 $return_message['status']   = "success";
-                $return_message['name']     = $_POST['name'];
+                $return_message['name']     = htmlentities($_POST['name']);
                 $return_message['user']     = strtoupper($this->user->getName()) . " " . ucfirst($this->user->getLastname());
                 $return_message['picture']  = $this->user->getPicture();
                 $return_message['members']  = $members;
                 $return_message['sticker']  = $sticker->getName();
+                $return_message['project_id']  = htmlentities($_POST['project_id']);
                 $return_message['message']  = "Tâche créée avec succès!";
             } else {
                 $return_message['status']   = "success";
@@ -152,7 +154,7 @@ class TasksController extends AppController
 
                 $return_message['status'] = "success";
                 $return_message['message'] ="Commentaire ajouté avec succès";
-                $return_message['user'] = $this->user->getName();
+                $return_message['user'] = substr($this->user->getName(),0,1);
                 $return_message['comment'] = $_POST['comment'];
                 $return_message['date'] = explode(" ",$date)[0];
                 $return_message['time'] = explode(" ",$date)[1];

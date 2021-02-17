@@ -10,7 +10,7 @@
             <div class="global-form-bg">
                 <!--TODO to correct the class name typing mistake-->
                 <form class="form-group" method="POST" id="list-add-form" data-url="/admin-lists-edit&id=<?= $list->getName() ?>">
-                        <input type="text" name="project_id" id="project_id" value="<?= $list->getProject() ?>" hidden>
+                    <input type="text" name="project_id" id="project_id" value="<?= $list->getProject() ?>" hidden>
                     <div class="form-group-item">
                         <label for="name">Nom</label>
                         <input type="text" name="name" id="name" placeholder="Nom de la liste" value="<?= $list->getName() ?>">
@@ -29,6 +29,7 @@
                     </div>
                     <div class="form-group-item">
                         <a href="/admin-projects-show&id=<?= $list->getProject() ?>" type="submit">Retour</a>
+                        <a href="/admin-lists-delete&id=<?= $list->getId() ?>&proj=<?= $list->getProject() ?>" type="submit">Delete</a>
                         <button type="submit">Ajouter</button>
                     </div>
                 </form>

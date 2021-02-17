@@ -5,13 +5,19 @@ namespace app\Controller\Admin;
 use app\App;
 use app\Controller;
 use app\Controller\AuthController;
+use app\Entity\Users;
 
 class AppController extends Controller
 {
-    //Changed base page for admin side
-    //protected $template = "admin/base";
-    protected $template = "base";
+    /**
+     * @brief  Changed base page for admin side
+     * @var string
+     */
+    protected $template = "admin/base";
 
+    /**
+     * @var Users
+     */
     protected $user;
 
     public function __construct()

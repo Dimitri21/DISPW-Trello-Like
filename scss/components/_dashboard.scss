@@ -17,13 +17,17 @@
         &-aside {
             width: 22vw;
             height: inherit;
+                
+            //TODO - to replace using mixins
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             
             &-list {
+                //TODO - to replace using mixins
                 display: flex;
                 flex-direction: column;
+
                 width: inherit;
                 background-color: $grey1-color;
                 li {
@@ -170,7 +174,6 @@
                     &-tasks {
                         
                         &-task {
-                            
                             width: 300px;
                             //LIST TITLE
                             &-title {
@@ -178,15 +181,12 @@
                                 margin: .2rem 0 2rem 0;
                                 padding:.5rem;
                                 @include flex-row-center-center(row,space-between,center);
-                                // display: flex;
-                                // flex-direction: row;
-                                // justify-content: space-between;
-                                // align-items: center;
                                 background-color: $white-color;
                                 border-left: 1px solid rgba($color: $dark-color, $alpha: .7);
                                 color: rgba($color: $dark-color, $alpha: .7);
                                 
                                 &-right {
+                                    //TODO - to replace using mixins
                                     display: flex;
                                     flex-direction: row;
                                     align-items: center;
@@ -197,36 +197,47 @@
                                                 content: "/";
                                             }
                                         }
+                                        &:last-child {
+                                            @include flex-row-center-center(row,center,center);
+
+                                            &>* {
+                                                display: block;
+                                                color: rgba($color: $dark-color, $alpha: .7);
+                                                padding: 0 .3rem;
+                                                outline-style: none;
+                                                border: 1px solid rgba($color: $dark-color, $alpha: .7);
+                                                cursor: pointer;
+                                                background-color: $white-color;
+                                                
+                                                &:hover {
+                                                    background-color: rgba($color: $dark-color, $alpha: .2);
+                                                }
+                                            }
+                                            button {
+                                                border-radius: 0.3rem 0 0 .3rem;
+                                            }   
+                                            a {
+                                                border-radius: 0 0.3rem .3rem 0;
+                                            }
+                                        }
                                     }
                                     i {
                                         font-size: 1rem;
                                         padding: .2rem;
                                     }
 
-                                    button {
-                                        color: rgba($color: $dark-color, $alpha: .7);
-                                        padding: 0 .3rem;
-                                        outline-style: none;
-                                        border: 1px solid rgba($color: $dark-color, $alpha: .7);
-                                        cursor: pointer;
-                                        &:first-of-type {
-                                            border-radius: .3rem 0 0 .3rem;
-                                        }
-                                        &:last-of-type {
-                                            border-radius: 0 .3rem .3rem 0;
-                                        }
-                                        &:hover {
-                                            background-color: rgba($color: $dark-color, $alpha: .2);
-                                        }
-                                    }
+                                    
                                 }
                             }
 
                             &-body {
                                 height:77vh;
                                 padding: 0 .5rem;
+
+                                //TODO - to replace using mixins
                                 display: flex;
                                 flex-direction: column;
+
                                 overflow-y: scroll;
                                 
                                 //TASK
@@ -384,30 +395,47 @@
 
                                     &-hover {
                                        position: absolute;
-                                       @include flex-row-center-center(column,center,center);
-                                       display: none;
+                                       @include flex-row-center-center(row,center,center);
+                                       //display: none;
+                                       padding: 0 0.5rem;
                                        top: 0;
                                        left: 0;
                                        width: 100%;
                                        height: 100%;
-                                       background: rgba($color: $first-color, $alpha: .2);
-                                       a {
+                                       transition: all .3s ease-in-out;
+                                       background: rgba($color: $first-color, $alpha: 0);
+                                       a,form button{
                                             @include flex-row-center-center(column,center,center);
                                            width:45px;
                                            height:45px;
                                            background-color: rgba($color: $white-color, $alpha: .8);
                                            border-radius: 50%;
+                                           margin: 0 0.5rem;
+                                           display: none;
+                                           cursor: pointer;
                                            i {
                                                padding: 1rem;
                                                font-size:1.5rem;
                                                color: $dark-color;
                                            }
                                        }
+                                       form {
+                                           button {
+                                               background: $danger-color;
+                                                i {
+                                                    color: $white-color;
+                                                }
+                                            }
+                                       }
                                     }
                                     &:hover{
                                         cursor: pointer;
                                         .project-list-tasks-task-body-task-hover{
                                             display: flex;
+                                            background: rgba($color: $first-color, $alpha: 1);
+                                            a,form button{
+                                                display: flex;
+                                           }
                                         }
                                     }
                                 }
@@ -489,7 +517,6 @@
                     .project-list {
                         display: grid;
                         grid-template-columns: repeat(6,300px) ;
-
                         //DEFAULT LIST
                         &-tasks {
 
@@ -500,23 +527,31 @@
                                     height: 6vh; // 83vh - 6 = 77vh;
                                     margin: .2rem 0 2rem 0;
                                     padding:.5rem;
+
+                                    //TODO to use mixins here
                                     display: flex;
                                     flex-direction: row;
                                     justify-content: space-between;
                                     align-items: center;
+
                                     background-color: $white-color;
                                     border-left: 1px solid rgba($color: $dark-color, $alpha: .7);
                                     color: rgba($color: $dark-color, $alpha: .7);
                                     &-right {
+
+                                        //TODO to use mixins here
                                         display: flex;
                                         flex-direction: row;
                                         align-items: center;
+                                        
                                         div {
                                             margin-right: 1rem;
                                             span {
                                                 &::before{
                                                     content: "/";
                                                 }
+                                            }
+                                            &:last-child {
                                             }
                                         }
                                         i {
@@ -525,6 +560,7 @@
                                         }
 
                                         button {
+
                                             color: rgba($color: $dark-color, $alpha: .7);
                                             padding: 0 .3rem;
                                             outline-style: none;
@@ -540,12 +576,15 @@
                                                 background-color: rgba($color: $dark-color, $alpha: .2);
                                             }
                                         }
+
                                     }
                                 }
 
                                 &-body {
                                     height:77vh;
                                     padding: 0 .5rem;
+                                    
+                                    //TODO to use mixins here
                                     display: flex;
                                     flex-direction: column;
                                     overflow-y: scroll;
@@ -556,12 +595,12 @@
                                         position: relative;
                                         border-radius: 0 .3rem .3rem 0;
                                         margin-bottom: .5rem;
+
                                         &-front {
                                             width: 100%;
                                             display: flex;
                                             flex-direction: column;
                                             justify-content: space-between;
-                                            border-left: 4px solid $success-color;
                                             background-color: $white-color;
                                             box-shadow: 0 2px 2px rgba($color: $dark-color, $alpha: .2);
                                             padding: .5rem;
@@ -773,49 +812,7 @@
                 transform: translateX(0);
             } 
         }
-
-        //Task ADD 
-        // &-task-add{
-        //     width: 350px;
-        //     margin: 0 auto;
-        //     border-radius: .3rem;
-        //     background-color: $white-color;
-        //     box-shadow: 0 2px 2px rgba($color: $dark-color, $alpha: .2);
-        //     //transform: translateX(100vw);
-        //     transition: transform 0.3s ease-in-out;
-    
-        //     &-title {
-        //         padding: .5rem .8rem;
-        //         text-align: center;
-        //         display: flex;
-        //         justify-content: space-between;
-        //         align-items: center;
-        //         i{
-        //             display: inline-block;
-        //             padding: .3rem;
-        //             cursor: pointer;
-        //         }
-        //     }
-    
-        //     &-form {
-        //         padding: 1rem;
-        //         form {
-        //             display: flex;
-        //             flex-direction: column;
-        //             &>* {
-        //                 border: none;
-        //                 border-radius: .3rem;
-        //                 outline-style: none;
-        //             }
-        //             button {
-        //                 background-color: $success-color;
-        //                 color: $white-color;
-        //                 font-size: 1.2rem;
-        //                 cursor: pointer;
-        //             }
-        //         }
-        //     }
-        // }
+        
     }
 
 }

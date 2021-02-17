@@ -76,8 +76,16 @@ class ListsController extends AppController
 
     public function delete()
     {
-        var_dump("List/del");
-        die();
+        $message = "Erreur lors de suppression de la liste";
+        if (isset($_GET['id']) && !empty($_GET['id']) &&
+            isset($_GET['proj']) && !empty($_GET['proj'])) {
+            if ($this->Lists->delete(htmlentities($_GET['id']))) {
+                //TODO message to set in session
+                $message = "suppression de la liste avec succès";
+            }
+            $this->redirect("/admin-projects-show&id=".htmlentities($_GET['proj']));
+        }
+        $this->redirect("/admin-project-index");
     }
 
     public function show()

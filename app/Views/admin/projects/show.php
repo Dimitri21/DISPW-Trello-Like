@@ -37,7 +37,7 @@
             <div class="dashboard-inner-aside-tools">
                 <div>
                     <i class="fal fa-cog"></i>
-                    <span>Project settings</span>
+                    <span>Personnalisation</span>
                 </div>
                 <i class="fal fa-chevron-double-left" id="setting_chevron_js"></i>
             </div>
@@ -73,19 +73,22 @@
 
                                         <div class="project-list-tasks-task-title-right">
 
+                                            <!--Task number-->
                                             <div>
                                                 <i class="far fa-clipboard-list"></i>
                                                 <span class="nb_task_js" id="nb_task_js_<?= $list->getId() ?>"><?= count($list->getTasks()) ?></span>
                                             </div>
 
                                             <!--//TODO event for btn-todo-->
-                                            <button onclick="showAddTaskForm(<?= $list->getId() ?>)" class="project-list-title-right-add" id="add-<?= $list->getId() ?>">
-                                                <i class="far fa-plus"></i>
-                                            </button>
+                                            <div>
+                                                <button onclick="showAddTaskForm(<?= $list->getId() ?>)" class="project-list-title-right-add" id="add-<?= $list->getId() ?>">
+                                                    <i class="far fa-plus"></i>
+                                                </button>
 
-                                            <!--//TODO event for btn-todo-->
-                                            <a href="/admin-lists-edit&id=<?= $list->getId() ?>"><i class="fas fa-tools"></i></a>
+                                                <!--//TODO event for btn-todo-->
+                                                <a href="/admin-lists-edit&id=<?= $list->getId() ?>"><i class="fas fa-tools"></i></a>
 
+                                            </div>
                                         </div>
                                     </div>
 
@@ -122,6 +125,7 @@
                                                     </div>
 
                                                     <!--TASK MEMBERS-->
+                                                    <!--TODO loop for printing members of this task-->
                                                     <div class="project-list-tasks-task-body-task-front-members">
 
                                                         <div class="project-list-tasks-task-body-task-front-members-item success">
@@ -141,7 +145,7 @@
 
                                                 <div class="project-list-tasks-task-body-task-hover">
                                                     <a href="/admin-tasks-edit&id=<?= $task->getId() ?>&proj=<?= $project->getId() ?>"><i class="far fa-edit"></i></a>
-                                                    <form action="/admin-tasks-delete" method="POST">
+                                                    <form action="/admin-tasks-delete" method="POST" onsubmit="confirm('Etes-vous de vouloir supprimer cette tâche?')">
                                                         <input type="text" name="task_id" value="<?= $task->getId() ?>" hidden>
                                                         <input type="text" name="project_id" value="<?= $project->getId() ?>" hidden>
                                                         <button class="btn btn-danger" type="submit">
@@ -221,7 +225,7 @@
 
                 <div class="global-form-bg">
                     <form id="dashboard-task-add-form" class="form-group project_list_task_add_js" data-url="/admin-tasks-addAjax&id=" method="post">
-
+                        <input type="number" name="project_id_js" id="project_id_js" value="<?= $project->getId() ?>" hidden>
                         <div class="form-group-item">
                             <label for="task_name">Titre</label>
                             <input type="text" name="task_name" id="task_name" placeholder="Votre titre">

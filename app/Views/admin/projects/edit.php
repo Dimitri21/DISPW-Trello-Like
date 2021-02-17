@@ -18,7 +18,7 @@
                     </div>
 
                     <div class="form-group-item btn_group">
-                        <a href="/admin-projects-index" id="project_annuler_js">Annuler</a>
+                        <a href="/admin-projects-index" id="project_annuler_js">Retour</a>
                         <button type="submit">Ajouter</button>
                     </div>
 
