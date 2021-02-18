@@ -13,11 +13,11 @@ class TasksController extends AppController
     public function __construct()
     {
         parent::__construct();
-        $this->loadModel("Users", 'sprinto');
-        $this->loadModel("Tasks", 'sprinto');
-        $this->loadModel("Lists", 'sprinto');
-        $this->loadModel("Stickers", 'sprinto');
-        $this->loadModel("Comments", 'sprinto');
+        $this->loadModel("Users");
+        $this->loadModel("Tasks");
+        $this->loadModel("Lists");
+        $this->loadModel("Stickers");
+        $this->loadModel("Comments");
     }
 
     public function index()

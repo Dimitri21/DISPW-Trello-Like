@@ -13,8 +13,8 @@ class HomeController extends AppController
     public function __construct()
     {
         parent::__construct();
-        $this->loadModel('Users', 'sprinto');
-        $this->loadModel('Projects', 'sprinto');
+        $this->loadModel('Users');
+        $this->loadModel('Projects');
     }
 
     public function home()

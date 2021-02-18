@@ -15,7 +15,7 @@ class AuthController extends AppController
     public function __construct(SprintoDatabase $getDatabase = null)
     {
         $this->db = $getDatabase;
-        $this->loadModel('Users', 'sprinto');
+        $this->loadModel('Users');
     }
 
     public function login($email, $password)

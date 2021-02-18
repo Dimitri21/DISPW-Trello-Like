@@ -10,7 +10,7 @@ class UsersController extends AppController
     public function __construct()
     {
         parent::__construct();
-        $this->loadModel("Users", 'sprinto');
+        $this->loadModel("Users");
     }
 
     public function edit()

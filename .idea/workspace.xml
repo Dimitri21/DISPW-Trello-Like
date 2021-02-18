@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ebcb4fd-b170-4057-9acc-7278261162e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/DISPW-Trello-Like.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DISPW-Trello-Like.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controller/Admin/AppController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/Admin/AppController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Controller/Admin/ListsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/Admin/ListsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Controller/Admin/ProjectsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/Admin/ProjectsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Controller/Admin/TasksController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/Admin/TasksController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Controller/Admin/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/Admin/UsersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controller/AppController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/AppController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controller/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/AuthController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/admin/projects/show.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/admin/projects/show.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/sprinto.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/sprinto.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +119,7 @@
       <workItem from="1613499376282" duration="13409000" />
       <workItem from="1613551939352" duration="3526000" />
       <workItem from="1613561906792" duration="6453000" />
-      <workItem from="1613635319449" duration="512000" />
+      <workItem from="1613635319449" duration="1096000" />
     </task>
     <servers />
   </component>

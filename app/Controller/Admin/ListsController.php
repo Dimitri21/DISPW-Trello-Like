@@ -13,10 +13,10 @@ class ListsController extends AppController
     public function __construct()
     {
         parent::__construct();
-        $this->loadModel("Projects", 'sprinto');
-        $this->loadModel("Users", 'sprinto');
-        $this->loadModel("Lists", 'sprinto');
-        $this->loadModel("Tasks", 'sprinto');
+        $this->loadModel("Projects");
+        $this->loadModel("Users");
+        $this->loadModel("Lists");
+        $this->loadModel("Tasks");
     }
 
     /**

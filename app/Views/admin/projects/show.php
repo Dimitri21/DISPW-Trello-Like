@@ -108,7 +108,7 @@
                                                     <!--TASK LEAD-->
                                                     <div class="project-list-tasks-task-body-task-front-lead">
                                                         <div class="project-list-tasks-task-body-task-front-lead-picture">
-                                                            <img src="images/profile/photo_passe.jpg" alt="user profile avatar">
+                                                            <img src="images/profile/<?= $task->getCreatedByObj()->getPicture() ?>" alt="user profile avatar">
                                                         </div>
                                                         <span><?= $task->getCreator() ?></span>
                                                     </div>
