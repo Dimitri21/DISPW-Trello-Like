@@ -1,9 +1,9 @@
 <div class="profile global-form-bg" id="login-index">
 
     <div class="profile-inner ">
-        <?php if (isset($return_message) && !empty($return_message)) : ?>
-            <div class="alert alert-<?=$class?>">
-                <?= $return_message ?>
+        <?php if (isset($message) && !empty($message)) : ?>
+            <div class="alert alert-<?= $class??'' ?>">
+                <?= $message ?>
             </div>
         <?php endif; ?>
         <div class="inner-title">
@@ -18,11 +18,12 @@
             <div class="profile-inner-body-avatar">
 
                 <div class="profile-canvas">
-                    <form class="profile-canvas-input" action="/admin-users-edit&id=<?= $user->getId() ?>" method="post" enctype="multipart/form-data">
-                        <input type="file" name="avatar" id="avatar" value="<?= $user->getPicture() ?>">
+                    <form class="profile-canvas-input" action="/admin-users-upload&id=<?= $user->getId() ?>" method="post" enctype="multipart/form-data">
+                        <input type="file" name="uploadFile" id="profile_avatar_js">
                         <span class="selected-filename"></span>
+                        <button type="submit" id="profile_button_js">Valider</button>
                     </form>
-                    <img src="images/profile/<?= $user ? $user->getPicture() : '' ?>" alt=" image de <?= $user ? $user->getName() . ' ' . $user->getLastname() : '' ?>">
+                    <img src="images/profile/<?= \app\App::getInstance()->picture??'/default/man.jpg' ?>" alt=" image de <?= $user ? $user->getName() . ' ' . $user->getLastname() : '' ?>">
                 </div>
 
             </div>
@@ -64,7 +65,7 @@
                 </div>
 
                 <div class="form-group-item">
-                    <a href="/admin-users-delete&id=<?=$user->getId()??'' ?>" class="danger" type="submit">Supprimer</a>
+                    <a href="/admin-users-delete&id=<?= $user->getId() ?? '' ?>" class="danger" type="submit">Supprimer</a>
                     <button type="submit">Sauvegarder</button>
                 </div>
 

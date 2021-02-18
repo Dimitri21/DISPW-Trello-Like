@@ -55,12 +55,14 @@
                         
                         width: 150px;
                         height: 150px;
+
                         input {
                             
                             width: 150px;
                             height: 150px;
                             display: block;
                             border: none;
+                            outline: none;
                             width: inherit;
                             height: inherit;
                             z-index: -1;
@@ -71,6 +73,27 @@
                               }
                             &:hover {
                                 background-color: rgba($color: #000000, $alpha: .2);
+                            }
+                        }
+                        button {
+                            margin: .3rem 0;
+                            border: none;
+                            outline: none;
+                            padding: .5rem .5rem;
+                            border-radius: .3rem;
+                            outline-style: none;
+                            font-size: 1rem;
+                            font-family: 'Open-sans', sans-serif;
+                            border: 1px solid $first-color;
+                            text-align: center;
+                            position: relative;
+                            top: -60px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            display: none;
+                            cursor: pointer;
+                            &.show {
+                                display: block;
                             }
                         }
                     }

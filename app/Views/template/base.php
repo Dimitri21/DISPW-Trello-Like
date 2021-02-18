@@ -73,7 +73,7 @@
                                 <li class="my-navbar-inner-list-profile-item profil">
                                     <!--USER PICTURE-->
                                     <div href="#" class="profile-image" id="dropdown_js">
-                                        <img src="images/profile/photo_passe.jpg" alt="profile picture">
+                                        <img src="images/profile/<?= \app\App::getInstance()->picture??'/default/man.jpg' ?>" alt="profile picture">
                                     </div>
 
                                 </li>
@@ -143,17 +143,15 @@
     </main>
 
     <!--FOOTER AREA-->
-    <?php if (!isset($projects)) : ?>
-        <footer class="footer">
-            <div class="my-container">
-                <ul class="footer-inner">
-                    <li><a href="/politique_de_confidentialite">Politique de confidentialité</a></li>
-                    <li><a href="/mentions_legales">Mentions légales</a></li>
-                    <li><a href="/conditions_generales_utilisation">Conditions générales d'utilisation</a></li>
-                </ul>
-            </div>
-        </footer>
-    <?php endif; ?>
+    <footer class="footer">
+        <div class="my-container">
+            <ul class="footer-inner">
+                <li><a href="/politique_de_confidentialite">Politique de confidentialité</a></li>
+                <li><a href="/mentions_legales">Mentions légales</a></li>
+                <li><a href="/conditions_generales_utilisation">Conditions générales d'utilisation</a></li>
+            </ul>
+        </div>
+    </footer>
 
     <!-- Bootstrap core JavaScript -->
     <!-- Placed at the end of the document so the pages load faster -->

@@ -15,6 +15,9 @@
     <meta name="description" content="trello like">
     <meta name="authors" content="CECILE E., DIMITRI H. ET DURAMANA K.">
 
+    <!--SCRIPT FOR LLOTTIES-->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
     <!--FONT AWESOME PRO -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
@@ -45,39 +48,32 @@
                             <a href="/">ACCUEIL</a>
                         </li>
 
-                        <?php if (isset($user) && !is_null($user)) : ?>
+                        <?php if (isset($_SESSION['auth']) && !empty($_SESSION['auth'])) : ?>
                             <!--PROFILE INFOS-->
                             <ul class="my-navbar-inner-list-profile">
 
                                 <!--TODO to delete-->
-                                <li class="my-navbar-inner-list-profile-item">
-                                    <a href="#"><i class="fal fa-envelope"></i></a>
-                                    <span class="badge success">3</span>
-                                </li>
+                                <?php if (isset($project)) : ?>
+                                    <li class="my-navbar-inner-list-profile-item">
+                                        <a href="#"><i class="fal fa-envelope"></i></a>
+                                        <span class="badge success">3</span>
+                                    </li>
 
-                                <li class="my-navbar-inner-list-profile-item">
-                                    <a href="#"><i class="fal fa-flag"></i></a>
-                                    <span class="badge danger">1</span>
-                                </li>
+                                    <li class="my-navbar-inner-list-profile-item">
+                                        <a href="#"><i class="fal fa-flag"></i></a>
+                                        <span class="badge danger">1</span>
+                                    </li>
 
-                                <li class="my-navbar-inner-list-profile-item">
-                                    <a href="#"><i class="fal fa-bell"></i></a>
-                                    <span class="badge warning">2</span>
-                                </li>
+                                    <li class="my-navbar-inner-list-profile-item">
+                                        <a href="#"><i class="fal fa-bell"></i></a>
+                                        <span class="badge warning">2</span>
+                                    </li>
+                                <?php endif; ?>
 
                                 <li class="my-navbar-inner-list-profile-item profil">
                                     <!--USER PICTURE-->
                                     <div href="#" class="profile-image" id="dropdown_js">
-                                        <img src="images/profile/photo_passe.jpg" alt="profile picture">
-                                    </div>
-
-                                    <!--DROPDOWN-->
-                                    <div class="my-navbar-inner-list-profile-item-dropdown " id="profile_dropdown_js">
-                                        <ul>
-                                            <li><a href="/user-parametre">Parametre</a></li>
-                                            <li><a href="/profile">Profile</a></li>
-                                            <li><a href="/deconnexion">Deconnection</a></li>
-                                        </ul>
+                                        <img src="images/profile/<?= \app\App::getInstance()->picture??'default/man.jpg' ?>" alt="profile picture">
                                     </div>
 
                                 </li>
@@ -104,6 +100,19 @@
 
             </div>
         </nav>
+
+        <!--DROPDOWN-->
+        <?php if (isset($_SESSION['auth'])) : ?>
+            <div class="my-container">
+                <div class="main-dropdown" id="profile_dropdown_js">
+                    <ul>
+                        <li><a href="/admin-projects-index">Dashboard</a></li>
+                        <li><a href="/admin-users-profile">Profil</a></li>
+                        <li><a href="/auth-logout">Déconnexion</a></li>
+                    </ul>
+                </div>
+            </div>
+        <?php endif; ?>
 
         <!--CONTENT AREA-->
         <section role="main" class="container">
@@ -133,18 +142,6 @@
 
     </main>
 
-    <!--FOOTER AREA-->
-    <?php if (!isset($projects)) : ?>
-        <footer class="footer">
-            <div class="my-container">
-                <ul class="footer-inner">
-                    <li><a href="/politique_de_confidentialite">Politique de confidentialité</a></li>
-                    <li><a href="/mentions_legales">Mentions légales</a></li>
-                    <li><a href="/conditions_generales_utilisation">Conditions générales d'utilisation</a></li>
-                </ul>
-            </div>
-        </footer>
-    <?php endif; ?>
     <!-- Bootstrap core JavaScript -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>

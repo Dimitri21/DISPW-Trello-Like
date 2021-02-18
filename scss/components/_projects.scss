@@ -153,7 +153,7 @@
             justify-content: flex-end;
             position: relative;
             margin-bottom: 1rem;
-
+           
             .project-add-btn {
                 position: absolute;
                 right: 1rem;
@@ -214,16 +214,18 @@
         z-index: 2;
        &-new {
             
-
             display: block;
             min-width: 352px;
             z-index: 2;
             .inner-title {
-           
+                
                 h3 {
                     font-size: 1.3rem;
                     color: $white-color;
                 }
+            }
+            .card {
+                padding-top: 2rem;
             }
            
         }

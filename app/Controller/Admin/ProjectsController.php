@@ -4,6 +4,7 @@
 namespace app\Controller\Admin;
 
 
+use app\App;
 use app\Entity\Lists;
 use app\Entity\Projects;
 
@@ -15,11 +16,11 @@ class ProjectsController extends AppController
     public function __construct()
     {
         parent::__construct();
-        $this->loadModel("Projects", 'sprinto');
-        $this->loadModel("Users", 'sprinto');
-        $this->loadModel("Lists", 'sprinto');
-        $this->loadModel("Tasks", 'sprinto');
-        $this->loadModel("Stickers", 'sprinto');
+        $this->loadModel("Projects");
+        $this->loadModel("Users");
+        $this->loadModel("Lists");
+        $this->loadModel("Tasks");
+        $this->loadModel("Stickers");
     }
 
     public function index()
@@ -27,8 +28,9 @@ class ProjectsController extends AppController
         $projects = $this->Projects->findProject($this->user->getId());
         $updated_project = $this->Projects->findLastModified($this->user->getId());
         $message = $this->error_message;
-        $this->render("admin.projects.index", compact("projects", "updated_project", "message"));
+        App::getInstance()->titre = "Mes tableaux";
 
+        $this->render("admin.projects.index", compact("projects", "updated_project", "message"));
     }
 
     public function  add()
@@ -137,6 +139,7 @@ class ProjectsController extends AppController
             }
 
             $stickers = $this->Stickers->findAll();
+            App::getInstance()->titre = "Tableau ".$project->getName();
             $this->render("admin.projects.show", compact('project', 'lists', 'stickers'));
         }else {
             $this->index();

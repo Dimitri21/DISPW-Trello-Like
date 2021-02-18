@@ -13,8 +13,8 @@ class HomeController extends AppController
     public function __construct()
     {
         parent::__construct();
-        $this->loadModel('Users', 'sprinto');
-        $this->loadModel('Projects', 'sprinto');
+        $this->loadModel('Users');
+        $this->loadModel('Projects');
     }
 
     public function home()
@@ -61,7 +61,7 @@ class HomeController extends AppController
             isset($_POST['password-conf']) && !empty($_POST['password-conf']
             )
         ) {
-            $user->setEmail($_POST['email'])
+            $user->setEmail(htmlentities($_POST['email']))
                 ->setPassword(sha1(htmlentities($_POST['password'])))
                 ->setName(htmlentities($_POST['name']))
                 ->setLastname(htmlentities($_POST['lastname']));
@@ -76,11 +76,14 @@ class HomeController extends AppController
                         "lastname"=>$user->getLastname(),
                         "email "=>$user->getEmail(),
                         "password"=>$user->getPassword(),
-                        "subscriptionAt"=>$today,
-                        "picture"=>"photo_passe.jpg"
+                        "subscriptionAt"=>$today
                     ]);
                     //TODO traite success message
                     $_SESSION['message'] = "Création de compte avec succès";
+                    //Send email to this user
+                    $message = "Bienvenu(e) sur Sprinto, votre compte vient d'être créé avec succès";
+                    $this->sendEmail($user->getEmail(),$user->getName(),"duramana.kalumvuati@laposte.net","Création de compte", $message);
+
                     $this->redirect("/connexion");
 
                 }catch (\Exception $e) {
@@ -170,6 +173,7 @@ class HomeController extends AppController
 
     public function error404()
     {
+        App::getInstance()->titre = "Page not found";
         $this->notFound();
     }
 

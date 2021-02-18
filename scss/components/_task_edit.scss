@@ -1,0 +1,52 @@
+.task {
+    &-inner {
+        &-title {
+            text-align: center;
+            padding: 1rem 0;
+            h3 {
+                font-size: 2rem;
+            }
+        }
+        .global-form-bg {
+            padding: 2rem 1rem;
+        }
+
+        &-comments {
+            &-inner {
+                
+                .comment-item {
+                    display: grid;
+                    grid-template-columns: 50px calc(100% - 50px);
+                    grid-gap: .5rem;
+                    margin-bottom: .5rem;
+
+                    &-author {
+                        p{
+                            @include flex-row-center-center(row,center,center);
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 50%;
+                            background: $first-color;
+                            color: $white-color;
+                            text-transform: uppercase;
+                            font-size: 1.5rem;
+                            font-weight: 700;
+                        }
+                    }
+                    &-message{
+                        border-radius: .3rem;
+                        padding:.5rem;
+                        background-color: rgba($color: $first-color, $alpha: .2);
+                        color: $first-color;
+                        p {
+                            margin-bottom: .5rem;
+                        }
+                        div {
+                            color: rgba($color: $default-color, $alpha: .9);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

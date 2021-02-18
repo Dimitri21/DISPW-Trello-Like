@@ -2,6 +2,7 @@
 
 namespace app\Controller\Admin;
 
+use app\App;
 use app\Entity\Lists;
 use app\Entity\Projects;
 use app\Entity\Tasks;
@@ -12,11 +13,11 @@ class TasksController extends AppController
     public function __construct()
     {
         parent::__construct();
-        $this->loadModel("Users", 'sprinto');
-        $this->loadModel("Tasks", 'sprinto');
-        $this->loadModel("Lists", 'sprinto');
-        $this->loadModel("Stickers", 'sprinto');
-        $this->loadModel("Comments", 'sprinto');
+        $this->loadModel("Users");
+        $this->loadModel("Tasks");
+        $this->loadModel("Lists");
+        $this->loadModel("Stickers");
+        $this->loadModel("Comments");
     }
 
     public function index()
@@ -53,14 +54,16 @@ class TasksController extends AppController
             );
             $members        = ['LastName NAME1'];
             if ($is_inserted) {
-                $sticker = $this->Stickers->find($_POST['sticker']);
-                $return_message['id']       = $this->Tasks->getLastId();
+                $last_id = $this->Tasks->getLastId();
+                $sticker = $this->Stickers->find(htmlentities($_POST['sticker']));
+                $return_message['task_id']  = $last_id;
                 $return_message['status']   = "success";
-                $return_message['name']     = $_POST['name'];
+                $return_message['name']     = htmlentities($_POST['name']);
                 $return_message['user']     = strtoupper($this->user->getName()) . " " . ucfirst($this->user->getLastname());
                 $return_message['picture']  = $this->user->getPicture();
                 $return_message['members']  = $members;
                 $return_message['sticker']  = $sticker->getName();
+                $return_message['project_id']  = htmlentities($_POST['project_id']);
                 $return_message['message']  = "Tâche créée avec succès!";
             } else {
                 $return_message['status']   = "success";
@@ -115,6 +118,7 @@ class TasksController extends AppController
         $stickers   = $this->Stickers->findAll();
         $project_id = $_GET['proj'];
         $lisks      = $this->Lists->findList($project_id);
+        App::getInstance()->titre = "Edition de la tâche";
         $this->render('admin.tasks.edit', compact('task', 'error_message', 'method', 'stickers','lisks',"project_id"));
     }
 
@@ -152,7 +156,7 @@ class TasksController extends AppController
 
                 $return_message['status'] = "success";
                 $return_message['message'] ="Commentaire ajouté avec succès";
-                $return_message['user'] = $this->user->getName();
+                $return_message['user'] = substr($this->user->getName(),0,1);
                 $return_message['comment'] = $_POST['comment'];
                 $return_message['date'] = explode(" ",$date)[0];
                 $return_message['time'] = explode(" ",$date)[1];

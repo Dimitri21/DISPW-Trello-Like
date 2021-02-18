@@ -5,13 +5,19 @@ namespace app\Controller\Admin;
 use app\App;
 use app\Controller;
 use app\Controller\AuthController;
+use app\Entity\Users;
 
 class AppController extends Controller
 {
-    //Changed base page for admin side
-    //protected $template = "admin/base";
-    protected $template = "base";
+    /**
+     * @brief  Changed base page for admin side
+     * @var string
+     */
+    protected $template = "admin/base";
 
+    /**
+     * @var Users
+     */
     protected $user;
 
     public function __construct()
@@ -28,13 +34,15 @@ class AppController extends Controller
 
         $this->loadModel("Users","sprinto");
         $this->user = $this->Users->find($_SESSION['user']);
+        App::getInstance()->picture = $this->user->getPicture();
+
         //TODO - add Admin keyword on the end of the next line
         $this->viewsPath = _ROOT.DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR;
     }
 
-    protected function loadModel(string $model_name,string $db_name)
+    protected function loadModel(string $model_name)
     {
         //create attribute with $model_name name. eg : Users => $this->Users
-        $this->$model_name = App::getInstance($db_name)->getRepository($model_name);
+        $this->$model_name = App::getInstance()->getRepository($model_name);
     }
 }

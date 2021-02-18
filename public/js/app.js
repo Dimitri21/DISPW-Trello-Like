@@ -40,24 +40,38 @@ createList('#dashboard-list-add-form');
 sendComment('#task_comment_js');
 setContactEvent('#btn_contact_form_js');
 checkPassword("#profile_password_js", "#profile_password_confi_js");
+setEventOnUploadPicture('#profile_avatar_js');
 //-----------------------------------------------------
 
-
 //Definition of functions------------------------------
+function setEventOnUploadPicture(picture_js_p) {
+    let element_v = $_(picture_js_p);
+    let element_btn_on_picture = $_("#profile_button_js");
+    if (element_v) {
+        element_v.addEventListener('change', e => {
+            console.log(element_v)
+            if (element_btn_on_picture ) {
+                element_btn_on_picture.classList.add('show');
+            }
+        });
+    }
+}
+
 function checkPassword(password_p, password_conf_p) {
     let password_v = $_(password_p);
     let password_conf_v = $_(password_conf_p);
 
     if (password_v && password_conf_v) {
-        password_conf_v.addEventListener('keyup',e=>{
+        password_conf_v.addEventListener('keyup', e => {
             if (password_v.value !== e.currentTarget.value) {
                 e.currentTarget.style.border = "1px solid red"
-            }else {
+            } else {
                 e.currentTarget.style.border = "1px solid #004b7b"
             }
         });
     }
 }
+
 function sendComment(element_p) {
     let comment_form_v = $_(element_p);
     if (comment_form_v) {
@@ -101,7 +115,7 @@ function createComment(infos_p, container_p) {
     comment.classList.add('comment-item');
     comment.innerHTML = `
        <div class="comment-item-author">
-           <span> ${infos_p.user}</span>
+           <p><span> ${infos_p.user}</span></p>
        </div>
        <div class="comment-item-message">
            <p>${infos_p.comment}</p>
@@ -309,16 +323,18 @@ function buildList(name, container, id) {
                         <i class="far fa-clipboard-list"></i>
                         <span class="nb_task_js">0</span>
                     </div>
+                    
+                    <!--//TODO event for btn-todo-->
+                    <div>
+                        <!--//TODO event for btn-dodo-->
+                        <button onclick="showAddTaskForm(${id})"  class="project-list-title-right-add" id="add-${id}">
+                            <i class="far fa-plus"></i>
+                        </button>
 
-                    <!--//TODO event for btn-dodo-->
-                    <button onclick="showAddTaskForm(${id})"  class="project-list-title-right-add" id="add-${id}">
-                        <i class="far fa-plus"></i>
-                    </button>
+                        <!--//TODO event for btn-todo-->
+                        <a href="/admin-lists-edit&id=${id}"><i class="fas fa-tools"></i></a>
 
-                    <!--//TODO event for btn-dodo-->
-                    <button onclick="listConfigEvent('list-${id}')" class="project-list-title-right-config" id="config-${id}">
-                        <i class="fas fa-tools"></i>
-                    </button>
+                    </div>
 
                 </div>
             </div>
@@ -351,8 +367,8 @@ function setEventOnCloseAddTaskForm(element) {
 }
 
 /**
- * 
- * @param {*} element 
+ *
+ * @param {*} element
  */
 function setTaskAddEvent(element) {
     const task_form = $_(element);
@@ -375,18 +391,20 @@ function setTaskAddEvent(element) {
                 const list_name = $_('#task_name');
                 const list_description = $_('#taskdescription');
                 let current_task_container = $_('.list_activate');
+                let project_id = $_('#project_id_js');
+
                 let id = current_list_id = null;
                 if (current_task_container) {
                     let id_temp = current_task_container.id.split("_");
                     id = parseInt(id_temp[id_temp.length - 1]);
                 }
-                console.log(sticker)
                 if (list_name.value && list_description.value && task_form.dataset.url && sticker.value) {
                     const data = {
                         name: list_name.value,
                         description: list_description.value,
                         sticker: sticker.value,
-                        list_id: id
+                        list_id: id,
+                        project_id: project_id.value
                     };
                     //send AJAX Message
                     $.ajax({
@@ -464,18 +482,18 @@ function createTask(infos, element) {
     let task_element = document.createElement('div');
     task_element.classList.add('project-list-tasks-task-body-task');
     task_element.innerHTML = `
+
         <div class="project-list-tasks-task-body-task-front">
             <!--TASK TITLE-->
             <p class="project-list-tasks-task-body-task-front-title">
                 <i class="fal fa-book-open"></i>
                 <span class="task-title">${infos.name}</span>
             </p>
-                    
+
             <!--TASK LEAD-->
             <div class="project-list-tasks-task-body-task-front-lead">
                 <div class="project-list-tasks-task-body-task-front-lead-picture">
-                    <img src="images/profile/${infos.picture}"
-                        alt="user profile avatar">
+                    <img src="images/profile/${infos.picture}" alt="user profile avatar">
                 </div>
                 <span>${infos.user}</span>
             </div>
@@ -483,6 +501,7 @@ function createTask(infos, element) {
             <!--TASK STATE-->
             <div class="project-list-tasks-task-body-task-front-state">
                 <span>Etat</span>
+
                 <span>
                     <span></span>
                     <span>${infos.sticker}</span>
@@ -491,24 +510,27 @@ function createTask(infos, element) {
             </div>
 
             <!--TASK MEMBERS-->
+            <!--TODO loop for printing members of this task-->
             <div class="project-list-tasks-task-body-task-front-members">
-                <!--TODO have to make a loop here-->
+
                 <div class="project-list-tasks-task-body-task-front-members-item success">
                     <span>${infos.members[0]}</span>
                 </div>
 
             </div>
-
         </div>
+
         <div class="project-list-tasks-task-body-task-hover">
-            <a href="/admin-tasks-edit&id=${infos.id}"><i class="far fa-edit"></i></a>
-            <form action="/admin-task-delete">
-                <input type="text" name="id" value="${infos.id}" hidden>
+            <a href="/admin-tasks-edit&id=${infos.task_id}&proj=${infos.project_id}"><i class="far fa-edit"></i></a>
+            <form action="/admin-tasks-delete" method="POST" onsubmit="confirm('Etes-vous de vouloir supprimer cette tâche?')">
+                <input type="text" name="task_id" value="${infos.task_id}" hidden>
+                <input type="text" name="project_id" value="${infos.project_id}" hidden>
                 <button class="btn btn-danger" type="submit">
-                    <i class="far fa-edit"></i>
+                    <i class="far fa-trash-alt"></i>
                 </button>
             </form>
         </div>
+
     `;
     task_container.appendChild(task_element)
 }

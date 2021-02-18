@@ -4,6 +4,7 @@
 namespace app\Controller\Admin;
 
 
+use app\App;
 use app\Entity\Lists;
 use app\Entity\Projects;
 
@@ -12,10 +13,10 @@ class ListsController extends AppController
     public function __construct()
     {
         parent::__construct();
-        $this->loadModel("Projects", 'sprinto');
-        $this->loadModel("Users", 'sprinto');
-        $this->loadModel("Lists", 'sprinto');
-        $this->loadModel("Tasks", 'sprinto');
+        $this->loadModel("Projects");
+        $this->loadModel("Users");
+        $this->loadModel("Lists");
+        $this->loadModel("Tasks");
     }
 
     /**
@@ -71,13 +72,22 @@ class ListsController extends AppController
         $list = $this->Lists->find($_GET['id']);
         //Update project attribut info
         $list->setProjectObj($this->Projects->find($list->getProject()));
+        App::getInstance()->titre = "Edition de la liste ".$list->getName();
         $this->render('admin.lists.edit', compact('list', 'return_message'));
     }
 
     public function delete()
     {
-        var_dump("List/del");
-        die();
+        $message = "Erreur lors de suppression de la liste";
+        if (isset($_GET['id']) && !empty($_GET['id']) &&
+            isset($_GET['proj']) && !empty($_GET['proj'])) {
+            if ($this->Lists->delete(htmlentities($_GET['id']))) {
+                //TODO message to set in session
+                $message = "suppression de la liste avec succès";
+            }
+            $this->redirect("/admin-projects-show&id=".htmlentities($_GET['proj']));
+        }
+        $this->redirect("/admin-project-index");
     }
 
     public function show()
