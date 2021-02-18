@@ -16,17 +16,3 @@
         align-items: $align;
     }
 }
-
-
-@mixin flex-row-center-center($row : "",$justify:"",$align:"") {
-    display: flex;
-    @if $row {
-        flex-direction: $row;
-    }
-    @if $justify {
-        justify-content: $justify;
-    }
-    @if $align {
-        align-items: $align;
-    }
-}

@@ -145,4 +145,33 @@ class ProjectsController extends AppController
             $this->index();
         }
     }
+
+    public function member() {
+        if (isset($_POST['project_id']) && !empty($_POST['project_id'])) {
+            $members = $_POST;
+            $project_id = $_POST['project_id'];
+            $role = $_POST['role'];
+            unset($members['role']);
+            unset($members['project_id']);
+            unset($members['member_name']);
+
+            foreach ($members as $member) {
+                var_dump($member);
+            }
+        }
+        die();
+    }
+
+    public function all() {
+        $return_value = ["status"=>"error","users"=>[], "message"=> "Une erreur vient d'être detectée"];
+        if (isset($_POST['message'])) {
+            $users = $this->Users->findAll();
+            foreach ($users as $user) {
+                $return_value["users"][] = ["id"=>$user->getId(), "name"=> $user->getNames()];
+            }
+            $return_value['status'] = "success";
+            unset($return_value['message']);
+        }
+        echo json_encode($return_value);
+    }
 }

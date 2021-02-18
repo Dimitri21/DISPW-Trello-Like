@@ -22,13 +22,10 @@ class AuthController extends AppController
     {
         //Search email on database
         $user       = $this->Users->findBy($email);
-        if ($user) {
-            $user       = $this->Users->findBy($email);
-            if ($user && $user->getPassword() === sha1($password)) {
-                $_SESSION['auth'] = true;
-                $_SESSION['user'] = $user->getId();
-                return true;
-            }
+        if ($user && $user->getPassword() === sha1($password)) {
+            $_SESSION['auth'] = true;
+            $_SESSION['user'] = $user->getId();
+            return true;
         }
         return false;
     }

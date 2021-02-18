@@ -2758,7 +2758,7 @@ body {
   background-color: #00c198;
 }
 
-.dashboard-list, .dashboard-task {
+.dashboard-list, .dashboard-task, .dashboard-member {
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -2775,7 +2775,7 @@ body {
   background-color: rgba(48, 49, 51, 0.5);
 }
 
-.dashboard-list-add, .dashboard-task-add {
+.dashboard-list-add, .dashboard-task-add, .dashboard-member-add {
   width: 350px;
   margin: 0 auto;
   border-radius: .3rem;
@@ -2790,7 +2790,7 @@ body {
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
 
-.dashboard-list-add-title, .dashboard-task-add-title {
+.dashboard-list-add-title, .dashboard-task-add-title, .dashboard-member-add-title {
   padding: .5rem .8rem;
   text-align: center;
   display: -webkit-box;
@@ -2804,17 +2804,17 @@ body {
           align-items: center;
 }
 
-.dashboard-list-add-title i, .dashboard-task-add-title i {
+.dashboard-list-add-title i, .dashboard-task-add-title i, .dashboard-member-add-title i {
   display: inline-block;
   padding: .3rem;
   cursor: pointer;
 }
 
-.dashboard-list-add-form, .dashboard-task-add-form {
+.dashboard-list-add-form, .dashboard-task-add-form, .dashboard-member-add-form {
   padding: 1rem;
 }
 
-.dashboard-list-add-form form, .dashboard-task-add-form form {
+.dashboard-list-add-form form, .dashboard-task-add-form form, .dashboard-member-add-form form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2824,31 +2824,81 @@ body {
           flex-direction: column;
 }
 
-.dashboard-list-add-form form > *, .dashboard-task-add-form form > * {
+.dashboard-list-add-form form > *, .dashboard-task-add-form form > *, .dashboard-member-add-form form > * {
   border: none;
   border-radius: .3rem;
   outline-style: none;
 }
 
-.dashboard-list-add-form form button, .dashboard-task-add-form form button {
+.dashboard-list-add-form form button, .dashboard-task-add-form form button, .dashboard-member-add-form form button {
   background-color: #67C23A;
   color: #FFFFFF;
   font-size: 1.2rem;
   cursor: pointer;
 }
 
-.dashboard-list.show, .dashboard-task.show {
+.dashboard-list-add-form form .members_list, .dashboard-task-add-form form .members_list, .dashboard-member-add-form form .members_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
+  -webkit-box-align: none;
+      -ms-flex-align: none;
+          align-items: none;
+  display: none;
+}
+
+.dashboard-list-add-form form .members_list div, .dashboard-task-add-form form .members_list div, .dashboard-member-add-form form .members_list div {
+  padding: .3rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid red;
+}
+
+.dashboard-list-add-form form .members_list div > *, .dashboard-task-add-form form .members_list div > *, .dashboard-member-add-form form .members_list div > * {
+  display: block;
+}
+
+.dashboard-list-add-form form .members_list.show, .dashboard-task-add-form form .members_list.show, .dashboard-member-add-form form .members_list.show {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.dashboard-list.show .dashboard-list-add.add, .dashboard-task.show .dashboard-list-add.add {
+.dashboard-list.show, .dashboard-task.show, .dashboard-member.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dashboard-list.show .dashboard-list-add.add, .dashboard-task.show .dashboard-list-add.add, .dashboard-member.show .dashboard-list-add.add {
   -webkit-transform: translateX(0);
           transform: translateX(0);
 }
 
-.dashboard-list.show .dashboard-task-add.add, .dashboard-task.show .dashboard-task-add.add {
+.dashboard-list.show .dashboard-task-add.add, .dashboard-task.show .dashboard-task-add.add, .dashboard-member.show .dashboard-task-add.add {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.dashboard-list.show .dashboard-member-add.add, .dashboard-task.show .dashboard-member-add.add, .dashboard-member.show .dashboard-member-add.add {
   -webkit-transform: translateX(0);
           transform: translateX(0);
 }

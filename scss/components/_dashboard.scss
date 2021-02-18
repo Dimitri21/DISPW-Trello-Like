@@ -747,7 +747,7 @@
     }
 
     //TODO - à continuer plus tarde
-    &-list,&-task {
+    &-list,&-task,&-member {
         position: absolute;
         width: 100vw;
         height: 100vh;
@@ -758,7 +758,6 @@
         justify-content: center;
         align-items: center;
         background-color: rgba($color: $dark-color, $alpha: .5);
-        
         &-add{
             width: 350px;
             margin: 0 auto;
@@ -797,18 +796,39 @@
                         font-size: 1.2rem;
                         cursor: pointer;
                     }
+                    
+                    //For Add Member side
+                    .members_list {
+                        @include flex-row-center-center(column, none, none);
+                        div {
+                          padding: .3rem 0;
+                            &>* {
+                                display: block;
+                            }
+                            @include flex-row-center-center(row, space-between, center);
+                            border: 1px solid red;
+                        }
+                        display: none;
+                        &.show {
+                            display: flex;
+                        }
+                    }
                 }
             }
         }
 
-
         &.show{
+
             display: flex;
             .dashboard-list-add.add {
                 transform: translateX(0);
             } 
     
             .dashboard-task-add.add {
+                transform: translateX(0);
+            } 
+
+            .dashboard-member-add.add {
                 transform: translateX(0);
             } 
         }

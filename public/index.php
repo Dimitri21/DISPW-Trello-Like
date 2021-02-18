@@ -14,7 +14,6 @@ require _ROOT . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'App.php';
 $app = App::getInstance();
 //Autoloader
 $app->start();
-$user = new Users();
 
 //Traitement de paramètre d'URL
 $home_page  = "home";

@@ -50,6 +50,7 @@
             <!--PROJECT TITLE-->
             <div class="dashboard-inner-content-title">
                 <h2><?= $project->getName()  ?></h2>
+                <span id="member_add_js"><i class="far fa-user-plus"></i></span>
                 <span id="list_add_js"><i class="far fa-plus"></i></span>
             </div>
 
@@ -259,4 +260,64 @@
         </div>
     </div>
 
+    <!--ADD MEMBER-->
+    <div class="dashboard-member">
+
+        <div class="dashboard-member-add add">
+
+            <div class="dashboard-member-add-title">
+                <h4>Inviter/Ajouter un member</h4>
+                <i class="fal fa-times" id="member_add_close_js"></i>
+            </div>
+
+            <div class="dashboard-member-add-form">
+
+                <div class="global-form-bg">
+
+                    <form action="/admin-projects-member" id="dashboard-member-add-form" class="form-group project_add_member_js" method="post">
+
+                        <input type="number" name="project_id" id="project_id_js" value="<?= $project->getId() ?>" hidden>
+
+                        <div class="form-group-item">
+                            <label for="member_name">Nom</label>
+                            <input type="text" name="member_name" id="member_name" placeholder="Nom du member">
+
+                            <div class="members_list">
+                                <div>
+                                    <label for="member_chosen_id" class="members_name_js">Duramana KALUMVUATI</label>
+                                    <input type="checkbox" value="Duramana KALUMVUATI" name="member_chosen_id" id="member_chosen_id">
+                                </div>
+                                <div>
+                                    <label for="member_chosen_id1" class="members_name_js">Cecile EVEZI</label>
+                                    <input type="checkbox" value="Cecile EVEZI" name="member_chosen_id1" id="member_chosen_id1">
+                                </div>
+                                <div>
+                                    <label for="member_chosen_id2" class="members_name_js">Dimitri HERTZ</label>
+                                    <input type="checkbox" value="Dimitri HERTZ" name="member_chosen_id2" id="member_chosen_id2">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group-item">
+                            <label for="role">Rôle</label>
+                            <select name="role" id="role">
+                                    <option value="1">Invité</option>
+                                    <option value="2">Developpeur</option>
+                                    <option value="3">Autre</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group-item btn_group">
+                            <button type="submit">Inviter</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
 </section>

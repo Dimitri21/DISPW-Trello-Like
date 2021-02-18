@@ -197,4 +197,8 @@ class Users extends Entity
         $this->projects = $projects;
         return $this;
     }
+
+    public function getNames() {
+        return strtoupper($this->name)." ".ucfirst($this->getLastname());
+    }
 }
