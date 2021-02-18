@@ -3,6 +3,8 @@
 namespace app\Controller\Admin;
 
 
+use app\App;
+
 class UsersController extends AppController
 {
     public function __construct()
@@ -15,6 +17,8 @@ class UsersController extends AppController
     {
         $return_message = "";
         $class = "danger";
+        App::getInstance()->titre = "Edition";
+
         //Checking POST Values
         if (isset($_POST) && !empty($_POST)) {
             if (
@@ -56,20 +60,24 @@ class UsersController extends AppController
         $class = $_SESSION['class']??'';
         unset($_SESSION['message']);
         unset($_SESSION['class']);
+        App::getInstance()->titre = "Profil de ".$this->user->getLastname();
         $this->render("admin.users.profile", compact('user', "message","class"));
     }
 
     public function delete() {
+
         //Dir where picture are stored
         $profile_dir     = _ROOT.DIRECTORY_SEPARATOR."public".DIRECTORY_SEPARATOR.
                        "images".DIRECTORY_SEPARATOR."profile".DIRECTORY_SEPARATOR;
+        //Delete user'picture from disk
         if (file_exists($profile_dir.$this->user->getPicture())) {
             unlink($profile_dir.$this->user->getPicture());
         }
-        //TODO - delete picture of this user is has one.
+        //TODO send message to tell user that the count will be deleted from 1 week
+        $this->sendEmail($this->user->getEmail(),$this->user->getName(),
+            "alss-dipsw20-kdu@ccicampus.fr","Suppression de compte", "Votre compte sera supprimer d'ici 5 jours. A bientôt!");
         $is_deleted = $this->Users->delete($this->user->getId());
         if ($is_deleted) {
-            //TODO send message to tell user that the count will be deleted from 1 week
             $this->redirect("/auth-logout");
         }
     }
@@ -146,9 +154,10 @@ class UsersController extends AppController
        $this->redirect("/admin-users-profile");
     }
 
-    public function show($id, $slug)
+    public function show($id)
     {
         $user = $this->Users->findBy($id);
+        App::getInstance()->titre = "Profil de ".$user->getLastname();
         $this->render("admin.users.show", compact('user'));
     }
 }

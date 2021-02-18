@@ -4,6 +4,7 @@
 namespace app\Controller\Admin;
 
 
+use app\App;
 use app\Entity\Lists;
 use app\Entity\Projects;
 
@@ -71,6 +72,7 @@ class ListsController extends AppController
         $list = $this->Lists->find($_GET['id']);
         //Update project attribut info
         $list->setProjectObj($this->Projects->find($list->getProject()));
+        App::getInstance()->titre = "Edition de la liste ".$list->getName();
         $this->render('admin.lists.edit', compact('list', 'return_message'));
     }
 

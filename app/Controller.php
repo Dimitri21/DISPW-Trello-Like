@@ -2,6 +2,8 @@
 
 namespace app;
 
+use PHPMailer\PHPMailer\PHPMailer;
+
 class Controller
 {
 
@@ -20,6 +22,40 @@ class Controller
         require $current_view;
         $content        = ob_get_clean();
         require_once($this->viewsPath. 'template' . DIRECTORY_SEPARATOR . $this->template.'.php');
+    }
+
+    /**
+     * @brief Allows us to send message "minimum"
+     * @param string $to
+     * @param string $ToName
+     * @param string $from
+     * @param string $subject
+     * @param string $message
+     * @throws \PHPMailer\PHPMailer\Exception
+     */
+    protected function sendEmail(string $to,string $ToName,string $from, string $subject, string $message) {
+
+        $mail = new PHPMailer();
+        $mail->setFrom($from);
+        $mail->FromName = "SPRINTO";
+
+        $mail->addAddress($to, $ToName);
+
+        $mail->addReplyTo($from, "SPRINTO");
+
+        $mail->isHTML(true);
+
+        $mail->Subject = $subject;
+        $mail->Body = "<i>{$message}</i>";
+        $mail->AltBody = "This is the plain text version of the email content";
+
+        try {
+            $mail->send();
+            echo "Message has been sent successfully";
+        } catch (Exception $e) {
+            echo "Mailer Error: " . $mail->ErrorInfo;
+        }
+
     }
 
     protected function redirect(string $url)

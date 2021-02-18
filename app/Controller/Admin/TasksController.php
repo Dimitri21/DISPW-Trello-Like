@@ -2,6 +2,7 @@
 
 namespace app\Controller\Admin;
 
+use app\App;
 use app\Entity\Lists;
 use app\Entity\Projects;
 use app\Entity\Tasks;
@@ -117,6 +118,7 @@ class TasksController extends AppController
         $stickers   = $this->Stickers->findAll();
         $project_id = $_GET['proj'];
         $lisks      = $this->Lists->findList($project_id);
+        App::getInstance()->titre = "Edition de la tâche";
         $this->render('admin.tasks.edit', compact('task', 'error_message', 'method', 'stickers','lisks',"project_id"));
     }
 
