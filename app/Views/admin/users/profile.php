@@ -1,9 +1,9 @@
 <div class="profile global-form-bg" id="login-index">
 
     <div class="profile-inner ">
-        <?php if (isset($return_message) && !empty($return_message)) : ?>
-            <div class="alert alert-<?= $class ?>">
-                <?= $return_message ?>
+        <?php if (isset($message) && !empty($message)) : ?>
+            <div class="alert alert-<?= $class??'' ?>">
+                <?= $message ?>
             </div>
         <?php endif; ?>
         <div class="inner-title">
@@ -23,7 +23,7 @@
                         <span class="selected-filename"></span>
                         <button type="submit" id="profile_button_js">Valider</button>
                     </form>
-                    <img src="images/profile/<?= $user ? $user->getPicture() : '' ?>" alt=" image de <?= $user ? $user->getName() . ' ' . $user->getLastname() : '' ?>">
+                    <img src="images/profile/<?= \app\App::getInstance()->picture??'/default/man.jpg' ?>" alt=" image de <?= $user ? $user->getName() . ' ' . $user->getLastname() : '' ?>">
                 </div>
 
             </div>

@@ -76,8 +76,7 @@ class HomeController extends AppController
                         "lastname"=>$user->getLastname(),
                         "email "=>$user->getEmail(),
                         "password"=>$user->getPassword(),
-                        "subscriptionAt"=>$today,
-                        "picture"=>"photo_passe.jpg"
+                        "subscriptionAt"=>$today
                     ]);
                     //TODO traite success message
                     $_SESSION['message'] = "Création de compte avec succès";

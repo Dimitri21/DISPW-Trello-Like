@@ -52,11 +52,20 @@ class UsersController extends AppController
     public function profile()
     {
         $user = $this->Users->find($_SESSION['user']);
-        $this->render("admin.users.profile", compact('user'));
+        $message = $_SESSION['message']??'';
+        $class = $_SESSION['class']??'';
+        unset($_SESSION['message']);
+        unset($_SESSION['class']);
+        $this->render("admin.users.profile", compact('user', "message","class"));
     }
 
     public function delete() {
-
+        //Dir where picture are stored
+        $profile_dir     = _ROOT.DIRECTORY_SEPARATOR."public".DIRECTORY_SEPARATOR.
+                       "images".DIRECTORY_SEPARATOR."profile".DIRECTORY_SEPARATOR;
+        if (file_exists($profile_dir.$this->user->getPicture())) {
+            unlink($profile_dir.$this->user->getPicture());
+        }
         //TODO - delete picture of this user is has one.
         $is_deleted = $this->Users->delete($this->user->getId());
         if ($is_deleted) {
@@ -64,48 +73,61 @@ class UsersController extends AppController
             $this->redirect("/auth-logout");
         }
     }
+
+    /**
+     * @brief it allows user to edit profile picture
+     * and delete the old one
+     */
     public function upload() {
        if (isset($_FILES['uploadFile']) && !empty($_FILES['uploadFile'])) {
+
            //dir where picture will be store
            $profile_dir     = _ROOT.DIRECTORY_SEPARATOR."public".DIRECTORY_SEPARATOR.
                "images".DIRECTORY_SEPARATOR."profile".DIRECTORY_SEPARATOR;
            $original_name   = basename($_FILES['uploadFile']['name']);
            $file_name       = $profile_dir.$original_name;
            $file_type       = strtolower(pathinfo($file_name,PATHINFO_EXTENSION));
-           $file_size       = getimagesize($_FILES['uploadFile']['tmp_name']);
            $uploaded        = true;
             $message        = "";
+            $class          = "success";
            //check file type
            if ($file_type !== 'jpg' && $file_type !== 'png' && $file_type !== 'gif') {
-               $uploaded = false;
-               $message = "type non autorisé";
-               var_dump($message);
+               $uploaded    = false;
+               $message     = "type non autorisé";
+               $class       = "danger";
            }
 
            //check if file exite
            if (file_exists($file_name)) {
-               $uploaded = false;
-               $message ="Fichier existe déjà";
-               var_dump($message);
+               $uploaded    = false;
+               $message     ="Fichier existe déjà";
+               $class       = "danger";
            }
 
            //check size
            if ($_FILES['uploadFile']['size'] > 500000) {
-               $uploaded = false;
-               $message ="image trop grande";
-               var_dump($message);
+               $uploaded    = false;
+               $message     ="image trop grande";
+               $class       = "danger";
            }
             //check if it can be uploaded
            if ($uploaded) {
 
+               //Delete the old picture if existe
+               if (file_exists($profile_dir.$this->user->getPicture())) {
+                    if(unlink($profile_dir.$this->user->getPicture())) {
+                        $class      = "danger";
+                        $message    = "Nous somme désolé pour cette action, veuillez tenter plus";
+                    }
+               }
+
                 //move file
                if (move_uploaded_file($_FILES['uploadFile']["tmp_name"],$file_name)) {
                    $message = "Votre image a été bien uploadée";
-                   var_dump($message);
                }else {
+                   $class   = "danger";
                    $message = "Erreur lors de chargement de votre image";
-                   var_dump($message);
-                   $uploaded = false;
+                   $uploaded= false;
                }
 
                //save image name on database
@@ -114,12 +136,13 @@ class UsersController extends AppController
                    //TODO on the profile directory using the old name from the database
                    if ($this->Users->update($_SESSION['user'], ["picture"=>$original_name])) {
                         $message = "Modification de l'image avec succès";
-                        var_dump($message);
                    }
                }
            }
        }
        //TODO - send message by session and update image on the navbar
+        $_SESSION['class']  = $class;
+        $_SESSION['message']= $message;
        $this->redirect("/admin-users-profile");
     }
 

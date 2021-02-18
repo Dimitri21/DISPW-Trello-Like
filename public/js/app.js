@@ -43,7 +43,6 @@ checkPassword("#profile_password_js", "#profile_password_confi_js");
 setEventOnUploadPicture('#profile_avatar_js');
 //-----------------------------------------------------
 
-
 //Definition of functions------------------------------
 function setEventOnUploadPicture(picture_js_p) {
     let element_v = $_(picture_js_p);
@@ -57,7 +56,6 @@ function setEventOnUploadPicture(picture_js_p) {
         });
     }
 }
-
 
 function checkPassword(password_p, password_conf_p) {
     let password_v = $_(password_p);
@@ -73,6 +71,7 @@ function checkPassword(password_p, password_conf_p) {
         });
     }
 }
+
 function sendComment(element_p) {
     let comment_form_v = $_(element_p);
     if (comment_form_v) {

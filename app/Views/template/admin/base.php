@@ -73,7 +73,7 @@
                                 <li class="my-navbar-inner-list-profile-item profil">
                                     <!--USER PICTURE-->
                                     <div href="#" class="profile-image" id="dropdown_js">
-                                        <img src="images/profile/photo_passe.jpg" alt="profile picture">
+                                        <img src="images/profile/<?= \app\App::getInstance()->picture??'default/man.jpg' ?>" alt="profile picture">
                                     </div>
 
                                 </li>

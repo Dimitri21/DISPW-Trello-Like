@@ -11,6 +11,7 @@ class App
     public $db_name;
     private $configPage = "sprinto";
     private $settings = [];
+    public $picture;
 
     public static function getInstance()
     {
