@@ -47,7 +47,92 @@ showMembersList("#member_name");// need jquery
 setEventToAddMember('#member_add_js');
 //-----------------------------------------------------
 
+//---------------DRAG AND DROP and SORT AREA-----------
+$( document ).ready(function() {
+    var lists = $_(".project-list-tasks-task-body", true);
+    var options = {
+        group: 'share',
+        animation: 150
+    };
+
+    events = [
+        'onChoose',
+        'onStart',
+        'onEnd',
+        'onAdd',
+        'onUpdate',
+        'onSort',
+        'onRemove',
+        'onChange',
+        'onUnchoose'
+    ].forEach(function (name) {
+        options[name] = function (evt) {
+            let data_ajax = {
+                task_id: evt.item.dataset.task,
+                task_from: evt.oldIndex,
+                task_to: evt.newIndex,
+                list_from: evt.from.dataset.list,
+                list_to: evt.to.dataset.list,
+            };
+            if (name == "onEnd") {
+                changerOrderDB(data_ajax);
+            } else if (name == "onRemove") {
+                changerListAndOrderDB(data_ajax);
+            }
+            // console.log({
+            //     'event': name,
+            //     'this': this,
+            //     'item': evt.item,
+            //     'from': evt.from,
+            //     'to': evt.to,
+            //     'oldIndex': evt.oldIndex,
+            //     'newIndex': evt.newIndex
+            // });
+        };
+    });
+
+    lists.forEach(list => {
+        Sortable.create(list, options);
+    });
+    var nb = 0;
+
+    function changerOrderDB(data_ajax) {
+
+        $.ajax({
+            type: "POST",
+            url: "/admin-tasks-orders",
+            data: data_ajax,
+            cache: false,
+            success: function (response) {
+                let data_converted = JSON.parse(response);
+                console.info(response);
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
+    }
+
+    function changerListAndOrderDB(data_ajax) {
+        console.log(data_ajax);
+        $.ajax({
+            type: "POST",
+            url: "/admin-tasks-ordersandlist",
+            data: data_ajax,
+            cache: false,
+            success: function (response) {
+                let data_converted = JSON.parse(response);
+                console.info(response);
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
+    }
+});
+//-----------------------------------------------------
 //Definition of functions------------------------------
+
 
 function showMembersList(element_p) {
     let element_v  = $(element_p);
@@ -69,6 +154,7 @@ function setEventToAddMember(element_p) {
     let  container_members = $_(".members_list");
     if (element_v) {
         element_v.click(e=>{
+
 
             //AJax request to get all user from database
             $.ajax({
@@ -574,7 +660,7 @@ function createTask(infos, element) {
             <!--TASK TITLE-->
             <p class="project-list-tasks-task-body-task-front-title">
                 <i class="fal fa-book-open"></i>
-                <span class="task-title">${infos.name}</span>
+                <span class="task-title">${infos.name} - ${infos.order}</span>
             </p>
 
             <!--TASK LEAD-->
