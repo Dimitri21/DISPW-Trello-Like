@@ -2,6 +2,7 @@
 const nav_humburger = document.querySelector('.nav-humburger-js');
 const main_humburger = document.querySelector('.main-humburger');
 let body = document.querySelector('body');
+var users = null;
 
 nav_humburger.addEventListener('click', e => {
     if (e.currentTarget) {
@@ -35,15 +36,87 @@ asideListeItemSelected('.dashboard-inner-aside-list li');
 setEventForAddCardOnList("#list_add_js");
 setEventProjectAdd('#project_add_js');
 setEventOnCloseAddTaskForm("#task_add_close_js"); //close form
+setEventOnCloseAddMemberForm("#member_add_close_js"); //close form
 setTaskAddEvent('.project_list_task_add_js');//for btn add
 createList('#dashboard-list-add-form');
 sendComment('#task_comment_js');
 setContactEvent('#btn_contact_form_js');
 checkPassword("#profile_password_js", "#profile_password_confi_js");
 setEventOnUploadPicture('#profile_avatar_js');
+showMembersList("#member_name");// need jquery
+setEventToAddMember('#member_add_js');
 //-----------------------------------------------------
 
 //Definition of functions------------------------------
+
+function showMembersList(element_p) {
+    let element_v  = $(element_p);
+    //TODO - request to do once to SQL => avoid many statement to the database
+    let members = $(".members_name_js");
+    if (element_v) {
+
+        element_v.click(e=>{
+            $('.members_list').toggleClass("show");
+        });
+        element_v.keydown(e=>{
+            search(".members_name_js", e.currentTarget.value);
+        });
+    }
+}
+
+function setEventToAddMember(element_p) {
+    let element_v = $(element_p);
+    let  container_members = $_(".members_list");
+    if (element_v) {
+        element_v.click(e=>{
+
+            //AJax request to get all user from database
+            $.ajax({
+                type: "POST",
+                url: "/admin-projects-all",
+                data: {message : "ajax"},
+                cache: false,
+                success: function (response) {
+                    let data_converted = JSON.parse(response);
+                    if (data_converted.status =="success") {
+                        data_converted.users.forEach(user => {
+                            //TODO create elements on DOM
+                            let user_div = document.createElement('div');
+                            user_div.innerHTML = `
+                                <label for="member_chosen_${user.id}" class="members_name_js">${user.name}</label>
+                                <input type="checkbox" value="${user.id}" name="member_chosen_${user.id}" id="member_chosen_${user.id}">
+                            `;
+                            container_members.appendChild(user_div);
+                        });
+
+                        $_('.dashboard-member').classList.add('show');
+                        $_('.dashboard-member-add').classList.add('add');
+                    }
+
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+        });
+    }
+}
+
+function search(element_p, text) {
+    let  articles = $_(element_p,true);
+
+    articles.forEach(element => {
+
+        if (element.textContent.toLowerCase().indexOf(text.toLowerCase()) !== -1) {
+            element.parentElement.style.display = "flex";
+        }
+        else {
+            console.log("not found");
+            element.parentElement.style.display = "none";
+        }
+    })
+}
+
 function setEventOnUploadPicture(picture_js_p) {
     let element_v = $_(picture_js_p);
     let element_btn_on_picture = $_("#profile_button_js");
@@ -366,6 +439,16 @@ function setEventOnCloseAddTaskForm(element) {
     }
 }
 
+function setEventOnCloseAddMemberForm(element) {
+    let cross_btn = $_(element);
+    if (cross_btn) {
+        cross_btn.addEventListener('click', e => {
+            $_('.dashboard-member').classList.remove('show');
+            $_('.dashboard-member-add').classList.remove('add');
+        });
+    }
+}
+
 /**
  *
  * @param {*} element
@@ -478,9 +561,13 @@ function showAddTaskForm(index) {
 function createTask(infos, element) {
     const task_container = element;
     //TODO - update the tasks number on the current list title
-
     let task_element = document.createElement('div');
     task_element.classList.add('project-list-tasks-task-body-task');
+    task_element.classList.add(infos.sticker);
+    let picture = "default/man.jpg";
+    if (infos.picture) {
+        picture = infos.picture;
+    }
     task_element.innerHTML = `
 
         <div class="project-list-tasks-task-body-task-front">
@@ -493,7 +580,7 @@ function createTask(infos, element) {
             <!--TASK LEAD-->
             <div class="project-list-tasks-task-body-task-front-lead">
                 <div class="project-list-tasks-task-body-task-front-lead-picture">
-                    <img src="images/profile/${infos.picture}" alt="user profile avatar">
+                    <img src="images/profile/${picture}" alt="user profile avatar">
                 </div>
                 <span>${infos.user}</span>
             </div>
@@ -593,7 +680,6 @@ function dropdown(element) {
     const dropdown_element = $_(element);
     if (dropdown_element) {
         dropdown_element.addEventListener('click', e => {
-            console.log(e.currentTarget)
             const dropdown = $_('.main-dropdown');
             if (dropdown) {
                 if (dropdown.classList.contains('show')) {

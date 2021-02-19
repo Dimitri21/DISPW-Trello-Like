@@ -81,8 +81,8 @@ class TasksController extends AppController
         //Traitement des informations en $_POST
         $task           = null;
 
+        $today      = date("Y-m-d H:i:s");
         if (isset($_POST) && !empty($_POST)) {
-            $today      = date("Y-m-d H:i:s");
             $is_inserted = $this->Tasks->update(
                 $_GET['id'],
                 [

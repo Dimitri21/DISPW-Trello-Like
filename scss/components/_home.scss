@@ -47,11 +47,10 @@
         background: linear-gradient(to left, $second-color, $third-color);
         box-shadow: 3px 3px 6px 0.5px rgba(0, 0, 0, .2);
         transition: all .5s ease-in-out;
-
+        display: inline-block;
         &:hover, &:focus {
             transform: scale(1.05);
             cursor: pointer;
-
         }
     }
 
@@ -126,7 +125,8 @@
                     margin-bottom: 10px;
                     border-radius: 10px;
                     border: none;
-                    padding: 7px;
+                    padding: .9rem .5rem;
+                    outline: none;
                 }
     
                 textarea {
@@ -135,9 +135,10 @@
                 }
 
                 input[type="submit"] {
-                margin: auto;
-                width: 300px;
-                margin-top: 20px;
+                    margin: auto;
+                    width: 300px;
+                    margin-top: 20px;
+                    padding: .8rem .5rem;
                 }
 
 
@@ -196,7 +197,11 @@
         }
 
         .subsection, .section-CTA, .contact-form {
-            width: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            //width: 90%;
+            //margin: 0 auto;
         }
 
         

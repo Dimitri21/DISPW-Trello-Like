@@ -248,7 +248,7 @@
                                     margin-bottom: .5rem;
                                     overflow: hidden;
                                     border-radius: 0 .3rem .3rem 0;
-                                    border-left: 4px solid $success-color;
+                                    border-left: 4px solid rgba($color: $dark-color, $alpha: .5);
                                     &-front {
                                         position: relative;
                                         @include flex-row-center-center(column,space-between,none);
@@ -319,7 +319,7 @@
                                                         width: 15px;
                                                         height: 15px;
                                                         border-radius: 50%;
-                                                        background-color: rgba($color: $dark-color, $alpha: .5);;
+                                                        background-color: rgba($color: $dark-color, $alpha: .5);
                                                         margin-right: .2rem;
                                                     }
                                                 }
@@ -341,56 +341,6 @@
                                         }
                                         transition: all .3s ease-in-out;
                                     
-                                        //TODO - faire un mixins
-                                        //TASK - STATE 
-                                        &.active {
-                                            .project-list-tasks-body-task-front {
-                                                span {
-                                                    &> * {
-                                                        &:first-child {
-                                                            background-color: $primary-color;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        } 
-
-                                        &.solve {
-                                            .project-list-tasks-body-task-front {
-                                                span {
-                                                    &> * {
-                                                        &:first-child {
-                                                            background-color: $success-color;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-
-                                        &.tested {
-                                            .project-list-tasks-body-task-front {
-                                                span {
-                                                    &> * {
-                                                        &:first-child {
-                                                            background-color: $secondary-color;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-
-                                        &.closed {
-                                            .project-list-tasks-body-task-front {
-                                                span {
-                                                    &> * {
-                                                        &:first-child {
-                                                            background-color: $third-color;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-
                                     }
 
                                     &-hover {
@@ -437,6 +387,26 @@
                                                 display: flex;
                                            }
                                         }
+                                    }
+
+                                    //TASK - STATE 
+                                    &.active {
+                                        @include task_state($primary-color);
+                                    } 
+
+                                    &.solve {
+                                        @include task_state($success-color);
+                                    }
+
+                                    &.tested {
+                                        @include task_state($secondary-color);
+                                    }
+
+                                    &.closed {
+                                        @include task_state($third-color);
+                                    }
+                                    &.outdate {
+                                        @include task_state($danger-color);
                                     }
                                 }
                             }
@@ -747,7 +717,7 @@
     }
 
     //TODO - à continuer plus tarde
-    &-list,&-task {
+    &-list,&-task,&-member {
         position: absolute;
         width: 100vw;
         height: 100vh;
@@ -758,7 +728,6 @@
         justify-content: center;
         align-items: center;
         background-color: rgba($color: $dark-color, $alpha: .5);
-        
         &-add{
             width: 350px;
             margin: 0 auto;
@@ -797,18 +766,39 @@
                         font-size: 1.2rem;
                         cursor: pointer;
                     }
+                    
+                    //For Add Member side
+                    .members_list {
+                        @include flex-row-center-center(column, none, none);
+                        div {
+                          padding: .3rem 0;
+                            &>* {
+                                display: block;
+                            }
+                            @include flex-row-center-center(row, space-between, center);
+                            border: 1px solid red;
+                        }
+                        display: none;
+                        &.show {
+                            display: flex;
+                        }
+                    }
                 }
             }
         }
 
-
         &.show{
+
             display: flex;
             .dashboard-list-add.add {
                 transform: translateX(0);
             } 
     
             .dashboard-task-add.add {
+                transform: translateX(0);
+            } 
+
+            .dashboard-member-add.add {
                 transform: translateX(0);
             } 
         }

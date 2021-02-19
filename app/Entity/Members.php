@@ -53,7 +53,7 @@ class Members
     }
 
     /**
-     * @return UserEntity
+     * @return Users
      */
     public function getUser()
     {
@@ -61,7 +61,7 @@ class Members
     }
 
     /**
-     * @param UserEntity $user
+     * @param Users $user
      * @return Members
      */
     public function setUser($user)
