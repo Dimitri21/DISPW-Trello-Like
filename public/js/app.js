@@ -97,7 +97,6 @@ $( document ).ready(function() {
     var nb = 0;
 
     function changerOrderDB(data_ajax) {
-
         $.ajax({
             type: "POST",
             url: "/admin-tasks-orders",
@@ -114,7 +113,6 @@ $( document ).ready(function() {
     }
 
     function changerListAndOrderDB(data_ajax) {
-        console.log(data_ajax);
         $.ajax({
             type: "POST",
             url: "/admin-tasks-ordersandlist",
@@ -132,7 +130,6 @@ $( document ).ready(function() {
 });
 //-----------------------------------------------------
 //Definition of functions------------------------------
-
 
 function showMembersList(element_p) {
     let element_v  = $(element_p);

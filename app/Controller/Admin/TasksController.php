@@ -187,15 +187,21 @@ class TasksController extends AppController
         if (isset($_POST) && !empty($_POST)) {
             $list = $this->Lists->find($_POST['list_from']);
             $tasks = $this->Tasks->findTask($list->getId());
-            $this->Tasks->update($tasks[$_POST['task_from']]->getId(), ["orders"=>$_POST['task_to']]);
-            $this->Tasks->update($tasks[$_POST['task_to']]->getId(), ["orders"=>$_POST['task_from']]);
+            if ($tasks[$_POST['task_from']]) {
+                $this->Tasks->update($tasks[$_POST['task_from']]->getId(), ["orders"=>$_POST['task_to']]);
+                $this->Tasks->update($tasks[$_POST['task_to']]->getId(), ["orders"=>$_POST['task_from']]);
+            }
         }
         echo json_encode($return_message);
     }
 
     public function ordersandlist() {
-        var_dump($_POST);
-
-        echo json_encode(["success"=>"Reussi"]);
+        $return_message = ["status"=>"success"];
+        if (isset($_POST) && !empty($_POST)) {
+            $list = $this->Lists->find($_POST['list_from']);
+            $tasks = $this->Tasks->findTask($list->getId());
+            $this->Tasks->update($tasks[$_POST['task_from']]->getId(), ["lists"=>$_POST['list_to']]);
+        }
+        echo json_encode($return_message);
     }
 }

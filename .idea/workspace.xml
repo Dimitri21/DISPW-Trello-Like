@@ -4,12 +4,6 @@
     <list default="true" id="2ebcb4fd-b170-4057-9acc-7278261162e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Controller/Admin/TasksController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/Admin/TasksController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Entity/Tasks.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Entity/Tasks.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repository/ListsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repository/ListsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repository/TasksRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repository/TasksRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Views/admin/projects/show.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/admin/projects/show.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Views/template/admin/base.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/template/admin/base.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/docs/database_graph.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/public/docs/database_graph.drawio" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,7 +115,7 @@
       <workItem from="1613652521355" duration="15552000" />
       <workItem from="1613682650205" duration="2321000" />
       <workItem from="1613719037478" duration="594000" />
-      <workItem from="1613720007258" duration="9269000" />
+      <workItem from="1613720007258" duration="9844000" />
     </task>
     <servers />
   </component>
