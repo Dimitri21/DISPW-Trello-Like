@@ -83,13 +83,10 @@ function setEventToAddMember(element_p) {
                             //TODO create elements on DOM
                             let user_div = document.createElement('div');
                             user_div.innerHTML = `
-                                <div>
-                                    <label for="member_chosen_${user.id}" class="members_name_js">${user.name}</label>
-                                    <input type="checkbox" value="${user.id}" name="member_chosen_${user.id}" id="member_chosen_${user.id}">
-                                </div>
+                                <label for="member_chosen_${user.id}" class="members_name_js">${user.name}</label>
+                                <input type="checkbox" value="${user.id}" name="member_chosen_${user.id}" id="member_chosen_${user.id}">
                             `;
                             container_members.appendChild(user_div);
-                            console.log(user);
                         });
 
                         $_('.dashboard-member').classList.add('show');
@@ -564,9 +561,13 @@ function showAddTaskForm(index) {
 function createTask(infos, element) {
     const task_container = element;
     //TODO - update the tasks number on the current list title
-
     let task_element = document.createElement('div');
     task_element.classList.add('project-list-tasks-task-body-task');
+    task_element.classList.add(infos.sticker);
+    let picture = "default/man.jpg";
+    if (infos.picture) {
+        picture = infos.picture;
+    }
     task_element.innerHTML = `
 
         <div class="project-list-tasks-task-body-task-front">
@@ -579,7 +580,7 @@ function createTask(infos, element) {
             <!--TASK LEAD-->
             <div class="project-list-tasks-task-body-task-front-lead">
                 <div class="project-list-tasks-task-body-task-front-lead-picture">
-                    <img src="images/profile/${infos.picture}" alt="user profile avatar">
+                    <img src="images/profile/${picture}" alt="user profile avatar">
                 </div>
                 <span>${infos.user}</span>
             </div>
@@ -679,7 +680,6 @@ function dropdown(element) {
     const dropdown_element = $_(element);
     if (dropdown_element) {
         dropdown_element.addEventListener('click', e => {
-            console.log(e.currentTarget)
             const dropdown = $_('.main-dropdown');
             if (dropdown) {
                 if (dropdown.classList.contains('show')) {

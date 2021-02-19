@@ -845,6 +845,7 @@ body {
           box-shadow: 3px 3px 6px 0.5px rgba(0, 0, 0, 0.2);
   -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
+  display: inline-block;
 }
 
 .home .btn-CTA:hover, .home .btn-CTA:focus {
@@ -949,7 +950,8 @@ body {
   margin-bottom: 10px;
   border-radius: 10px;
   border: none;
-  padding: 7px;
+  padding: .9rem .5rem;
+  outline: none;
 }
 
 .home .section-contact .contact-form form textarea {
@@ -961,6 +963,7 @@ body {
   margin: auto;
   width: 300px;
   margin-top: 20px;
+  padding: .8rem .5rem;
 }
 
 @media screen and (max-width: 1200px) {
@@ -993,7 +996,16 @@ body {
     max-width: 500px;
   }
   .home .subsection, .home .section-CTA, .home .contact-form {
-    width: 90%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .home .flex {
     -webkit-box-orient: vertical;
@@ -2161,7 +2173,7 @@ body {
   margin-bottom: .5rem;
   overflow: hidden;
   border-radius: 0 .3rem .3rem 0;
-  border-left: 4px solid #67C23A;
+  border-left: 4px solid rgba(48, 49, 51, 0.5);
 }
 
 .dashboard-inner-content-lists .project-list-tasks-task-body-task-front {
@@ -2314,22 +2326,6 @@ body {
   background-color: rgba(103, 194, 58, 0.3);
 }
 
-.dashboard-inner-content-lists .project-list-tasks-task-body-task-front.active .project-list-tasks-body-task-front span > *:first-child {
-  background-color: #4285F4;
-}
-
-.dashboard-inner-content-lists .project-list-tasks-task-body-task-front.solve .project-list-tasks-body-task-front span > *:first-child {
-  background-color: #67C23A;
-}
-
-.dashboard-inner-content-lists .project-list-tasks-task-body-task-front.tested .project-list-tasks-body-task-front span > *:first-child {
-  background-color: #AA66CC;
-}
-
-.dashboard-inner-content-lists .project-list-tasks-task-body-task-front.closed .project-list-tasks-body-task-front span > *:first-child {
-  background-color: #00c198;
-}
-
 .dashboard-inner-content-lists .project-list-tasks-task-body-task-hover {
   position: absolute;
   display: -webkit-box;
@@ -2407,6 +2403,46 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.dashboard-inner-content-lists .project-list-tasks-task-body-task.active {
+  border-left: 4px solid #4285F4;
+}
+
+.dashboard-inner-content-lists .project-list-tasks-task-body-task.active span > *:first-child {
+  background-color: #4285F4;
+}
+
+.dashboard-inner-content-lists .project-list-tasks-task-body-task.solve {
+  border-left: 4px solid #67C23A;
+}
+
+.dashboard-inner-content-lists .project-list-tasks-task-body-task.solve span > *:first-child {
+  background-color: #67C23A;
+}
+
+.dashboard-inner-content-lists .project-list-tasks-task-body-task.tested {
+  border-left: 4px solid #AA66CC;
+}
+
+.dashboard-inner-content-lists .project-list-tasks-task-body-task.tested span > *:first-child {
+  background-color: #AA66CC;
+}
+
+.dashboard-inner-content-lists .project-list-tasks-task-body-task.closed {
+  border-left: 4px solid #00c198;
+}
+
+.dashboard-inner-content-lists .project-list-tasks-task-body-task.closed span > *:first-child {
+  background-color: #00c198;
+}
+
+.dashboard-inner-content-lists .project-list-tasks-task-body-task.outdate {
+  border-left: 4px solid #F56C6C;
+}
+
+.dashboard-inner-content-lists .project-list-tasks-task-body-task.outdate span > *:first-child {
+  background-color: #F56C6C;
 }
 
 .dashboard-inner.reduce {

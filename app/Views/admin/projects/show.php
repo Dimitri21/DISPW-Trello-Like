@@ -97,7 +97,8 @@
                                     <div class="project-list-tasks-task-body" id="tasks_container_js_<?= $list->getId() ?>">
                                         <!--BACKLOG-->
                                         <?php foreach ($list->getTasks() as $task) : ?>
-                                            <div class="project-list-tasks-task-body-task">
+
+                                            <div class="project-list-tasks-task-body-task <?=$task->getStickerObj()->getName()?>">
 
                                                 <div class="project-list-tasks-task-body-task-front">
                                                     <!--TASK TITLE-->
@@ -109,7 +110,7 @@
                                                     <!--TASK LEAD-->
                                                     <div class="project-list-tasks-task-body-task-front-lead">
                                                         <div class="project-list-tasks-task-body-task-front-lead-picture">
-                                                            <img src="images/profile/<?= $task->getCreatedByObj()->getPicture() ?>" alt="user profile avatar">
+                                                            <img src="images/profile/<?= $task->getCreatedByObj()->getPicture()??'default/man.jpg' ?>" alt="user profile avatar">
                                                         </div>
                                                         <span><?= $task->getCreator() ?></span>
                                                     </div>
@@ -146,13 +147,16 @@
 
                                                 <div class="project-list-tasks-task-body-task-hover">
                                                     <a href="/admin-tasks-edit&id=<?= $task->getId() ?>&proj=<?= $project->getId() ?>"><i class="far fa-edit"></i></a>
-                                                    <form action="/admin-tasks-delete" method="POST" onsubmit="confirm('Etes-vous de vouloir supprimer cette tâche?')">
+                                                    <!--On delete call js function with a decision-->
+                                                    <!--onsubmit="confirm('Etes-vous de vouloir supprimer cette tâche?')"-->
+                                                    <form action="/admin-tasks-delete" method="POST" >
                                                         <input type="text" name="task_id" value="<?= $task->getId() ?>" hidden>
                                                         <input type="text" name="project_id" value="<?= $project->getId() ?>" hidden>
                                                         <button class="btn btn-danger" type="submit">
                                                             <i class="far fa-trash-alt"></i>
                                                         </button>
                                                     </form>
+
                                                 </div>
 
                                             </div>

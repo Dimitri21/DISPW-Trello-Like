@@ -54,20 +54,29 @@
 
                                 <!--TODO to delete-->
                                 <?php if (isset($project)) : ?>
-                                    <li class="my-navbar-inner-list-profile-item">
-                                        <a href="#"><i class="fal fa-envelope"></i></a>
-                                        <span class="badge success">3</span>
-                                    </li>
 
-                                    <li class="my-navbar-inner-list-profile-item">
-                                        <a href="#"><i class="fal fa-flag"></i></a>
-                                        <span class="badge danger">1</span>
-                                    </li>
+                                    <?php if (isset($project_message) && !empty($project_message)): ?>
+                                        <li class="my-navbar-inner-list-profile-item">
+                                            <a href="#"><i class="fal fa-envelope"></i></a>
+                                            <span class="badge success"><?=$project_message?></span>
+                                        </li>
+                                    <?php endif; ?>
 
-                                    <li class="my-navbar-inner-list-profile-item">
-                                        <a href="#"><i class="fal fa-bell"></i></a>
-                                        <span class="badge warning">2</span>
-                                    </li>
+                                    <?php if (isset($out_date) && !empty($out_date)): ?>
+                                        <li class="my-navbar-inner-list-profile-item">
+                                            <a href="#"><i class="fal fa-flag"></i></a>
+                                            <span class="badge danger"><?=$out_date?></span>
+                                        </li>
+                                    <?php endif; ?>
+
+                                    <?php if (isset($warning_date) && !empty($warning_date)): ?>
+                                        <li class="my-navbar-inner-list-profile-item">
+                                            <a href="#"><i class="fal fa-bell"></i></a>
+                                            <span class="badge warning"><?=$warning_date?></span>
+                                        </li>
+                                    <?php endif; ?>
+
+
                                 <?php endif; ?>
 
                                 <li class="my-navbar-inner-list-profile-item profil">

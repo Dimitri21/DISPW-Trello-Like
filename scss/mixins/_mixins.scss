@@ -16,3 +16,14 @@
         align-items: $align;
     }
 }
+
+@mixin task_state($color) {
+    border-left: 4px solid $color;
+    span {
+        &> * {
+            &:first-child {
+                background-color: $color;
+            }
+        }
+    }
+}
