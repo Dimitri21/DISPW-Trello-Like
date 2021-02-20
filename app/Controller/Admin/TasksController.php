@@ -27,10 +27,11 @@ class TasksController extends AppController
     }
 
     /**
-     * @brief Method used for ajax request POST
+     * @brief Method used for not ajax request POST
      */
     public function  addAjax()
     {
+
         $return_message = [];
         //Traitement des informations en $_POST
         if (
@@ -39,6 +40,11 @@ class TasksController extends AppController
         ) {
             $today          = date("Y-m-d H:i:s");
             $sticker        = 1;
+            $nbTasksFromThisList = $this->Tasks->findTasksNbrs($_GET['id']);
+            $order          = 0;
+            if ($nbTasksFromThisList && $nbTasksFromThisList[0] && $nbTasksFromThisList[0]->tasks) {
+                $order = intval($nbTasksFromThisList[0]->tasks);
+            }
             $is_inserted    = $this->Tasks->insert(
                 [
                     "name" => $_POST['name'],
@@ -48,8 +54,9 @@ class TasksController extends AppController
                     "modified_at" => $today,
                     "start_at" => $today,
                     "end_at" => $today,
-                    "sticker" => $_POST['sticker']?? 1,
-                    "lists" => $_GET['id']
+                    "sticker" => $_POST['sticker']?? $sticker,
+                    "lists" => $_GET['id'],
+                    "orders" => $order
                 ]
             );
             $members        = ['LastName NAME1'];
@@ -65,6 +72,7 @@ class TasksController extends AppController
                 $return_message['sticker']  = $sticker->getName();
                 $return_message['project_id']  = htmlentities($_POST['project_id']);
                 $return_message['message']  = "Tâche créée avec succès!";
+                $return_message['order']  = $order;
             } else {
                 $return_message['status']   = "success";
                 $return_message['message']  = "Erreur lors de création de tâche";
@@ -172,5 +180,28 @@ class TasksController extends AppController
     {
         var_dump("List/show");
         die();
+    }
+
+    public function orders() {
+        $return_message = ["status"=>"success"];
+        if (isset($_POST) && !empty($_POST)) {
+            $list = $this->Lists->find($_POST['list_from']);
+            $tasks = $this->Tasks->findTask($list->getId());
+            if ($tasks[$_POST['task_from']]) {
+                $this->Tasks->update($tasks[$_POST['task_from']]->getId(), ["orders"=>$_POST['task_to']]);
+                $this->Tasks->update($tasks[$_POST['task_to']]->getId(), ["orders"=>$_POST['task_from']]);
+            }
+        }
+        echo json_encode($return_message);
+    }
+
+    public function ordersandlist() {
+        $return_message = ["status"=>"success"];
+        if (isset($_POST) && !empty($_POST)) {
+            $list = $this->Lists->find($_POST['list_from']);
+            $tasks = $this->Tasks->findTask($list->getId());
+            $this->Tasks->update($tasks[$_POST['task_from']]->getId(), ["lists"=>$_POST['list_to']]);
+        }
+        echo json_encode($return_message);
     }
 }

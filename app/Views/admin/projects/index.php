@@ -107,6 +107,42 @@
 
             </div>
 
+            <!--ALL PROJECT WHO USER IS MEMBERS-->
+            <div class="project-inner-projects">
+
+                <div class="project-title">
+                    <i class="fas fa-users"></i>
+                    <h3>Projets tant que membre</h3>
+                </div>
+
+                <div class="projects">
+                    <!--PROJECT CARD-->
+                    <?php foreach ($projects_like_Member as $project) : ?>
+                        <div class="projects-item ">
+                            <img src="<?= $project->getPicture() ?>" alt="project bg">
+
+                            <div class="projects-item-title " id="project_item_js<?= $project->getId() ?>">
+
+                                <div class="projects-item-title-front">
+                                    <h4><?= $project->getName() ?></h4>
+                                    <i class="fas fa-ellipsis-v" onclick="setEventProjectShowHover('#project_item_js<?= $project->getId() ?>')"></i>
+                                </div>
+
+                                <div class="projects-item-title-hover">
+                                    <a href="/admin-projects-show&id=<?= $project->getId() ?>"><i class="far fa-eye"></i></a>
+                                </div>
+
+                            </div>
+
+                            <a href="/admin-projects-show&id=<?= $project->getId() ?>" class="projects-item-link"></a>
+
+                        </div>
+                    <?php endforeach; ?>
+
+                </div>
+
+            </div>
+
         </div>
     </div>
 

@@ -63,7 +63,8 @@
                         <?php foreach ($lists as $list) : ?>
 
                             <!--TASK-->
-                            <div class="project-list-tasks">
+                            <div class="project-list-tasks" >
+
                                 <!--TASK-->
                                 <div class="project-list-tasks-task">
 
@@ -94,11 +95,10 @@
                                     </div>
 
                                     <!--LIST BODY-->
-                                    <div class="project-list-tasks-task-body" id="tasks_container_js_<?= $list->getId() ?>">
+                                    <div class="project-list-tasks-task-body " id="tasks_container_js_<?= $list->getId() ?>" data-list="<?= $list->getId() ?>" data-project="<?=$project->getId()?>">
                                         <!--BACKLOG-->
                                         <?php foreach ($list->getTasks() as $task) : ?>
-
-                                            <div class="project-list-tasks-task-body-task <?=$task->getStickerObj()->getName()?>">
+                                            <div class="project-list-tasks-task-body-task <?=$task->getStickerObj()->getName()?>" id="draggable_element_<?=$task->getId()?>" draggable="true" data-task="<?=$task->getId()?>">
 
                                                 <div class="project-list-tasks-task-body-task-front">
                                                     <!--TASK TITLE-->

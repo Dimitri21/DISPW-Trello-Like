@@ -15,5 +15,4 @@ class ListsRepository extends Repository
     {
         return $this->query("SELECT * FROM {$this->table} WHERE project = ? ORDER  BY orders ASC ", [$projectId], false);
     }
-
 }

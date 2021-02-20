@@ -78,6 +78,11 @@ class Tasks
      */
     private $stickerObj;
 
+    /**
+     * @var int
+     */
+    private $orders;
+
     public function __construct()
     {
     }
@@ -346,6 +351,26 @@ class Tasks
         $this->stickerObj = $stickerObj;
         return $this;
     }
+
+    /**
+     * @return int
+     */
+    public function getOrders(): int
+    {
+        return $this->orders;
+    }
+
+    /**
+     * @param int $orders
+     * @return Tasks
+     */
+    public function setOrders(int $orders): Tasks
+    {
+        $this->orders = $orders;
+        return $this;
+    }
+
+
 
 
 }
