@@ -1,10 +1,15 @@
 <section class="project-edit" id="project_edit_js">
 
     <div class="my-container">
+        <!--ADD NEW LIST-->
+
+        <div class="project-edit-title">
+            <h3>Editer <?= $project->getName() ?></h3>
+        </div>
 
         <div class="project-edit-inner">
             <div class="card">
-                <form class=" form-group" action="/admin-projects-<?=$method?? 'add'?>" method="post">
+                <form class=" form-group" action="/admin-projects-<?= $method ?? 'add' ?>" method="post">
 
                     <div class="form-group-item">
                         <label for="project_name">Name</label>
@@ -18,8 +23,12 @@
                     </div>
 
                     <div class="form-group-item btn_group">
-                        <a href="/admin-projects-index" id="project_annuler_js">Retour</a>
-                        <button type="submit">Ajouter</button>
+                        <a href="/admin-projects-index" id="project_annuler_js">
+                            <i class="far fa-backspace"></i>
+                        </a>
+                        <button type="submit">
+                            <i class="fal fa-save"></i>
+                        </button>
                     </div>
 
                 </form>

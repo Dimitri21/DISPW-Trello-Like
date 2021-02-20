@@ -67,8 +67,10 @@
                     </div>
 
                     <div class="form-group-item">
-                        <a class="btn" href="/admin-projects-show&id=<?= $project_id ?>">Retour</a>
-                        <button type="submit">Sauvegarder</button>
+                        <a class="btn" href="/admin-projects-show&id=<?= $project_id ?>">
+                            <i class="far fa-backspace"></i>
+                        </a>
+                        <button type="submit"><i class="fal fa-save"></i></button>
                     </div>
 
                 </form>
@@ -83,7 +85,7 @@
                         <div class="comment-item">
 
                             <div class="comment-item-author">
-                                <p> <span> <?= substr($comment->getUserObj()->getName(), 0,1) ?></span></p>
+                                <p> <span> <?= substr($comment->getUserObj()->getName(), 0, 1) ?></span></p>
                             </div>
 
                             <div class="comment-item-message">

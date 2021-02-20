@@ -1,4 +1,5 @@
 <section class="dashboard">
+
     <!--CONTENT-->
     <div class="dashboard-inner" id="dashboard_inner_js">
 
@@ -9,7 +10,7 @@
 
                 <li class="projects" data-url="/projects-index">
                     <a href="/admin-projects-index">
-                        <i class="fas fa-tools"></i> <span>Tableau</span>
+                        <i class="fas fa-tools"></i> <span>Tableaux</span>
                     </a>
                 </li>
 
@@ -32,13 +33,12 @@
             <div class="dashboard-inner-aside-tools">
                 <div>
                     <i class="fal fa-cog"></i>
-                    <span>Personnalisation</span>
+                    <span>Réduire</span>
                 </div>
                 <i class="fal fa-chevron-double-left" id="setting_chevron_js"></i>
             </div>
 
         </div>
-
 
         <!--CONTENT-->
         <div class="dashboard-inner-content" id="dashboard_inner_content_js">
@@ -46,8 +46,10 @@
             <!--PROJECT TITLE-->
             <div class="dashboard-inner-content-title">
                 <h2><?= $project->getName()  ?></h2>
-                <span id="member_add_js"><i class="far fa-user-plus"></i></span>
-                <span id="list_add_js"><i class="far fa-plus"></i></span>
+                <div>
+                    <span id="member_add_js"><i class="far fa-user-plus"></i></span>
+                    <span id="list_add_js"><i class="far fa-plus"></i></span>
+                </div>
             </div>
 
             <!--PROJECT CONTENT-->

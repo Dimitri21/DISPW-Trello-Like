@@ -2,7 +2,7 @@
 
     <div class="profile-inner ">
         <?php if (isset($message) && !empty($message)) : ?>
-            <div class="alert alert-<?= $class??'' ?>">
+            <div class="alert alert-<?= $class ?? '' ?>">
                 <?= $message ?>
             </div>
         <?php endif; ?>
@@ -23,7 +23,7 @@
                         <span class="selected-filename"></span>
                         <button type="submit" id="profile_button_js">Valider</button>
                     </form>
-                    <img src="images/profile/<?= \app\App::getInstance()->picture??'/default/man.jpg' ?>" alt=" image de <?= $user ? $user->getName() . ' ' . $user->getLastname() : '' ?>">
+                    <img src="images/profile/<?= \app\App::getInstance()->picture ?? '/default/man.jpg' ?>" alt=" image de <?= $user ? $user->getName() . ' ' . $user->getLastname() : '' ?>">
                 </div>
 
             </div>
@@ -65,8 +65,13 @@
                 </div>
 
                 <div class="form-group-item">
-                    <a href="/admin-users-delete&id=<?= $user->getId() ?? '' ?>" class="danger" type="submit">Supprimer</a>
-                    <button type="submit">Sauvegarder</button>
+                    <a href="/admin-projects-index" class="my-btn my-btn-default" type="submit">
+                        <i class="far fa-backspace"></i>
+                    </a>
+                    <a href="/admin-users-delete&id=<?= $user->getId() ?? '' ?>" class="my-btn my-btn-danger" type="submit">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                    <button type="submit"><i class="fal fa-save"></i></button>
                 </div>
 
             </form>

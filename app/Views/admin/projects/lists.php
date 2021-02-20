@@ -20,11 +20,11 @@
                     <tr>
                         <td><?= $list->getName() ?></td>
                         <td><?= $list->getDescription() ?></td>
-                        <td>
+                        <td id="list_actions">
                             <a href="/admin-lists-edit&id=<?= $list->getId() ?>" class="btn btn-primary">
                                 <i class="far fa-edit"></i>
                             </a>
-                            <a href="/admin-lists-delete&id=<?= $list->getId() ?>" class="btn btn-danger">
+                            <a href="/admin-lists-delete&id=<?= $list->getId() ?>&proj=<?= $list->getProject() ?>" class="btn btn-danger">
                                 <i class="far fa-trash"></i>
                             </a>
                         </td>

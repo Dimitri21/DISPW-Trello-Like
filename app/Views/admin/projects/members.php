@@ -1,6 +1,6 @@
-<section class="project-edit mt-3" id="project_edit_js">
+<section class="project-members mt-3" id="project_edit_js">
 
-    <div class="container">
+    <div class="">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/admin-projects-show&id=<?= $project_id ?? '' ?>">Projet</a></li>
@@ -12,7 +12,7 @@
                 <tr>
                     <th scope="col">Nom</th>
                     <th scope="col">Prénom</th>
-                    <th scope="col">Rôle</th>
+                    <th scope="col" class="role">Rôle</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -21,8 +21,8 @@
                     <tr>
                         <td><?= $user->name ?></td>
                         <td><?= $user->lastname ?></td>
-                        <td><?= $user->role ?></td>
-                        <td>
+                        <td class="role"><?= $user->role ?></td>
+                        <td id="actions">
                             <div>
                                 <a href="/admin-users-show&id=<?= $user->id ?>" class="btn btn-primary"><i class="far fa-eye"></i></a>
                                 <form action="/admin-projects-del_member&id=<?= $user->id ?>">

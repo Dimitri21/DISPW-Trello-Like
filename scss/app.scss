@@ -1,35 +1,43 @@
 //GLOBAL SCRIPTS
-@import "components/variables";
-@import "components/colors";
+@import "globals/variables";
+@import "globals/colors";
 
 //Mixins
 @import "mixins/mixins";
 
+//RESPONSIVE
+@import "globals/mobile";
+@import "globals/tablet";
+@import "globals/desktop";
+
 
 //Functions
-@import "components/global";
-@import "components/navbar";
-@import "components/header";
-@import "components/footer";
-@import "components/mobile";
-@import "components/tablet";
-@import "components/desktop";
+@import "pages/navbar";
+@import "pages/header";
+@import "pages/footer";
+
 //COMPONENTS
 @import "components/toast";
+@import "components/btn.scss";
 
 //PAGES
-@import "components/home";
-@import "components/mentionslegales";
-@import "components/confidentialite";
+@import "globals/global";
+@import "pages/home";
+@import "pages/mentionslegales";
+@import "pages/confidentialite";
+@import "pages/error_page";
+@import "pages/login";
+@import "pages/signup";
+@import "pages/resetpassword";
 
 //SECURITY - LOGIN - PAGE
-@import "components/error_page";
-@import "components/login";
-@import "components/signup";
-@import "components/resetpassword";
-@import "components/profile";
-@import "components/projects";
-@import "components/dashboard";
-@import "components/task_edit";
+@import "pages/admin/profile";
+@import "pages/admin/projects";
+@import "pages/admin/dashboard";
+@import "pages/admin/task";
+@import "pages/admin/task_edit";
+@import "pages/admin/list_edit";
+@import "pages/admin/project_members";
+@import "pages/admin/project_edit";
 
 

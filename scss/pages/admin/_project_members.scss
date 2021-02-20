@@ -1,0 +1,20 @@
+.project-members{
+
+    .role {
+        display: none;
+    }
+}
+#actions {
+    &> div {
+        max-width:100%;
+        @include flex-row-center-center(row,none,center);
+        form {
+            @include flex-row-center-center(row,center,center);
+        }
+    }
+}
+
+#list_actions {
+    margin: 0  auto;
+    @include flex-row-center-center(row,none,center);
+}

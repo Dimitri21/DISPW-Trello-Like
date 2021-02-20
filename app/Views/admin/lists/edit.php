@@ -4,7 +4,7 @@
         <div class="list-add">
 
             <div class="list-add-title">
-                <h4>Editer <?= $list->getName() ?></h4>
+                <h3>Editer <?= $list->getName() ?></h3>
             </div>
 
             <div class="global-form-bg">
@@ -25,12 +25,16 @@
                     </div>
                     <div class="form-group-item">
                         <label for="orders">Ordre</label>
-                        <input type="number" name="orders"  id="orders" value="<?= $list->getOrders() ?>">
+                        <input type="number" name="orders" id="orders" value="<?= $list->getOrders() ?>">
                     </div>
                     <div class="form-group-item">
-                        <a href="/admin-projects-show&id=<?= $list->getProject() ?>" type="submit">Retour</a>
-                        <a href="/admin-lists-delete&id=<?= $list->getId() ?>&proj=<?= $list->getProject() ?>" type="submit">Delete</a>
-                        <button type="submit">Ajouter</button>
+                        <a href="/admin-projects-show&id=<?= $list->getProject() ?>" type="submit" class="my-btn my-btn-default">
+                            <i class="far fa-backspace"></i>
+                        </a>
+                        <a href="/admin-lists-delete&id=<?= $list->getId() ?>&proj=<?= $list->getProject() ?>" type="submit" class="my-btn my-btn-danger">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                        <button type="submit" class="my-btn my-btn-primary"><i class="fal fa-save"></i></button>
                     </div>
                 </form>
             </div>

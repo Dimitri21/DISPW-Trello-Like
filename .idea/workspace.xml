@@ -2,28 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ebcb4fd-b170-4057-9acc-7278261162e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Views/admin/projects/lists.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Views/admin/projects/members.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Views/admin/projects/tasks.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Views/admin/projects/view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controller/Admin/ListsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/Admin/ListsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Controller/Admin/ProjectsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/Admin/ProjectsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controller/Admin/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/Admin/UsersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repository/ProjectsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repository/ProjectsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repository/UsersRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repository/UsersRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repository/MembersRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repository/MembersRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Views/admin/lists/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/admin/lists/edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Views/admin/projects/show.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/admin/projects/show.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Views/template/admin/base.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/template/admin/base.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/admin/projects/lists.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/admin/projects/lists.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/admin/projects/members.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/admin/projects/members.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/admin/tasks/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/admin/tasks/edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/admin/users/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/admin/users/profile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/build/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/build/css/app.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/css/app.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/profile/11150397_479486608881191_421331472718558989_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/profile/16807105_781575848672264_2368726513652826751_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/components/_global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/components/_global.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/components/_navbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/components/_navbar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_colors.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_confidentialite.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/pages/_confidentialite.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_dashboard.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_desktop.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_error_page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/pages/_error_page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/pages/_footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_global.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/pages/_header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/pages/_home.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_layout.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_login.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/pages/_login.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_mentionslegales.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/pages/_mentionslegales.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_mobile.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_navbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/pages/_navbar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_profile.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_projects.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_resetpassword.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/pages/_resetpassword.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_signup.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/pages/_signup.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_tablet.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_task.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_task_edit.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_toast.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_variables.scss" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,11 +96,11 @@
       <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\app\Views\template\admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\scss" />
       <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\app\Views\home" />
       <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\app\Views\admin\project" />
       <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\app\Controller" />
       <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\app\Views\admin\users" />
-      <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\app\Controller\Admin" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -135,7 +148,7 @@
       <workItem from="1613682650205" duration="2321000" />
       <workItem from="1613719037478" duration="594000" />
       <workItem from="1613720007258" duration="9844000" />
-      <workItem from="1613815870958" duration="11364000" />
+      <workItem from="1613815870958" duration="14325000" />
     </task>
     <servers />
   </component>

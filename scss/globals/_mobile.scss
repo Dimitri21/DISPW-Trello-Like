@@ -7,7 +7,7 @@
     //INNER
     &-inner {
         display: grid;
-        grid-template-columns: 22vw 78vw;
+        grid-template-columns: 1fr;
         grid-gap: .2rem;
         width: inherit;
         height: 93vh;
@@ -15,28 +15,23 @@
         transition: all .3s ease-in-out;
         //ASIDE
         &-aside {
-            width: 22vw;
-            height: inherit;
-                
+            width: 100vw;
             //TODO - to replace using mixins
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 5;
+            transition: all .3s ease-in-out;
+            background-color: $white-color;
+            @include flex-row-center-center(row,center,center);
             &-list {
                 //TODO - to replace using mixins
-                display: flex;
-                flex-direction: column;
-
-                width: inherit;
+                @include flex-row-center-center(row,center,center)
                 background-color: $grey1-color;
                 li {
                     width: inherit;
                     @include flex-row-center-center(row,none,center);
-
-                    // display: flex;
-                    // flex-direction: row;
-                    // align-items: center;
                     margin-bottom: 0.1rem;
                     background-color: $white-color;
                     transition: background-color .3s ease-in-out;
@@ -52,6 +47,7 @@
                         }
                         span {
                             font-size: 1rem;
+                            display: none;
                         }
                     }
 
@@ -91,11 +87,8 @@
             }
 
             &-tools {
-
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
+                @include flex-row-center-center(row,space-between,center);
+                display: none;
                 height: 50px;
                 border-top: 2px solid $grey1-color ;
                 
@@ -132,32 +125,38 @@
 
         //CONTENT
         &-content {
-            width: 78vw;
+            width: 100vw;
             max-width:inherit;
             background-color: $grey-color;
             &-title {
-                height: 10vh;
+                max-height: 160px;
                 @include flex-row-center-center(row,space-between,center);
-                // display: flex;
-                // flex-direction: row;
-                // justify-content: space-between;
-                // align-items: center;
                 padding: 1.5rem 2rem;
                 background-color: $white-color;
                 
                 //Add a new list on the projects
-                span {
-                    padding: 0.2rem .5rem;
-                    background-color: $success-color;
-                    border-radius: .3rem;
-                    transition: all .3s ease-in-out;
-                    i {
-                        cursor: pointer;
-                        color: $white-color;
-                        font-size: 2rem;
-                    }
-                    &:hover {
-                        background-color: rgba($color: $success-color, $alpha: .5);
+                div {
+                    @include flex-row-center-center(row,space-between,center);
+                    span {
+                        height: 40px;
+                        width: 40px;
+                        display: block;
+                        border-radius: .3rem;
+                        transition: all .3s ease-in-out;
+                        background-color: $success-color;
+                        margin-left: .2rem;
+                        @include flex-row-center-center(row,center,center);
+                        &:first-of-type {
+                            background-color: $secondary-color;
+                        }
+                        i {
+                            cursor: pointer;
+                            color: $white-color;
+                            font-size: 1.5rem;
+                        }
+                        &:hover {
+                            background-color: rgba($color: $success-color, $alpha: .5);
+                        }
                     }
                 }
             }
@@ -776,7 +775,6 @@
                                 display: block;
                             }
                             @include flex-row-center-center(row, space-between, center);
-                            border: 1px solid red;
                         }
                         display: none;
                         &.show {
@@ -806,3 +804,4 @@
     }
 
 }
+

@@ -1,0 +1,27 @@
+.list {
+    &-add {
+        &-title {
+            text-align: center;
+            padding: 1rem 0;
+            h3 {
+                font-size: 2rem;
+            }
+        }
+        .global-form-bg {
+            background: none;
+        }
+
+        .form-group {
+            &-item {
+                &:last-of-type {
+                    a {
+                        &.my-btn-danger {
+                            background-color: $danger-color!important;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

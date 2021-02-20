@@ -35,10 +35,7 @@
 
             <!--SETTING ON BOTTOM-->
             <div class="dashboard-inner-aside-tools">
-                <div>
-                    <i class="fal fa-cog"></i>
-                    <span>Project settings</span>
-                </div>
+                <span>Reduire</span>
                 <i class="fal fa-chevron-double-left" id="setting_chevron_js"></i>
             </div>
 

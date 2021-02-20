@@ -100,7 +100,7 @@ body{
                 margin-top: 1rem;
                 display: inline-block;
                 padding: .8rem 1.8rem;
-                border-radius: 1rem;
+                border-radius: .3rem;
                 background: $first-color;
                 color: $white-color;
                 border: 0;
@@ -276,18 +276,4 @@ body{
     }
 }
 
-
-//-----------------------------------------------------------------
-                            // TABLET
-//-----------------------------------------------------------------
-@media screen and (min-width : 725px) {
-
-}
-//-----------------------------------------------------------------
-                            // DESKTOP
-//-----------------------------------------------------------------
-
-@media screen and (min-width : 1024px) {
-
-}
 

@@ -238,4 +238,18 @@ class ProjectsController extends AppController
         $project_id = htmlspecialchars($_GET['id']);
         $this->render("admin.projects.lists", compact("lists","bootstrap","project_id"));
     }
+
+    public function del_member() {
+        //TODO - have to send this message
+        $message = "Erreur lors de suppresion";
+
+        if (isset($_REQUEST['id']) && isset($_REQUEST['project_id'])) {
+            $is_removed = $this->Members->deleteMember(htmlspecialchars($_REQUEST['id']),htmlspecialchars($_REQUEST['project_id']));
+            if ($is_removed) {
+                $message = "Suppresion avec succès";
+            }
+            $this->redirect("admin-projects-members&id=".$_REQUEST['project_id']);
+        }
+        $this->redirect("admin-projects-index");
+    }
 }

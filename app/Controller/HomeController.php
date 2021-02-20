@@ -54,7 +54,10 @@ class HomeController extends AppController
         App::getInstance()->titre = "Inscription";
         $message = "";
         $user = new  Users();
-        if (isset($_POST['email']) && !empty($_POST['email']) &&
+        //check if user is already connected
+        if (isset($_SESSION['auth']) && !empty($_SESSION['auth'])) {
+            $this->redirect("/admin-projects-index");
+        }else if (isset($_POST['email']) && !empty($_POST['email']) &&
             isset($_POST['name']) && !empty($_POST['name']) &&
             isset($_POST['lastname']) && !empty($_POST['lastname']) &&
             isset($_POST['password']) && !empty($_POST['password']) &&
