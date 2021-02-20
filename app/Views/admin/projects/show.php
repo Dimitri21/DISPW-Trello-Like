@@ -104,7 +104,7 @@
                                                     <!--TASK TITLE-->
                                                     <p class="project-list-tasks-task-body-task-front-title">
                                                         <i class="fal fa-book-open"></i>
-                                                        <span class="task-title"><?= $task->getName() ?> - <?=$task->getOrders()?></span>
+                                                        <span class="task-title"><?= $task->getName() ?></span>
                                                     </p>
 
                                                     <!--TASK LEAD-->

@@ -27,11 +27,12 @@ class ProjectsController extends AppController
     public function index()
     {
         $projects = $this->Projects->findProject($this->user->getId());
+        $projects_like_Member = $this->Projects->findProjectLikeMember($this->user->getId());
         $updated_project = $this->Projects->findLastModified($this->user->getId());
         $message = $this->error_message;
         App::getInstance()->titre = "Mes tableaux";
 
-        $this->render("admin.projects.index", compact("projects", "updated_project", "message"));
+        $this->render("admin.projects.index", compact("projects", "updated_project", "message","projects_like_Member"));
     }
 
     public function  add()
