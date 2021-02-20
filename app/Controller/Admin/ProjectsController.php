@@ -166,6 +166,9 @@ class ProjectsController extends AppController
         }
     }
 
+    /**
+     * @brief insertion as member
+     */
     public function member() {
         $return_message = [];
         if (isset($_POST['project_id']) && !empty($_POST['project_id'])) {
@@ -182,6 +185,7 @@ class ProjectsController extends AppController
                     $is_inseted = $this->Members->insert([
                         "user"=>$member_id,
                         "project"=>$project_id,
+                        "role"=>$role,
                         "invited_at"=>$today
                     ]);
                     if ($is_inseted) {
@@ -206,5 +210,32 @@ class ProjectsController extends AppController
             unset($return_value['message']);
         }
         echo json_encode($return_value);
+    }
+
+    /**
+     * @brief show all member of this project
+     * @cond $project_id in $_GET['id']
+     */
+    public function members() {
+        $users = [];
+        if (isset($_GET['id']) && !empty($_GET['id'])) {
+            $users = $this->Users->findMembers(htmlentities($_GET['id']));
+        }
+        $bootstrap = true;
+        $project_id = htmlspecialchars($_GET['id']);
+        $this->render("admin.projects.members", compact("bootstrap","users","project_id"));
+    }
+
+    /**
+     * @brief Found all lists of this project
+     */
+    public function lists() {
+        $lists= [];
+        if (isset($_GET) && !empty($_GET['id'])) {
+            $lists = $this->Lists->findList(htmlentities($_GET['id']));
+        }
+        $bootstrap = true;
+        $project_id = htmlspecialchars($_GET['id']);
+        $this->render("admin.projects.lists", compact("lists","bootstrap","project_id"));
     }
 }

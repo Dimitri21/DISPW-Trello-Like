@@ -5,6 +5,11 @@
 
     <meta charset="utf-8">
 
+    <!--BOOTSTRAP-->
+    <?php if (isset($bootstrap)) : ?>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <?php endif; ?>
     <!--CDN AREA-->
 
     <!--STYLES-->
@@ -55,24 +60,24 @@
                                 <!--TODO to delete-->
                                 <?php if (isset($project)) : ?>
 
-                                    <?php if (isset($project_message) && !empty($project_message)): ?>
+                                    <?php if (isset($project_message) && !empty($project_message)) : ?>
                                         <li class="my-navbar-inner-list-profile-item">
                                             <a href="#"><i class="fal fa-envelope"></i></a>
-                                            <span class="badge success"><?=$project_message?></span>
+                                            <span class="badge success"><?= $project_message ?></span>
                                         </li>
                                     <?php endif; ?>
 
-                                    <?php if (isset($out_date) && !empty($out_date)): ?>
+                                    <?php if (isset($out_date) && !empty($out_date)) : ?>
                                         <li class="my-navbar-inner-list-profile-item">
                                             <a href="#"><i class="fal fa-flag"></i></a>
-                                            <span class="badge danger"><?=$out_date?></span>
+                                            <span class="badge danger"><?= $out_date ?></span>
                                         </li>
                                     <?php endif; ?>
 
-                                    <?php if (isset($warning_date) && !empty($warning_date)): ?>
+                                    <?php if (isset($warning_date) && !empty($warning_date)) : ?>
                                         <li class="my-navbar-inner-list-profile-item">
                                             <a href="#"><i class="fal fa-bell"></i></a>
-                                            <span class="badge warning"><?=$warning_date?></span>
+                                            <span class="badge warning"><?= $warning_date ?></span>
                                         </li>
                                     <?php endif; ?>
 
@@ -82,7 +87,7 @@
                                 <li class="my-navbar-inner-list-profile-item profil">
                                     <!--USER PICTURE-->
                                     <div href="#" class="profile-image" id="dropdown_js">
-                                        <img src="images/profile/<?= \app\App::getInstance()->picture??'default/man.jpg' ?>" alt="profile picture">
+                                        <img src="images/profile/<?= \app\App::getInstance()->picture ?? 'default/man.jpg' ?>" alt="profile picture">
                                     </div>
 
                                 </li>
@@ -127,6 +132,7 @@
         <section role="main" class="container">
             <!-- L'ensemble de contenu envoyé par le serveur PHP -->
             <?= $content ?? '' ?>
+
         </section>
 
         <!--LIST ITEM BY HUMBURGER BTN CLICK-->

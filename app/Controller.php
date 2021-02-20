@@ -38,6 +38,7 @@ class Controller
         $mail = new PHPMailer();
         $mail->setFrom($from);
         $mail->FromName = "SPRINTO";
+        $response = false;
 
         $mail->addAddress($to, $ToName);
 
@@ -53,10 +54,12 @@ class Controller
         try {
             $mail->send();
             $message="Message has been sent successfully";
+            $response = true;
         } catch (Exception $e) {
             $message = "Mailer Error: " . $mail->ErrorInfo;
         }
 
+        return $response;
     }
 
     protected function redirect(string $url)

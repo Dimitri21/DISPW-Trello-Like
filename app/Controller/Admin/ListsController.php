@@ -56,20 +56,20 @@ class ListsController extends AppController
         //Traitement des informations en $_POST
         if (isset($_POST) && !empty($_POST)) {
             $today      = date("Y-m-d H:i:s");
-            $is_updated = $this->Lists->update($_GET['id'],[
-                "name"=>$_POST['name'],
-                "description"=>$_POST['description'],
+            $is_updated = $this->Lists->update(htmlentities($_GET['id']),[
+                "name"=>htmlentities($_POST['name']),
+                "description"=>htmlentities($_POST['description']),
                 "modified_at"=>$today,
-                "orders"=>$_POST['orders']
+                "orders"=>$_POST['orders']<0?0: htmlentities($_POST['orders'])
             ]);
 
             if ($is_updated) {
-                $this->redirect("/admin-projects-show&id=".$_POST['project_id']);
+                $this->redirect("/admin-projects-show&id=".htmlentities($_POST['project_id']));
             }else {
                 $return_message = "Erreur lors d'actualisation de la liste";
             }
         }
-        $list = $this->Lists->find($_GET['id']);
+        $list = $this->Lists->find(htmlentities($_GET['id']));
         //Update project attribut info
         $list->setProjectObj($this->Projects->find($list->getProject()));
         App::getInstance()->titre = "Edition de la liste ".$list->getName();

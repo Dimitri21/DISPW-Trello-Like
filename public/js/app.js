@@ -12,7 +12,7 @@ nav_humburger.addEventListener('click', e => {
             main_humburger.classList.remove('show-js');
         } else {
             e.currentTarget.classList.add('open');
-            e.currentTarget.style.zIndex = "2";
+            e.currentTarget.style.zIndex = "3";
             main_humburger.classList.add('show-js');
             if (body) {
                 body.classList.add('overflow');
@@ -48,7 +48,7 @@ setEventToAddMember('#member_add_js');
 //-----------------------------------------------------
 
 //---------------DRAG AND DROP and SORT AREA-----------
-$( document ).ready(function() {
+$(document).ready(function () {
     var lists = $_(".project-list-tasks-task-body", true);
     var options = {
         group: 'share',
@@ -79,15 +79,7 @@ $( document ).ready(function() {
             } else if (name == "onRemove") {
                 changerListAndOrderDB(data_ajax);
             }
-            // console.log({
-            //     'event': name,
-            //     'this': this,
-            //     'item': evt.item,
-            //     'from': evt.from,
-            //     'to': evt.to,
-            //     'oldIndex': evt.oldIndex,
-            //     'newIndex': evt.newIndex
-            // });
+
         };
     });
 
@@ -132,15 +124,15 @@ $( document ).ready(function() {
 //Definition of functions------------------------------
 
 function showMembersList(element_p) {
-    let element_v  = $(element_p);
+    let element_v = $(element_p);
     //TODO - request to do once to SQL => avoid many statement to the database
     let members = $(".members_name_js");
     if (element_v) {
 
-        element_v.click(e=>{
+        element_v.click(e => {
             $('.members_list').toggleClass("show");
         });
-        element_v.keydown(e=>{
+        element_v.keydown(e => {
             search(".members_name_js", e.currentTarget.value);
         });
     }
@@ -148,20 +140,20 @@ function showMembersList(element_p) {
 
 function setEventToAddMember(element_p) {
     let element_v = $(element_p);
-    let  container_members = $_(".members_list");
+    let container_members = $_(".members_list");
     if (element_v) {
-        element_v.click(e=>{
+        element_v.click(e => {
 
 
             //AJax request to get all user from database
             $.ajax({
                 type: "POST",
                 url: "/admin-projects-all",
-                data: {message : "ajax"},
+                data: { message: "ajax" },
                 cache: false,
                 success: function (response) {
                     let data_converted = JSON.parse(response);
-                    if (data_converted.status =="success") {
+                    if (data_converted.status == "success") {
                         data_converted.users.forEach(user => {
                             //TODO create elements on DOM
                             let user_div = document.createElement('div');
@@ -186,7 +178,7 @@ function setEventToAddMember(element_p) {
 }
 
 function search(element_p, text) {
-    let  articles = $_(element_p,true);
+    let articles = $_(element_p, true);
 
     articles.forEach(element => {
 
@@ -206,7 +198,7 @@ function setEventOnUploadPicture(picture_js_p) {
     if (element_v) {
         element_v.addEventListener('change', e => {
             console.log(element_v)
-            if (element_btn_on_picture ) {
+            if (element_btn_on_picture) {
                 element_btn_on_picture.classList.add('show');
             }
         });

@@ -58,37 +58,42 @@ class HomeController extends AppController
             isset($_POST['name']) && !empty($_POST['name']) &&
             isset($_POST['lastname']) && !empty($_POST['lastname']) &&
             isset($_POST['password']) && !empty($_POST['password']) &&
-            isset($_POST['password-conf']) && !empty($_POST['password-conf']
-            )
+            isset($_POST['password-conf']) && !empty($_POST['password-conf'])
         ) {
-            $user->setEmail(htmlentities($_POST['email']))
-                ->setPassword(sha1(htmlentities($_POST['password'])))
-                ->setName(htmlentities($_POST['name']))
-                ->setLastname(htmlentities($_POST['lastname']));
-            $today      = date("Y-m-d H:i:s");
 
-            if ($_POST['password'] !== $_POST['password-conf']) {
-                $message = "Mots de passe sont differents";
-            }else {
-                try {
-                    $response = $this->Users->insert([
-                        "name"=>$user->getName(),
-                        "lastname"=>$user->getLastname(),
-                        "email "=>$user->getEmail(),
-                        "password"=>$user->getPassword(),
-                        "subscriptionAt"=>$today
-                    ]);
-                    //TODO traite success message
-                    $_SESSION['message'] = "Création de compte avec succès";
-                    //Send email to this user
-                    $message = "Bienvenu(e) sur Sprinto, votre compte vient d'être créé avec succès";
-                    $this->sendEmail($user->getEmail(),$user->getName(),"duramana.kalumvuati@laposte.net","Création de compte", $message);
+            if ( isset($_POST['ugc']) && htmlspecialchars($_POST['ugc']) == "on" &&
+                isset($_POST['sprinto']) && htmlspecialchars($_POST['sprinto']) =="on") {
+                $user->setEmail(htmlentities($_POST['email']))
+                    ->setPassword(sha1(htmlentities($_POST['password'])))
+                    ->setName(htmlentities($_POST['name']))
+                    ->setLastname(htmlentities($_POST['lastname']));
+                $today      = date("Y-m-d H:i:s");
 
-                    $this->redirect("/connexion");
+                if ($_POST['password'] !== $_POST['password-conf']) {
+                    $message = "Mots de passe sont differents";
+                }else {
+                    try {
+                        $response = $this->Users->insert([
+                            "name"=>$user->getName(),
+                            "lastname"=>$user->getLastname(),
+                            "email "=>$user->getEmail(),
+                            "password"=>$user->getPassword(),
+                            "subscriptionAt"=>$today
+                        ]);
+                        //TODO traite success message
+                        $_SESSION['message'] = "Création de compte avec succès";
+                        //Send email to this user
+                        $message = "Bienvenu(e) sur Sprinto, votre compte vient d'être créé avec succès";
+                        $this->sendEmail($user->getEmail(),$user->getName(),"duramana.kalumvuati@laposte.net","Création de compte", $message);
 
-                }catch (\Exception $e) {
-                    $message = "Cet email existe déjà, veuillez en un autre";
+                        $this->redirect("/connexion");
+
+                    }catch (\Exception $e) {
+                        $message = "Cet email existe déjà, veuillez en un autre";
+                    }
                 }
+            }else {
+                $message = "Vous devez accepter les Conditions d'Utilisation et la politique de confidentialité";
             }
         }
 
@@ -183,29 +188,22 @@ class HomeController extends AppController
         $response = null;
 
         if(isset($_POST["name"])) {
-            $name = htmlentities($_POST["name"]);
-            $email = htmlentities($_POST["email"]);
-            $message = htmlentities($_POST["message"]);
+            $name       = htmlentities($_POST["name"]);
+            $email      = htmlentities($_POST["email"]);
+            $message    = htmlentities($_POST["message"]);
             
             if (empty($name) or empty($email) or empty($message)) {
                 $this->error_message = "Merci de compléter tous les champs requis";
             }
 
-            // Send email
-
-            $headers = 'FROM: ' . $email;
-
-            try {
-                mail('contact@trello.webo', 'Formulaire de contact de ' . $name, $message, $headers);
+            if ($this->sendEmail('alss-dipsw20-kdu@ccicampus.fr' ,$name,$email,'Contact',$message)) {
                 $response["status"] = "success";
                 $response["message"] = "Nous vous remercions pour votre message";
-
-            } catch (Exception $e) {
+            }else {
                 $response["status"] = "error";
                 $response["message"] = "Merci de compléter tous les champs requis";
+
             }
-           
-    
         }
 
         echo json_encode($response);

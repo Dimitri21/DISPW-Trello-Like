@@ -25,7 +25,7 @@
                     </div>
                     <div class="form-group-item">
                         <label for="orders">Ordre</label>
-                        <input type="number" name="orders" id="orders" value="<?= $list->getOrders() ?>">
+                        <input type="number" name="orders"  id="orders" value="<?= $list->getOrders() ?>">
                     </div>
                     <div class="form-group-item">
                         <a href="/admin-projects-show&id=<?= $list->getProject() ?>" type="submit">Retour</a>

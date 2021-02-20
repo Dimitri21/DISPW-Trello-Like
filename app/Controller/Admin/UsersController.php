@@ -73,13 +73,18 @@ class UsersController extends AppController
         if (file_exists($profile_dir.$this->user->getPicture())) {
             unlink($profile_dir.$this->user->getPicture());
         }
-        //TODO send message to tell user that the count will be deleted from 1 week
+
         $this->sendEmail($this->user->getEmail(),$this->user->getName(),
             "alss-dipsw20-kdu@ccicampus.fr","Suppression de compte", "Votre compte sera supprimer d'ici 5 jours. A bientôt!");
-        $is_deleted = $this->Users->delete($this->user->getId());
-        if ($is_deleted) {
-            $this->redirect("/auth-logout");
+        //check if delete came from current user
+        if (isset($_GET['id']) && !empty($_GET['id']) && intval($_GET['id']) == $this->user->getId()) {
+            $is_deleted = $this->Users->delete($this->user->getId());
+            if ($is_deleted) {
+                $this->redirect("/auth-logout");
+            }
         }
+
+        $this->redirect("/admin-users-profile");
     }
 
     /**

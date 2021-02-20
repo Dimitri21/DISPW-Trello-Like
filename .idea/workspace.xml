@@ -2,9 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ebcb4fd-b170-4057-9acc-7278261162e3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Views/admin/projects/lists.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Views/admin/projects/members.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Views/admin/projects/tasks.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Views/admin/projects/view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controller/Admin/ListsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/Admin/ListsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controller/Admin/ProjectsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/Admin/ProjectsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controller/Admin/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/Admin/UsersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repository/ProjectsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repository/ProjectsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repository/UsersRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repository/UsersRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/admin/lists/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/admin/lists/edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/admin/projects/show.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/admin/projects/show.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/template/admin/base.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/template/admin/base.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/build/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/build/css/app.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/css/app.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/profile/11150397_479486608881191_421331472718558989_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/profile/16807105_781575848672264_2368726513652826751_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/components/_global.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_navbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/components/_navbar.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,15 +71,15 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.jetbrains.php.lang.actions.generation.PhpGenerateFieldAccessorHandlerBase$MyMemberChooser.fluent.setters.last.selected" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Repository" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Views/admin/projects" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\app\Views\admin\projects" />
       <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\app\Repository" />
       <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\app\Views\admin\users" />
       <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\app\Controller\Admin" />
-      <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\app\Views\admin\projects" />
       <recent name="C:\wamp64\www\TFT\DISPW-Trello-Like\app\Views\template\admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -116,7 +135,7 @@
       <workItem from="1613682650205" duration="2321000" />
       <workItem from="1613719037478" duration="594000" />
       <workItem from="1613720007258" duration="9844000" />
-      <workItem from="1613815870958" duration="3723000" />
+      <workItem from="1613815870958" duration="11364000" />
     </task>
     <servers />
   </component>
