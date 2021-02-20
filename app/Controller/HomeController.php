@@ -136,10 +136,11 @@ class HomeController extends AppController
         if (isset($_POST['email']) && !empty($_POST['email'])) {
             $email = htmlentities($_POST['email']);
             $user = $this->Users->findBy($email);
-            //TODO - send email to this user to reset his/her password
-            //url = /home-resetpassword&id=number
-
             $message = "Vous récéverez un email de confirmation";
+            if ($user) {
+                $message_email = "Pour réinitialiser votre mot de passe <a href='/home-reinit_mot_de_passe&id='{$user->getId()}>Cliquez ici</a>";
+                $this->sendEmail($email,$user->getNames(),"alss-dipsw20-kdu@ccicampus.fr",'Reset Email',$message_email);
+            }
         }
 
         $this->render("home.forgotpassword", compact('message'));

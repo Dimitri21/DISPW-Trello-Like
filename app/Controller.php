@@ -48,12 +48,13 @@ class Controller
         $mail->Subject = $subject;
         $mail->Body = "<i>{$message}</i>";
         $mail->AltBody = "This is the plain text version of the email content";
-
+        //TODO message to return
+        $message = "";
         try {
             $mail->send();
-            echo "Message has been sent successfully";
+            $message="Message has been sent successfully";
         } catch (Exception $e) {
-            echo "Mailer Error: " . $mail->ErrorInfo;
+            $message = "Mailer Error: " . $mail->ErrorInfo;
         }
 
     }

@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ebcb4fd-b170-4057-9acc-7278261162e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/DISPW-Trello-Like.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DISPW-Trello-Like.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controller/Admin/ProjectsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/Admin/ProjectsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repository/ProjectsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repository/ProjectsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Views/admin/projects/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/admin/projects/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Views/admin/projects/show.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/admin/projects/show.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/HomeController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +116,7 @@
       <workItem from="1613682650205" duration="2321000" />
       <workItem from="1613719037478" duration="594000" />
       <workItem from="1613720007258" duration="9844000" />
-      <workItem from="1613815870958" duration="2516000" />
+      <workItem from="1613815870958" duration="3723000" />
     </task>
     <servers />
   </component>
