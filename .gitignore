@@ -1,10 +1,17 @@
-# work space de visual studio code
-*.code-workspace
-
-# vendor de composer
-vendor/
-
 #Editer
-.dist/
+/front
+
+# Composer
+composer.phar
+/vendor/
+
+# PhpStorm
+.idea
 .idea/
-front/
+
+### VisualStudioCode ###
+.dist
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+*.code-workspace
