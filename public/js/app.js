@@ -649,7 +649,7 @@ function createTask(infos, element) {
             <!--TASK TITLE-->
             <p class="project-list-tasks-task-body-task-front-title">
                 <i class="fal fa-book-open"></i>
-                <span class="task-title">${infos.name} - ${infos.order}</span>
+                <span class="task-title">${infos.name}</span>
             </p>
 
             <!--TASK LEAD-->

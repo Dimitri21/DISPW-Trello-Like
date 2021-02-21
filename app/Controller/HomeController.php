@@ -64,12 +64,12 @@ class HomeController extends AppController
             isset($_POST['password-conf']) && !empty($_POST['password-conf'])
         ) {
 
+            $user->setEmail(htmlentities($_POST['email']))
+                ->setPassword(sha1(htmlentities($_POST['password'])))
+                ->setName(htmlentities($_POST['name']))
+                ->setLastname(htmlentities($_POST['lastname']));
             if ( isset($_POST['ugc']) && htmlspecialchars($_POST['ugc']) == "on" &&
                 isset($_POST['sprinto']) && htmlspecialchars($_POST['sprinto']) =="on") {
-                $user->setEmail(htmlentities($_POST['email']))
-                    ->setPassword(sha1(htmlentities($_POST['password'])))
-                    ->setName(htmlentities($_POST['name']))
-                    ->setLastname(htmlentities($_POST['lastname']));
                 $today      = date("Y-m-d H:i:s");
 
                 if ($_POST['password'] !== $_POST['password-conf']) {
