@@ -56,12 +56,8 @@ class UsersController extends AppController
     public function profile()
     {
         $user = $this->Users->find($_SESSION['user']);
-        $message = $_SESSION['message']??'';
-        $class = $_SESSION['class']??'';
-        unset($_SESSION['message']);
-        unset($_SESSION['class']);
         App::getInstance()->titre = "Profil de ".$this->user->getLastname();
-        $this->render("admin.users.profile", compact('user', "message","class"));
+        $this->render("admin.users.profile", compact('user'));
     }
 
     public function delete() {
