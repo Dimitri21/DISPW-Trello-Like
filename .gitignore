@@ -2,4 +2,9 @@
 *.code-workspace
 
 # vendor de composer
-/vendor
+vendor/
+
+#Editer
+.dist/
+.idea/
+front/
