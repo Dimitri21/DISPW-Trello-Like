@@ -676,11 +676,6 @@
   background-color: #F56C6C;
 }
 
-.dashboard-inner.reduce {
-  -ms-grid-columns: 70px 100vw;
-      grid-template-columns: 70px 100vw;
-}
-
 .dashboard-inner.reduce .dashboard-inner-aside {
   width: 70px;
 }
@@ -1234,6 +1229,42 @@
   }
   .dashboard-inner-content {
     width: 78vw;
+  }
+  .dashboard-inner.reduce {
+    -ms-grid-columns: 70px 100vw;
+        grid-template-columns: 70px 100vw;
+  }
+  .dashboard-inner.reduce .dashboard-inner-aside {
+    width: 70px;
+  }
+  .dashboard-inner.reduce .dashboard-inner-aside-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: inherit;
+  }
+  .dashboard-inner.reduce .dashboard-inner-aside-list li {
+    text-align: center;
+  }
+  .dashboard-inner.reduce .dashboard-inner-aside-list li a span {
+    display: none;
+  }
+  .dashboard-inner.reduce .dashboard-inner-aside-tools {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .dashboard-inner.reduce .dashboard-inner-aside-tools div span {
+    display: none;
+  }
+  .dashboard-inner.reduce .dashboard-inner-aside-tools > i {
+    width: 0;
+    position: relative;
+    left: -22px;
   }
   .project-members .role {
     display: block;

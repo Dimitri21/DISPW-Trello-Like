@@ -1,7 +1,7 @@
 <section class="dashboard">
 
     <!--CONTENT-->
-    <div class="dashboard-inner" id="dashboard_inner_js">
+    <div class="dashboard-inner reduce" id="dashboard_inner_js">
 
         <!--ASIDE BAR-->
         <div class="dashboard-inner-aside">
