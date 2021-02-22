@@ -2,8 +2,8 @@
 
 return  array(
      "db_name" => "sprinto",
-     "db_user" => "sprinto",
-     "db_pass" => "5pr1nt0CC1",
+     "db_user" => "root",
+     "db_pass" => "",
      "db_host" => "localhost",
 //    "db_name" => "dbs1457140",
 //    "db_user" => "dbu1541643",
