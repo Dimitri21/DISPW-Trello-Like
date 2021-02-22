@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ebcb4fd-b170-4057-9acc-7278261162e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/DISPW-Trello-Like.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DISPW-Trello-Like.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Migration/sprinto.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/Migration/sprinto.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/sprinto.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/sprinto.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +53,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.jetbrains.php.lang.actions.generation.PhpGenerateFieldAccessorHandlerBase$MyMemberChooser.fluent.setters.last.selected" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Views/admin/projects" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -118,6 +119,7 @@
       <workItem from="1613720007258" duration="9844000" />
       <workItem from="1613815870958" duration="14914000" />
       <workItem from="1613900143781" duration="2019000" />
+      <workItem from="1613992247018" duration="319000" />
     </task>
     <servers />
   </component>
