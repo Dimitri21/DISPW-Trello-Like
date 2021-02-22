@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
     <title><?= \app\App::getInstance()->titre ?></title>
+
 </head>
 
 <body>
@@ -73,7 +74,7 @@
                                 <li class="my-navbar-inner-list-profile-item profil">
                                     <!--USER PICTURE-->
                                     <div href="#" class="profile-image" id="dropdown_js">
-                                        <img src="images/profile/<?= \app\App::getInstance()->picture??'/default/man.jpg' ?>" alt="profile picture">
+                                        <img src="images/profile/<?= \app\App::getInstance()->picture ?? '/default/man.jpg' ?>" alt="profile picture">
                                     </div>
 
                                 </li>
@@ -122,20 +123,28 @@
 
         <!--LIST ITEM BY HUMBURGER BTN CLICK-->
         <div class="main-humburger">
-
             <ul class="main-humburger-list ">
 
                 <li class="main-humburger-list-item">
                     <a href="?path=home">ACCUEIL</a>
                 </li>
 
-                <li class="main-humburger-list-item">
-                    <a href="?path=connexion">Connexion</a>
-                </li>
+                <?php if (isset($_SESSION['auth'])) : ?>
+                    <li class="main-humburger-list-item">
+                        <a href="?path=admin-projects-index">Dashboard</a>
+                    </li>
+                    <li class="main-humburger-list-item">
+                        <a href="?path=auth-logout">Deconnexion</a>
+                    </li>
+                <?php else : ?>
+                    <li class="main-humburger-list-item">
+                        <a href="?path=connexion">Connexion</a>
+                    </li>
 
-                <li class="main-humburger-list-item">
-                    <a href="?path=inscription">Inscription</a>
-                </li>
+                    <li class="main-humburger-list-item">
+                        <a href="?path=inscription">Inscription</a>
+                    </li>
+                <?php endif; ?>
 
             </ul>
         </div>

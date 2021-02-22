@@ -10,19 +10,19 @@
 
                 <li class="projects" data-url="?path=projects-index">
                     <a href="?path=admin-projects-index">
-                        <i class="fas fa-tools"></i> <span>Tableaux</span>
+                        <i class="far fa-layer-group"></i> <span>Tableaux</span>
                     </a>
                 </li>
 
                 <li class="members" data-url="?path=members-index">
                     <a href="?path=admin-projects-members&id=<?= $project->getId() ?>">
-                        <i class="fas fa-clipboard"></i> <span>Membres</span>
+                        <i class="far fa-users"></i> <span>Membres</span>
                     </a>
                 </li>
 
                 <li class="lists" data-url="?path=lists-index">
                     <a href="?path=admin-projects-lists&id=<?= $project->getId() ?>">
-                        <i class="fas fa-address-card"></i> <span>Listes</span>
+                        <i class="far fa-list"></i> <span>Listes</span>
                     </a>
                 </li>
 
