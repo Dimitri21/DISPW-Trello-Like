@@ -46,7 +46,7 @@
                                                 </button>
 
                                                 <!--//TODO event for btn-todo-->
-                                                <a href="/admin-lists-edit&id=<?= $list->getId() ?>"><i class="fas fa-tools"></i></a>
+                                                <a href="?path=admin-lists-edit&id=<?= $list->getId() ?>"><i class="fas fa-tools"></i></a>
 
                                             </div>
                                         </div>
@@ -104,10 +104,10 @@
                                                 </div>
 
                                                 <div class="project-list-tasks-task-body-task-hover">
-                                                    <a href="/admin-tasks-edit&id=<?= $task->getId() ?>&proj=<?= $project->getId() ?>"><i class="far fa-edit"></i></a>
+                                                    <a href="?path=admin-tasks-edit&id=<?= $task->getId() ?>&proj=<?= $project->getId() ?>"><i class="far fa-edit"></i></a>
                                                     <!--On delete call js function with a decision-->
                                                     <!--onsubmit="confirm('Etes-vous de vouloir supprimer cette tâche?')"-->
-                                                    <form action="/admin-tasks-delete" method="POST">
+                                                    <form action="?path=admin-tasks-delete" method="POST">
                                                         <input type="text" name="task_id" value="<?= $task->getId() ?>" hidden>
                                                         <input type="text" name="project_id" value="<?= $project->getId() ?>" hidden>
                                                         <button class="btn btn-danger" type="submit">

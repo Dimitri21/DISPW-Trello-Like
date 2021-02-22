@@ -9,7 +9,7 @@
                 <p>
                     Augmentez la performance de vos équipes grâce à notre outil collaboratif de gestion de projet agile, couplé à un tableau Kanban.
                 </p>
-                <a href="/inscription" class="btn-CTA">Inscrivez vous, c'est gratuit</a>
+                <a href="?path=inscription" class="btn-CTA">Inscrivez vous, c'est gratuit</a>
             </div>
             <div class="subsection">
                 <div class="animation-lottie">
@@ -48,7 +48,7 @@
                     <h2>
                         N'attendez plus pour vous inscrire
                     </h2>
-                    <a href="/inscription" class="btn-CTA">Inscrivez vous, c'est gratuit</a>
+                    <a href="?path=inscription" class="btn-CTA">Inscrivez vous, c'est gratuit</a>
                 </div>
             </div>
         </section>

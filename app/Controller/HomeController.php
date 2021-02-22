@@ -34,14 +34,14 @@ class HomeController extends AppController
         $message ="";
         //check if user is already connected
         if (isset($_SESSION['auth']) && !empty($_SESSION['auth'])) {
-            $this->redirect("/admin-projects-index");
+            $this->redirect("?path=admin-projects-index");
         }
         if (isset($_POST) && !empty($_POST)) {
             $auth       = new AuthController(App::getInstance()->getDatabase());
             $email      = htmlentities($_POST['email']);
             $password   = htmlentities($_POST['password']);
             if ($auth->login($email,$password)) {
-                $this->redirect("/admin-projects-index");
+                $this->redirect("?path=admin-projects-index");
             }
             $message = "Email ou mot de passe incorrect";
         }
@@ -56,7 +56,7 @@ class HomeController extends AppController
         $user = new  Users();
         //check if user is already connected
         if (isset($_SESSION['auth']) && !empty($_SESSION['auth'])) {
-            $this->redirect("/admin-projects-index");
+            $this->redirect("?path=admin-projects-index");
         }else if (isset($_POST['email']) && !empty($_POST['email']) &&
             isset($_POST['name']) && !empty($_POST['name']) &&
             isset($_POST['lastname']) && !empty($_POST['lastname']) &&
@@ -89,7 +89,7 @@ class HomeController extends AppController
                         $message = "Bienvenu(e) sur Sprinto, votre compte vient d'être créé avec succès";
                         $this->sendEmail($user->getEmail(),$user->getName(),"duramana.kalumvuati@laposte.net","Création de compte", $message);
 
-                        $this->redirect("/connexion");
+                        $this->redirect("?path=connexion");
 
                     }catch (\Exception $e) {
                         $message = "Cet email existe déjà, veuillez en un autre";
@@ -128,7 +128,7 @@ class HomeController extends AppController
             ]);
             if ($is_updated) {
                 $_SESSION['message'] = "Reinitialisation de mot de passe avec succès";
-                $this->redirect("/connexion");
+                $this->redirect("?path=connexion");
             }
             $message = "Veuillez tenter plus plutard";
         }

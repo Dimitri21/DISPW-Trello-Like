@@ -19,7 +19,7 @@
 
         <div class="login-inner-body card">
 
-            <form class="login-inner-body-form form-group" action="/connexion" method="post">
+            <form class="login-inner-body-form form-group" action="?path=connexion" method="post">
 
                 <div class="form-group-item">
                     <label for="email">Email</label>
@@ -38,7 +38,7 @@
                         <input type="checkbox" name="remember-me" id="remember-me">
                         <label for="remember-me">Restez connecté</label>
                     </div>
-                    <a href="/forgotpassword">Mot de passe oublié</a>
+                    <a href="?path=forgotpassword">Mot de passe oublié</a>
                 </div>
 
                 <div class="form-group-item">

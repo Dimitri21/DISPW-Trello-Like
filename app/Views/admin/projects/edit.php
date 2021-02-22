@@ -9,7 +9,7 @@
 
         <div class="project-edit-inner">
             <div class="card">
-                <form class=" form-group" action="/admin-projects-<?= $method ?? 'add' ?>" method="post">
+                <form class=" form-group" action="?path=admin-projects-<?= $method ?? 'add' ?>" method="post">
 
                     <div class="form-group-item">
                         <label for="project_name">Name</label>
@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="form-group-item btn_group">
-                        <a href="/admin-projects-index" id="project_annuler_js">
+                        <a href="?path=admin-projects-index" id="project_annuler_js">
                             <i class="far fa-backspace"></i>
                         </a>
                         <button type="submit">

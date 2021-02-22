@@ -48,8 +48,8 @@
                                 </div>
 
                                 <div class="projects-item-title-hover">
-                                    <a href="/admin-projects-edit&id=<?= $updated_project->getId() ?>"><i class="far fa-edit"></i></a>
-                                    <form action="/admin-projects-delete" method="POST">
+                                    <a href="?path=admin-projects-edit&id=<?= $updated_project->getId() ?>"><i class="far fa-edit"></i></a>
+                                    <form action="?path=admin-projects-delete" method="POST">
                                         <input type="text" name="id" value="<?= $updated_project->getId() ?>" hidden>
                                         <button type="submit"><i class="fas fa-trash-alt"></i></button>
                                     </form>
@@ -57,7 +57,7 @@
 
                             </div>
 
-                            <a href="/admin-projects-show&id=<?= $updated_project->getId() ?>" class="projects-item-link"></a>
+                            <a href="?path=admin-projects-show&id=<?= $updated_project->getId() ?>" class="projects-item-link"></a>
 
                         </div>
 
@@ -89,8 +89,8 @@
                                 </div>
 
                                 <div class="projects-item-title-hover">
-                                    <a href="/admin-projects-edit&id=<?= $project->getId() ?>"><i class="far fa-edit"></i></a>
-                                    <form action="/admin-projects-delete" method="POST">
+                                    <a href="?path=admin-projects-edit&id=<?= $project->getId() ?>"><i class="far fa-edit"></i></a>
+                                    <form action="?path=admin-projects-delete" method="POST">
                                         <input type="text" name="id" value="<?= $project->getId() ?>" hidden>
                                         <button type="submit"><i class="fas fa-trash-alt"></i></button>
                                     </form>
@@ -98,7 +98,7 @@
 
                             </div>
 
-                            <a href="/admin-projects-show&id=<?= $project->getId() ?>" class="projects-item-link"></a>
+                            <a href="?path=admin-projects-show&id=<?= $project->getId() ?>" class="projects-item-link"></a>
 
                         </div>
                     <?php endforeach; ?>
@@ -129,12 +129,12 @@
                                 </div>
 
                                 <div class="projects-item-title-hover">
-                                    <a href="/admin-projects-show&id=<?= $project->getId() ?>"><i class="far fa-eye"></i></a>
+                                    <a href="?path=admin-projects-show&id=<?= $project->getId() ?>"><i class="far fa-eye"></i></a>
                                 </div>
 
                             </div>
 
-                            <a href="/admin-projects-show&id=<?= $project->getId() ?>" class="projects-item-link"></a>
+                            <a href="?path=admin-projects-show&id=<?= $project->getId() ?>" class="projects-item-link"></a>
 
                         </div>
                     <?php endforeach; ?>
@@ -159,7 +159,7 @@
             </div>
 
             <div class="card">
-                <form class="form-group" action="/admin-projects-add" method="post">
+                <form class="form-group" action="?path=admin-projects-add" method="post">
 
                     <div class="form-group-item">
                         <label for="project_name">Titre du projet</label>

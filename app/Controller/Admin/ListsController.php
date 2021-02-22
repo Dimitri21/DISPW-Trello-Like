@@ -64,7 +64,7 @@ class ListsController extends AppController
             ]);
 
             if ($is_updated) {
-                $this->redirect("/admin-projects-show&id=".htmlentities($_POST['project_id']));
+                $this->redirect("?path=admin-projects-show&id=".htmlentities($_POST['project_id']));
             }else {
                 $return_message = "Erreur lors d'actualisation de la liste";
             }
@@ -85,9 +85,9 @@ class ListsController extends AppController
                 //TODO message to set in session
                 $message = "suppression de la liste avec succès";
             }
-            $this->redirect("/admin-projects-show&id=".htmlentities($_GET['proj']));
+            $this->redirect("?path=admin-projects-show&id=".htmlentities($_GET['proj']));
         }
-        $this->redirect("/admin-project-index");
+        $this->redirect("?path=admin-project-index");
     }
 
     public function show()

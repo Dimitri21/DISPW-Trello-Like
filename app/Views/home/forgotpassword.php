@@ -16,7 +16,7 @@
 
         <div class="resetpassword-inner-body card">
 
-            <form class="resetpassword-inner-body-form form-group" action="/home-forgotpassword" method="post">
+            <form class="resetpassword-inner-body-form form-group" action="?path=home-forgotpassword" method="post">
 
                 <div class="form-group-item">
                     <label for="email">Adresse email de récuperation*</label>
@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="form-login">
-                    <a href="/connexion">Connexion</a>
+                    <a href="?path=connexion">Connexion</a>
                 </div>
 
                 <div class="form-group-item">

@@ -3,7 +3,7 @@
     <div class="">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/admin-projects-show&id=<?= $project_id ?? '' ?>">Projet</a></li>
+                <li class="breadcrumb-item"><a href="?path=admin-projects-show&id=<?= $project_id ?? '' ?>">Projet</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Membres</li>
             </ol>
         </nav>
@@ -24,8 +24,8 @@
                         <td class="role"><?= $user->role ?></td>
                         <td id="actions">
                             <div>
-                                <a href="/admin-users-show&id=<?= $user->id ?>" class="btn btn-primary"><i class="far fa-eye"></i></a>
-                                <form action="/admin-projects-del_member&id=<?= $user->id ?>">
+                                <a href="?path=admin-users-show&id=<?= $user->id ?>" class="btn btn-primary"><i class="far fa-eye"></i></a>
+                                <form action="?path=admin-projects-del_member&id=<?= $user->id ?>">
                                     <input type="number" name="project_id" value="<?= $user->project ?>" hidden>
                                     <button type="submit" class="btn btn-danger"><i class="fas fa-user-minus"></i></button>
                                 </form>

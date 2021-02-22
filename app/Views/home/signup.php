@@ -15,7 +15,7 @@
 
         <div class="signup-inner-body card">
 
-            <form class="signup-inner-body-form form-group" action="/inscription" method="post">
+            <form class="signup-inner-body-form form-group" action="?path=inscription" method="post">
 
                 <div class="form-group-item">
                     <label for="lastname">Prénom*</label>
@@ -63,7 +63,7 @@
                         <label for="sprinto">j'accepte la société sprinto utiliser mes données personnelles conformément à la politique de confidentialité</label>
                     </div>
                     <div>
-                        <span for="">Vous avez déjà un compte?<a href="/connexion">Connectez-vous</a></span>
+                        <span for="">Vous avez déjà un compte?<a href="?path=connexion">Connectez-vous</a></span>
                     </div>
                 </div>
 

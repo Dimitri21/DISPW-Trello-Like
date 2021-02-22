@@ -16,7 +16,7 @@
 
         <div class="resetpassword-inner-body card">
 
-            <form class="resetpassword-inner-body-form form-group" action="/reinit_mot_de_passe&id=<?=$id??''?>" method="post">
+            <form class="resetpassword-inner-body-form form-group" action="?path=reinit_mot_de_passe&id=<?=$id??''?>" method="post">
 
                 <div class="form-group-item">
                     <label for="password">Mot de passe</label>
@@ -32,7 +32,7 @@
 
 
                 <div class="form-login">
-                    <a href="/connexion">Connexion</a>
+                    <a href="?path=connexion">Connexion</a>
                 </div>
 
                 <div class="form-group-item">

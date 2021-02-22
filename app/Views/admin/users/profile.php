@@ -18,7 +18,7 @@
             <div class="profile-inner-body-avatar">
 
                 <div class="profile-canvas">
-                    <form class="profile-canvas-input" action="/admin-users-upload&id=<?= $user->getId() ?>" method="post" enctype="multipart/form-data">
+                    <form class="profile-canvas-input" action="?path=admin-users-upload&id=<?= $user->getId() ?>" method="post" enctype="multipart/form-data">
                         <input type="file" name="uploadFile" id="profile_avatar_js">
                         <span class="selected-filename"></span>
                         <button type="submit" id="profile_button_js">Valider</button>
@@ -28,7 +28,7 @@
 
             </div>
 
-            <form class="profile-inner-body-form form-group" action="/admin-users-edit&id=<?= $user->getId() ?>" method="post">
+            <form class="profile-inner-body-form form-group" action="?path=admin-users-edit&id=<?= $user->getId() ?>" method="post">
 
                 <div class="form-group-item">
                     <label for="lastname">Prénom*</label>
@@ -65,10 +65,10 @@
                 </div>
 
                 <div class="form-group-item">
-                    <a href="/admin-projects-index" class="my-btn my-btn-default" type="submit">
+                    <a href="?path=admin-projects-index" class="my-btn my-btn-default" type="submit">
                         <i class="far fa-backspace"></i>
                     </a>
-                    <a href="/admin-users-delete&id=<?= $user->getId() ?? '' ?>" class="my-btn my-btn-danger" type="submit">
+                    <a href="?path=admin-users-delete&id=<?= $user->getId() ?? '' ?>" class="my-btn my-btn-danger" type="submit">
                         <i class="fas fa-trash-alt"></i>
                     </a>
                     <button type="submit"><i class="fal fa-save"></i></button>

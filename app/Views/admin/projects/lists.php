@@ -3,7 +3,7 @@
     <div class="container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/admin-projects-show&id=<?= $project_id ?? '' ?>">Projet</a></li>
+                <li class="breadcrumb-item"><a href="?path=admin-projects-show&id=<?= $project_id ?? '' ?>">Projet</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Membres</li>
             </ol>
         </nav>
@@ -21,10 +21,10 @@
                         <td><?= $list->getName() ?></td>
                         <td><?= $list->getDescription() ?></td>
                         <td id="list_actions">
-                            <a href="/admin-lists-edit&id=<?= $list->getId() ?>" class="btn btn-primary">
+                            <a href="?path=admin-lists-edit&id=<?= $list->getId() ?>" class="btn btn-primary">
                                 <i class="far fa-edit"></i>
                             </a>
-                            <a href="/admin-lists-delete&id=<?= $list->getId() ?>&proj=<?= $list->getProject() ?>" class="btn btn-danger">
+                            <a href="?path=admin-lists-delete&id=<?= $list->getId() ?>&proj=<?= $list->getProject() ?>" class="btn btn-danger">
                                 <i class="far fa-trash"></i>
                             </a>
                         </td>
