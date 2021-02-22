@@ -1452,8 +1452,8 @@
 .my-navbar-inner-list-profile-item.profil .profile-image img {
   display: block;
   position: relative;
-  width: 100%;
-  top: 5px;
+  width: 110%;
+  top: 0;
 }
 
 .my-navbar-inner-humburger {
@@ -1675,7 +1675,7 @@
 /*FOOTER*/
 .footer {
   background: #333;
-  padding: 16px 0;
+  padding: 3rem 0;
 }
 
 .footer-inner {
@@ -2581,6 +2581,7 @@ body {
 }
 
 .login-inner-body-form.form-group .form-remember {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

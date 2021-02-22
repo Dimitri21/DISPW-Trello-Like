@@ -1,11 +1,11 @@
 <div class="login global-form-bg" id="login-index">
-    <?php if (isset($message) && !empty($message)) : ?>
-        <div class="toast danger">
-            <?= $message ?>
-        </div>
-    <?php endif; ?>
-
+    
     <div class="login-inner ">
+        <?php if (isset($message) && !empty($message)) : ?>
+            <div class="alert alert-danger">
+                <?= $message ?>
+            </div>
+        <?php endif; ?>
 
         <div class="inner-title">
 
