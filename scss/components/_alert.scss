@@ -1,0 +1,23 @@
+.alert {
+     width: 100%;
+     display: block;
+     padding: 0.8rem;
+     border-radius: .3rem;
+     margin: .3rem 0;
+     
+     &-danger {
+          @include alert($danger-color);
+     } 
+     &-success {
+          @include alert($success-color);
+     } 
+     &-warning {
+          @include alert($warning-color);
+     } 
+     &-primary {
+          @include alert($primary-color);
+     } 
+     &-secondary {
+          @include alert($secondary-color);
+     }
+}

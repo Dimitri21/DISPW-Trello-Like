@@ -27,3 +27,14 @@
         }
     }
 }
+
+@mixin alert($color) {
+    background-color: rgba($color: $color, $alpha: .3);
+    color: $color;
+    font-size: 1rem;
+}
+
+@mixin btn($color) {
+    background-color:$color!important;
+    color: $white-color;
+}

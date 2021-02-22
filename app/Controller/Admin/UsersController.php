@@ -2,7 +2,6 @@
 
 namespace app\Controller\Admin;
 
-
 use app\App;
 
 class UsersController extends AppController
@@ -48,16 +47,15 @@ class UsersController extends AppController
                 $return_message = "Informations incorrectes";
             }
         }
-        $user = $this->Users->find($_GET['id']);
 
-        $this->render("admin.users.profile", compact('user', 'return_message', 'class'));
+        $this->profile(['message'=>$return_message,"class"=>$class]);
     }
 
-    public function profile()
+    public function profile( $message = [])
     {
         $user = $this->Users->find($_SESSION['user']);
         App::getInstance()->titre = "Profil de ".$this->user->getLastname();
-        $this->render("admin.users.profile", compact('user'));
+        $this->render("admin.users.profile", compact('user','message'));
     }
 
     public function delete() {
@@ -88,6 +86,7 @@ class UsersController extends AppController
      * and delete the old one
      */
     public function upload() {
+
        if (isset($_FILES['uploadFile']) && !empty($_FILES['uploadFile'])) {
 
            //dir where picture will be store
@@ -99,7 +98,8 @@ class UsersController extends AppController
            $uploaded        = true;
             $message        = "";
             $class          = "success";
-           //check file type
+
+            //check file type
            if ($file_type !== 'jpg' && $file_type !== 'png' && $file_type !== 'gif') {
                $uploaded    = false;
                $message     = "type non autorisé";
@@ -150,9 +150,7 @@ class UsersController extends AppController
            }
        }
        //TODO - send message by session and update image on the navbar
-        $_SESSION['class']  = $class;
-        $_SESSION['message']= $message;
-       $this->redirect("?path=admin-users-profile");
+       $this->profile(["message"=>$message,"class"=>$class]);
     }
 
     public function show($id)

@@ -27,7 +27,7 @@
             @include flex-row-center-center(row,center,center);
             &-list {
                 //TODO - to replace using mixins
-                @include flex-row-center-center(row,center,center)
+                @include flex-row-center-center(row,center,center);
                 li {
                     width: inherit;
                     @include flex-row-center-center(row,none,center);
@@ -784,8 +784,8 @@
         }
 
         &.show{
-
             display: flex;
+            z-index: 5;
             .dashboard-list-add.add {
                 transform: translateX(0);
             } 

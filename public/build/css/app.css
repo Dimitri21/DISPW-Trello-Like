@@ -1152,6 +1152,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  z-index: 5;
 }
 
 .dashboard-list.show .dashboard-list-add.add, .dashboard-task.show .dashboard-list-add.add, .dashboard-member.show .dashboard-list-add.add {
@@ -1739,22 +1740,72 @@
 
 .my-btn {
   display: block;
-  padding: .8rem .5rem;
-  border-radius: .3rem;
-  outline: none;
-  border: none;
 }
 
-.my-btn.my-btn-default {
-  background: #909399;
+.my-btn i {
+  font-size: 1.5rem;
 }
 
-.my-btn.my-btn-success {
-  background: #67C23A !important;
+.my-btn-default {
+  background-color: #E4E7ED;
 }
 
-.my-btn.my-btn-danger {
+.my-btn-danger {
   background-color: #F56C6C !important;
+  color: #FFFFFF;
+}
+
+.my-btn-success {
+  background-color: #67C23A !important;
+  color: #FFFFFF;
+}
+
+.my-btn-primary {
+  background-color: #4285F4 !important;
+  color: #FFFFFF;
+}
+
+.my-btn-secondary {
+  background-color: #AA66CC !important;
+  color: #FFFFFF;
+}
+
+.alert {
+  width: 100%;
+  display: block;
+  padding: 0.8rem;
+  border-radius: .3rem;
+  margin: .3rem 0;
+}
+
+.alert-danger {
+  background-color: rgba(245, 108, 108, 0.3);
+  color: #F56C6C;
+  font-size: 1rem;
+}
+
+.alert-success {
+  background-color: rgba(103, 194, 58, 0.3);
+  color: #67C23A;
+  font-size: 1rem;
+}
+
+.alert-warning {
+  background-color: rgba(230, 162, 60, 0.3);
+  color: #E6A23C;
+  font-size: 1rem;
+}
+
+.alert-primary {
+  background-color: rgba(66, 133, 244, 0.3);
+  color: #4285F4;
+  font-size: 1rem;
+}
+
+.alert-secondary {
+  background-color: rgba(170, 102, 204, 0.3);
+  color: #AA66CC;
+  font-size: 1rem;
 }
 
 * {

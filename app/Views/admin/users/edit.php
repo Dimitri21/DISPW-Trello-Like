@@ -1,5 +1,11 @@
 <div class="profile global-form-bg" id="login-index">
 
+    <?php if (isset($message) && !empty($message)) : ?>
+        <div class="alert alert-<?= $class ?? '' ?>">
+            <?= $message ?>
+        </div>
+    <?php endif; ?>
+
     <div class="profile-inner ">
 
         <div class="inner-title">
