@@ -29,7 +29,7 @@ class AppController extends Controller
 
         if(!$auth->isLogged())
         {
-            return $this->redirect("/connexion");
+            return $this->redirect("?path=connexion");
         }
 
         $this->loadModel("Users","sprinto");

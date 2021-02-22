@@ -9,7 +9,7 @@
 
             <div class="global-form-bg">
                 <!--TODO to correct the class name typing mistake-->
-                <form class="form-group" method="POST" id="list-add-form" data-url="/admin-lists-edit&id=<?= $list->getName() ?>">
+                <form class="form-group" method="POST" id="list-add-form" data-url="?path=admin-lists-edit&id=<?= $list->getName() ?>">
                     <input type="text" name="project_id" id="project_id" value="<?= $list->getProject() ?>" hidden>
                     <div class="form-group-item">
                         <label for="name">Nom</label>
@@ -28,10 +28,10 @@
                         <input type="number" name="orders" id="orders" value="<?= $list->getOrders() ?>">
                     </div>
                     <div class="form-group-item">
-                        <a href="/admin-projects-show&id=<?= $list->getProject() ?>" type="submit" class="my-btn my-btn-default">
+                        <a href="?path=admin-projects-show&id=<?= $list->getProject() ?>" type="submit" class="my-btn my-btn-default">
                             <i class="far fa-backspace"></i>
                         </a>
-                        <a href="/admin-lists-delete&id=<?= $list->getId() ?>&proj=<?= $list->getProject() ?>" type="submit" class="my-btn my-btn-danger">
+                        <a href="?path=admin-lists-delete&id=<?= $list->getId() ?>&proj=<?= $list->getProject() ?>" type="submit" class="my-btn my-btn-danger">
                             <i class="fas fa-trash-alt"></i>
                         </a>
                         <button type="submit" class="my-btn my-btn-primary"><i class="fal fa-save"></i></button>

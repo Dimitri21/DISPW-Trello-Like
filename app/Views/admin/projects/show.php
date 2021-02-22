@@ -8,20 +8,20 @@
 
             <nav class="dashboard-inner-aside-list">
 
-                <li class="projects" data-url="/projects-index">
-                    <a href="/admin-projects-index">
+                <li class="projects" data-url="?path=projects-index">
+                    <a href="?path=admin-projects-index">
                         <i class="fas fa-tools"></i> <span>Tableaux</span>
                     </a>
                 </li>
 
-                <li class="members" data-url="/members-index">
-                    <a href="/admin-projects-members&id=<?= $project->getId() ?>">
+                <li class="members" data-url="?path=members-index">
+                    <a href="?path=admin-projects-members&id=<?= $project->getId() ?>">
                         <i class="fas fa-clipboard"></i> <span>Membres</span>
                     </a>
                 </li>
 
-                <li class="lists" data-url="/lists-index">
-                    <a href="/admin-projects-lists&id=<?= $project->getId() ?>">
+                <li class="lists" data-url="?path=lists-index">
+                    <a href="?path=admin-projects-lists&id=<?= $project->getId() ?>">
                         <i class="fas fa-address-card"></i> <span>Listes</span>
                     </a>
                 </li>
@@ -86,7 +86,7 @@
                                                 </button>
 
                                                 <!--//TODO event for btn-todo-->
-                                                <a href="/admin-lists-edit&id=<?= $list->getId() ?>"><i class="fas fa-tools"></i></a>
+                                                <a href="?path=admin-lists-edit&id=<?= $list->getId() ?>"><i class="fas fa-tools"></i></a>
 
                                             </div>
                                         </div>
@@ -144,10 +144,10 @@
                                                 </div>
 
                                                 <div class="project-list-tasks-task-body-task-hover">
-                                                    <a href="/admin-tasks-edit&id=<?= $task->getId() ?>&proj=<?= $project->getId() ?>"><i class="far fa-edit"></i></a>
+                                                    <a href="?path=admin-tasks-edit&id=<?= $task->getId() ?>&proj=<?= $project->getId() ?>"><i class="far fa-edit"></i></a>
                                                     <!--On delete call js function with a decision-->
                                                     <!--onsubmit="confirm('Etes-vous de vouloir supprimer cette tâche?')"-->
-                                                    <form action="/admin-tasks-delete" method="POST">
+                                                    <form action="?path=admin-tasks-delete" method="POST">
                                                         <input type="text" name="task_id" value="<?= $task->getId() ?>" hidden>
                                                         <input type="text" name="project_id" value="<?= $project->getId() ?>" hidden>
                                                         <button class="btn btn-danger" type="submit">
@@ -188,7 +188,7 @@
             <div class="dashboard-list-add-form">
                 <div class="global-form-bg">
                     <!--TODO to correct the class name typing mistake-->
-                    <form class="form-group projecr_list_add_js" method="get" id="dashboard-list-add-form" data-url="/admin-lists-addAjax&id=<?= $project->getId() ?>">
+                    <form class="form-group projecr_list_add_js" method="get" id="dashboard-list-add-form" data-url="?path=admin-lists-addAjax&id=<?= $project->getId() ?>">
 
                         <div class="form-group-item">
                             <label for="listname">Nom</label>
@@ -227,7 +227,7 @@
             <div class="dashboard-task-add-form">
 
                 <div class="global-form-bg">
-                    <form id="dashboard-task-add-form" class="form-group project_list_task_add_js" data-url="/admin-tasks-addAjax&id=" method="post">
+                    <form id="dashboard-task-add-form" class="form-group project_list_task_add_js" data-url="?path=admin-tasks-addAjax&id=" method="post">
                         <input type="number" name="project_id_js" id="project_id_js" value="<?= $project->getId() ?>" hidden>
                         <div class="form-group-item">
                             <label for="task_name">Titre</label>
@@ -276,7 +276,7 @@
 
                 <div class="global-form-bg">
 
-                    <form action="/admin-projects-member" id="dashboard-member-add-form" class="form-group project_add_member_js" method="post">
+                    <form action="?path=admin-projects-member" id="dashboard-member-add-form" class="form-group project_add_member_js" method="post">
 
                         <input type="number" name="project_id" id="project_id_js" value="<?= $project->getId() ?>" hidden>
 

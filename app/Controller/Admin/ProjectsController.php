@@ -196,7 +196,7 @@ class ProjectsController extends AppController
                 }
             }
         }
-        $this->redirect("/admin-projects-show&id=".$project_id);
+        $this->redirect("?path=admin-projects-show&id=".$project_id);
     }
 
     public function all() {

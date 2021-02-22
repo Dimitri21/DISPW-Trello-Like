@@ -91,7 +91,7 @@ $(document).ready(function () {
     function changerOrderDB(data_ajax) {
         $.ajax({
             type: "POST",
-            url: "/admin-tasks-orders",
+            url: "?path=admin-tasks-orders",
             data: data_ajax,
             cache: false,
             success: function (response) {
@@ -107,7 +107,7 @@ $(document).ready(function () {
     function changerListAndOrderDB(data_ajax) {
         $.ajax({
             type: "POST",
-            url: "/admin-tasks-ordersandlist",
+            url: "?path=admin-tasks-ordersandlist",
             data: data_ajax,
             cache: false,
             success: function (response) {
@@ -148,7 +148,7 @@ function setEventToAddMember(element_p) {
             //AJax request to get all user from database
             $.ajax({
                 type: "POST",
-                url: "/admin-projects-all",
+                url: "?path=admin-projects-all",
                 data: { message: "ajax" },
                 cache: false,
                 success: function (response) {
@@ -294,7 +294,7 @@ function setContactEvent(element) {
 
                 $.ajax({
                     type: "POST",
-                    url: "/home-contact",
+                    url: "?path=home-contact",
                     data: formObject,
                     cache: false,
                     success: function (response) {
@@ -480,7 +480,7 @@ function buildList(name, container, id) {
                         </button>
 
                         <!--//TODO event for btn-todo-->
-                        <a href="/admin-lists-edit&id=${id}"><i class="fas fa-tools"></i></a>
+                        <a href="?path=admin-lists-edit&id=${id}"><i class="fas fa-tools"></i></a>
 
                     </div>
 
@@ -649,7 +649,7 @@ function createTask(infos, element) {
             <!--TASK TITLE-->
             <p class="project-list-tasks-task-body-task-front-title">
                 <i class="fal fa-book-open"></i>
-                <span class="task-title">${infos.name} - ${infos.order}</span>
+                <span class="task-title">${infos.name}</span>
             </p>
 
             <!--TASK LEAD-->
@@ -683,8 +683,8 @@ function createTask(infos, element) {
         </div>
 
         <div class="project-list-tasks-task-body-task-hover">
-            <a href="/admin-tasks-edit&id=${infos.task_id}&proj=${infos.project_id}"><i class="far fa-edit"></i></a>
-            <form action="/admin-tasks-delete" method="POST" onsubmit="confirm('Etes-vous de vouloir supprimer cette tâche?')">
+            <a href="?path=admin-tasks-edit&id=${infos.task_id}&proj=${infos.project_id}"><i class="far fa-edit"></i></a>
+            <form action="?path=admin-tasks-delete" method="POST" onsubmit="confirm('Etes-vous de vouloir supprimer cette tâche?')">
                 <input type="text" name="task_id" value="${infos.task_id}" hidden>
                 <input type="text" name="project_id" value="${infos.project_id}" hidden>
                 <button class="btn btn-danger" type="submit">

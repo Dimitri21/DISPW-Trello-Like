@@ -32,7 +32,7 @@ class AuthController extends AppController
 
     /**
      * @brief
-     * @route "/auth-logout"
+     * @route "?path=auth-logout"
      */
     public function logout()
     {

@@ -35,7 +35,7 @@
 
                     <!--NAVBAR LOGO-->
                     <div class="my-navbar-inner-logo">
-                        <a href="/">
+                        <a href="?path=home">
                             <img src="images/logo/sprinto_white.png" alt="Logo de sprinto">
                         </a>
                     </div>
@@ -45,7 +45,7 @@
                     <ul class="my-navbar-inner-list">
 
                         <li class="my-navbar-inner-list-item">
-                            <a href="/">ACCUEIL</a>
+                            <a href="?path=home">ACCUEIL</a>
                         </li>
 
                         <?php if (isset($_SESSION['auth']) && !empty($_SESSION['auth'])) : ?>
@@ -81,11 +81,11 @@
                             </ul>
                         <?php else : ?>
                             <li class="my-navbar-inner-list-item">
-                                <a href="/connexion">Connexion</a>
+                                <a href="?path=connexion">Connexion</a>
                             </li>
 
                             <li class="my-navbar-inner-list-item">
-                                <a href="/inscription">Inscription</a>
+                                <a href="?path=inscription">Inscription</a>
                             </li>
                         <?php endif; ?>
 
@@ -106,9 +106,9 @@
             <div class="my-container">
                 <div class="main-dropdown" id="profile_dropdown_js">
                     <ul>
-                        <li><a href="/admin-projects-index">Dashboard</a></li>
-                        <li><a href="/admin-users-profile">Profil</a></li>
-                        <li><a href="/auth-logout">Déconnexion</a></li>
+                        <li><a href="?path=admin-projects-index">Dashboard</a></li>
+                        <li><a href="?path=admin-users-profile">Profil</a></li>
+                        <li><a href="?path=auth-logout">Déconnexion</a></li>
                     </ul>
                 </div>
             </div>
@@ -126,15 +126,15 @@
             <ul class="main-humburger-list ">
 
                 <li class="main-humburger-list-item">
-                    <a href="/">ACCUEIL</a>
+                    <a href="?path=home">ACCUEIL</a>
                 </li>
 
                 <li class="main-humburger-list-item">
-                    <a href="/connexion">Connexion</a>
+                    <a href="?path=connexion">Connexion</a>
                 </li>
 
                 <li class="main-humburger-list-item">
-                    <a href="/inscription">Inscription</a>
+                    <a href="?path=inscription">Inscription</a>
                 </li>
 
             </ul>
@@ -146,9 +146,9 @@
     <footer class="footer">
         <div class="my-container">
             <ul class="footer-inner">
-                <li><a href="/politique_de_confidentialite">Politique de confidentialité</a></li>
-                <li><a href="/mentions_legales">Mentions légales</a></li>
-                <li><a href="/conditions_generales_utilisation">Conditions générales d'utilisation</a></li>
+                <li><a href="?path=politique_de_confidentialite">Politique de confidentialité</a></li>
+                <li><a href="?path=mentions_legales">Mentions légales</a></li>
+                <li><a href="?path=conditions_generales_utilisation">Conditions générales d'utilisation</a></li>
             </ul>
         </div>
     </footer>

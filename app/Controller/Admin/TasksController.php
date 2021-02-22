@@ -104,7 +104,7 @@ class TasksController extends AppController
             );
 
             if ($is_inserted) {
-                $this->redirect("/admin-projects-show&id={$_POST['project_id']}");
+                $this->redirect("?path=admin-projects-show&id={$_POST['project_id']}");
             } else {
                 $login_error =  "Erreur pendant la modification de la tâche";
             }
@@ -141,7 +141,7 @@ class TasksController extends AppController
             }
         }
         //TODO set session buffer for the message string
-        return $this->redirect("/admin-projects-show&id=".$_POST['project_id']);
+        return $this->redirect("?path=admin-projects-show&id=".$_POST['project_id']);
     }
 
     /**
@@ -187,7 +187,7 @@ class TasksController extends AppController
         if (isset($_POST) && !empty($_POST)) {
             $list = $this->Lists->find($_POST['list_from']);
             $tasks = $this->Tasks->findTask($list->getId());
-            if ($tasks[$_POST['task_from']]) {
+            if (isset($_POST['task_from']) && isset($tasks[$_POST['task_from']])) {
                 $this->Tasks->update($tasks[$_POST['task_from']]->getId(), ["orders"=>$_POST['task_to']]);
                 $this->Tasks->update($tasks[$_POST['task_to']]->getId(), ["orders"=>$_POST['task_from']]);
             }

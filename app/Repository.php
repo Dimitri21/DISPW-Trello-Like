@@ -44,9 +44,9 @@ class Repository
     public function query($statement, $attributes = null,$one = false)
     {
         $class = str_replace('Repository',"Entity",get_class($this));
-        $class = explode(DIRECTORY_SEPARATOR,$class);
+        $class = explode('\\',$class);
         $class[array_key_last($class)] = str_replace('Entity','',$class[array_key_last($class)]);
-        $class = implode(DIRECTORY_SEPARATOR,$class);
+        $class = implode("\\",$class);
         if($attributes) {
             return $this->db->prepare($statement,$attributes,$class,$one);
         }else

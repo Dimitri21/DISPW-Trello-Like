@@ -56,12 +56,8 @@ class UsersController extends AppController
     public function profile()
     {
         $user = $this->Users->find($_SESSION['user']);
-        $message = $_SESSION['message']??'';
-        $class = $_SESSION['class']??'';
-        unset($_SESSION['message']);
-        unset($_SESSION['class']);
         App::getInstance()->titre = "Profil de ".$this->user->getLastname();
-        $this->render("admin.users.profile", compact('user', "message","class"));
+        $this->render("admin.users.profile", compact('user'));
     }
 
     public function delete() {
@@ -80,11 +76,11 @@ class UsersController extends AppController
         if (isset($_GET['id']) && !empty($_GET['id']) && intval($_GET['id']) == $this->user->getId()) {
             $is_deleted = $this->Users->delete($this->user->getId());
             if ($is_deleted) {
-                $this->redirect("/auth-logout");
+                $this->redirect("?path=auth-logout");
             }
         }
 
-        $this->redirect("/admin-users-profile");
+        $this->redirect("?path=admin-users-profile");
     }
 
     /**
@@ -156,7 +152,7 @@ class UsersController extends AppController
        //TODO - send message by session and update image on the navbar
         $_SESSION['class']  = $class;
         $_SESSION['message']= $message;
-       $this->redirect("/admin-users-profile");
+       $this->redirect("?path=admin-users-profile");
     }
 
     public function show($id)
