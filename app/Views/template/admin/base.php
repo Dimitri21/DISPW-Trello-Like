@@ -137,22 +137,31 @@
 
         <!--LIST ITEM BY HUMBURGER BTN CLICK-->
         <div class="main-humburger">
-
             <ul class="main-humburger-list ">
 
                 <li class="main-humburger-list-item">
                     <a href="?path=home">ACCUEIL</a>
                 </li>
 
-                <li class="main-humburger-list-item">
-                    <a href="?path=connexion">Connexion</a>
-                </li>
+                <?php if (isset($_SESSION['auth'])) : ?>
+                    <li class="main-humburger-list-item">
+                        <a href="?path=admin-projects-index">Dashboard</a>
+                    </li>
+                    <li class="main-humburger-list-item">
+                        <a href="?path=auth-logout">Deconnexion</a>
+                    </li>
+                <?php else : ?>
+                    <li class="main-humburger-list-item">
+                        <a href="?path=connexion">Connexion</a>
+                    </li>
 
-                <li class="main-humburger-list-item">
-                    <a href="?path=inscription">Inscription</a>
-                </li>
+                    <li class="main-humburger-list-item">
+                        <a href="?path=inscription">Inscription</a>
+                    </li>
+                <?php endif; ?>
 
             </ul>
+
         </div>
 
     </main>

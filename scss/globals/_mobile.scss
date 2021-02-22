@@ -13,6 +13,7 @@
         height: 93vh;
         overflow: hidden;
         transition: all .3s ease-in-out;
+        background-color: $grey1-color;
         //ASIDE
         &-aside {
             width: 100vw;
@@ -23,17 +24,14 @@
             right: 0;
             z-index: 5;
             transition: all .3s ease-in-out;
-            background-color: $white-color;
             @include flex-row-center-center(row,center,center);
             &-list {
                 //TODO - to replace using mixins
                 @include flex-row-center-center(row,center,center)
-                background-color: $grey1-color;
                 li {
                     width: inherit;
                     @include flex-row-center-center(row,none,center);
                     margin-bottom: 0.1rem;
-                    background-color: $white-color;
                     transition: background-color .3s ease-in-out;
                     a {
                         width: 100%;

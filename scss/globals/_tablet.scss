@@ -72,4 +72,11 @@
         @include flex-row-center-center(row,none,center);
     }
 
+    //FOOTER
+    .footer {
+        &-inner {
+            flex-direction: row!important;
+        }
+    }
+
 }
