@@ -210,11 +210,12 @@
                                                     background-color: rgba($color: $dark-color, $alpha: .2);
                                                 }
                                             }
+                                            
                                             button {
-                                                border-radius: 0.3rem 0 0 .3rem;
+                                                border-radius: 0.3rem 0 0 .3rem!important;
                                             }   
                                             a {
-                                                border-radius: 0 0.3rem .3rem 0;
+                                                border-radius: 0 0.3rem 0.3rem 0;
                                             }
                                         }
                                     }
@@ -223,7 +224,6 @@
                                         padding: .2rem;
                                     }
 
-                                    
                                 }
                             }
 
@@ -234,9 +234,7 @@
                                 //TODO - to replace using mixins
                                 display: flex;
                                 flex-direction: column;
-
                                 overflow-y: scroll;
-                                
                                 //TASK
                                 &-task {
                                     position: relative;

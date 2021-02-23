@@ -1,5 +1,5 @@
 <div class="login global-form-bg" id="login-index">
-    
+
     <div class="login-inner ">
         <?php if (isset($message) && !empty($message)) : ?>
             <div class="alert alert-danger">
@@ -28,8 +28,8 @@
                 </div>
 
                 <div class="form-group-item">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" id="password" placeholder="Password*">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" name="password" id="password" placeholder="Mot de passe">
                     <span class=""></span>
                 </div>
 
