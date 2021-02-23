@@ -1,11 +1,14 @@
 <div class="signup global-form-bg" id="login-index">
-    <?php if (isset($message) && !empty($message)) : ?>
-        <div class="toast danger">
-            <?= $message ?>
-        </div>
-    <?php endif; ?>
+
 
     <div class="signup-inner ">
+
+        <?php if (isset($message) && !empty($message)) : ?>
+            <div class="alert alert-danger">
+                <?= $message ?>
+            </div>
+        <?php endif; ?>
+
         <div class="inner-title">
             <div class=" inner-title-circle"></div>
             <div class="inner-title-text">
@@ -37,13 +40,22 @@
 
                 <div class="form-group-item">
                     <label for="password">Mot de passe*</label>
+<<<<<<< HEAD
                     <input type="password" name="password" id="password" placeholder="Password*">
+=======
+                    <input type="password" name="password" id="password" placeholder="Mot de passe">
+>>>>>>> release/prod
                     <span class=""></span>
                 </div>
 
                 <div class="form-group-item">
+<<<<<<< HEAD
                     <label for="password-conf">Confirmer votre mot de passe*</label>
                     <input type="password" name="password-conf" id="password-conf" placeholder="Confirmer votre mot de passe">
+=======
+                    <label for="password-conf">Confirmer le mot de passe*</label>
+                    <input type="password" name="password-conf" id="password-conf" placeholder="Confirmer le mot de passe">
+>>>>>>> release/prod
                     <span class=""></span>
                 </div>
 

@@ -67,10 +67,10 @@
                     </div>
 
                     <div class="form-group-item">
-                        <a class="btn" href="?path=admin-projects-show&id=<?= $project_id ?>">
+                        <a class="my-btn" href="?path=admin-projects-show&id=<?= $project_id ?>">
                             <i class="far fa-backspace"></i>
                         </a>
-                        <button type="submit"><i class="fal fa-save"></i></button>
+                        <button type="submit" class="my-btn my-btn-primary"><i class="fal fa-save"></i></button>
                     </div>
 
                 </form>
@@ -108,7 +108,7 @@
                     </div>
 
                     <div class="form-group-item">
-                        <button type="submit">Commenter</button>
+                        <button type="submit" class="my-btn my-btn-primary">Commenter</button>
                     </div>
 
                 </form>

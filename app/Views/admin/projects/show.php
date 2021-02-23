@@ -285,18 +285,7 @@
                             <input type="text" name="member_name" id="member_name" placeholder="Nom du member">
 
                             <div class="members_list">
-                                <div>
-                                    <label for="member_chosen_id" class="members_name_js">Duramana KALUMVUATI</label>
-                                    <input type="checkbox" value="Duramana KALUMVUATI" name="member_chosen_id" id="member_chosen_id">
-                                </div>
-                                <div>
-                                    <label for="member_chosen_id1" class="members_name_js">Cecile EVEZI</label>
-                                    <input type="checkbox" value="Cecile EVEZI" name="member_chosen_id1" id="member_chosen_id1">
-                                </div>
-                                <div>
-                                    <label for="member_chosen_id2" class="members_name_js">Dimitri HERTZ</label>
-                                    <input type="checkbox" value="Dimitri HERTZ" name="member_chosen_id2" id="member_chosen_id2">
-                                </div>
+
                             </div>
                         </div>
 

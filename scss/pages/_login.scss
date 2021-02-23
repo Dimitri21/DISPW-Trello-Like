@@ -24,13 +24,9 @@
                             }
                         }
                     }
-
                     .form-remember {
+                        width: 100%;
                         @include flex-row-center-center(row,space-between,center);
-                        // display: flex;
-                        // flex-direction: row;
-                        // justify-content: space-between;
-                        // align-items: center;
                         font-size: 12px;
                         a {
                             transition: all 0.3s ease-in-out;

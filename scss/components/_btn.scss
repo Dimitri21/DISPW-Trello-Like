@@ -1,0 +1,22 @@
+.my-btn {
+     display: block;
+     i {
+          font-size: 1.5rem;
+     }
+     &-default {
+          background-color: $grey1-color;
+     }
+     &-danger {
+          @include btn($danger-color);
+     }
+     &-success {
+          @include btn($success-color);
+     } 
+     &-primary {
+          @include btn($primary-color);
+     } 
+     &-secondary {
+          @include btn($secondary-color);
+     }
+
+} 

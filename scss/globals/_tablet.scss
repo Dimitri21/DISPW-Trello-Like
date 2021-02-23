@@ -45,6 +45,41 @@
             &-content {
                 width: 78vw;
             }
+             //JS 
+            &.reduce {
+                grid-template-columns: 70px 100vw;
+                .dashboard-inner-aside {
+                    width: 70px;
+                    &-list {
+                        display: flex;
+                        flex-direction: column;
+                        width: inherit;
+                        li {
+                            text-align: center;
+                            a {
+                                span {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+        
+                    &-tools {
+                        justify-content: flex-start;
+                        div {
+                            span {
+                                display: none;
+                            }
+                        }
+                        &>i {
+                            width: 0;
+                            position: relative;
+                            left: -22px;
+                        }
+                    }
+                }
+            
+            }
         }
     
     }

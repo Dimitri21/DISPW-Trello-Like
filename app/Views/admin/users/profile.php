@@ -1,9 +1,8 @@
 <div class="profile global-form-bg" id="login-index">
-
     <div class="profile-inner ">
         <?php if (isset($message) && !empty($message)) : ?>
-            <div class="alert alert-<?= $class ?? '' ?>">
-                <?= $message ?>
+            <div class="alert alert-<?= $message['class'] ?? '' ?>">
+                <?= $message['message'] ?? '' ?>
             </div>
         <?php endif; ?>
         <div class="inner-title">
@@ -55,8 +54,8 @@
                 </div>
 
                 <div class="form-group-item">
-                    <label for="password-conf">Password de confirmation*</label>
-                    <input type="password" name="password-conf" id="profile_password_confi_js" placeholder="Mot de passe de confirmation" required>
+                    <label for="password-conf">Confirmer le mot de passe*</label>
+                    <input type="password" name="password-conf" id="profile_password_confi_js" placeholder="Confirmer le mot de passe" required>
                     <span class=""></span>
                 </div>
 
@@ -71,7 +70,9 @@
                     <a href="?path=admin-users-delete&id=<?= $user->getId() ?? '' ?>" class="my-btn my-btn-danger" type="submit">
                         <i class="fas fa-trash-alt"></i>
                     </a>
-                    <button type="submit"><i class="fal fa-save"></i></button>
+                    <button type="submit" class="my-btn my-btn-primary">
+                        <i class="fal fa-save"></i>
+                    </button>
                 </div>
 
             </form>
