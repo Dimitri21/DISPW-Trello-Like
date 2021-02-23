@@ -1,5 +1,11 @@
 <div class="task">
     <div class="my-container">
+
+        <?php if (isset($message) && !empty($message)): ?>
+            <div class="alert alert-<?=$message['class']?>">
+                <span><?=$message['message']?></span>
+            </div>
+        <?php endif;?>
         <div class="task-inner">
 
             <!--TITLE-->
@@ -10,27 +16,27 @@
             <!--FORM-->
             <div class="global-form-bg">
                 <form action="?path=admin-tasks-edit&id=<?= $task->getId() ?>" class="form-group" method="POST">
-                    <input type="text" name="project_id" id="project_id" value="<?= $project_id ?>" hidden>
+                    <input type="text" name="proj" id="project_id" value="<?= $project_id ?>" hidden>
 
                     <div class="form-group-item">
                         <label for="name">Name</label>
-                        <input type="text" name="name" id="name" value="<?= $task->getName() ?>">
+                        <input type="text" name="name" id="name" value="<?= $task->getName() ?>" required>
                         <a href="?path=admin-projects-show&id=<?= $task->getLists() ?>"></a>
                     </div>
 
                     <div class="form-group-item">
                         <label for="description">description</label>
-                        <textarea name="description" id="description" cols="30" rows="10"><?= $task->getDescription() ?></textarea>
+                        <textarea name="description" id="description" cols="30" rows="10" required><?= $task->getDescription() ?></textarea>
                     </div>
 
                     <div class="form-group-item">
                         <label for="start_at">Début</label>
-                        <input type="date" name="start_at" id="start_at" value="<?= $task->formatDate($task->getStartAt()) ?>" disabled>
+                        <input type="date" name="start_at" id="start_at" value="<?= $task->formatDate($task->getStartAt()) ?>" required>
                     </div>
 
                     <div class="form-group-item">
                         <label for="end_at">Fin </label>
-                        <input type="date" name="end_at" id="end_at" value="<?= $task->formatDate($task->getEndAt()) ?>">
+                        <input type="date" name="end_at" id="end_at" value="<?= $task->formatDate($task->getEndAt()) ?>" required>
                     </div>
 
                     <div class="form-group-item">
@@ -40,8 +46,7 @@
 
                     <div class="form-group-item">
                         <label for="sticker">Etiquette</label>
-                        <select name="sticker">
-                            <option value="none">Nothing</option>
+                        <select name="sticker" required>
                             <?php foreach ($stickers as $sticker) : ?>
                                 <?php echo $sticker->getId() . "=>" . $task->getSticker(); ?>
                                 <?php if ($sticker->getId() == $task->getSticker()) : ?>
@@ -104,7 +109,7 @@
                 <form class="form-group" action="?path=admin-tasks-comment&id=<?= $task->getId() ?>" method="POST" id="task_comment_js">
                     <div class="form-group-item">
                         <label for="comment">Commentaire</label>
-                        <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Laissez votre comomentaire ici"></textarea>
+                        <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Laissez votre comomentaire ici" required></textarea>
                     </div>
 
                     <div class="form-group-item">

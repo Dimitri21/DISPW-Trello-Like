@@ -85,29 +85,50 @@ class TasksController extends AppController
 
     public function  edit()
     {
-        $error_message  = "";
-        //Traitement des informations en $_POST
-        $task           = null;
-
+        $message    = [];
+        $class      = "";
+        $task       = null;
         $today      = date("Y-m-d H:i:s");
-        if (isset($_POST) && !empty($_POST)) {
-            $is_inserted = $this->Tasks->update(
-                $_GET['id'],
-                [
-                    "name" => $_POST['name'],
-                    "description" => $_POST['description'],
-                    "end_at" => $_POST['end_at'],
-                    'modified_at' => $today,
-                    'sticker' => $_POST['sticker'],
-                    'lists' => $_POST['list']
-                ]
-            );
+        if (isset($_POST['name']) && !empty($_POST['name']) &&
+            isset($_POST['description']) && !empty($_POST['description']) &&
+            isset($_POST['start_at']) && !empty($_POST['start_at']) &&
+            isset($_POST['end_at']) && !empty($_POST['end_at']) &&
+            isset($_POST['sticker']) && !empty($_POST['sticker']) &&
+            isset($_POST['list']) && !empty($_POST['list'])
+        ) {
 
-            if ($is_inserted) {
-                $this->redirect("?path=admin-projects-show&id={$_POST['project_id']}");
-            } else {
-                $login_error =  "Erreur pendant la modification de la tâche";
+            //Vérification de la difference de dates
+            $warning_date   = 0;
+            $today          = date("Y-m-d H:i:s");
+            $start = new \DateTime(htmlentities($_POST['start_at']));
+            $end = new \DateTime(htmlentities($_POST['end_at']));
+            $diff = date_diff($end,$start);
+            $is_inserted  = false;
+            if ($diff && $diff->invert) {
+
+                $is_inserted = $this->Tasks->update(
+                    $_GET['id'],
+                    [
+                        "name" => htmlentities($_POST['name']),
+                        "description" => htmlentities($_POST['description']),
+                        "start_at" => htmlentities($_POST['start_at']),
+                        "end_at" => htmlentities($_POST['end_at']),
+                        'modified_at' => $today,
+                        'sticker' => htmlentities($_POST['sticker']),
+                        'lists' => htmlentities($_POST['list'])
+                    ]
+                );
+                if ($is_inserted) {
+                    $this->redirect("?path=admin-projects-show&id={$_POST['proj']}");
+                } else {
+                    $message['message'] =  "Erreur pendant la modification de tâche";
+                    $message['class']   = "danger";
+                }
+            }else {
+                $message['message'] = "Vérifier vos les dates";
+                $message['class']   = "warning";
             }
+
         }
 
         if (isset($_GET['id']) && !empty($_GET['id'])) {
@@ -124,10 +145,15 @@ class TasksController extends AppController
 
         $method     = "edit&id=" . $task->getId();
         $stickers   = $this->Stickers->findAll();
-        $project_id = $_GET['proj'];
+        $project_id = "";
+        if (isset($_GET['proj']) && !empty($_GET["proj"]))
+            $project_id = htmlentities($_GET['proj']);
+        elseif (isset($_POST['proj']) && !empty($_POST['proj']))
+            $project_id = htmlentities($_POST['proj']);
+
         $lisks      = $this->Lists->findList($project_id);
-        App::getInstance()->titre = "Edition de la tâche";
-        $this->render('admin.tasks.edit', compact('task', 'error_message', 'method', 'stickers','lisks',"project_id"));
+        App::getInstance()->titre = "Modification de tâche";
+        $this->render('admin.tasks.edit', compact('task', 'message', 'method', 'stickers','lisks',"project_id"));
     }
 
     public function delete()

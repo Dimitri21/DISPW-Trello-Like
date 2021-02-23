@@ -9,6 +9,7 @@ class Controller
 
     protected $viewsPath;
     protected $template;
+    protected $message = [];
 
     protected function render(string $view, array  $variables = [])
     {
@@ -53,10 +54,12 @@ class Controller
         $message = "";
         try {
             $mail->send();
-            $message="Message has been sent successfully";
+            $this->message["message"]="Message has been sent successfully";
+            $this->message["class"]="success";
             $response = true;
         } catch (Exception $e) {
-            $message = "Mailer Error: " . $mail->ErrorInfo;
+            $this->message["message"]   = "Erreur lors d'envoi de mail : " . $mail->ErrorInfo;
+            $this->message["class"]     ="danger";
         }
 
         return $response;

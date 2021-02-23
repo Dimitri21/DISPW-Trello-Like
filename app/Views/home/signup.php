@@ -40,22 +40,13 @@
 
                 <div class="form-group-item">
                     <label for="password">Mot de passe*</label>
-<<<<<<< HEAD
-                    <input type="password" name="password" id="password" placeholder="Password*">
-=======
                     <input type="password" name="password" id="password" placeholder="Mot de passe">
->>>>>>> release/prod
                     <span class=""></span>
                 </div>
 
                 <div class="form-group-item">
-<<<<<<< HEAD
-                    <label for="password-conf">Confirmer votre mot de passe*</label>
-                    <input type="password" name="password-conf" id="password-conf" placeholder="Confirmer votre mot de passe">
-=======
                     <label for="password-conf">Confirmer le mot de passe*</label>
                     <input type="password" name="password-conf" id="password-conf" placeholder="Confirmer le mot de passe">
->>>>>>> release/prod
                     <span class=""></span>
                 </div>
 
