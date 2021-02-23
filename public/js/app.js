@@ -269,8 +269,8 @@ function createComment(infos_p, container_p) {
        <div class="comment-item-message">
            <p>${infos_p.comment}</p>
            <div>
-               <span><i class="far fa-calendar-alt"></i>${infos_p.date} - </span>
-               <span><i class="far fa-clock"></i>${infos_p.time} </span>
+               <span><i class="far fa-calendar-alt"> </i>${infos_p.date} - </span>
+               <span><i class="far fa-clock"> </i>${infos_p.time} </span>
            </div>
        </div>
     `;
