@@ -147,5 +147,10 @@ class Comments
         return $this;
     }
 
+    public function getDate() {
+        $return_message['date'] = explode(" ",$this->created_at)[0];
+        $return_message['time'] = explode(" ",$this->created_at)[1];
+        return $return_message;
+    }
 
 }

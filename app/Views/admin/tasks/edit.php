@@ -96,8 +96,8 @@
                             <div class="comment-item-message">
                                 <p><?= $comment->getComment() ?></p>
                                 <div>
-                                    <span><i class="far fa-calendar-alt"></i>12/01/2020 - </span>
-                                    <span><i class="far fa-clock"></i>12:30 </span>
+                                    <span><i class="far fa-calendar-alt"></i> <?=$comment->getDate()['date']?> - </span>
+                                    <span><i class="far fa-clock"></i> <?=$comment->getDate()['time']?>  </span>
                                 </div>
                             </div>
 

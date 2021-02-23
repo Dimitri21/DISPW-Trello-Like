@@ -240,6 +240,7 @@ function sendComment(element_p) {
                     success: function (response) {
                         let responseConverted = JSON.parse(response);
                         let comments_list_container = $_('#comments_list_js');
+                        console.log(responseConverted)
                         if (responseConverted.status == "success") {
                             comment.value = "";
                             //Update comments list
