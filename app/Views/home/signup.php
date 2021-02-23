@@ -36,14 +36,14 @@
                 </div>
 
                 <div class="form-group-item">
-                    <label for="password">Password*</label>
+                    <label for="password">Mot de passe*</label>
                     <input type="password" name="password" id="password" placeholder="Password*">
                     <span class=""></span>
                 </div>
 
                 <div class="form-group-item">
-                    <label for="password-conf">Password de confirmation*</label>
-                    <input type="password" name="password-conf" id="password-conf" placeholder="Mot de passe de confirmation*">
+                    <label for="password-conf">Confirmer votre mot de passe*</label>
+                    <input type="password" name="password-conf" id="password-conf" placeholder="Confirmer votre mot de passe">
                     <span class=""></span>
                 </div>
 

@@ -34,7 +34,7 @@
                     </div>
 
                     <div class="form-group-item">
-                        <label for="creator">Creator</label>
+                        <label for="creator">Créée par</label>
                         <input type="text" name="creator" id="creator" value="<?= $task->getCreator() ?>" disabled>
                     </div>
 

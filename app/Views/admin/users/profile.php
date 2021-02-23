@@ -49,8 +49,8 @@
                 </div>
 
                 <div class="form-group-item">
-                    <label for="password">Password*</label>
-                    <input type="password" name="password" id="profile_password_js" placeholder="Password" required>
+                    <label for="password">Mot de passe*</label>
+                    <input type="password" name="password" id="profile_password_js" placeholder="Mot de passe" required>
                     <span class=""></span>
                 </div>
 
