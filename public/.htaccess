@@ -1,5 +1,0 @@
-RewriteEngine On
-# RewriteRule ^(.*)$ /show.php?path=$1 [NC,L,QSA]
-# For uri like : /article-show&id=2 => show.php?path=article-show&id=
-RewriteRule ^([a-zA-Z0-9\-\_\/]*)(&id=[0-9]*)?(&proj=[0-9]*)?$ index.php?path=$1$2$3 [NC,L,QSA]
-# RewriteRule ^([a-zA-Z0-9\-\_\/]*)(&id=[0-9]*)?(&proj=[0-9]*)?$ https://trellolike.tutofree.fr/index.php?path=$1$2$3 [NC,L,QSA]

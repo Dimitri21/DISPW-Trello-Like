@@ -122,6 +122,17 @@ class Tasks
         $this->name = $name;
         return $this;
     }
+    /**
+     * @param string $name
+     * @return Tasks
+     */
+    public function getNameSub()
+    {
+        if (strlen($this->name) > 25) {
+            return substr($this->name,0,25).'...';
+        }
+        return $this->name;
+    }
 
     /**
      * @return string

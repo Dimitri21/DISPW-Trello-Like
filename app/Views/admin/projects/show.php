@@ -102,7 +102,7 @@
                                                     <!--TASK TITLE-->
                                                     <p class="project-list-tasks-task-body-task-front-title">
                                                         <i class="fal fa-book-open"></i>
-                                                        <span class="task-title"><?= $task->getName() ?></span>
+                                                        <span class="task-title"><?= $task->getNameSub() ?></span>
                                                     </p>
 
                                                     <!--TASK LEAD-->
