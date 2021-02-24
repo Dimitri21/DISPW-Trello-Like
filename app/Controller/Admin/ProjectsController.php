@@ -77,12 +77,14 @@ class ProjectsController extends AppController
         $login_error ="";
         //Traitement des informations en $_POST
         $project = $this->Projects->find($_GET['id']);
-        if(isset($_POST) && !empty($_POST))
+        if(isset($_POST['project_name']) && !empty($_POST['project_name']) &&
+            isset($_POST['description']) && !empty($_POST['description'])
+        )
         {
             $today      = date("Y-m-d H:i:s");
             $is_inserted= $this->Projects->update($_GET['id'],
-                ["name"=>$_POST['project_name'],
-                    "description"=>'Tableau modifié',
+                ["name"=>htmlentities($_POST['project_name']),
+                    "description"=>htmlentities($_POST['description']),
                     "create_at"=>$today,
                     'modified_at'=>$today,
                     'picture'=>'images/projects/ps.jpg',

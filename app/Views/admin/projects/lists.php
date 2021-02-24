@@ -4,13 +4,13 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="?path=admin-projects-show&id=<?= $project_id ?? '' ?>">Projet</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Membres</li>
+                <li class="breadcrumb-item active" aria-current="page">Listes</li>
             </ol>
         </nav>
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th scope="col">Title</th>
+                    <th scope="col">Titre</th>
                     <th scope="col">Description</th>
                     <th scope="col">Actions</th>
                 </tr>
