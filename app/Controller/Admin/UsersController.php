@@ -10,6 +10,7 @@ class UsersController extends AppController
     {
         parent::__construct();
         $this->loadModel("Users");
+        $this->loadModel("Members");
     }
 
     public function edit()
@@ -171,10 +172,20 @@ class UsersController extends AppController
         $this->redirect('?path=admin-users-profile');
     }
 
-    public function show($id)
+    public function show()
     {
-        $user = $this->Users->findBy($id);
-        App::getInstance()->titre = "Profil de " . $user->getLastname();
-        $this->render("admin.users.show", compact('user'));
+        if (isset($_GET['id']) && !empty($_GET['id']) &&
+            isset($_GET['proj']) && !empty($_GET['proj'])
+        ) {
+            $bootstrap = true;
+            $project_id = htmlentities($_GET['proj']);
+            $user = $this->Users->find(htmlentities($_GET['id']));
+            $member = $this->Members->findMember(htmlentities($_GET['id']),htmlentities($_GET['proj']));
+            if ($user) {
+                App::getInstance()->titre = "Profil de " . $user->getLastname();
+                return $this->render("admin.users.show", compact('user','bootstrap','member'));
+            }
+        }
+        return $this->redirect("?path=home-home");
     }
 }

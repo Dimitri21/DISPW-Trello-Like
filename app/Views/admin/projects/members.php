@@ -24,8 +24,8 @@
                         <td class="role"><?= $user->role ?></td>
                         <td id="actions">
                             <div>
-                                <a href="?path=admin-users-show&id=<?= $user->id ?>" class="btn btn-primary"><i class="far fa-eye"></i></a>
-                                <form action="?path=admin-projects-del_member&id=<?= $user->id ?>">
+                                <a href="?path=admin-users-show&id=<?= $user->id ?>&proj=<?= $project_id ?>" class="btn btn-primary"><i class="far fa-eye"></i></a>
+                                <form action="?path=admin-projects-del_member&id=<?= $user->id ?>" method="post">
                                     <input type="number" name="project_id" value="<?= $user->project ?>" hidden>
                                     <button type="submit" class="btn btn-danger"><i class="fas fa-user-minus"></i></button>
                                 </form>

@@ -4,6 +4,11 @@
     <list default="true" id="2ebcb4fd-b170-4057-9acc-7278261162e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Controller/Admin/ProjectsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/Admin/ProjectsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controller/Admin/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/Admin/UsersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Entity/Members.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Entity/Members.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repository/MembersRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repository/MembersRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/admin/projects/members.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/admin/projects/members.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/admin/users/show.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/admin/users/show.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +128,9 @@
       <workItem from="1614091325475" duration="611000" />
       <workItem from="1614146913572" duration="1653000" />
       <workItem from="1614165929891" duration="2039000" />
-      <workItem from="1614175936359" duration="209000" />
+      <workItem from="1614175936359" duration="865000" />
+      <workItem from="1614181672822" duration="196000" />
+      <workItem from="1614190736427" duration="3731000" />
     </task>
     <servers />
   </component>

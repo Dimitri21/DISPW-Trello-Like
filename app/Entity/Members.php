@@ -12,26 +12,23 @@ class Members
     private $id;
 
     /**
-     * @var Users
+     * @var int
      */
     private $user;
 
     /**
      * @var \DateTime
      */
-    private $invitedAt;
+    private $invited_at;
 
     /**
-     * @var Projects
+     * @var int
      */
     private $project;
 
-    public function __construct(Users $user, Projects $project)
+    public function __construct()
     {
-        $this->id = 0;
-        $this->user = $user;
-        $this->project = $project;
-        $this->invitedAt = new \DateTime();
+
     }
 
     /**
@@ -53,57 +50,60 @@ class Members
     }
 
     /**
-     * @return Users
+     * @return string
      */
-    public function getUser()
+    public function getInvitedAt(): string
+    {
+        return $this->invited_at;
+    }
+
+    /**
+     * @param \DateTime $invited_at
+     * @return Members
+     */
+    public function setInvitedAt(\DateTime $invited_at): Members
+    {
+        $this->invited_at = $invited_at;
+        return $this;
+    }
+
+
+
+    /**
+     * @return int
+     */
+    public function getUser(): int
     {
         return $this->user;
     }
 
     /**
-     * @param Users $user
+     * @param int $user
      * @return Members
      */
-    public function setUser($user)
+    public function setUser(int $user): Members
     {
         $this->user = $user;
         return $this;
     }
 
     /**
-     * @return \DateTime
+     * @return int
      */
-    public function getInvitedAt()
-    {
-        return $this->invitedAt;
-    }
-
-    /**
-     * @param \DateTime $invitedAt
-     * @return Members
-     */
-    public function setInvitedAt($invitedAt)
-    {
-        $this->invitedAt = $invitedAt;
-        return $this;
-    }
-
-    /**
-     * @return Projects
-     */
-    public function getProject()
+    public function getProject(): int
     {
         return $this->project;
     }
 
     /**
-     * @param Projects $project
+     * @param int $project
      * @return Members
      */
-    public function setProject($project)
+    public function setProject(int $project): Members
     {
         $this->project = $project;
         return $this;
     }
+
 
 }
