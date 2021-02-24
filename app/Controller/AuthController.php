@@ -38,7 +38,7 @@ class AuthController extends AppController
     {
         session_unset();
         session_destroy();
-        return $this->render("home.home");
+        $this->redirect('?path=home-home');
     }
     /**
      * @brief Vérification if user is logged in

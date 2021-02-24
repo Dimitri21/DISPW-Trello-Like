@@ -31,7 +31,7 @@ class HomeController extends AppController
     public function connexion()
     {
         App::getInstance()->titre = "Connexion";
-        $message ="";
+        $message = "";
         //check if user is already connected
         if (isset($_SESSION['auth']) && !empty($_SESSION['auth'])) {
             $this->redirect("?path=admin-projects-index");
@@ -40,7 +40,7 @@ class HomeController extends AppController
             $auth       = new AuthController(App::getInstance()->getDatabase());
             $email      = htmlentities($_POST['email']);
             $password   = htmlentities($_POST['password']);
-            if ($auth->login($email,$password)) {
+            if ($auth->login($email, $password)) {
                 $this->redirect("?path=admin-projects-index");
             }
             $message = "Email ou mot de passe incorrect";
@@ -57,7 +57,8 @@ class HomeController extends AppController
         //check if user is already connected
         if (isset($_SESSION['auth']) && !empty($_SESSION['auth'])) {
             $this->redirect("?path=admin-projects-index");
-        }else if (isset($_POST['email']) && !empty($_POST['email']) &&
+        } else if (
+            isset($_POST['email']) && !empty($_POST['email']) &&
             isset($_POST['name']) && !empty($_POST['name']) &&
             isset($_POST['lastname']) && !empty($_POST['lastname']) &&
             isset($_POST['password']) && !empty($_POST['password']) &&
@@ -68,39 +69,40 @@ class HomeController extends AppController
                 ->setPassword(sha1(htmlentities($_POST['password'])))
                 ->setName(htmlentities($_POST['name']))
                 ->setLastname(htmlentities($_POST['lastname']));
-            if ( isset($_POST['ugc']) && htmlspecialchars($_POST['ugc']) == "on" &&
-                isset($_POST['sprinto']) && htmlspecialchars($_POST['sprinto']) =="on") {
+            if (
+                isset($_POST['ugc']) && htmlspecialchars($_POST['ugc']) == "on" &&
+                isset($_POST['sprinto']) && htmlspecialchars($_POST['sprinto']) == "on"
+            ) {
                 $today      = date("Y-m-d H:i:s");
 
                 if ($_POST['password'] !== $_POST['password-conf']) {
                     $message = "Mots de passe sont differents";
-                }else {
+                } else {
                     try {
                         $response = $this->Users->insert([
-                            "name"=>$user->getName(),
-                            "lastname"=>$user->getLastname(),
-                            "email "=>$user->getEmail(),
-                            "password"=>$user->getPassword(),
-                            "subscriptionAt"=>$today
+                            "name" => $user->getName(),
+                            "lastname" => $user->getLastname(),
+                            "email " => $user->getEmail(),
+                            "password" => $user->getPassword(),
+                            "subscriptionAt" => $today
                         ]);
                         //TODO traite success message
                         $_SESSION['message'] = "Création de compte avec succès";
                         //Send email to this user
                         $message = "Bienvenu(e) sur Sprinto, votre compte vient d'être créé avec succès";
-                        $this->sendEmail($user->getEmail(),$user->getName(),"duramana.kalumvuati@laposte.net","Création de compte", $message);
+                        $this->sendEmail($user->getEmail(), $user->getName(), "duramana.kalumvuati@laposte.net", "Création de compte", $message);
 
                         $this->redirect("?path=connexion");
-
-                    }catch (\Exception $e) {
+                    } catch (\Exception $e) {
                         $message = "Cet email existe déjà, veuillez en un autre";
                     }
                 }
-            }else {
+            } else {
                 $message = "Vous devez accepter les Conditions d'Utilisation et la politique de confidentialité";
             }
         }
 
-        $this->render("home.signup", compact("user","message"));
+        $this->render("home.signup", compact("user", "message"));
     }
 
     public function reinit_mot_de_passe()
@@ -111,20 +113,21 @@ class HomeController extends AppController
         $user = null;
         if ($id) {
             $user = $this->Users->find($id);
-        }else {
+        } else {
             $message = "Vous éssayez de violer la privacité";
         }
 
-        if ( $user &&
-            isset($_POST['password'])&&
+        if (
+            $user &&
+            isset($_POST['password']) &&
             !empty($_POST['password']) &&
             isset($_POST['password-conf']) &&
             !empty($_POST['password-conf']) &&
-            $_POST['password'] === $_POST['password-conf'] )
-        {
+            $_POST['password'] === $_POST['password-conf']
+        ) {
             $password = htmlentities($_POST['password']);
-            $is_updated = $this->Users->update($user->getId(),[
-                "password" =>sha1($password)
+            $is_updated = $this->Users->update($user->getId(), [
+                "password" => sha1($password)
             ]);
             if ($is_updated) {
                 $_SESSION['message'] = "Reinitialisation de mot de passe avec succès";
@@ -134,7 +137,7 @@ class HomeController extends AppController
         }
 
         App::getInstance()->titre = "reinit mot de passe";
-        $this->render("admin.users.resetpassword", compact('message','id'));
+        $this->render("admin.users.resetpassword", compact('message', 'id'));
     }
 
     public function forgotpassword()
@@ -147,7 +150,7 @@ class HomeController extends AppController
             $message = "Vous récéverez un email de confirmation";
             if ($user) {
                 $message_email = "Pour réinitialiser votre mot de passe <a href='/home-reinit_mot_de_passe&id='{$user->getId()}>Cliquez ici</a>";
-                $this->sendEmail($email,$user->getNames(),"alss-dipsw20-kdu@ccicampus.fr",'Reset Email',$message_email);
+                $this->sendEmail($email, $user->getNames(), "alss-dipsw20-kdu@ccicampus.fr", 'Reset Email', $message_email);
             }
         }
 
@@ -177,7 +180,7 @@ class HomeController extends AppController
         App::getInstance()->titre = "Dashboard";
         $user = new Users();
         $projects = new Projects();
-        $this->render("home.dashboard", compact('user','projects'));
+        $this->render("home.dashboard", compact('user', 'projects'));
     }
 
     public function error404()
@@ -186,26 +189,25 @@ class HomeController extends AppController
         $this->notFound();
     }
 
-    public function contact() 
+    public function contact()
     {
         $response = null;
 
-        if(isset($_POST["name"])) {
+        if (isset($_POST["name"])) {
             $name       = htmlentities($_POST["name"]);
             $email      = htmlentities($_POST["email"]);
             $message    = htmlentities($_POST["message"]);
-            
+
             if (empty($name) or empty($email) or empty($message)) {
                 $this->error_message = "Merci de compléter tous les champs requis";
             }
 
-            if ($this->sendEmail('alss-dipsw20-kdu@ccicampus.fr' ,$name,$email,'Contact',$message)) {
+            if ($this->sendEmail('alss-dipsw20-kdu@ccicampus.fr', $name, $email, 'Contact', $message)) {
                 $response["status"] = "success";
                 $response["message"] = "Nous vous remercions pour votre message";
-            }else {
+            } else {
                 $response["status"] = "error";
                 $response["message"] = "Merci de compléter tous les champs requis";
-
             }
         }
 

@@ -2180,139 +2180,182 @@ body {
   color: #004b7b;
 }
 
-.home {
-  color: #363636;
+h1, h2 {
+  font-family: 'Poppins', sans-serif;
 }
 
-.home h1, .home h2, .home h3, .home h4, .home h5, .home h6 {
-  margin-bottom: 1rem;
+a {
+  text-decoration: none;
 }
 
-.home h1 {
-  font-size: 3.2em;
+h1 {
+  font-size: 2.6rem;
 }
 
-.home h2 {
-  font-size: 2.5rem;
+h2 {
+  font-size: 2rem;
 }
 
-.home h3 {
-  font-size: 2.8rem;
-}
-
-.home p {
+p {
   font-size: 1.2rem;
 }
 
-.home .wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-.home .flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+.my-btn {
+  display: inline-block;
+  padding: 1rem 1.2rem;
 }
 
-.home .btn-CTA {
-  padding: 15px;
-  padding-left: 25px;
-  padding-right: 25px;
+.my-btn.my-btn-home {
   color: white;
   font-size: 1.2rem;
   font-weight: 400;
   border-radius: 25px !important;
   border: none;
-  margin-top: 2rem;
+  outline: none;
   background: -webkit-gradient(linear, right top, left top, from(#8ee17f), to(#00c198));
   background: linear-gradient(to left, #8ee17f, #00c198);
-  -webkit-box-shadow: 3px 3px 6px 0.5px rgba(0, 0, 0, 0.2);
-          box-shadow: 3px 3px 6px 0.5px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 2px 2px 6px 1px rgba(144, 147, 153, 0.3);
+          box-shadow: 2px 2px 6px 1px rgba(144, 147, 153, 0.3);
   -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
-  display: inline-block;
 }
 
-.home .btn-CTA:hover, .home .btn-CTA:focus {
+.my-btn.my-btn-home:hover, .my-btn.my-btn-home:focus {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
   cursor: pointer;
 }
 
-.home .animation {
+.home {
+  max-width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.home .subsection {
-  width: 50%;
-}
-
-.home .subhero {
-  background: #004b7b;
-  color: white;
-}
-
-.home .subhero .subhero-section-1, .home .subhero .subhero-section-2 {
-  width: 50%;
-}
-
-.home .section-CTA {
-  padding-bottom: 15vh;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.home .section-CTA div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  overflow: hidden;
+}
+
+.home > div {
+  padding: 3rem 0;
+}
+
+.home h1 {
+  line-height: 1;
+  padding: 1.5rem 0;
+}
+
+.home h2 {
+  padding: 1.5rem 0;
+}
+
+.home p {
+  padding-bottom: 1.5rem;
+}
+
+.home a {
+  font-size: 1rem;
+}
+
+.home .animation-lottie {
+  width: 100%;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 1;
 }
 
-.home .section-contact {
-  background: #004b7b;
-  padding-top: 15vh;
-  padding-bottom: 15vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+.home .animation-lottie lottie-player {
+  width: 100% !important;
 }
 
-.home .section-contact h3 {
-  color: white;
+.home-collaborate {
+  background-color: #FFFFFF;
+}
+
+.home-collaborate .my-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+}
+
+.home-collaborate-left {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  z-index: 2;
+  width: 100%;
   text-align: center;
-  margin-bottom: 12vh;
 }
 
-.home .section-contact .contact-form {
+.home-collaborate-right {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  width: 100%;
+}
+
+.home-create {
+  background-color: #1A5276;
+  color: #FFFFFF;
+}
+
+.home-create .my-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  grid-gap: 1rem;
+}
+
+.home-create-right {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.home-signup {
+  background-color: #FFFFFF;
+}
+
+.home-signup-bottom {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.home-contact {
+  width: 100%;
+  background-color: #1A5276;
+  padding: 2rem 0;
+  color: #FFFFFF;
+}
+
+.home-contact-top {
+  text-align: center;
+}
+
+.home-contact-bottom form {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2320,12 +2363,10 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
-.home .section-contact .contact-form form div {
+.home-contact-bottom form .my-form-group {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2333,65 +2374,45 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-bottom: 1.2rem;
 }
 
-.home .section-contact .contact-form form label {
-  margin-top: 10px;
-  color: white;
-  padding-left: 10px;
+.home-contact-bottom form .my-form-group label {
+  font-size: 1rem;
+  padding: .3rem 0;
 }
 
-.home .section-contact .contact-form form input, .home .section-contact .contact-form form textarea {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  border: none;
-  padding: .9rem .5rem;
+.home-contact-bottom form .my-form-group input, .home-contact-bottom form .my-form-group textarea {
+  border: 0;
+  padding: .7rem .5rem;
+  border-radius: .3rem;
   outline: none;
+  font-family: 'Open sans', sans-serif;
+  font-size: 1rem;
 }
 
-.home .section-contact .contact-form form textarea {
-  padding: 5px;
-  padding-top: 10px;
-}
-
-.home .section-contact .contact-form form input[type="submit"] {
-  margin: auto;
-  width: 300px;
-  margin-top: 20px;
-  padding: .8rem .5rem;
-}
-
-@media screen and (max-width: 1200px) {
-  .home .subsection, .home .section-CTA, .home .wrapper {
-    margin-left: 10vh;
-    margin-right: 10vh;
+@media screen and (min-width: 725px) {
+  .home > div {
+    padding: 3rem 0;
   }
-  .home section {
-    padding-top: 70px;
-    padding-bottom: 70px;
-  }
-}
-
-@media screen and (max-width: 800px) {
   .home h1 {
-    font-size: 2.2rem  !important;
+    text-align: left;
+    padding: 2rem 0;
   }
   .home h2 {
-    font-size: 2.2rem !important;
+    text-align: left;
+    padding: 2rem 0;
   }
-  .home h3 {
-    font-size: 20px !important;
+  .home p {
+    text-align: left;
+    padding-bottom: 1.5rem;
   }
-  .home section {
-    padding-top: 50px;
-    padding-bottom: 50px;
+  .home a {
+    font-size: 1rem;
   }
-  .home .subsection, .home .section-CTA {
-    text-align: center;
-    max-width: 500px;
-  }
-  .home .subsection, .home .section-CTA, .home .contact-form {
+  .home .animation-lottie {
+    width: 100%;
+    height: 300px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2402,26 +2423,51 @@ body {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
-  .home .flex {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+  .home .animation-lottie lottie-player {
+    width: 100% !important;
   }
-  .home .section-contact {
-    padding-top: 50px;
-    padding-bottom: 50px;
+  .home-collaborate {
+    background-color: #FFFFFF;
   }
-  .home .subsection, .home .section-CTA, .home .wrapper {
-    margin-left: 5vh;
-    margin-right: 5vh;
+  .home-collaborate .my-container {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
-}
-
-@media screen and (max-width: 600px) {
-  .home .animation-lottie {
-    display: none !important;
+  .home-collaborate-left {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    text-align: left;
+  }
+  .home-collaborate-right {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .home-create .my-container {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  .home-signup h2 {
+    text-align: center;
+  }
+  .home-contact h2 {
+    text-align: center;
+  }
+  .home-contact-top {
+    text-align: center;
+  }
+  .home-contact-bottom form {
+    width: 500px;
+    margin: 0 auto;
   }
 }
 

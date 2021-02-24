@@ -285,6 +285,7 @@ function setContactEvent(element) {
             let formEmail = $_('#form-email');
             let formMessage = $_('#form-message');
             let formDivError = $_('#form-danger-js')
+            e.preventDefault();
 
             if (formName.value && formEmail.value && formMessage.value) {
                 let formObject = {
@@ -301,20 +302,35 @@ function setContactEvent(element) {
                     success: function (response) {
                         let responseConvert = JSON.parse(response);
                         if (responseConvert.status == "success") {
-                            formName.value = "";
-                            formEmail.value = "";
-                            formMessage.value = "";
+                            formName.value      = "";
+                            formEmail.value     = "";
+                            formMessage.value   = "";
                             formDivError.style.display = "block";
+                            formDivError.classList.add('alert','alert-success');
                             formDivError.innerHTML = responseConvert.message;
+
+                            setTimeout(()=>{
+                                formDivError.style.display  = "none";
+                                formDivError.classList.remove('alert','alert-success');
+                                formDivError.innerHTML      = "";
+                            },5000);
                         }
                     },
                     error: function (errors) {
-
                         console.error(errors);
                     }
                 });
+            }else {
+                formDivError.innerHTML = "<span>Veuillez remplir tous les champs</span>";
+                formDivError.style.display = "block";
+                formDivError.classList.add('alert' ,'alert-danger');
+
+                setTimeout(()=>{
+                    formDivError.style.display = "none";
+                    formDivError.classList.remove('alert','alert-danger');
+                    formDivError.innerHTML = "";
+                },5000);
             }
-            e.preventDefault();
         })
 
 
