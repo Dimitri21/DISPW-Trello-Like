@@ -14,4 +14,5 @@ class CommentsRepository extends Repository
    public function findBy($task_id) {
        return $this->query("SELECT * FROM {$this->table} WHERE task = ? ", [$task_id], false);
    }
+
 }

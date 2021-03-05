@@ -174,9 +174,9 @@ class ProjectsController extends AppController
     public function member() {
         $return_message = [];
         if (isset($_POST['project_id']) && !empty($_POST['project_id'])) {
-            $members = $_POST;
-            $project_id = $_POST['project_id'];
-            $role = $_POST['role'];
+            $members    = $_POST;
+            $project_id = htmlspecialchars($_POST['project_id']);
+            $role       = htmlspecialchars($_POST['role']);
             unset($members['role']);
             unset($members['project_id']);
             unset($members['member_name']);
@@ -184,16 +184,20 @@ class ProjectsController extends AppController
             foreach ($members as $member_id) {
                 $user = $this->Users->find($member_id);
                 if ($user) {
-                    $is_inseted = $this->Members->insert([
-                        "user"=>$member_id,
-                        "project"=>$project_id,
-                        "role"=>$role,
-                        "invited_at"=>$today
-                    ]);
-                    if ($is_inseted) {
-                        $return_message[] = $user->getNames()." ajouté(e) tant que membre";
-                    }else {
-                        $return_message[] = $user->getNames()." n'est pas ajouté(e) tant que membre";
+                    $member = $this->Members->findMember($user->getId(),$project_id);
+                    if (!$member) {
+                        $is_inseted = $this->Members->insert([
+                            "user"=>$member_id,
+                            "project"=>$project_id,
+                            "role"=>$role,
+                            "invited_at"=>$today
+                        ]);
+
+                        if ($is_inseted) {
+                            $return_message[] = $user->getNames()." ajouté(e) tant que membre";
+                        }else {
+                            $return_message[] = $user->getNames()." n'est pas ajouté(e) tant que membre";
+                        }
                     }
                 }
             }
